@@ -5,6 +5,7 @@ require('dotenv').config();
 const cors = require('cors');
 const Message = require('./models/Message'); // Certifique-se de importar o modelo correto
 const sequelize = require('./config/db');
+const compression = require('compression'); // Importa o pacote compression
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -13,6 +14,7 @@ const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
 
 app.use(cors()); // Enable CORS
+app.use(compression());
 
 // Configura o body-parser para analisar JSON
 app.use(bodyParser.json()); // Middleware para parsing de JSON
