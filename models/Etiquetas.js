@@ -1,3 +1,5 @@
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/db')
 
 const Etiquetas = sequelize.define('Etiquetas', {
     id: {
@@ -21,3 +23,5 @@ const Etiquetas = sequelize.define('Etiquetas', {
     tableName: 'etiquetas',
     timestamps: true, 
   })
+
+  module.exports = Etiquetas;
