@@ -17,6 +17,7 @@ router.get('/info', checkToken, profileController.getProfile);
 router.get('/contato', checkToken, adminController.getContats)
 router.get('/conversation', checkToken, adminController.getConversations)
 router.get('/conversa/:id', checkToken, adminController.getConversa)
+router.get('/etiqueta', checkToken, adminController.getEtiqueta)
 
 router.post('/addmsg', checkToken, messageController.UserSendMsg)
 

@@ -3,7 +3,8 @@ const {
   getContatos,
   savePhones,
   getConversaFull,
-  saveToken
+  saveToken,
+  getEtiquetas
 } = require('../../service/profileService')
 
 const checkToken = require('../../middlewares/checkToken')
@@ -44,6 +45,16 @@ async function saveTokens(req, res) {
   } catch (error) {
     console.error('Error fetching users', error);
     res.status(500).json({ message: 'Erro ao salvar tokens ou telefone' });
+  }
+}
+
+async function getEtiqueta(req, res) {
+  const {name, color } = req.body
+
+  try{
+    const etiquetas = await getEtiquetas()
+  }catch(error){
+    console.log('erro ao buscar etiquetas', error)
   }
 }
 
@@ -98,5 +109,6 @@ module.exports = {
   savePhone,
   getConversations,
   getConversa,
-  saveTokens
+  saveTokens,
+  getEtiqueta
 }

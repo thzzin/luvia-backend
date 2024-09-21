@@ -3,6 +3,19 @@ const sequelize = require('../config/db'); // Caminho para o arquivo onde sequel
 const Message = require('../models/Message'); // Importe o modelo correto
 const Conversa = require('../models/Conversation')
 const Contato = require('../models/Contato')
+const Etiquetas = require('../models/Etiquetas')
+
+async function getEtiquetas(adminId) {
+  const admin = await Admin.findByPk(adminId);
+
+  if (!admin) {
+    throw new Error("Administrador não encontrado.");
+  }
+
+  const etiquetas = await Etiquetas.findOne({ where: { adminId } });
+
+  
+}
 
 async function getInfos(adminId) {
   const admin = await Admin.findByPk(adminId);
@@ -214,5 +227,6 @@ module.exports = {
   savePhones,
   getConversaFull,
   saveToken,
-  getInfos
+  getInfos,
+  getEtiquetas
 };
