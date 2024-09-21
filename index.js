@@ -65,7 +65,7 @@ async function syncDatabase() {
 syncDatabase();
 
 // Definição das rotas utilizando os controladores
-app.get('/', (req, res) => res.send('Vai Corinthians!'));
+app.get('/', (req, res) => res.send('Vai Corinthians! foi'));
 app.use('/auth', authRoutes); 
 app.use('/user', userRoutes); 
 
