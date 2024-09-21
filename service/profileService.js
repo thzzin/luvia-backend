@@ -1,5 +1,5 @@
 const Admin = require('../models/Admin'); // Certifique-se de que o modelo Admin esteja importado corretamente
-const sequelize = require('../config/db'); // Caminho para o arquivo onde sequelize está configurado
+//const sequelize = require('../config/db'); // Caminho para o arquivo onde sequelize está configurado
 const Message = require('../models/Message'); // Importe o modelo correto
 const Conversa = require('../models/Conversation')
 const Contato = require('../models/Contato')
