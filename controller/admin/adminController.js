@@ -4,7 +4,6 @@ const {
   savePhones,
   getConversaFull,
   saveToken,
-  getEtiquetas
 } = require('../../service/profileService')
 
 const checkToken = require('../../middlewares/checkToken')
@@ -48,15 +47,8 @@ async function saveTokens(req, res) {
   }
 }
 
-async function getEtiqueta(req, res) {
-  const {name, color } = req.body
 
-  try{
-    const etiquetas = await getEtiquetas()
-  }catch(error){
-    console.log('erro ao buscar etiquetas', error)
-  }
-}
+
 
 
 async function getContats(req, res) {
@@ -110,5 +102,4 @@ module.exports = {
   getConversations,
   getConversa,
   saveTokens,
-  getEtiqueta
 }

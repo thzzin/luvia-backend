@@ -11,6 +11,10 @@ const Etiquetas = sequelize.define('Etiquetas', {
         type: DataTypes.STRING,
         allowNull: true,
       },
+      conversationId: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
       name:{
         type: DataTypes.STRING,
         allowNull: true,

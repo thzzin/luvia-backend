@@ -128,7 +128,14 @@ async function botMsg(incomingData) {
       const conversation = await findOrCreateConversation(contactId, adminId, idConversation);
       const conversId = conversation.id
 
-      console.log('conversationIdInt', conversationIdInt)
+      console.log('conversation_id', conversId.toString())
+      console.log('contato_id', phoneNumber.toString())
+      console.log('content', content)
+      console.log('message_type', messageType)
+      console.log('admin_id', adminId.toString())
+      console.log('phonecontact', phoneNumber.toString())
+      console.log('idConversa', idConversation.toString())
+      
       const message = await Message.create({
         conversation_id: conversId.toString(),
         contato_id: phoneNumber.toString(),

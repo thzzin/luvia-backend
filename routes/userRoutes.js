@@ -5,30 +5,36 @@ const messageController = require('../controller/admin/messageController')
 const {receivedMessage} = require('../controller/admin/messageController')
 const router = express.Router();
 const adminController = require('../controller/admin/adminController')
+const tagsController = require('../controller/admin/tagsController')
 const checkToken = require('../middlewares/checkToken')
 
 router.post('/addapi', profileController.apiMensagem)
 // Rota para buscar todos os usuários
 router.get('/', userController.getUsers);
 
-// Rota para buscar flows do ManyChat
 router.get('/info', checkToken, profileController.getProfile);
 
 router.get('/contato', checkToken, adminController.getContats)
 router.get('/conversation', checkToken, adminController.getConversations)
 router.get('/conversa/:id', checkToken, adminController.getConversa)
-router.get('/etiqueta', checkToken, adminController.getEtiqueta)
-
+//---------------etiqueta-------------------
+router.get('/etiqueta', checkToken, tagsController.getEtiqueta)
+router.post('/etiqueta', checkToken, tagsController.postEtiquetas)
+router.post('/deleteetiqueta', checkToken, tagsController.delEtiquetas)
+//---------------etiqueta-------------------
 router.post('/addmsg', checkToken, messageController.UserSendMsg)
 
 router.post('/numero', checkToken, adminController.savePhone);
 router.post('/tokens', checkToken, adminController.saveTokens)
 
-
+//---------------api-------------------
 router.post('/receivedmsg', messageController.PostMsg)
 router.post('/botmsg', messageController.PostBotMsg)
+//---------------api-------------------
 
+//---------------conversa contato--------------
 router.get('/findcontact', messageController.FindContact)
 router.get('/findconversation', messageController.FindConversation)
+//---------------conversa contato--------------
 
 module.exports = router;
