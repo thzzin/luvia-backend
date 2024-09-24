@@ -9,11 +9,11 @@ const Conversa = sequelize.define('Conversa', {
     primaryKey: true,
   },
   contato_id: {
-    type: DataTypes.STRING, // Deve ser STRING para corresponder ao phone_number
+    type: DataTypes.STRING, 
     allowNull: false,
     references: {
       model: 'contatos',
-      key: 'phone_number', // Referencia phone_number como chave primária
+      key: 'phone_number', 
     },
   },
   created_at: {
@@ -21,11 +21,15 @@ const Conversa = sequelize.define('Conversa', {
     defaultValue: DataTypes.NOW,
   },
   phoneadmin: {
-    type: DataTypes.STRING, // Mantenha como STRING se você precisar armazenar números com prefixos
+    type: DataTypes.STRING, 
     allowNull: true,
   },
   idConversation: {
-    type: DataTypes.STRING, // Mantenha como STRING se você precisar armazenar números com prefixos
+    type: DataTypes.STRING, 
+    allowNull: true,
+  },
+  tags: {
+    type: DataTypes.ARRAY(DataTypes.INTEGER), 
     allowNull: true,
   }
 }, {

@@ -3,7 +3,9 @@ const {
     findConversationByContactId,
     receivedMessage,
     botMsg,
-    msgClient
+    msgClient,
+    postImg,
+    postAudios
 } = require('../../service/messageService')
 
 async function FindContact(phoneNumber) {
@@ -62,8 +64,49 @@ async function PostBotMsg(req, res) {
     res.json(msg)
   }catch(error){
     console.log('erro ao pegar msg robo', error)
+    res.status(500).send('Server error');
   }
 
+}
+
+async function PostBotImg(req, res) {
+  const incomingData = req.body;
+  console.log('recebeu:', incomingData)
+  try{
+    const msgImg = await postImg(incomingData)
+    res.json(msgImg)
+  }catch(error){
+    console.log('erro ao pegar msg robo', error)
+    res.status(500).send('Server error');
+  }
+}
+
+async function PostAudio(req, res) {
+  const incomingData = req.body;
+  console.log('recebeu:', incomingData)
+
+  try{
+    const msgAudio = await postAudios(incomingData)
+    res.json(msgAudio)
+  }catch(error){
+    console.log('erro ao pegar msg robo', error)
+    res.status(500).send('Server error');
+
+  }
+}
+
+async function PostDoc(req, res) {
+  const incomingData = req.body;
+  console.log('recebeu:', incomingData)
+
+  try{
+    const msgDoc = await postDoc(incomingData)
+    res.json(msgDoc)
+  }catch(error){
+    console.log('erro ao pegar msg robo', error)
+    res.status(500).send('Server error');
+
+  }
 }
 
 module.exports = {
@@ -71,5 +114,8 @@ module.exports = {
     FindConversation,
     PostMsg,
     UserSendMsg,
-    PostBotMsg
+    PostBotMsg,
+    PostBotImg,
+    PostAudio,
+    PostDoc
 }

@@ -181,10 +181,33 @@ async function msgClient(adminId, conversationId, phonecontact, idConversa, cont
   }
 }
 
+async function postImg(params) {
+  
+}
+
+async function postAudios(req, res) {
+  try{
+
+  }catch(error){
+
+  }
+}
+
+async function postDoc(req, res) {
+  try{
+
+  }catch(error){
+
+  }
+}
+
 module.exports = {
   receivedMessage,
   findContactByPhoneNumber,
   findConversationByContactId,
   botMsg,
-  msgClient
+  msgClient,
+  postImg,
+  postAudios,
+  postDoc
 };

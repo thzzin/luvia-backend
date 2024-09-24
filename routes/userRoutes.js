@@ -20,7 +20,10 @@ router.get('/conversa/:id', checkToken, adminController.getConversa)
 //---------------etiqueta-------------------
 router.get('/etiqueta', checkToken, tagsController.getEtiqueta)
 router.post('/etiqueta', checkToken, tagsController.postEtiquetas)
-router.post('/deleteetiqueta', checkToken, tagsController.delEtiquetas)
+router.delete('/deleteetiqueta', checkToken, tagsController.delEtiquetas)
+router.post('/editetiqueta', checkToken, tagsController.editEtiquetas)
+
+router.post('/editchatetiqueta', checkToken, tagsController.addTagChat)
 //---------------etiqueta-------------------
 router.post('/addmsg', checkToken, messageController.UserSendMsg)
 
@@ -30,6 +33,8 @@ router.post('/tokens', checkToken, adminController.saveTokens)
 //---------------api-------------------
 router.post('/receivedmsg', messageController.PostMsg)
 router.post('/botmsg', messageController.PostBotMsg)
+router.post('/postimg', messageController.PostBotImg)
+router.post('/postaudio', messageController.PostAudio)
 //---------------api-------------------
 
 //---------------conversa contato--------------

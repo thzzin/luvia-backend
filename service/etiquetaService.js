@@ -76,6 +76,38 @@ async function getEtiquetasByAdminId(adminId) {
       throw error;
     }
   }
+
+  async function addTagChats(adminId, conversaId, etiquetaid) {
+    try {
+      // Encontra a conversa pelo ID
+      const conversa = await Conversa.findByPk(conversaId);
+  
+      if (!conversa) {
+        throw new Error('Conversa não encontrada');
+      }
+  
+      // Se o campo `tags` ainda não estiver inicializado, inicialize-o como um array vazio
+      if (!conversa.tags) {
+        conversa.tags = [];
+      }
+  
+      // Adiciona o novo ID da etiqueta (etiquetaid) ao array de tags, se ele não estiver presente
+      if (!conversa.tags.includes(etiquetaid)) {
+        conversa.tags.push(etiquetaid);
+      } else {
+        throw new Error('Etiqueta já está associada a essa conversa');
+      }
+  
+      // Salva a conversa atualizada
+      await conversa.save();
+  
+      return conversa;
+    } catch (error) {
+      console.error('Erro ao adicionar etiqueta na conversa:', error);
+      throw error;
+    }
+  }
+  
   
   
 
@@ -83,5 +115,6 @@ async function getEtiquetasByAdminId(adminId) {
     getEtiquetasByAdminId,
     postEtiqueta,
     editEtiqueta,
-    deleteEtiqueta
+    deleteEtiqueta,
+    addTagChats
   }

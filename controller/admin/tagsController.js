@@ -1,5 +1,5 @@
 
-const {getEtiquetasByAdminId, postEtiqueta, editEtiqueta, deleteEtiqueta} = require('../../service/etiquetaService')
+const {getEtiquetasByAdminId, postEtiqueta, editEtiqueta, deleteEtiqueta, addTagChats} = require('../../service/etiquetaService')
 
 async function getEtiqueta(req, res) {
   const adminId = req.user.id;
@@ -49,9 +49,24 @@ async function delEtiquetas(req, res) {
   }
 }
 
+async function addTagChat(req, res) {
+  const adminId = req.user.id;
+  const { conversaId, etiquetaid } = req.body; // Certifique-se de que `etiquetaid` está sendo passado corretamente
+
+  try {
+    const addtag = await addTagChats(adminId, conversaId, etiquetaid); // Passa `conversaId` e `etiquetaid`
+    res.json(addtag);
+  } catch (error) {
+    console.log('Erro ao adicionar etiquetas', error);
+    res.status(500).json({ message: 'Erro ao adicionar etiqueta' });
+  }
+}
+
+
 module.exports = {
   getEtiqueta,
   postEtiquetas,
   editEtiquetas,
-  delEtiquetas
+  delEtiquetas,
+  addTagChat
 }
