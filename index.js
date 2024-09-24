@@ -7,21 +7,51 @@ const Message = require('./models/Message'); // Certifique-se de importar o mode
 const sequelize = require('./config/db');
 const compression = require('compression'); // Importa o pacote compression
 
+const https = require('https'); // Importa o módulo https
+const fs = require('fs'); // Importa o módulo fs para lidar com arquivos
+
+// Carregando os certificados SSL
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/getluvia.com.br/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/getluvia.com.br/cert.pem', 'utf8');
+const ca = fs.readFileSync('/etc/letsencrypt/live/getluvia.com.br/chain.pem', 'utf8');
+
+let credentials
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3005; // Porta do backend (3005)
 
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
+const coiso = process.env.PRODUCAO
+let corsOptions;
 
-const corsOptions = {
-  origin: "*",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  credentials: true,
-  optionsSuccessStatus: 204,
-};
+if(!coiso){
+   corsOptions = {
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: false,
+    optionsSuccessStatus: 204,
+  };
 
-app.use(cors(corsOptions));app.use(compression());
+  
+  
+} else {
+  credentials = {
+    key: privateKey,
+    cert: certificate,
+    ca: ca
+  };
+  
+   corsOptions = {
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+    optionsSuccessStatus: 204,
+  };
+}
+
+app.use(cors(corsOptions));
+app.use(compression());
 
 // Configura o body-parser para analisar JSON
 app.use(bodyParser.json()); // Middleware para parsing de JSON
@@ -50,15 +80,22 @@ async function syncDatabase() {
 
 syncDatabase();
 
-
 // Definição das rotas utilizando os controladores
-app.get('/', (req, res) => res.send('Vai Corinthians!'));
+app.get('/', (req, res) => res.send('Vai Corinthians! foi'));
 app.use('/auth', authRoutes); 
 app.use('/user', userRoutes); 
 
-// Inicia o servidor após verificar a conexão com o banco de dados
+// Inicia o servidor HTTPS após verificar a conexão com o banco de dados
 checkDatabaseConnection().then(() => {
-  app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
+  if(!coiso){
+    return app.listen(port, () => {
+      console.log(`Server running on http://localhost:${port}`);
+    });
+    
+  }
+  
+  const httpsServer = https.createServer(credentials, app);
+  httpsServer.listen(port, () => {
+    console.log(`Servidor HTTPS rodando na porta https://localhost:${port}`);
   });
 });
