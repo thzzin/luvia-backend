@@ -220,6 +220,7 @@ async function msgClient(
 }
 
 async function postImg(incomingData) {
+  console.log("caiu no post img");
   try {
     for (const messageData of incomingData) {
       console.log("caiu no for", messageData);

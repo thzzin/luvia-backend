@@ -62,7 +62,6 @@ async function UserSendMsg(req, res) {
 
 async function PostBotMsg(req, res) {
   const incomingData = req.body;
-  console.log("recebeu:", incomingData);
   try {
     const msg = await botMsg(incomingData);
     res.json(msg);
@@ -86,7 +85,6 @@ async function PostBotImg(req, res) {
 
 async function PostAudio(req, res) {
   const incomingData = req.body;
-  console.log("recebeu:", incomingData);
 
   try {
     const msgAudio = await postAudios(incomingData);
@@ -99,7 +97,6 @@ async function PostAudio(req, res) {
 
 async function PostDoc(req, res) {
   const incomingData = req.body;
-  console.log("recebeu:", incomingData);
 
   try {
     const msgDoc = await postDoc(incomingData);
