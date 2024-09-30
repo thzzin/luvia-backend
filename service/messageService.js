@@ -246,7 +246,7 @@ async function postImg(incomingData) {
       const conversId = conversation.id;
       let urlimg;
       try {
-        const url = "https://getluvia.com.br:3003/images/upload-from-whatsapp";
+        const url = "http://getluvia.com.br:3003/images/upload-from-whatsapp";
         const response = await axios.post(
           url,
           {
