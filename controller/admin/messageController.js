@@ -74,12 +74,12 @@ async function PostBotMsg(req, res) {
 
 async function PostBotImg(req, res) {
   const incomingData = req.body;
-  console.log("recebeu img:", incomingData);
+
   try {
     const msgImg = await postImg(incomingData);
     res.json(msgImg);
   } catch (error) {
-    console.log("erro ao pegar msg robo", error);
+    console.log("erro ao salvar img", error);
     res.status(500).send("Server error");
   }
 }
