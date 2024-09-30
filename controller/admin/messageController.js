@@ -76,9 +76,14 @@ async function PostBotMsg(req, res) {
 async function PostBotImg(req, res) {
   console.log("caiu no post img:", req.body);
   const incomingData = req.body;
+
+  // Verifica se incomingData é um array ou um único objeto
+  const messages = Array.isArray(incomingData) ? incomingData : [incomingData];
+
   try {
-    const msgImg = await postImg(incomingData);
-    res.json(msgImg);
+    const msgImgPromises = messages.map((messageData) => postImg(messageData));
+    const msgImgResults = await Promise.all(msgImgPromises);
+    res.json(msgImgResults);
   } catch (error) {
     console.log("erro ao salvar img", error);
     res.status(500).send("Server error");
