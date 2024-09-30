@@ -219,66 +219,60 @@ async function msgClient(
   } catch (error) {}
 }
 
-async function postImg(incomingData) {
-  console.log("caiu no post img");
+async function postImg(messageData) {
+  console.log("caiu na service imagem");
+
   try {
-    for (const messageData of incomingData) {
-      console.log("caiu no for", messageData);
+    const phoneNumberUser = messageData?.contacts?.[0]?.wa_id; // de quem enviou
+    const phoneNumberAdmin = messageData?.metadata?.display_phone_number; // de quem recebeu
+    const messageType = "received";
+    const adminId = messageData?.metadata?.phone_number_id; // id do admin phone
+    const idConversation = messageData?.messages?.[0]?.id; // id da conversa
+    const name = messageData?.contacts?.[0]?.profile?.name; // Verifica se profile e name existem
+    const idImage = messageData?.messages?.[0]?.image?.id; // ID da imagem
+    const bearerToken = messageData?.accesstoken; // Captura o bearer token
 
-      const phoneNumberUser = messageData?.contacts?.[0]?.wa_id; // de quem enviou
-      const phoneNumberAdmin = messageData?.metadata?.display_phone_number; // de qm recebeu
-      const messageType = "received";
-      const adminId = messageData?.metadata?.phone_number_id; // id do admin phone
-      const idConversation = messageData?.messages?.[0]?.id; // id da conversa
-      const name = messageData?.contacts?.[0]?.profile?.name; // Verifica se profile e name existem
-      const idImage = messageData?.messages?.[0]?.image?.id; // ID da imagem
-      const bearerToken = messageData?.accesstoken; // Captura o bearer token
-      const contactId = await findOrCreateContact(
-        phoneNumberUser,
-        name,
-        adminId
-      );
-      const conversation = await findOrCreateConversation(
-        contactId,
-        adminId,
-        idConversation
-      );
-      const conversId = conversation.id;
-      let urlimg;
-      try {
-        const url = "http://getluvia.com.br:3003/images/upload-from-whatsapp";
-        const response = await axios.post(
-          url,
-          {
-            idImage: idImage, // Aqui você adiciona o idmessage
-            bearerToken: bearerToken, // E o bearerToken
+    const contactId = await findOrCreateContact(phoneNumberUser, name, adminId);
+    const conversation = await findOrCreateConversation(
+      contactId,
+      adminId,
+      idConversation
+    );
+    const conversId = conversation.id;
+    let urlimg;
+
+    try {
+      const url = "http://getluvia.com.br:3003/images/upload-from-whatsapp";
+      const response = await axios.post(
+        url,
+        {
+          idImage: idImage, // Aqui você adiciona o idmessage
+          bearerToken: bearerToken, // E o bearerToken
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            api_access_token: `${bearerToken}`,
           },
-          {
-            headers: {
-              "Content-Type": "application/json",
-              api_access_token: `${bearerToken}`,
-            },
-          }
-        );
-        console.log("response", response);
-        urlimg = response.data.imageUrl;
-      } catch (error) {
-        console.log("deu pau", error);
-      }
-      console.log("fora do for");
-      const message = await Message.create({
-        conversation_id: conversId.toString(),
-        contato_id: phoneNumberUser.toString(),
-        content: urlimg,
-        type: "image",
-        message_type: messageType, // Use o tipo de mensagem mapeado
-        admin_id: adminId.toString(),
-        phonecontact: phoneNumberUser.toString(),
-        idConversa: idConversation.toString(),
-      });
-
-      return message;
+        }
+      );
+      urlimg = response.data.imageUrl;
+    } catch (error) {
+      console.log("deu pau", error);
     }
+
+    const message = await Message.create({
+      conversation_id: conversId.toString(),
+      contato_id: phoneNumberUser.toString(),
+      content: urlimg,
+      type: "image",
+      message_type: messageType,
+      admin_id: adminId.toString(),
+      phonecontact: phoneNumberUser.toString(),
+      idConversa: idConversation.toString(),
+    });
+
+    return message;
   } catch (error) {
     console.log("error", error);
   }
