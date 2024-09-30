@@ -73,11 +73,14 @@ async function PostBotMsg(req, res) {
 }
 
 async function PostBotImg(req, res) {
-  const incomingData = req.body;
-  console.log("caiu no post img, incomingdata:", incomingData);
+  //const incomingData = req.body;
+  console.log(
+    "Caiu no post img, corpo da requisição:",
+    JSON.stringify(req.body, null, 2)
+  );
   try {
-    const msgImg = await postImg(incomingData);
-    res.json(msgImg);
+    //const msgImg = await postImg(incomingData);
+    //res.json(msgImg);
   } catch (error) {
     console.log("erro ao salvar img", error);
     res.status(500).send("Server error");
