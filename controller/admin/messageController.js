@@ -74,7 +74,7 @@ async function PostBotMsg(req, res) {
 }
 
 async function PostBotImg(req, res) {
-  console.log("caiu no post img:");
+  console.log("caiu no post img:", req.body);
   const incomingData = req.body;
   try {
     const msgImg = await postImg(incomingData);
