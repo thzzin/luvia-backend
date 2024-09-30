@@ -9,6 +9,8 @@ const compression = require("compression");
 const https = require("https");
 const fs = require("fs");
 
+const authRoutes = require("./routes/authRoutes");
+const userRoutes = require("./routes/userRoutes");
 // Carregando os certificados SSL
 const privateKey = fs.readFileSync(
   "/etc/letsencrypt/live/getluvia.com.br/privkey.pem",
