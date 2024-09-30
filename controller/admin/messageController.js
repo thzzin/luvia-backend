@@ -74,9 +74,9 @@ async function PostBotMsg(req, res) {
 }
 
 async function PostBotImg(req, res) {
-  console.log("caiu no post img:", req.body);
+  console.log("caiu no post img:");
   const incomingData = req.body;
-
+  console.log("incomingData", incomingData);
   // Verifica se incomingData é um array ou um único objeto
   const messages = Array.isArray(incomingData) ? incomingData : [incomingData];
 
