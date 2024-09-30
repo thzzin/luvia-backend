@@ -29,6 +29,7 @@ async function FindConversation(contactId) {
 }
 
 async function PostMsg(req, res) {
+  console.log("caiu no post PostMsg:");
   const incomingData = req.body; // Assume que o body contém um array de mensagens
 
   try {
@@ -61,6 +62,7 @@ async function UserSendMsg(req, res) {
 }
 
 async function PostBotMsg(req, res) {
+  console.log("caiu no post PostBotMsg:");
   const incomingData = req.body;
   try {
     const msg = await botMsg(incomingData);
@@ -84,6 +86,7 @@ async function PostBotImg(req, res) {
 }
 
 async function PostAudio(req, res) {
+  console.log("caiu no post PostAudio:");
   const incomingData = req.body;
 
   try {
