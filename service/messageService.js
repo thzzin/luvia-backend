@@ -85,33 +85,35 @@ async function saveMessage(
 async function receivedMessage(incomingData) {
   console.log("caiu no receivedMessage", incomingData);
   try {
-    for (const messageData of incomingData) {
-      const phoneNumber = messageData.contacts[0].wa_id;
-      const name = messageData.contacts[0].profile.name;
-      const content = messageData.messages[0].text.body;
-      const messageType = messageData.messages[0].type;
-      const adminId = messageData.metadata.display_phone_number;
-      const idConversation = messageData.messages[0].id;
+    // Como o incomingData é um objeto, você não precisa iterar sobre ele
+    const phoneNumber = incomingData.contacts[0].wa_id;
+    const name = incomingData.contacts[0].profile.name;
+    const messageType = incomingData.messages[0].type;
+    const content = incomingData.messages[0].text.body;
 
-      const contactId = await findOrCreateContact(phoneNumber, name, adminId);
-      const conversation = await findOrCreateConversation(
-        contactId,
-        adminId,
-        idConversation
-      );
+    const adminId = incomingData.metadata.display_phone_number;
+    const idConversation = incomingData.messages[0].id;
 
-      const savedMsg = await saveMessage(
-        conversation.id,
-        contactId,
-        content,
-        messageType,
-        adminId,
-        phoneNumber,
-        idConversation
-      );
+    // Processa as funções findOrCreateContact e findOrCreateConversation
+    const contactId = await findOrCreateContact(phoneNumber, name, adminId);
+    const conversation = await findOrCreateConversation(
+      contactId,
+      adminId,
+      idConversation
+    );
 
-      return savedMsg;
-    }
+    // Salva a mensagem com base no conteúdo processado
+    const savedMsg = await saveMessage(
+      conversation.id,
+      contactId,
+      content,
+      messageType,
+      adminId,
+      phoneNumber,
+      idConversation
+    );
+
+    return savedMsg;
   } catch (error) {
     console.error("Erro ao processar as mensagens:", error);
     throw error;
