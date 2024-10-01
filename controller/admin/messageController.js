@@ -52,7 +52,7 @@ async function PostMsg(req, res) {
       .status(200)
       .json({ message: "Mensagens processadas com sucesso!", msgImgResults });
   } catch (err) {
-    console.error("Erro ao processar as mensagens:", err.stack);
+    console.error("Erro ao processar as mensagens:", err);
     res.status(500).send("Erro no servidor");
   }
 }
@@ -78,18 +78,11 @@ async function UserSendMsg(req, res) {
 
 async function PostBotMsg(req, res) {
   const incomingData = req.body;
-  const messages = incomingData.statuses || []; // Se 'statuses' não existir, inicializa como array vazio
+  const messages = incomingData;
 
   try {
-    if (messages.length === 0) {
-      return res
-        .status(400)
-        .json({ message: "Nenhuma mensagem encontrada para processar." });
-    }
-
-    // Enviar os dados necessários para a função receivedMessage
-    const msgPromises = messages.map((messageData) => botMsg(messageData));
-    const msgResults = await Promise.all(msgPromises);
+    const msgResults = await botMsg(messageData);
+    //const msgResults = await Promise.all(msgPromises);
 
     res
       .status(200)
