@@ -80,9 +80,22 @@ async function UserSendMsg(req, res) {
 async function PostBotMsg(req, res) {
   console.log("caiu no post PostBotMsg:");
   const incomingData = req.body;
+  const messages = incomingData.statuses || []; // Se 'statuses' não existir, inicializa como array vazio
+
   try {
-    const msg = await botMsg(incomingData);
-    res.json(msg);
+    if (messages.length === 0) {
+      return res
+        .status(400)
+        .json({ message: "Nenhuma mensagem encontrada para processar." });
+    }
+
+    // Enviar os dados necessários para a função receivedMessage
+    const msgPromises = messages.map((messageData) => botMsg(messageData));
+    const msgResults = await Promise.all(msgPromises);
+
+    res
+      .status(200)
+      .json({ message: "Mensagens processadas com sucesso!", msgResults });
   } catch (error) {
     console.log("erro ao pegar msg robo", error);
     res.status(500).send("Server error");
