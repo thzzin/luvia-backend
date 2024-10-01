@@ -88,9 +88,10 @@ async function saveMessage(
 }
 
 async function receivedMessage(incomingData) {
-  console.log("caiu no receivedMessage");
+  console.log("caiu no receivedMessage pq recebeu UMA mensagem");
   try {
     // Como o incomingData é um objeto, você não precisa iterar sobre ele
+    console.log("incomingData", incomingData);
     const phoneNumber = incomingData.contacts[0].wa_id;
     const name = incomingData.contacts[0].profile.name;
     const messageType = incomingData.messages[0].type;
