@@ -103,15 +103,17 @@ async function receivedMessage(incomingData) {
     );
 
     // Salva a mensagem com base no conteúdo processado
-    const savedMsg = await saveMessage(
-      conversation.id,
-      contactId,
+    const message = await Message.create({
+      conversation_id: conversation.toString(),
+      phonecontact: phoneNumber.toString(),
+      type: "text",
       content,
-      messageType,
-      adminId,
-      phoneNumber,
-      idConversation
-    );
+      message_type: "received", // Use o tipo de mensagem mapeado
+      admin_id: adminId.toString(),
+      idConversa: idConversation.toString(),
+    });
+
+    console.log("message", message);
 
     return savedMsg;
   } catch (error) {
