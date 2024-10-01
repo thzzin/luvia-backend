@@ -30,7 +30,12 @@ async function findOrCreateContact(phoneNumber, name, adminId) {
 
 async function findOrCreateConversation(contactId, adminId, idConversation) {
   try {
-    //console.log('contactId', contactId);
+    console.log(
+      "na conversa: contactId, adminId, idConversation",
+      contactId,
+      adminId,
+      idConversation
+    );
     const phoneAdmin = adminId.toString();
     const idConversationS = idConversation.toString();
     let conversation = await Conversa.findOne({
@@ -83,7 +88,7 @@ async function saveMessage(
 }
 
 async function receivedMessage(incomingData) {
-  console.log("caiu no receivedMessage", incomingData);
+  console.log("caiu no receivedMessage");
   try {
     // Como o incomingData é um objeto, você não precisa iterar sobre ele
     const phoneNumber = incomingData.contacts[0].wa_id;
@@ -217,8 +222,6 @@ async function msgClient(
 }
 
 async function postImg(messageData) {
-  console.log("caiu na service imagem");
-
   try {
     const phoneNumberUser = messageData?.contacts?.[0]?.wa_id; // de quem enviou
     const phoneNumberAdmin = messageData?.metadata?.display_phone_number; // de quem recebeu
