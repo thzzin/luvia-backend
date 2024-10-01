@@ -30,22 +30,31 @@ async function FindConversation(contactId) {
 
 async function PostMsg(req, res) {
   console.log("caiu no post PostMsg:");
-  const incomingData = req.body; // Assume que o body contém um array de mensagens
-  const messages = Array.isArray(incomingData) ? incomingData : [incomingData];
+  const incomingData = req.body; // Assume que o body contém um objeto com 'statuses'
   console.log("incomingData", incomingData);
 
+  // Verifique se 'statuses' está presente e é um array
+  const messages = incomingData.statuses || []; // Se 'statuses' não existir, inicializa como array vazio
+
   try {
+    if (messages.length === 0) {
+      return res
+        .status(400)
+        .json({ message: "Nenhuma mensagem encontrada para processar." });
+    }
+
     // Enviar os dados necessários para a função receivedMessage
     const msgImgPromises = messages.map((messageData) =>
       receivedMessage(messageData)
     );
     const msgImgResults = await Promise.all(msgImgPromises);
+
     res
       .status(200)
       .json({ message: "Mensagens processadas com sucesso!", msgImgResults });
   } catch (err) {
-    console.error("Error fetching users", err.stack);
-    res.status(500).send("Server error");
+    console.error("Erro ao processar as mensagens:", err.stack);
+    res.status(500).send("Erro no servidor");
   }
 }
 
