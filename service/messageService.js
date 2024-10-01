@@ -83,7 +83,7 @@ async function saveMessage(
 }
 
 async function receivedMessage(incomingData) {
-  console.log("caiu no receivedMessage");
+  console.log("caiu no receivedMessage", incomingData);
   try {
     for (const messageData of incomingData) {
       const phoneNumber = messageData.contacts[0].wa_id;
@@ -162,14 +162,6 @@ async function botMsg(incomingData) {
         idConversation
       );
       const conversId = conversation.id;
-
-      console.log("conversation_id", conversId.toString());
-      console.log("contato_id", phoneNumber.toString());
-      console.log("content", content);
-      console.log("message_type", messageType);
-      console.log("admin_id", adminId.toString());
-      console.log("phonecontact", phoneNumber.toString());
-      console.log("idConversa", idConversation.toString());
 
       const message = await Message.create({
         conversation_id: conversId.toString(),

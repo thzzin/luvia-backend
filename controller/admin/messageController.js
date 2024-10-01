@@ -29,9 +29,8 @@ async function FindConversation(contactId) {
 }
 
 async function PostMsg(req, res) {
-  console.log("caiu no post PostMsg:");
+  // quando o bot manda mensagem
   const incomingData = req.body; // Assume que o body contém um objeto com 'statuses'
-  console.log("incomingData", incomingData);
 
   // Verifique se 'statuses' está presente e é um array
   const messages = incomingData.statuses || []; // Se 'statuses' não existir, inicializa como array vazio
@@ -44,8 +43,8 @@ async function PostMsg(req, res) {
     }
 
     // Enviar os dados necessários para a função receivedMessage
-    const msgImgPromises = messages.map((messageData) =>
-      receivedMessage(messageData)
+    const msgImgPromises = messages.map((incomingData) =>
+      receivedMessage(incomingData)
     );
     const msgImgResults = await Promise.all(msgImgPromises);
 
@@ -78,7 +77,6 @@ async function UserSendMsg(req, res) {
 }
 
 async function PostBotMsg(req, res) {
-  console.log("caiu no post PostBotMsg:");
   const incomingData = req.body;
   const messages = incomingData.statuses || []; // Se 'statuses' não existir, inicializa como array vazio
 
