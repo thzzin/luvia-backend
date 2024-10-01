@@ -36,21 +36,13 @@ async function PostMsg(req, res) {
   const messages = incomingData.statuses || []; // Se 'statuses' não existir, inicializa como array vazio
 
   try {
-    if (messages.length === 0) {
-      return res
-        .status(400)
-        .json({ message: "Nenhuma mensagem encontrada para processar." });
-    }
-
     // Enviar os dados necessários para a função receivedMessage
-    const msgImgPromises = messages.map((incomingData) =>
-      receivedMessage(incomingData)
-    );
-    const msgImgResults = await Promise.all(msgImgPromises);
+
+    const msgResult = await receivedMessage(incomingData);
 
     res
       .status(200)
-      .json({ message: "Mensagens processadas com sucesso!", msgImgResults });
+      .json({ message: "Mensagens processadas com sucesso!", msgResult });
   } catch (err) {
     console.error("Erro ao processar as mensagens:", err);
     res.status(500).send("Erro no servidor");
