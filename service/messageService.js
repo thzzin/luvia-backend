@@ -83,6 +83,7 @@ async function saveMessage(
 }
 
 async function receivedMessage(incomingData) {
+  console.log("caiu no receivedMessage");
   try {
     for (const messageData of incomingData) {
       const phoneNumber = messageData.contacts[0].wa_id;

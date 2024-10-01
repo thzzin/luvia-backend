@@ -30,6 +30,7 @@ async function FindConversation(contactId) {
 
 async function PostMsg(req, res) {
   console.log("caiu no post PostMsg:");
+  console.log("incomingData", incomingData);
   const incomingData = req.body; // Assume que o body contém um array de mensagens
   const messages = Array.isArray(incomingData) ? incomingData : [incomingData];
 
