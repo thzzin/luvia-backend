@@ -31,11 +31,17 @@ async function FindConversation(contactId) {
 async function PostMsg(req, res) {
   console.log("caiu no post PostMsg:");
   const incomingData = req.body; // Assume que o body contém um array de mensagens
+  const messages = Array.isArray(incomingData) ? incomingData : [incomingData];
 
   try {
     // Enviar os dados necessários para a função receivedMessage
-    await receivedMessage(incomingData);
-    res.status(200).json({ message: "Mensagens processadas com sucesso!" });
+    const msgImgPromises = messages.map((messageData) =>
+      receivedMessage(messageData)
+    );
+    const msgImgResults = await Promise.all(msgImgPromises);
+    res
+      .status(200)
+      .json({ message: "Mensagens processadas com sucesso!", msgImgResults });
   } catch (err) {
     console.error("Error fetching users", err.stack);
     res.status(500).send("Server error");
@@ -76,7 +82,6 @@ async function PostBotMsg(req, res) {
 async function PostBotImg(req, res) {
   console.log("caiu no post img:");
   const incomingData = req.body;
-  console.log("incomingData", incomingData);
   // Verifica se incomingData é um array ou um único objeto
   const messages = Array.isArray(incomingData) ? incomingData : [incomingData];
 
