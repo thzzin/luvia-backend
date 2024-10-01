@@ -155,6 +155,7 @@ async function findConversationByContactId(contactId) {
 }
 
 async function botMsg(incomingData) {
+  console.log("caiu no botmsg pq o bot mandou msg");
   try {
     for (const messageData of incomingData) {
       const phoneNumber = messageData.chatId; // Use o wa_id como phone_number
