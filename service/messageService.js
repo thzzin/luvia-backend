@@ -398,23 +398,22 @@ async function botMedia(
   conversationId,
   phonecontact,
   idConversa,
-  filePath, // Renomeado para filePath
+  filePath,
   contactId
 ) {
-  console.log(
-    "caiu no botmedia:",
+  console.log("Entrou na função botMedia com os parâmetros:", {
     adminId,
     conversationId,
     phonecontact,
     idConversa,
-    filePath, // Renomeado para filePath
-    contactId
-  );
+    filePath,
+    contactId,
+  });
+
   try {
     const admin = await Admin.findByPk(adminId);
-
     if (!admin) {
-      console.log("nao achou admin é sacanagem");
+      console.log(`Administrador não encontrado para o adminId: ${adminId}`);
       throw new Error("Administrador não encontrado.");
     }
 
@@ -423,6 +422,7 @@ async function botMedia(
 
     // Verifica se o arquivo existe
     if (!fs.existsSync(filePath)) {
+      console.log(`Arquivo não encontrado no caminho: ${filePath}`);
       throw new Error("Arquivo não encontrado: " + filePath);
     }
 
@@ -430,11 +430,11 @@ async function botMedia(
     const urlUpload = `https://graph.facebook.com/v21.0/${idNumero}/uploads`;
 
     // Obter informações do arquivo
-    const fileStats = fs.statSync(filePath); // Aqui pegamos o tamanho do arquivo
-    const fileName = filePath.split("/").pop(); // Extraindo o nome do arquivo
-    const fileType = "image/jpeg"; // Ajuste conforme o tipo real do arquivo (deve ser dinâmico)
+    const fileStats = fs.statSync(filePath);
+    const fileName = filePath.split("/").pop();
+    const fileType = getFileType(fileName); // Ajuste para determinar o tipo de arquivo
 
-    // Fazer o upload do arquivo com parâmetros na URL
+    // Fazer o upload do arquivo
     const uploadResponse = await axios.post(urlUpload, null, {
       params: {
         file_name: fileName,
@@ -446,9 +446,9 @@ async function botMedia(
       },
     });
 
-    console.log("uploadResponse:", uploadResponse.data); // Mostrar a resposta correta
+    console.log("uploadResponse:", uploadResponse.data);
 
-    const mediaId = uploadResponse.data.id; // ID do arquivo enviado
+    const mediaId = uploadResponse.data.id;
 
     // Enviando a mensagem com o ID do arquivo
     const messageData = {
@@ -467,12 +467,11 @@ async function botMedia(
       adminId,
       conversationId
     );
-
     const message = await Message.create({
       conversation_id: conversId.toString(),
       contato_id: phonecontact.toString(),
-      content: fileName, // ou outro conteúdo relevante
-      message_type: "image", // Ajuste conforme necessário
+      content: fileName,
+      message_type: "image",
       admin_id: adminId.toString(),
       phonecontact: phonecontact.toString(),
       idConversa: idConversa.toString(),
@@ -482,7 +481,22 @@ async function botMedia(
     return message;
   } catch (error) {
     console.error("Erro ao enviar a mídia:", error);
-    throw error; // Lançar o erro para que possa ser tratado na camada superior
+    throw error;
+  }
+}
+
+function getFileType(fileName) {
+  const ext = fileName.split(".").pop().toLowerCase();
+  switch (ext) {
+    case "pdf":
+      return "application/pdf";
+    case "jpeg":
+    case "jpg":
+      return "image/jpeg";
+    case "png":
+      return "image/png";
+    default:
+      throw new Error("Tipo de arquivo não suportado: " + ext);
   }
 }
 
