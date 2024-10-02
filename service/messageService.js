@@ -291,13 +291,15 @@ async function postAudios(messageData) {
     const name = messageData?.contacts?.[0]?.profile?.name; // Verifica se profile e name existem
     const idAudio = messageData?.messages?.[0]?.audio?.id; // ID da imagem
     const bearerToken = messageData?.accesstoken; // Captura o bearer token
-
+    console.log("phoneNumber", phoneNumber);
     const contactId = await findOrCreateContact(phoneNumber, name, adminId);
     const conversation = await findOrCreateConversation(
       contactId,
       adminId,
       idConversation
     );
+
+    console.log("contactId", contactId);
     const conversId = conversation.id;
     let urlimg;
 
