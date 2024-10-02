@@ -86,6 +86,7 @@ async function saveMessage(
 
 async function receivedMessage(incomingData) {
   try {
+    console.log("incomingData", incomingData);
     const phoneNumber = incomingData.contacts[0].wa_id;
     const name = incomingData.contacts[0].profile.name;
     const content = incomingData.messages[0].text.body;
