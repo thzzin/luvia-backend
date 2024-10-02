@@ -50,7 +50,7 @@ async function PostMsg(req, res) {
 }
 
 async function UserSendMsg(req, res) {
-  const { content, conversation_id, phonecontact } = req.body;
+  const { content, conversation_id, phonecontact, contactId } = req.body;
   const adminId = req.user.id;
   const conversationId = conversation_id;
   const idConversa = conversation_id;
@@ -61,7 +61,8 @@ async function UserSendMsg(req, res) {
       conversationId,
       phonecontact,
       idConversa,
-      content
+      content,
+      contactId
     );
     res.json({ msg });
   } catch (error) {

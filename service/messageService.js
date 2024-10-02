@@ -193,7 +193,8 @@ async function msgClient(
   conversationId,
   phonecontact,
   idConversa,
-  content
+  content,
+  contactId
 ) {
   try {
     const admin = await Admin.findByPk(adminId);
