@@ -225,7 +225,7 @@ async function msgClient(
 
 async function postImg(messageData) {
   try {
-    const phoneNumber = messageData?.contacts?.[0]?.wa_id; // de quem enviou
+    const phoneNumberUser = messageData?.contacts?.[0]?.wa_id; // de quem enviou
     const phoneNumberAdmin = messageData?.metadata?.display_phone_number; // de quem recebeu
     const messageType = "received";
     const adminId = messageData?.metadata?.phone_number_id; // id do admin phone
@@ -234,7 +234,7 @@ async function postImg(messageData) {
     const idImage = messageData?.messages?.[0]?.image?.id; // ID da imagem
     const bearerToken = messageData?.accesstoken; // Captura o bearer token
 
-    const contactId = await findOrCreateContact(phoneNumber, name, adminId);
+    const contactId = await findOrCreateContact(phoneNumberUser, name, adminId);
     const conversation = await findOrCreateConversation(
       contactId,
       adminId,
@@ -283,7 +283,7 @@ async function postImg(messageData) {
 async function postAudios(messageData) {
   console.log("messageData", messageData);
   try {
-    const phoneNumberUser = messageData?.contacts?.[0]?.wa_id; // de quem enviou
+    const phoneNumber = messageData?.contacts?.[0]?.wa_id; // de quem enviou
     const phoneNumberAdmin = messageData?.metadata?.display_phone_number; // de quem recebeu
     const messageType = "received";
     const adminId = messageData?.metadata?.phone_number_id; // id do admin phone
@@ -292,7 +292,7 @@ async function postAudios(messageData) {
     const idAudio = messageData?.messages?.[0]?.audio?.id; // ID da imagem
     const bearerToken = messageData?.accesstoken; // Captura o bearer token
 
-    const contactId = await findOrCreateContact(phoneNumberUser, name, adminId);
+    const contactId = await findOrCreateContact(phoneNumber, name, adminId);
     const conversation = await findOrCreateConversation(
       contactId,
       adminId,
@@ -323,12 +323,12 @@ async function postAudios(messageData) {
 
     const message = await Message.create({
       conversation_id: conversId.toString(),
-      contato_id: phoneNumberUser.toString(),
+      contato_id: phoneNumber.toString(),
       content: urlimg,
       type: "audio",
       message_type: messageType,
       admin_id: adminId.toString(),
-      phonecontact: phoneNumberUser.toString(),
+      phonecontact: phoneNumber.toString(),
       idConversa: idConversation.toString(),
     });
 
