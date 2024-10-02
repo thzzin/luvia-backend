@@ -393,6 +393,9 @@ async function postDoc(req, res) {
   } catch (error) {}
 }
 
+const fs = require("fs");
+const axios = require("axios");
+
 async function botMedia(
   adminId,
   conversationId,
@@ -413,16 +416,21 @@ async function botMedia(
   try {
     const admin = await Admin.findByPk(adminId);
     if (!admin) {
-      console.log(`Administrador não encontrado para o adminId: ${adminId}`);
+      console.error(`Administrador não encontrado para o adminId: ${adminId}`);
       throw new Error("Administrador não encontrado.");
     }
 
-    const idNumero = admin.idNumero;
-    const acessToken = admin.acessToken;
+    const { idNumero, acessToken } = admin;
+
+    // Verifica se o token de acesso está presente
+    if (!acessToken) {
+      console.error("Token de acesso não encontrado.");
+      throw new Error("Token de acesso não encontrado.");
+    }
 
     // Verifica se o arquivo existe
     if (!fs.existsSync(filePath)) {
-      console.log(`Arquivo não encontrado no caminho: ${filePath}`);
+      console.error(`Arquivo não encontrado no caminho: ${filePath}`);
       throw new Error("Arquivo não encontrado: " + filePath);
     }
 
@@ -432,7 +440,7 @@ async function botMedia(
     // Obter informações do arquivo
     const fileStats = fs.statSync(filePath);
     const fileName = filePath.split("/").pop();
-    const fileType = getFileType(fileName); // Determinar o tipo de arquivo
+    const fileType = getFileType(fileName); // Certifique-se de que essa função está definida
 
     // Fazer o upload do arquivo
     const uploadResponse = await axios.post(urlUpload, null, {
@@ -481,8 +489,8 @@ async function botMedia(
     console.log("Mensagem registrada no banco de dados:", message);
     return message;
   } catch (error) {
-    console.error("Erro ao enviar a mídia:", error);
-    throw error;
+    console.error("Erro ao enviar a mídia:", error.message);
+    throw error; // Re-throw the error if you want to handle it further up
   }
 }
 
