@@ -10,6 +10,13 @@ async function findOrCreateContact(phoneNumber, name, adminId, idwhats) {
     const phoneAsString = phoneNumber.toString();
     const phoneAdmin = adminId.toString();
     const idwhatsString = idwhats.toString();
+    console.log(
+      "phoneNumber, name, adminId, idwhats",
+      phoneNumber,
+      name,
+      adminId,
+      idwhats
+    );
     let contact = await Contato.findOne({
       where: { phone_number: phoneAsString },
     });
