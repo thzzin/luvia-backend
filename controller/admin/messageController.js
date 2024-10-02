@@ -127,7 +127,7 @@ async function PostDoc(req, res) {
   }
 }
 
-async function BotPostMedia(params) {
+async function BotPostMedia(req, res) {
   const { content, conversation_id, phonecontact, contactId } = req.body;
 
   try {
