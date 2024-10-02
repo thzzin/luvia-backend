@@ -88,10 +88,8 @@ async function saveMessage(
 }
 
 async function receivedMessage(incomingData) {
-  console.log("caiu no receivedMessage pq recebeu UMA mensagem");
+  console.log("Mensagem recebida");
   try {
-    // Como o incomingData é um objeto, você não precisa iterar sobre ele
-    console.log("incomingData", incomingData);
     const phoneNumber = incomingData.contacts[0].wa_id;
     const name = incomingData.contacts[0].profile.name;
     const messageType = incomingData.messages[0].type;
@@ -108,9 +106,12 @@ async function receivedMessage(incomingData) {
       idConversation
     );
 
+    // Certifica-se de pegar o `id` da instância `conversation`
+    const conversationId = conversation.id;
+
     // Salva a mensagem com base no conteúdo processado
     const message = await Message.create({
-      conversation_id: conversation.toString(),
+      conversation_id: conversationId.toString(), // Extrai o id da conversa
       phonecontact: phoneNumber.toString(),
       type: "text",
       content,
@@ -121,7 +122,7 @@ async function receivedMessage(incomingData) {
 
     console.log("message", message);
 
-    return savedMsg;
+    return message;
   } catch (error) {
     console.error("Erro ao processar as mensagens:", error);
     throw error;
@@ -241,9 +242,8 @@ async function postImg(messageData) {
       idConversation
     );
     const conversId = conversation.id;
-    console.log("conversId", conversId);
     let urlimg;
-    console.log("messadata", messageData);
+
     try {
       const url = "http://getluvia.com.br:3003/images/upload-from-whatsapp";
       const response = await axios.post(
