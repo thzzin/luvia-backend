@@ -401,7 +401,15 @@ async function botMedia(
   filePath, // Renomeado para filePath
   contactId
 ) {
-  console.log("caiu no botmedia");
+  console.log(
+    "caiu no botmedia:",
+    adminId,
+    conversationId,
+    phonecontact,
+    idConversa,
+    filePath, // Renomeado para filePath
+    contactId
+  );
   try {
     const admin = await Admin.findByPk(adminId);
 
@@ -421,11 +429,12 @@ async function botMedia(
     // Fazendo o upload do arquivo
     const urlUpload = `https://graph.facebook.com/v21.0/${idNumero}/uploads`;
 
+    // Obter informações do arquivo
     const fileStats = fs.statSync(filePath); // Aqui pegamos o tamanho do arquivo
     const fileName = filePath.split("/").pop(); // Extraindo o nome do arquivo
     const fileType = "image/jpeg"; // Ajuste conforme o tipo real do arquivo (deve ser dinâmico)
 
-    // Fazer o upload do arquivo
+    // Fazer o upload do arquivo com parâmetros na URL
     const uploadResponse = await axios.post(urlUpload, null, {
       params: {
         file_name: fileName,
@@ -437,7 +446,7 @@ async function botMedia(
       },
     });
 
-    console.log("uploadResponse:", uploadResponse.data); // Corrigido para mostrar a resposta correta
+    console.log("uploadResponse:", uploadResponse.data); // Mostrar a resposta correta
 
     const mediaId = uploadResponse.data.id; // ID do arquivo enviado
 
