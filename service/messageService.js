@@ -241,6 +241,7 @@ async function postImg(messageData) {
       idConversation
     );
     const conversId = conversation.id;
+    console.log("conversId", conversId);
     let urlimg;
     console.log("messadata", messageData);
     try {
