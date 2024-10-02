@@ -70,10 +70,9 @@ async function UserSendMsg(req, res) {
 
 async function PostBotMsg(req, res) {
   const incomingData = req.body;
-  const messages = incomingData;
 
   try {
-    const msgResults = await botMsg(messageData);
+    const msgResults = await botMsg(incomingData);
     //const msgResults = await Promise.all(msgPromises);
 
     res
