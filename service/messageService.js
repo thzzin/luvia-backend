@@ -398,7 +398,7 @@ async function botMedia(
   conversationId,
   phonecontact,
   idConversa,
-  content, // O caminho do arquivo
+  filePath, // Renomeado para filePath
   contactId
 ) {
   console.log("caiu no botmedia");
@@ -412,13 +412,12 @@ async function botMedia(
     const idNumero = admin.idNumero;
     const acessToken = admin.acessToken;
 
-    // Primeira etapa: fazer o upload do arquivo
+    // Fazendo o upload do arquivo
     const urlUpload = `https://graph.facebook.com/v21.0/${idNumero}/uploads`;
 
-    const filePath = content; // Supondo que `content` seja o caminho do arquivo
-    const fileStats = fs.statSync(filePath);
+    const fileStats = fs.statSync(filePath); // Aqui pegamos o tamanho do arquivo
     const fileName = filePath.split("/").pop(); // Extraindo o nome do arquivo
-    const fileType = "image/jpeg"; // Altere conforme o tipo de arquivo
+    const fileType = "image/jpeg"; // Ajuste conforme o tipo real do arquivo
 
     // Fazer o upload do arquivo
     const uploadResponse = await axios.post(urlUpload, null, {
@@ -434,24 +433,24 @@ async function botMedia(
 
     const mediaId = uploadResponse.data.id; // ID do arquivo enviado
 
-    // Segunda etapa: enviar a mensagem com o ID do arquivo
+    // Enviando a mensagem com o ID do arquivo
     const messageData = {
       messaging_product: "whatsapp",
       recipient_type: "individual",
-      to: phonecontact, // O número do usuário que receberá a mensagem
+      to: phonecontact,
       type: "image",
       image: {
-        id: mediaId, // Usando o ID do arquivo enviado
+        id: mediaId,
       },
     };
 
-    // Fazer a requisição POST para a API de envio de mensagens
+    // Fazendo a requisição POST para enviar a mensagem
     const messageResponse = await axios.post(
       `https://graph.facebook.com/v21.0/${idNumero}/messages`,
       messageData,
       {
         headers: {
-          Authorization: `Bearer ${acessToken}`, // Bearer token para autenticação
+          Authorization: `Bearer ${acessToken}`,
           "Content-Type": "application/json",
         },
       }
@@ -459,7 +458,7 @@ async function botMedia(
 
     console.log("Mensagem enviada:", messageResponse.data);
 
-    // Salvar a mensagem no banco de dados
+    // Registrando a mensagem no banco de dados
     const conversId = await findOrCreateConversation(
       contactId,
       adminId,
@@ -469,7 +468,7 @@ async function botMedia(
     const message = await Message.create({
       conversation_id: conversId.toString(),
       contato_id: phonecontact.toString(),
-      content: fileName, // Ou outro conteúdo relevante
+      content: fileName, // ou outro conteúdo relevante
       message_type: "image", // Ajuste conforme necessário
       admin_id: adminId.toString(),
       phonecontact: phonecontact.toString(),

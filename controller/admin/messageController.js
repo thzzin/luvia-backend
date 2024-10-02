@@ -128,23 +128,26 @@ async function PostDoc(req, res) {
 }
 
 async function BotPostMedia(req, res) {
-  const { content, conversation_id, phonecontact, contactId } = req.body;
+  const { conversation_id, phonecontact, contactId } = req.body;
   const adminId = req.user.id;
   const conversationId = conversation_id;
-  const idConversa = conversation_id;
+
+  // O arquivo está disponível em req.file
+  const filePath = req.file.path; // O caminho do arquivo salvo
 
   try {
     const msg = await botMedia(
       adminId,
       conversationId,
       phonecontact,
-      idConversa,
-      content,
+      conversation_id, // ou idConversa, se preferir
+      filePath, // Passando o caminho do arquivo
       contactId
     );
     res.json({ msg });
   } catch (error) {
-    console.log("deu erro nesse carai");
+    console.log("Erro ao processar a mensagem:", error);
+    res.status(500).json({ error: "Erro ao processar a mensagem" });
   }
 }
 
