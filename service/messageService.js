@@ -431,9 +431,11 @@ async function botMedia(
       },
     });
 
+    console.log("uploadResponse"), uploadResponse;
+
     const mediaId = uploadResponse.data.id; // ID do arquivo enviado
 
-    // Enviando a mensagem com o ID do arquivo
+    /*  // Enviando a mensagem com o ID do arquivo
     const messageData = {
       messaging_product: "whatsapp",
       recipient_type: "individual",
@@ -456,7 +458,7 @@ async function botMedia(
       }
     );
 
-    console.log("Mensagem enviada:", messageResponse.data);
+    console.log("Mensagem enviada:", messageResponse.data); */
 
     // Registrando a mensagem no banco de dados
     const conversId = await findOrCreateConversation(
@@ -478,7 +480,7 @@ async function botMedia(
     console.log("Mensagem registrada no banco de dados:", message);
     return message;
   } catch (error) {
-    console.error("Erro ao enviar a mídia:", error);
+    console.error("Erro ao enviar a mídia:", error.data);
   }
 }
 
