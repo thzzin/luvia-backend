@@ -129,18 +129,23 @@ async function PostDoc(req, res) {
 
 async function BotPostMedia(req, res) {
   const { content, conversation_id, phonecontact, contactId } = req.body;
+  const adminId = req.user.id;
+  const conversationId = conversation_id;
+  const idConversa = conversation_id;
 
   try {
     const msg = await botMedia(
       adminId,
-      conversation_id,
+      conversationId,
       phonecontact,
       idConversa,
       content,
       contactId
     );
     res.json({ msg });
-  } catch (error) {}
+  } catch (error) {
+    console.log("deu erro nesse carai");
+  }
 }
 
 module.exports = {
