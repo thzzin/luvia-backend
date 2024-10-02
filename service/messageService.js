@@ -298,7 +298,6 @@ async function postAudios(messageData) {
     const idConversation = messages[0]?.id; // id da conversa
     const name = contacts[0]?.profile?.name; // Verifica se profile e name existem
     const idAudio = messages[0]?.audio?.id; // ID do áudio
-    const bearerToken = messageData?.accesstoken; // Captura o bearer token
 
     console.log("phoneNumber", phoneNumber);
     console.log("vai por", messages);
@@ -306,6 +305,14 @@ async function postAudios(messageData) {
     if (!phoneNumber) {
       throw new Error("Número de telefone não definido.");
     }
+
+    const admin = await Admin.findOne({ where: { phone: phoneNumber } });
+
+    if (!admin) {
+      throw new Error("Admin não encontrado com este número de telefone.");
+    }
+
+    const bearerToken = admin.acessToken;
 
     const contactId = await findOrCreateContact(phoneNumber, name, adminId);
     const conversation = await findOrCreateConversation(
@@ -354,7 +361,6 @@ async function postAudios(messageData) {
     console.log("Erro:", error.message);
   }
 }
-
 
 async function postDoc(req, res) {
   try {
