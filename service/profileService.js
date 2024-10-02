@@ -172,8 +172,8 @@ async function getConversaFull(id) {
         createdAt: msg.createdAt,
         type: msg.type,
       })), // Array de mensagens
-      contatoName: contato ? contato.name : null, // Nome do contato
-      contatoPhone: contato ? contato.phone_number : null, // Número do contato
+      contatoName: contato ? contato.name : "null", // Nome do contato
+      contatoPhone: contato ? contato.phone_number : "null", // Número do contato
       contatoThumbnail: contato ? contato.thumbnail : null, // Thumbnail do contato
     };
   } catch (error) {
