@@ -92,7 +92,6 @@ async function receivedMessage(incomingData) {
   try {
     const phoneNumber = incomingData.contacts[0].wa_id;
     const name = incomingData.contacts[0].profile.name;
-    const messageType = incomingData.messages[0].type;
     const content = incomingData.messages[0].text.body;
 
     const adminId = incomingData.metadata.display_phone_number;

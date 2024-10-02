@@ -168,7 +168,7 @@ async function getConversaFull(id) {
       mensagens: mensagens.map((msg) => ({
         id: msg.id,
         content: msg.content,
-        type: msg.message_type,
+        messageType: msg.message_type,
         createdAt: msg.createdAt,
         type: msg.type,
       })), // Array de mensagens
