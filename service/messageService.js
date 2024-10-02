@@ -3,6 +3,7 @@ const Conversa = require("../models/Conversation");
 const Message = require("../models/Message");
 const Admin = require("../models/Admin");
 const axios = require("axios");
+const fs = require("fs");
 // Função para buscar um contato pelo número de telefone ou criar um novo
 // Função para buscar ou criar um contato (usando o número como o ID do contato)
 async function findOrCreateContact(phoneNumber, name, adminId) {
@@ -396,7 +397,7 @@ async function botMedia(
   conversationId,
   phonecontact,
   idConversa,
-  content,
+  content, // O caminho do arquivo
   contactId
 ) {
   console.log("caiu no botmedia");
@@ -406,55 +407,78 @@ async function botMedia(
     if (!admin) {
       throw new Error("Administrador não encontrado.");
     }
-    const phoneadmin = admin.phone;
+
     const idNumero = admin.idNumero;
     const acessToken = admin.acessToken;
 
-    const url = `https://graph.facebook.com/v21.0/${idNumero}/messages`;
+    // Primeira etapa: fazer o upload do arquivo
+    const urlUpload = `https://graph.facebook.com/v21.0/${idNumero}/uploads`;
 
-    // Montar o corpo da requisição
+    const filePath = content; // Supondo que `content` seja o caminho do arquivo
+    const fileStats = fs.statSync(filePath);
+    const fileName = filePath.split("/").pop(); // Extraindo o nome do arquivo
+    const fileType = "image/jpeg"; // Altere conforme o tipo de arquivo
+
+    // Fazer o upload do arquivo
+    const uploadResponse = await axios.post(urlUpload, null, {
+      params: {
+        file_name: fileName,
+        file_length: fileStats.size,
+        file_type: fileType,
+      },
+      headers: {
+        Authorization: `Bearer ${acessToken}`,
+      },
+    });
+
+    const mediaId = uploadResponse.data.id; // ID do arquivo enviado
+
+    // Segunda etapa: enviar a mensagem com o ID do arquivo
     const messageData = {
       messaging_product: "whatsapp",
       recipient_type: "individual",
       to: phonecontact, // O número do usuário que receberá a mensagem
       type: "image",
       image: {
-        id: false, // Define se links terão preview (true/false)
-        link: content, // O corpo da mensagem de texto
-        //caption: caption,
+        id: mediaId, // Usando o ID do arquivo enviado
       },
     };
 
-    // Fazer a requisição POST para a API
-    const response = await axios.post(url, messageData, {
-      headers: {
-        Authorization: `Bearer ${acessToken}`, // Bearer token para autenticação
-        "Content-Type": "application/json",
-      },
-    });
-    console.log("response:", response);
-    const idConversation = conversationId;
-    //const contactId = await findOrCreateContact(phoneNumber, name, adminId);
-    const conversation = await findOrCreateConversation(
+    // Fazer a requisição POST para a API de envio de mensagens
+    const messageResponse = await axios.post(
+      `https://graph.facebook.com/v21.0/${idNumero}/messages`,
+      messageData,
+      {
+        headers: {
+          Authorization: `Bearer ${acessToken}`, // Bearer token para autenticação
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    console.log("Mensagem enviada:", messageResponse.data);
+
+    // Salvar a mensagem no banco de dados
+    const conversId = await findOrCreateConversation(
       contactId,
       adminId,
-      idConversation
+      conversationId
     );
-    const conversId = conversation.id;
 
     const message = await Message.create({
       conversation_id: conversId.toString(),
-      contato_id: phoneNumber.toString(),
-      content,
-      message_type: messageType, // Use o tipo de mensagem mapeado
+      contato_id: phonecontact.toString(),
+      content: fileName, // Ou outro conteúdo relevante
+      message_type: "image", // Ajuste conforme necessário
       admin_id: adminId.toString(),
-      phonecontact: phoneNumber.toString(),
-      idConversa: idConversation.toString(),
+      phonecontact: phonecontact.toString(),
+      idConversa: idConversa.toString(),
     });
-    console.log("message", message);
+
+    console.log("Mensagem registrada no banco de dados:", message);
     return message;
   } catch (error) {
-    console.log("error", error);
+    console.error("Erro ao enviar a mídia:", error);
   }
 }
 
