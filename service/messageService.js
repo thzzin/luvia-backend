@@ -399,6 +399,7 @@ async function botMedia(
   content,
   contactId
 ) {
+  console.log("caiu no botmedia");
   try {
     const admin = await Admin.findByPk(adminId);
 
@@ -416,7 +417,7 @@ async function botMedia(
       messaging_product: "whatsapp",
       recipient_type: "individual",
       to: phonecontact, // O número do usuário que receberá a mensagem
-      type: "text",
+      type: "image",
       image: {
         id: false, // Define se links terão preview (true/false)
         link: content, // O corpo da mensagem de texto
@@ -431,6 +432,7 @@ async function botMedia(
         "Content-Type": "application/json",
       },
     });
+    console.log("response:", response);
     const idConversation = conversationId;
     //const contactId = await findOrCreateContact(phoneNumber, name, adminId);
     const conversation = await findOrCreateConversation(
