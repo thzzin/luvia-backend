@@ -125,7 +125,8 @@ async function getConversation(adminPhone) {
                 type: lastMessage.type, // Incluindo o tipo da mensagem
                 createdAt: lastMessage.createdAt,
               }
-            : null, // Última mensagem ou nul          contatoName: contato ? contato.name : null, // Nome do contato
+            : null, // Última mensagem ou nul
+          contatoName: contato ? contato.name : null, // Nome do contato
           contatoPhone: contato ? contato.phone_number : null, // Número do contato
           contatoThumbnail: contato ? contato.thumbnail : null, // Thumbnail do contato
         };
