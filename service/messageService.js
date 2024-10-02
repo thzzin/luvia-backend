@@ -393,9 +393,6 @@ async function postDoc(req, res) {
   } catch (error) {}
 }
 
-const fs = require("fs");
-const axios = require("axios");
-
 async function botMedia(
   adminId,
   conversationId,
