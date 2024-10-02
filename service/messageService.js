@@ -391,6 +391,71 @@ async function postDoc(req, res) {
   } catch (error) {}
 }
 
+async function botMedia(
+  adminId,
+  conversationId,
+  phonecontact,
+  idConversa,
+  content,
+  contactId
+) {
+  try {
+    const admin = await Admin.findByPk(adminId);
+
+    if (!admin) {
+      throw new Error("Administrador não encontrado.");
+    }
+    const phoneadmin = admin.phone;
+    const idNumero = admin.idNumero;
+    const acessToken = admin.acessToken;
+
+    const url = `https://graph.facebook.com/v21.0/${idNumero}/messages`;
+
+    // Montar o corpo da requisição
+    const messageData = {
+      messaging_product: "whatsapp",
+      recipient_type: "individual",
+      to: phonecontact, // O número do usuário que receberá a mensagem
+      type: "text",
+      image: {
+        id: false, // Define se links terão preview (true/false)
+        link: content, // O corpo da mensagem de texto
+        //caption: caption,
+      },
+    };
+
+    // Fazer a requisição POST para a API
+    const response = await axios.post(url, messageData, {
+      headers: {
+        Authorization: `Bearer ${acessToken}`, // Bearer token para autenticação
+        "Content-Type": "application/json",
+      },
+    });
+    const idConversation = conversationId;
+    //const contactId = await findOrCreateContact(phoneNumber, name, adminId);
+    const conversation = await findOrCreateConversation(
+      contactId,
+      adminId,
+      idConversation
+    );
+    const conversId = conversation.id;
+
+    const message = await Message.create({
+      conversation_id: conversId.toString(),
+      contato_id: phoneNumber.toString(),
+      content,
+      message_type: messageType, // Use o tipo de mensagem mapeado
+      admin_id: adminId.toString(),
+      phonecontact: phoneNumber.toString(),
+      idConversa: idConversation.toString(),
+    });
+    console.log("message", message);
+    return message;
+  } catch (error) {
+    console.log("error", error);
+  }
+}
+
 module.exports = {
   receivedMessage,
   findContactByPhoneNumber,
@@ -400,4 +465,5 @@ module.exports = {
   postImg,
   postAudios,
   postDoc,
+  botMedia,
 };

@@ -6,6 +6,7 @@ const {
   msgClient,
   postImg,
   postAudios,
+  botMedia,
 } = require("../../service/messageService");
 
 async function FindContact(phoneNumber) {
@@ -126,6 +127,22 @@ async function PostDoc(req, res) {
   }
 }
 
+async function BotPostMedia(params) {
+  const { content, conversation_id, phonecontact, contactId } = req.body;
+
+  try {
+    const msg = await botMedia(
+      adminId,
+      conversation_id,
+      phonecontact,
+      idConversa,
+      content,
+      contactId
+    );
+    res.json({ msg });
+  } catch (error) {}
+}
+
 module.exports = {
   FindContact,
   FindConversation,
@@ -135,4 +152,5 @@ module.exports = {
   PostBotImg,
   PostAudio,
   PostDoc,
+  BotPostMedia,
 };
