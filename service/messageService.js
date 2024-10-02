@@ -14,6 +14,7 @@ async function findOrCreateContact(phoneNumber, name, adminId, idwhats) {
       where: { phone_number: phoneAsString },
     });
     if (!contact) {
+      console.log("vai criar contato");
       contact = await Contato.create({
         phone_number: phoneAsString,
         name,
@@ -21,6 +22,7 @@ async function findOrCreateContact(phoneNumber, name, adminId, idwhats) {
         phoneadmin: phoneAdmin,
         idwhats: idwhatsString,
       });
+      console.log("contact", contact);
     }
     return contact.phone_number; // Retorna o phone_number
   } catch (error) {
