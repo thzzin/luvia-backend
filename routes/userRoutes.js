@@ -8,6 +8,9 @@ const adminController = require("../controller/admin/adminController");
 const tagsController = require("../controller/admin/tagsController");
 const checkToken = require("../middlewares/checkToken");
 
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
+
 router.post("/addapi", profileController.apiMensagem);
 // Rota para buscar todos os usuários
 router.get("/", userController.getUsers);
@@ -26,7 +29,12 @@ router.post("/editetiqueta", checkToken, tagsController.editEtiquetas);
 router.post("/editchatetiqueta", checkToken, tagsController.addTagChat);
 //---------------etiqueta-------------------
 router.post("/addmsg", checkToken, messageController.UserSendMsg);
-router.post("/postmedia", checkToken, messageController.BotPostMedia);
+router.post(
+  "/postmedia",
+  checkToken,
+  upload.single("file"),
+  messageController.BotPostMedia
+);
 
 router.post("/numero", checkToken, adminController.savePhone);
 router.post("/tokens", checkToken, adminController.saveTokens);
