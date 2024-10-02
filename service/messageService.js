@@ -225,7 +225,7 @@ async function msgClient(
 
 async function postImg(messageData) {
   try {
-    const phoneNumberUser = messageData?.contacts?.[0]?.wa_id; // de quem enviou
+    const phoneNumber = messageData?.contacts?.[0]?.wa_id; // de quem enviou
     const phoneNumberAdmin = messageData?.metadata?.display_phone_number; // de quem recebeu
     const messageType = "received";
     const adminId = messageData?.metadata?.phone_number_id; // id do admin phone
@@ -234,7 +234,7 @@ async function postImg(messageData) {
     const idImage = messageData?.messages?.[0]?.image?.id; // ID da imagem
     const bearerToken = messageData?.accesstoken; // Captura o bearer token
 
-    const contactId = await findOrCreateContact(phoneNumberUser, name, adminId);
+    const contactId = await findOrCreateContact(phoneNumber, name, adminId);
     const conversation = await findOrCreateConversation(
       contactId,
       adminId,
