@@ -14,7 +14,6 @@ async function findOrCreateContact(phoneNumber, name, adminId, idwhats) {
       where: { phone_number: phoneAsString },
     });
     if (!contact) {
-      console.log("vai criar contato");
       contact = await Contato.create({
         phone_number: phoneAsString,
         name,
@@ -32,12 +31,6 @@ async function findOrCreateContact(phoneNumber, name, adminId, idwhats) {
 
 async function findOrCreateConversation(contactId, adminId, idConversation) {
   try {
-    console.log(
-      "na conversa: contactId, adminId, idConversation",
-      contactId,
-      adminId,
-      idConversation
-    );
     const phoneAdmin = adminId.toString();
     const idConversationS = idConversation.toString();
     let conversation = await Conversa.findOne({
@@ -90,7 +83,6 @@ async function saveMessage(
 }
 
 async function receivedMessage(incomingData) {
-  console.log("Mensagem recebida");
   try {
     const phoneNumber = incomingData.contacts[0].wa_id;
     const name = incomingData.contacts[0].profile.name;
@@ -158,7 +150,6 @@ async function findConversationByContactId(contactId) {
 }
 
 async function botMsg(incomingData) {
-  console.log("caiu no botmsg pq o bot mandou msg");
   try {
     for (const messageData of incomingData) {
       const phoneNumber = messageData.chatId; // Use o wa_id como phone_number
@@ -234,8 +225,6 @@ async function msgClient(
       },
     });
 
-    console.log("response:", response);
-
     const message = await Message.create({
       conversation_id: conversationId,
       contato_id: contactId,
@@ -246,7 +235,6 @@ async function msgClient(
       phonecontact: phonecontact,
       idConversa: idConversa,
     });
-    console.log("message", message);
     return message;
   } catch (error) {
     console.log("deu pau", error);
@@ -318,8 +306,6 @@ async function postImg(messageData) {
 }
 
 async function postAudios(messageData) {
-  console.log("messageData", messageData);
-
   try {
     const messages = messageData?.messages || [];
     const contacts = messageData?.contacts || [];
@@ -335,9 +321,6 @@ async function postAudios(messageData) {
     const idConversation = messages[0]?.id; // id da conversa
     const name = contacts[0]?.profile?.name; // Verifica se profile e name existem
     const idAudio = messages[0]?.audio?.id; // ID do áudio
-
-    console.log("phoneNumber", phoneNumber);
-    console.log("vai por", messages);
 
     if (!phoneNumber) {
       throw new Error("Número de telefone não definido.");
@@ -358,7 +341,6 @@ async function postAudios(messageData) {
       idConversation
     );
 
-    console.log("contactId", contactId);
     const conversId = conversation.id;
     let urlimg;
 
