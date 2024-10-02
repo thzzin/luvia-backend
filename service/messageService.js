@@ -292,6 +292,7 @@ async function postAudios(messageData) {
     const idAudio = messageData?.messages?.[0]?.audio?.id; // ID da imagem
     const bearerToken = messageData?.accesstoken; // Captura o bearer token
     console.log("phoneNumber", phoneNumber);
+    console.log("vai por", messageData?.messages?.[0]);
     const contactId = await findOrCreateContact(phoneNumber, name, adminId);
     const conversation = await findOrCreateConversation(
       contactId,
