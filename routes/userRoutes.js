@@ -9,7 +9,16 @@ const tagsController = require("../controller/admin/tagsController");
 const checkToken = require("../middlewares/checkToken");
 
 const multer = require("multer");
-const upload = multer({ dest: "uploads/" });
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads/");
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + "-" + file.originalname); // Nome único com timestamp
+  },
+});
+
+const upload = multer({ storage: storage });
 
 router.post("/addapi", profileController.apiMensagem);
 // Rota para buscar todos os usuários
