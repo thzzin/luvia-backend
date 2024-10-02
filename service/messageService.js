@@ -6,13 +6,6 @@ const axios = require("axios");
 // Função para buscar um contato pelo número de telefone ou criar um novo
 // Função para buscar ou criar um contato (usando o número como o ID do contato)
 async function findOrCreateContact(phoneNumber, name, adminId) {
-  console.log(
-    "phoneNumber, name, adminId, idwhats",
-    phoneNumber,
-    name,
-    adminId,
-    idwhats
-  );
   try {
     const phoneAsString = phoneNumber.toString();
     const phoneAdmin = adminId.toString();
