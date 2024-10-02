@@ -432,7 +432,7 @@ async function botMedia(
     // Obter informações do arquivo
     const fileStats = fs.statSync(filePath);
     const fileName = filePath.split("/").pop();
-    const fileType = getFileType(fileName); // Ajuste para determinar o tipo de arquivo
+    const fileType = getFileType(fileName); // Determinar o tipo de arquivo
 
     // Fazer o upload do arquivo
     const uploadResponse = await axios.post(urlUpload, null, {
@@ -467,6 +467,7 @@ async function botMedia(
       adminId,
       conversationId
     );
+
     const message = await Message.create({
       conversation_id: conversId.toString(),
       contato_id: phonecontact.toString(),
