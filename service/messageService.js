@@ -5,7 +5,7 @@ const Admin = require("../models/Admin");
 const axios = require("axios");
 // Função para buscar um contato pelo número de telefone ou criar um novo
 // Função para buscar ou criar um contato (usando o número como o ID do contato)
-async function findOrCreateContact(phoneNumber, name, adminId, idwhats) {
+async function findOrCreateContact(phoneNumber, name, adminId) {
   console.log(
     "phoneNumber, name, adminId, idwhats",
     phoneNumber,
@@ -16,7 +16,6 @@ async function findOrCreateContact(phoneNumber, name, adminId, idwhats) {
   try {
     const phoneAsString = phoneNumber.toString();
     const phoneAdmin = adminId.toString();
-    const idwhatsString = idwhats.toString();
 
     let contact = await Contato.findOne({
       where: { phone_number: phoneAsString },
@@ -28,7 +27,6 @@ async function findOrCreateContact(phoneNumber, name, adminId, idwhats) {
         name,
         email: null,
         phoneadmin: phoneAdmin,
-        idwhats: idwhatsString,
       });
       console.log("contact", contact);
     }
