@@ -5,11 +5,11 @@ const Admin = require("../models/Admin");
 const axios = require("axios");
 // Função para buscar um contato pelo número de telefone ou criar um novo
 // Função para buscar ou criar um contato (usando o número como o ID do contato)
-async function findOrCreateContact(phoneNumber, name, adminId) {
+async function findOrCreateContact(phoneNumber, name, adminId, idwhats) {
   try {
     const phoneAsString = phoneNumber.toString();
     const phoneAdmin = adminId.toString();
-
+    const idwhatsString = idwhats.toString();
     let contact = await Contato.findOne({
       where: { phone_number: phoneAsString },
     });
@@ -20,6 +20,7 @@ async function findOrCreateContact(phoneNumber, name, adminId) {
         name,
         email: null,
         phoneadmin: phoneAdmin,
+        idwhats: idwhatsString,
       });
     }
     return contact.phone_number; // Retorna o phone_number
@@ -210,6 +211,30 @@ async function msgClient(
     const phoneadmin = admin.phone;
     const idNumero = admin.idNumero;
     const acessToken = admin.acessToken;
+
+    const url = `https://graph.facebook.com/v21.0/${idNumero}/messages`;
+
+    // Montar o corpo da requisição
+    const messageData = {
+      messaging_product: "whatsapp",
+      recipient_type: "individual",
+      to: phonecontact, // O número do usuário que receberá a mensagem
+      type: "text",
+      text: {
+        preview_url: false, // Define se links terão preview (true/false)
+        body: content, // O corpo da mensagem de texto
+      },
+    };
+
+    // Fazer a requisição POST para a API
+    const response = await axios.post(url, messageData, {
+      headers: {
+        Authorization: `Bearer ${acessToken}`, // Bearer token para autenticação
+        "Content-Type": "application/json",
+      },
+    });
+
+    console.log("response:", response);
 
     const message = await Message.create({
       conversation_id: conversationId,
