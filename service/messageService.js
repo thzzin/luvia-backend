@@ -14,6 +14,7 @@ async function findOrCreateContact(phoneNumber, name, adminId) {
       where: { phone_number: phoneAsString },
     });
     if (!contact) {
+      console.log("vai criar contato");
       contact = await Contato.create({
         phone_number: phoneAsString,
         name,
@@ -99,6 +100,7 @@ async function receivedMessage(incomingData) {
 
     // Processa as funções findOrCreateContact e findOrCreateConversation
     const contactId = await findOrCreateContact(phoneNumber, name, adminId);
+    console.log("contato:", contactId);
     const conversation = await findOrCreateConversation(
       contactId,
       adminId,
