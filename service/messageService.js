@@ -282,17 +282,31 @@ async function postImg(messageData) {
 
 async function postAudios(messageData) {
   console.log("messageData", messageData);
+
   try {
-    const phoneNumber = messageData?.messages?.[0]?.from; // de quem enviou
+    const messages = messageData?.messages || [];
+    const contacts = messageData?.contacts || [];
+
+    if (messages.length === 0) {
+      throw new Error("Nenhuma mensagem encontrada.");
+    }
+
+    const phoneNumber = messages[0]?.from; // de quem enviou
     const phoneNumberAdmin = messageData?.metadata?.display_phone_number; // de quem recebeu
     const messageType = "received";
     const adminId = messageData?.metadata?.phone_number_id; // id do admin phone
-    const idConversation = messageData?.messages?.[0]?.id; // id da conversa
-    const name = messageData?.contacts?.[0]?.profile?.name; // Verifica se profile e name existem
-    const idAudio = messageData?.messages?.[0]?.audio?.id; // ID da imagem
+    const idConversation = messages[0]?.id; // id da conversa
+    const name = contacts[0]?.profile?.name; // Verifica se profile e name existem
+    const idAudio = messages[0]?.audio?.id; // ID do áudio
     const bearerToken = messageData?.accesstoken; // Captura o bearer token
+
     console.log("phoneNumber", phoneNumber);
-    console.log("vai por", messageData.messages);
+    console.log("vai por", messages);
+
+    if (!phoneNumber) {
+      throw new Error("Número de telefone não definido.");
+    }
+
     const contactId = await findOrCreateContact(phoneNumber, name, adminId);
     const conversation = await findOrCreateConversation(
       contactId,
@@ -321,7 +335,7 @@ async function postAudios(messageData) {
       );
       urlimg = response.data.imageUrl;
     } catch (error) {
-      console.log("deu pau", error);
+      console.log("Erro ao fazer upload do áudio:", error);
     }
 
     const message = await Message.create({
@@ -337,9 +351,10 @@ async function postAudios(messageData) {
 
     return message;
   } catch (error) {
-    console.log("error", error);
+    console.log("Erro:", error.message);
   }
 }
+
 
 async function postDoc(req, res) {
   try {
