@@ -406,18 +406,24 @@ async function botMedia(
     const admin = await Admin.findByPk(adminId);
 
     if (!admin) {
+      console.log("nao achou admin é sacanagem");
       throw new Error("Administrador não encontrado.");
     }
 
     const idNumero = admin.idNumero;
     const acessToken = admin.acessToken;
 
+    // Verifica se o arquivo existe
+    if (!fs.existsSync(filePath)) {
+      throw new Error("Arquivo não encontrado: " + filePath);
+    }
+
     // Fazendo o upload do arquivo
     const urlUpload = `https://graph.facebook.com/v21.0/${idNumero}/uploads`;
 
     const fileStats = fs.statSync(filePath); // Aqui pegamos o tamanho do arquivo
     const fileName = filePath.split("/").pop(); // Extraindo o nome do arquivo
-    const fileType = "image/jpeg"; // Ajuste conforme o tipo real do arquivo
+    const fileType = "image/jpeg"; // Ajuste conforme o tipo real do arquivo (deve ser dinâmico)
 
     // Fazer o upload do arquivo
     const uploadResponse = await axios.post(urlUpload, null, {
@@ -431,11 +437,11 @@ async function botMedia(
       },
     });
 
-    console.log("uploadResponse"), uploadResponse;
+    console.log("uploadResponse:", uploadResponse.data); // Corrigido para mostrar a resposta correta
 
     const mediaId = uploadResponse.data.id; // ID do arquivo enviado
 
-    /*  // Enviando a mensagem com o ID do arquivo
+    // Enviando a mensagem com o ID do arquivo
     const messageData = {
       messaging_product: "whatsapp",
       recipient_type: "individual",
@@ -445,20 +451,6 @@ async function botMedia(
         id: mediaId,
       },
     };
-
-    // Fazendo a requisição POST para enviar a mensagem
-    const messageResponse = await axios.post(
-      `https://graph.facebook.com/v21.0/${idNumero}/messages`,
-      messageData,
-      {
-        headers: {
-          Authorization: `Bearer ${acessToken}`,
-          "Content-Type": "application/json",
-        },
-      }
-    );
-
-    console.log("Mensagem enviada:", messageResponse.data); */
 
     // Registrando a mensagem no banco de dados
     const conversId = await findOrCreateConversation(
@@ -480,7 +472,8 @@ async function botMedia(
     console.log("Mensagem registrada no banco de dados:", message);
     return message;
   } catch (error) {
-    console.error("Erro ao enviar a mídia:", error.data);
+    console.error("Erro ao enviar a mídia:", error);
+    throw error; // Lançar o erro para que possa ser tratado na camada superior
   }
 }
 
