@@ -232,7 +232,14 @@ async function postImg(messageData) {
     const idConversation = messageData?.messages?.[0]?.id; // id da conversa
     const name = messageData?.contacts?.[0]?.profile?.name; // Verifica se profile e name existem
     const idImage = messageData?.messages?.[0]?.image?.id; // ID da imagem
-    const bearerToken = messageData?.accesstoken; // Captura o bearer token
+
+    const admin = await Admin.findOne({ where: { phone: phoneNumberAdmin } });
+
+    if (!admin) {
+      throw new Error("Admin não encontrado com este número de telefone.");
+    }
+
+    const bearerToken = admin.acessToken;
 
     const contactId = await findOrCreateContact(phoneNumberUser, name, adminId);
     const conversation = await findOrCreateConversation(
@@ -306,7 +313,7 @@ async function postAudios(messageData) {
       throw new Error("Número de telefone não definido.");
     }
 
-    const admin = await Admin.findOne({ where: { phone: phoneNumber } });
+    const admin = await Admin.findOne({ where: { phone: phoneNumberAdmin } });
 
     if (!admin) {
       throw new Error("Admin não encontrado com este número de telefone.");
