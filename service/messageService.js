@@ -283,7 +283,7 @@ async function postImg(messageData) {
 async function postAudios(messageData) {
   console.log("messageData", messageData);
   try {
-    const phoneNumber = messageData?.contacts?.[0]?.wa_id; // de quem enviou
+    const phoneNumber = messageData?.messages?.[0]?.from; // de quem enviou
     const phoneNumberAdmin = messageData?.metadata?.display_phone_number; // de quem recebeu
     const messageType = "received";
     const adminId = messageData?.metadata?.phone_number_id; // id do admin phone
