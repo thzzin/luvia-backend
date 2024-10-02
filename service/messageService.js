@@ -247,7 +247,9 @@ async function msgClient(
       idConversa: idConversa,
     });
     return message;
-  } catch (error) {}
+  } catch (error) {
+    console.log("deu pau", error);
+  }
 }
 
 async function postImg(messageData) {

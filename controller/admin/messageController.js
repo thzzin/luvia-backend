@@ -63,7 +63,7 @@ async function UserSendMsg(req, res) {
     );
     res.json({ msg });
   } catch (error) {
-    console.error("Error send msg", err.stack);
+    console.error("Error send msg", error);
     res.status(500).send("Server error");
   }
 }
