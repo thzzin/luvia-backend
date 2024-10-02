@@ -246,6 +246,7 @@ async function msgClient(
       phonecontact: phonecontact,
       idConversa: idConversa,
     });
+    console.log("message", message);
     return message;
   } catch (error) {
     console.log("deu pau", error);
