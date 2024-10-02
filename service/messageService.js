@@ -280,9 +280,62 @@ async function postImg(messageData) {
   }
 }
 
-async function postAudios(req, res) {
+async function postAudios(messageData) {
+  console.log("messageData", messageData);
   try {
-  } catch (error) {}
+    const phoneNumberUser = messageData?.contacts?.[0]?.wa_id; // de quem enviou
+    const phoneNumberAdmin = messageData?.metadata?.display_phone_number; // de quem recebeu
+    const messageType = "received";
+    const adminId = messageData?.metadata?.phone_number_id; // id do admin phone
+    const idConversation = messageData?.messages?.[0]?.id; // id da conversa
+    const name = messageData?.contacts?.[0]?.profile?.name; // Verifica se profile e name existem
+    const idAudio = messageData?.messages?.[0]?.audio?.id; // ID da imagem
+    const bearerToken = messageData?.accesstoken; // Captura o bearer token
+
+    const contactId = await findOrCreateContact(phoneNumberUser, name, adminId);
+    const conversation = await findOrCreateConversation(
+      contactId,
+      adminId,
+      idConversation
+    );
+    const conversId = conversation.id;
+    let urlimg;
+
+    try {
+      const url = "http://getluvia.com.br:3003/audio/upload-from-whatsapp";
+      const response = await axios.post(
+        url,
+        {
+          idAudio: idAudio, // Aqui você adiciona o idmessage
+          bearerToken: bearerToken, // E o bearerToken
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            api_access_token: `${bearerToken}`,
+          },
+        }
+      );
+      urlimg = response.data.imageUrl;
+    } catch (error) {
+      console.log("deu pau", error);
+    }
+
+    const message = await Message.create({
+      conversation_id: conversId.toString(),
+      contato_id: phoneNumberUser.toString(),
+      content: urlimg,
+      type: "audio",
+      message_type: messageType,
+      admin_id: adminId.toString(),
+      phonecontact: phoneNumberUser.toString(),
+      idConversa: idConversation.toString(),
+    });
+
+    return message;
+  } catch (error) {
+    console.log("error", error);
+  }
 }
 
 async function postDoc(req, res) {
