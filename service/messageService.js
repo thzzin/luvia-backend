@@ -493,11 +493,6 @@ async function botMedia(
   }
 }
 
-const FormData = require("form-data");
-const fs = require("fs");
-const path = require("path");
-const axios = require("axios");
-
 async function botAudio(
   adminId,
   conversationId,
