@@ -173,7 +173,21 @@ async function BotPostAudio(req, res) {
     );
     res.json({ msg });
   } catch (error) {
-    console.log("Erro ao processar a mensagem:", error);
+    if (error.response) {
+      // If the error comes from the API request
+      console.error("Erro da API:", error.response.data);
+      throw new Error(
+        error.response.data.error.message || "Erro desconhecido da API"
+      );
+    } else if (error.request) {
+      // If the request was made but no response was received
+      console.error("Nenhuma resposta da API:", error.request);
+      throw new Error("Nenhuma resposta da API.");
+    } else {
+      // If there was an error setting up the request
+      console.error("Erro ao enviar a mídia:", error.message);
+      throw new Error(error.message);
+    }
     res.status(500).json({ error: "Erro ao processar a mensagem" });
   }
 }
