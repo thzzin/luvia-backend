@@ -588,8 +588,10 @@ async function botAudio(
       conversationId
     );
 
+    const conversationIdValue = conversId.id || conversId[0].id;
+
     const message = await Message.create({
-      conversation_id: conversId.toString(),
+      conversation_id: conversationIdValue.toString(),
       contato_id: phonecontact.toString(),
       content: "converted.mp3",
       message_type: "audio",
