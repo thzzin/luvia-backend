@@ -588,12 +588,34 @@ async function botAudio(
       conversationId
     );
 
+    let urlAudio;
+
+    try {
+      const url = "http://getluvia.com.br:3003/audio/upload-from-whatsapp";
+      const response = await axios.post(
+        url,
+        {
+          idAudio: mediaId, // Aqui você adiciona o idmessage
+          bearerToken: acessToken, // E o bearerToken
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            api_access_token: `${acessToken}`,
+          },
+        }
+      );
+      urlAudio = response.data.imageUrl;
+    } catch (error) {
+      console.log("Erro ao fazer upload do áudio:", error);
+    }
+
     const conversationIdValue = conversId.id || conversId[0].id;
 
     const message = await Message.create({
       conversation_id: conversationIdValue.toString(),
       contato_id: phonecontact.toString(),
-      content: "converted.mp3",
+      content: urlAudio,
       message_type: "sent",
       admin_id: adminId.toString(),
       phonecontact: phonecontact.toString(),
