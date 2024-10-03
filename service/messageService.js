@@ -617,6 +617,7 @@ async function botAudio(
       contato_id: phonecontact.toString(),
       content: urlAudio,
       message_type: "sent",
+      type: "audio",
       admin_id: adminId.toString(),
       phonecontact: phonecontact.toString(),
       idConversa: idConversa.toString(),
