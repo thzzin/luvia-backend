@@ -576,6 +576,12 @@ async function botAudio(
     );
 
     // Registrando a mensagem no banco de dados
+    console.log(
+      "contactid, adminid, conversationid",
+      contactId,
+      admin,
+      conversationId
+    );
     const conversId = await findOrCreateConversation(
       contactId,
       adminId,
