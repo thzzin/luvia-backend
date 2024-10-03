@@ -613,6 +613,12 @@ function getFileType(fileName) {
       return "image/jpeg";
     case "png":
       return "image/png";
+    case "wav":
+      return "audio/wav"; // Corrigido para o tipo MIME correto
+    case "mp3":
+      return "audio/mpeg"; // Adicionei suporte para MP3
+    case "ogg":
+      return "audio/ogg"; // Adicionei suporte para OGG
     default:
       throw new Error("Tipo de arquivo não suportado: " + ext);
   }
