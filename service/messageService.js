@@ -493,15 +493,6 @@ async function botMedia(
     throw error; // Re-throw the error if you want to handle it further up
   }
 }
-async function convertToMp3(inputPath, outputPath) {
-  return new Promise((resolve, reject) => {
-    ffmpeg(inputPath)
-      .toFormat("mp3")
-      .on("end", () => resolve(outputPath))
-      .on("error", reject)
-      .save(outputPath);
-  });
-}
 async function botAudio(
   adminId,
   conversationId,
@@ -536,7 +527,6 @@ async function botAudio(
     const urlUpload = `https://graph.facebook.com/v21.0/${idNumero}/media`;
 
     const fileStream = fs.createReadStream(outputFilePath);
-
     const form = new FormData();
     form.append("file", fileStream, { filename: "converted.mp3" });
     form.append("type", "audio/mpeg");
@@ -550,8 +540,10 @@ async function botAudio(
     });
 
     const mediaId = uploadResponse.data.id;
-    if (!mediaId) {
-      throw new Error("Media ID não foi retornado no upload.");
+    const mediaUrl = uploadResponse.data.url; // Assuming the URL is part of the response
+
+    if (!mediaId || !mediaUrl) {
+      throw new Error("Media ID ou URL não foram retornados no upload.");
     }
 
     // Enviando a mensagem com o ID do arquivo
@@ -582,18 +574,19 @@ async function botAudio(
       admin,
       conversationId
     );
+
     const conversId = await findOrCreateConversation(
       contactId,
       adminId,
       conversationId
     );
-
     const conversationIdValue = conversId.id || conversId[0].id;
 
+    // Save the URL of the audio file instead of the filename
     const message = await Message.create({
       conversation_id: conversationIdValue.toString(),
       contato_id: phonecontact.toString(),
-      content: "converted.mp3",
+      content: mediaUrl, // Save the URL here
       message_type: "sent",
       type: "audio",
       admin_id: adminId.toString(),
