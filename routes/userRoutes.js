@@ -54,7 +54,12 @@ router.post("/botmsg", messageController.PostBotMsg);
 router.post("/postimg", messageController.PostBotImg);
 router.post("/postaudio", messageController.PostAudio);
 
-router.post("/addaudio", checkToken, messageController.BotPostAudio);
+router.post(
+  "/addaudio",
+  checkToken,
+  upload.single("file"),
+  messageController.BotPostAudio
+);
 //---------------api-------------------
 
 //---------------conversa contato--------------

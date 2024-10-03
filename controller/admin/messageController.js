@@ -9,6 +9,9 @@ const {
   botMedia,
   botAudio,
 } = require("../../service/messageService");
+const multer = require("multer");
+
+const upload = multer({ dest: "uploads/" }); // Ajuste o destino conforme necessário
 
 async function FindContact(phoneNumber) {
   try {
@@ -155,7 +158,6 @@ async function BotPostMedia(req, res) {
 async function BotPostAudio(req, res) {
   const { conversation_id, phonecontact, contactId } = req.body;
   const adminId = req.user.id;
-  const conversationId = conversation_id;
 
   // O arquivo está disponível em req.file
   const filePath = req.file.path; // O caminho do arquivo salvo
@@ -163,7 +165,7 @@ async function BotPostAudio(req, res) {
   try {
     const msg = await botAudio(
       adminId,
-      conversationId,
+      conversation_id,
       phonecontact,
       conversation_id, // ou idConversa, se preferir
       filePath, // Passando o caminho do arquivo
