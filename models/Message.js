@@ -47,6 +47,10 @@ const Message = sequelize.define(
       type: DataTypes.ENUM("sent", "received"), // Definindo o tipo de mensagem
       allowNull: false,
     },
+    caption: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   },
   {
     tableName: "messages",
