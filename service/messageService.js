@@ -493,6 +493,11 @@ async function botMedia(
   }
 }
 
+const FormData = require("form-data");
+const fs = require("fs");
+const path = require("path");
+const axios = require("axios");
+
 async function botAudio(
   adminId,
   conversationId,
@@ -535,12 +540,15 @@ async function botAudio(
     const urlUpload = `https://graph.facebook.com/v21.0/${idNumero}/media`;
 
     // Obter informações do arquivo
-    const fileName = path.basename(filePath); // Usando path.basename para pegar apenas o nome do arquivo
+    const fileName = path.basename(filePath);
     const fileType = getFileType(fileName); // Função para determinar o tipo do arquivo
 
     // Criando FormData
     const form = new FormData();
-    form.append("file", fs.createReadStream(filePath), { filename: fileName });
+    const fileStream = fs.createReadStream(filePath);
+
+    // Adicionando os campos necessários para o upload
+    form.append("file", fileStream, { filename: fileName });
     form.append("type", fileType);
     form.append("messaging_product", "whatsapp");
 
@@ -554,7 +562,11 @@ async function botAudio(
 
     console.log("uploadResponse:", uploadResponse.data);
 
+    // Capturando o mediaId da resposta
     const mediaId = uploadResponse.data.id;
+    if (!mediaId) {
+      throw new Error("Media ID não foi retornado no upload.");
+    }
 
     // Enviando a mensagem com o ID do arquivo
     const messageData = {
@@ -563,11 +575,11 @@ async function botAudio(
       to: phonecontact,
       type: "audio",
       audio: {
-        id: mediaId, // Corrigido para 'audio'
+        id: mediaId,
       },
     };
 
-    // Aqui você poderia enviar a mensagem usando a API, por exemplo:
+    // Enviar a mensagem
     await axios.post(
       `https://graph.facebook.com/v21.0/${idNumero}/messages`,
       messageData,
@@ -599,7 +611,7 @@ async function botAudio(
     return message;
   } catch (error) {
     console.error("Erro ao enviar a mídia:", error.message);
-    throw error; // Re-throw the error if you want to handle it further up
+    throw error;
   }
 }
 
@@ -614,11 +626,11 @@ function getFileType(fileName) {
     case "png":
       return "image/png";
     case "wav":
-      return "audio/wav"; // Corrigido para o tipo MIME correto
+      return "audio/wav";
     case "mp3":
-      return "audio/mpeg"; // Adicionei suporte para MP3
+      return "audio/mpeg";
     case "ogg":
-      return "audio/ogg"; // Adicionei suporte para OGG
+      return "audio/ogg";
     default:
       throw new Error("Tipo de arquivo não suportado: " + ext);
   }
