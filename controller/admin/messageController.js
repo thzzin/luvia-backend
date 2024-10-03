@@ -12,6 +12,7 @@ const {
 const multer = require("multer");
 
 const upload = multer({ dest: "uploads/" }); // Ajuste o destino conforme necessário
+const ffmpeg = require("fluent-ffmpeg");
 
 async function FindContact(phoneNumber) {
   try {
