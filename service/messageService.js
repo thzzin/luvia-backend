@@ -533,9 +533,8 @@ async function botAudio(
     const urlUpload = `https://graph.facebook.com/v21.0/${idNumero}/media`;
 
     // Obter informações do arquivo
-    const fileStats = fs.statSync(filePath);
-    const fileName = filePath.split("/").pop();
-    const fileType = getFileType(fileName); // Certifique-se de que essa função está definida
+    const fileName = path.basename(filePath); // Usando path.basename para pegar apenas o nome do arquivo
+    const fileType = getFileType(fileName); // Função para determinar o tipo do arquivo
 
     // Criando FormData
     const form = new FormData();
@@ -562,8 +561,7 @@ async function botAudio(
       to: phonecontact,
       type: "audio",
       audio: {
-        // Corrigido para 'audio'
-        id: mediaId,
+        id: mediaId, // Corrigido para 'audio'
       },
     };
 
