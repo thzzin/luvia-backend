@@ -405,7 +405,7 @@ async function postDoc(req, res) {
   } catch (error) {}
 }
 
-async function botAudio(
+async function botMedia(
   adminId,
   conversationId,
   phonecontact,
@@ -413,7 +413,7 @@ async function botAudio(
   filePath,
   contactId
 ) {
-  console.log("Entrou na função botAudio com os parâmetros:", {
+  console.log("Entrou na função botMedia com os parâmetros:", {
     adminId,
     conversationId,
     phonecontact,
@@ -443,26 +443,104 @@ async function botAudio(
       throw new Error("Arquivo não encontrado: " + filePath);
     }
 
-    // Defina o caminho do arquivo convertido
-    const outputFilePath = path.join(__dirname, "converted.mp3");
+    // Fazendo o upload do arquivo
+    const urlUpload = `https://graph.facebook.com/v21.0/${idNumero}/media`;
 
-    // Converte o arquivo para mp3 se for um .wav
-    const fileExtension = path.extname(filePath).toLowerCase();
-    if (fileExtension === ".wav") {
-      console.log("Convertendo arquivo .wav para .mp3...");
-      await convertToMp3(filePath, outputFilePath);
-      filePath = outputFilePath; // Substitui o caminho pelo arquivo convertido
+    // Obter informações do arquivo
+    const fileStats = fs.statSync(filePath);
+    const fileName = filePath.split("/").pop();
+    const fileType = getFileType(fileName); // Certifique-se de que essa função está definida
+
+    // Fazer o upload do arquivo
+    const uploadResponse = await axios.post(urlUpload, null, {
+      params: {
+        file_name: fileName,
+        file_length: fileStats.size,
+        file_type: fileType,
+      },
+      headers: {
+        Authorization: `Bearer ${acessToken}`,
+      },
+    });
+
+    console.log("uploadResponse:", uploadResponse.data);
+
+    const mediaId = uploadResponse.data.id;
+
+    // Enviando a mensagem com o ID do arquivo
+    const messageData = {
+      messaging_product: "whatsapp",
+      recipient_type: "individual",
+      to: phonecontact,
+      type: "image",
+      image: {
+        id: mediaId,
+      },
+    };
+
+    // Registrando a mensagem no banco de dados
+    const conversId = await findOrCreateConversation(
+      contactId,
+      adminId,
+      conversationId
+    );
+
+    const message = await Message.create({
+      conversation_id: conversId.toString(),
+      contato_id: phonecontact.toString(),
+      content: fileName,
+      message_type: "image",
+      admin_id: adminId.toString(),
+      phonecontact: phonecontact.toString(),
+      idConversa: idConversa.toString(),
+    });
+
+    console.log("Mensagem registrada no banco de dados:", message);
+    return message;
+  } catch (error) {
+    console.error("Erro ao enviar a mídia:", error.message);
+    throw error; // Re-throw the error if you want to handle it further up
+  }
+}
+
+async function botAudio(
+  adminId,
+  conversationId,
+  phonecontact,
+  idConversa,
+  filePath,
+  contactId
+) {
+  try {
+    const admin = await Admin.findByPk(adminId);
+    if (!admin) {
+      throw new Error("Administrador não encontrado.");
     }
+
+    const { idNumero, acessToken } = admin;
+
+    // Verifica se o token de acesso está presente
+    if (!acessToken) {
+      throw new Error("Token de acesso não encontrado.");
+    }
+
+    // Verifica se o arquivo existe
+    if (!fs.existsSync(filePath)) {
+      throw new Error("Arquivo não encontrado: " + filePath);
+    }
+
+    // Convertendo o arquivo para mp3
+    const outputFilePath = path.join(__dirname, "converted.mp3");
+    await convertToMp3(filePath, outputFilePath);
 
     // Fazendo o upload do arquivo
     const urlUpload = `https://graph.facebook.com/v21.0/${idNumero}/media`;
 
-    const form = new FormData();
-    const fileStream = fs.createReadStream(filePath);
-    const fileName = path.basename(filePath);
+    const fileStream = fs.createReadStream(outputFilePath);
 
-    form.append("file", fileStream, { filename: fileName });
-    form.append("type", "audio/mpeg"); // Alterado para mp3
+    const form = new FormData();
+    form.append("file", fileStream, { filename: "converted.mp3" });
+    form.append("type", "audio/mpeg");
     form.append("messaging_product", "whatsapp");
 
     const uploadResponse = await axios.post(urlUpload, form, {
@@ -471,8 +549,6 @@ async function botAudio(
         Authorization: `Bearer ${acessToken}`,
       },
     });
-
-    console.log("uploadResponse:", uploadResponse.data);
 
     const mediaId = uploadResponse.data.id;
     if (!mediaId) {
@@ -490,7 +566,6 @@ async function botAudio(
       },
     };
 
-    // Enviar a mensagem
     await axios.post(
       `https://graph.facebook.com/v21.0/${idNumero}/messages`,
       messageData,
@@ -511,14 +586,13 @@ async function botAudio(
     const message = await Message.create({
       conversation_id: conversId.toString(),
       contato_id: phonecontact.toString(),
-      content: fileName,
+      content: "converted.mp3",
       message_type: "audio",
       admin_id: adminId.toString(),
       phonecontact: phonecontact.toString(),
       idConversa: idConversa.toString(),
     });
 
-    console.log("Mensagem registrada no banco de dados:", message);
     return message;
   } catch (error) {
     console.error("Erro ao enviar a mídia:", error.message);
