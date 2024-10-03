@@ -152,7 +152,7 @@ async function BotPostMedia(req, res) {
   }
 }
 
-async function BotPostAudio(params) {
+async function BotPostAudio(req, res) {
   const { conversation_id, phonecontact, contactId } = req.body;
   const adminId = req.user.id;
   const conversationId = conversation_id;
