@@ -8,15 +8,6 @@ const path = require("path");
 const FormData = require("form-data"); // Certifique-se de que você importou isso
 const ffmpeg = require("fluent-ffmpeg");
 
-async function convertToMp3(inputPath, outputPath) {
-  return new Promise((resolve, reject) => {
-    ffmpeg(inputPath)
-      .toFormat("mp3")
-      .on("end", () => resolve(outputPath))
-      .on("error", reject)
-      .save(outputPath);
-  });
-}
 // Função para buscar um contato pelo número de telefone ou criar um novo
 // Função para buscar ou criar um contato (usando o número como o ID do contato)
 async function findOrCreateContact(phoneNumber, name, adminId) {
@@ -502,7 +493,15 @@ async function botMedia(
     throw error; // Re-throw the error if you want to handle it further up
   }
 }
-
+async function convertToMp3(inputPath, outputPath) {
+  return new Promise((resolve, reject) => {
+    ffmpeg(inputPath)
+      .toFormat("mp3")
+      .on("end", () => resolve(outputPath))
+      .on("error", reject)
+      .save(outputPath);
+  });
+}
 async function botAudio(
   adminId,
   conversationId,
