@@ -7,6 +7,7 @@ const {
   postImg,
   postAudios,
   botMedia,
+  botAudio,
 } = require("../../service/messageService");
 
 async function FindContact(phoneNumber) {
@@ -151,6 +152,30 @@ async function BotPostMedia(req, res) {
   }
 }
 
+async function BotPostAudio(params) {
+  const { conversation_id, phonecontact, contactId } = req.body;
+  const adminId = req.user.id;
+  const conversationId = conversation_id;
+
+  // O arquivo está disponível em req.file
+  const filePath = req.file.path; // O caminho do arquivo salvo
+
+  try {
+    const msg = await botAudio(
+      adminId,
+      conversationId,
+      phonecontact,
+      conversation_id, // ou idConversa, se preferir
+      filePath, // Passando o caminho do arquivo
+      contactId
+    );
+    res.json({ msg });
+  } catch (error) {
+    console.log("Erro ao processar a mensagem:", error);
+    res.status(500).json({ error: "Erro ao processar a mensagem" });
+  }
+}
+
 module.exports = {
   FindContact,
   FindConversation,
@@ -161,4 +186,5 @@ module.exports = {
   PostAudio,
   PostDoc,
   BotPostMedia,
+  BotPostAudio,
 };

@@ -432,7 +432,7 @@ async function botMedia(
     }
 
     // Fazendo o upload do arquivo
-    const urlUpload = `https://graph.facebook.com/v21.0/${idNumero}/uploads`;
+    const urlUpload = `https://graph.facebook.com/v21.0/${idNumero}/media`;
 
     // Obter informações do arquivo
     const fileStats = fs.statSync(filePath);
@@ -491,6 +491,118 @@ async function botMedia(
   }
 }
 
+async function botAudio(
+  adminId,
+  conversationId,
+  phonecontact,
+  idConversa,
+  filePath,
+  contactId
+) {
+  console.log("Entrou na função botAudio com os parâmetros:", {
+    adminId,
+    conversationId,
+    phonecontact,
+    idConversa,
+    filePath,
+    contactId,
+  });
+
+  try {
+    const admin = await Admin.findByPk(adminId);
+    if (!admin) {
+      console.error(`Administrador não encontrado para o adminId: ${adminId}`);
+      throw new Error("Administrador não encontrado.");
+    }
+
+    const { idNumero, acessToken } = admin;
+
+    // Verifica se o token de acesso está presente
+    if (!acessToken) {
+      console.error("Token de acesso não encontrado.");
+      throw new Error("Token de acesso não encontrado.");
+    }
+
+    // Verifica se o arquivo existe
+    if (!fs.existsSync(filePath)) {
+      console.error(`Arquivo não encontrado no caminho: ${filePath}`);
+      throw new Error("Arquivo não encontrado: " + filePath);
+    }
+
+    // Fazendo o upload do arquivo
+    const urlUpload = `https://graph.facebook.com/v21.0/${idNumero}/media`;
+
+    // Obter informações do arquivo
+    const fileStats = fs.statSync(filePath);
+    const fileName = filePath.split("/").pop();
+    const fileType = getFileType(fileName); // Certifique-se de que essa função está definida
+
+    // Criando FormData
+    const form = new FormData();
+    form.append("file", fs.createReadStream(filePath), { filename: fileName });
+    form.append("type", fileType);
+    form.append("messaging_product", "whatsapp");
+
+    // Fazer o upload do arquivo
+    const uploadResponse = await axios.post(urlUpload, form, {
+      headers: {
+        ...form.getHeaders(),
+        Authorization: `Bearer ${acessToken}`,
+      },
+    });
+
+    console.log("uploadResponse:", uploadResponse.data);
+
+    const mediaId = uploadResponse.data.id;
+
+    // Enviando a mensagem com o ID do arquivo
+    const messageData = {
+      messaging_product: "whatsapp",
+      recipient_type: "individual",
+      to: phonecontact,
+      type: "audio",
+      audio: {
+        // Corrigido para 'audio'
+        id: mediaId,
+      },
+    };
+
+    // Aqui você poderia enviar a mensagem usando a API, por exemplo:
+    await axios.post(
+      `https://graph.facebook.com/v21.0/${idNumero}/messages`,
+      messageData,
+      {
+        headers: {
+          Authorization: `Bearer ${acessToken}`,
+        },
+      }
+    );
+
+    // Registrando a mensagem no banco de dados
+    const conversId = await findOrCreateConversation(
+      contactId,
+      adminId,
+      conversationId
+    );
+
+    const message = await Message.create({
+      conversation_id: conversId.toString(),
+      contato_id: phonecontact.toString(),
+      content: fileName,
+      message_type: "audio",
+      admin_id: adminId.toString(),
+      phonecontact: phonecontact.toString(),
+      idConversa: idConversa.toString(),
+    });
+
+    console.log("Mensagem registrada no banco de dados:", message);
+    return message;
+  } catch (error) {
+    console.error("Erro ao enviar a mídia:", error.message);
+    throw error; // Re-throw the error if you want to handle it further up
+  }
+}
+
 function getFileType(fileName) {
   const ext = fileName.split(".").pop().toLowerCase();
   switch (ext) {
@@ -516,4 +628,5 @@ module.exports = {
   postAudios,
   postDoc,
   botMedia,
+  botAudio,
 };
