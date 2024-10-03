@@ -62,7 +62,7 @@ async function checkDatabaseConnection() {
 
 async function syncDatabase() {
   try {
-    await sequelize.sync({ force: false }); // Ajuste se quiser preservar dados
+    await sequelize.sync({ force: true }); // Ajuste se quiser preservar dados
     console.log("Tabelas sincronizadas com sucesso!");
   } catch (error) {
     console.error("Erro ao sincronizar o banco de dados:", error);
