@@ -19,14 +19,12 @@ async function findOrCreateContact(phoneNumber, name, adminId) {
       where: { phone_number: phoneAsString },
     });
     if (!contact) {
-      console.log("vai criar contato");
       contact = await Contato.create({
         phone_number: phoneAsString,
         name,
         email: null,
         phoneadmin: phoneAdmin,
       });
-      console.log("contact", contact);
     }
     return contact.phone_number; // Retorna o phone_number
   } catch (error) {
@@ -90,17 +88,14 @@ async function saveMessage(
 
 async function receivedMessage(incomingData) {
   try {
-    console.log("incomingData", incomingData);
     const phoneNumber = incomingData.contacts[0].wa_id;
     const name = incomingData.contacts[0].profile.name;
     const content = incomingData.messages[0].text.body;
 
     const adminId = incomingData.metadata.display_phone_number; // Acesse diretamente a propriedade
     const idConversation = incomingData.messages[0].id;
-    console.log("adminId", adminId);
     // Processa as funções findOrCreateContact e findOrCreateConversation
     const contactId = await findOrCreateContact(phoneNumber, name, adminId);
-    console.log("contato:", contactId);
     const conversation = await findOrCreateConversation(
       contactId,
       adminId,
@@ -244,7 +239,6 @@ async function msgClient(
       idConversa: idConversa,
     });
 
-    console.log("message", message);
     return message;
   } catch (error) {
     console.log("deu pau", error);
@@ -294,9 +288,7 @@ async function postImg(messageData) {
         }
       );
       urlimg = response.data.imageUrl;
-    } catch (error) {
-      console.log("deu pau", error);
-    }
+    } catch (error) {}
 
     const message = await Message.create({
       conversation_id: conversId.toString(),
@@ -454,8 +446,6 @@ async function botMedia(
       },
     });
 
-    console.log("uploadResponse:", uploadResponse.data);
-
     const mediaId = uploadResponse.data.id;
 
     // Enviando a mensagem com o ID do arquivo
@@ -486,7 +476,6 @@ async function botMedia(
       idConversa: idConversa.toString(),
     });
 
-    console.log("Mensagem registrada no banco de dados:", message);
     return message;
   } catch (error) {
     console.error("Erro ao enviar a mídia:", error.message);
@@ -576,12 +565,7 @@ async function botAudio(
     );
 
     // Registrando a mensagem no banco de dados
-    console.log(
-      "contactid, adminid, conversationid",
-      contactId,
-      admin,
-      conversationId
-    );
+
     const conversId = await findOrCreateConversation(
       contactId,
       adminId,

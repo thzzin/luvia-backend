@@ -4,6 +4,8 @@ const Message = require("../models/Message"); // Importe o modelo correto
 const Conversa = require("../models/Conversation");
 const Contato = require("../models/Contato");
 const Etiquetas = require("../models/Etiquetas");
+const NodeCache = require("node-cache");
+const cache = new NodeCache({ stdTTL: 60, checkperiod: 120 }); // TTL de 60 segundos
 
 async function getEtiquetas(adminId) {
   const admin = await Admin.findByPk(adminId);
@@ -80,7 +82,14 @@ async function getContatos(phoneNumber) {
 }
 
 async function getConversation(adminPhone) {
-  const phoneNumber = adminPhone;
+  const cacheKey = `conversas_${adminPhone}`;
+
+  // Verificar se os dados estão no cache
+  const cachedData = cache.get(cacheKey);
+  if (cachedData) {
+    return cachedData; // Retornar dados do cache se disponíveis
+  }
+
   try {
     // 1. Buscar o Admin pelo número de telefone
     const admin = await Admin.findOne({ where: { phone: adminPhone } });
@@ -90,50 +99,48 @@ async function getConversation(adminPhone) {
       throw new Error("Admin não encontrado");
     }
 
-    // 3. Buscar todos os Contatos associados ao Admin
+    // 3. Buscar todos os Contatos associados ao Admin, incluindo Conversas e a última Mensagem
     const contatos = await Contato.findAll({
-      where: { phoneadmin: phoneNumber },
+      where: { phoneadmin: adminPhone },
+      include: [
+        {
+          model: Conversa,
+          include: [
+            {
+              model: Message,
+              order: [["createdAt", "DESC"]],
+              limit: 1, // Pegar apenas a última mensagem
+            },
+          ],
+        },
+      ],
     });
 
-    // 4. Extrair os IDs dos Contatos
-    const contatoIds = contatos.map((contato) => contato.phone_number);
+    // 4. Extrair as conversas e suas últimas mensagens
+    const conversasComDetalhes = contatos.map((contato) => {
+      const conversa = contato.Conversas[0]; // Pegar a primeira conversa (última mensagem)
+      const lastMessage = conversa.Messages[0]; // A última mensagem da conversa
 
-    // 5. Buscar as Conversas associadas aos contatos do Admin
-    const conversas = await Conversa.findAll({
-      where: { contato_id: contatoIds },
+      return {
+        id: conversa.id,
+        contato_id: contato.phone_number,
+        lastMessage: lastMessage
+          ? {
+              content: lastMessage.content,
+              type: lastMessage.type,
+              createdAt: lastMessage.createdAt,
+            }
+          : null,
+        contatoName: contato.name,
+        contatoPhone: contato.phone_number,
+        contatoThumbnail: contato.thumbnail,
+      };
     });
 
-    // 6. Para cada conversa, buscar a última mensagem e o contato associado
-    const conversasComDetalhes = await Promise.all(
-      conversas.map(async (conversa) => {
-        const lastMessage = await Message.findOne({
-          where: { conversation_id: conversa.id },
-          order: [["createdAt", "DESC"]], // Ordena para pegar a última mensagem
-        });
+    // 5. Armazenar os dados no cache
+    cache.set(cacheKey, conversasComDetalhes);
 
-        // Busca o contato associado à conversa
-        const contato = await Contato.findOne({
-          where: { phone_number: conversa.contato_id },
-        });
-
-        return {
-          id: conversa.id,
-          contato_id: conversa.contato_id,
-          lastMessage: lastMessage
-            ? {
-                content: lastMessage.content,
-                type: lastMessage.type, // Incluindo o tipo da mensagem
-                createdAt: lastMessage.createdAt,
-              }
-            : null, // Última mensagem ou nul
-          contatoName: contato ? contato.name : null, // Nome do contato
-          contatoPhone: contato ? contato.phone_number : null, // Número do contato
-          contatoThumbnail: contato ? contato.thumbnail : null, // Thumbnail do contato
-        };
-      })
-    );
-
-    // 7. Retornar as conversas encontradas
+    // 6. Retornar as conversas encontradas
     return conversasComDetalhes;
   } catch (error) {
     console.error("Erro ao buscar conversas:", error);
@@ -185,7 +192,6 @@ async function getConversaFull(id) {
 
 async function savePhones(adminId, phone) {
   try {
-    console.log("phone.string", phone.toString());
     // Verifica se o telefone é válido
     if (!phone) {
       throw new Error("Número de telefone é obrigatório.");

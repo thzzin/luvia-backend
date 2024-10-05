@@ -1,10 +1,18 @@
-const { getPageInfo, getConversation,getConversationCount, postConversation } = require('../../client/manychat/getInfo');
-const {getContacts, postContact} = require('../../client/manychat/getContact')
-const { getChat, newConversation } = require('../../client/manychat/getChats');
-const {getInbox} = require('../../client/manychat/getInbox')
-const { saveProfile } = require('../../service/profileService');
-const {sendMessage} = require('../../client/manychat/getMsg')
-const {getInfos} = require('../../service/profileService')
+const {
+  getPageInfo,
+  getConversation,
+  getConversationCount,
+  postConversation,
+} = require("../../client/manychat/getInfo");
+const {
+  getContacts,
+  postContact,
+} = require("../../client/manychat/getContact");
+const { getChat, newConversation } = require("../../client/manychat/getChats");
+const { getInbox } = require("../../client/manychat/getInbox");
+const { saveProfile } = require("../../service/profileService");
+const { sendMessage } = require("../../client/manychat/getMsg");
+const { getInfos } = require("../../service/profileService");
 
 async function getProfile(req, res) {
   try {
@@ -13,8 +21,8 @@ async function getProfile(req, res) {
     //await saveProfile(profile); // Chama o serviço para salvar as informações no banco
     res.json(profile);
   } catch (err) {
-    console.error('Error fetching users', err.stack);
-    res.status(500).send('Server error');
+    console.error("Error fetching users", err.stack);
+    res.status(500).send("Server error");
   }
 }
 
@@ -23,8 +31,8 @@ async function getConversations(req, res) {
     const profile = await getConversation();
     res.json(profile);
   } catch (err) {
-    console.error('Error fetching users', err.stack);
-    res.status(500).send('Server error');
+    console.error("Error fetching users", err.stack);
+    res.status(500).send("Server error");
   }
 }
 
@@ -33,104 +41,100 @@ async function getConversationsCount(req, res) {
     const profile = await getConversationCount();
     res.json(profile);
   } catch (err) {
-    console.error('Error fetching users', err.stack);
-    res.status(500).send('Server error');
+    console.error("Error fetching users", err.stack);
+    res.status(500).send("Server error");
   }
 }
 
 async function getChats(req, res) {
   try {
-    const { id } = req.query;  // Capture o id da query string
-    console.log('getchats chamado', id)
+    const { id } = req.query; // Capture o id da query string
+    console.log("getchats chamado", id);
     const profile = await getChat(id);
     res.json(profile);
   } catch (err) {
-    console.error('Error fetching users', err.stack);
-    res.status(500).send('Server error');
+    console.error("Error fetching users", err.stack);
+    res.status(500).send("Server error");
   }
 }
 
 async function postConversations(req, res) {
-  try{
-    const newConver = await newConversation()
-      res.json(newConver)
-  }catch(error){
-    console.log('error', error)
+  try {
+    const newConver = await newConversation();
+    res.json(newConver);
+  } catch (error) {
+    console.log("error", error);
   }
 }
 
 async function listContact(req, res) {
-  try{
-    const contacts = await getContacts()
-    res.json(contacts)
-  }catch(error){
-    console.log('error', error)
-
+  try {
+    const contacts = await getContacts();
+    res.json(contacts);
+  } catch (error) {
+    console.log("error", error);
   }
 }
 
 async function postContacts(req, res) {
-  const {name, phone, avatar_url} = req.body
-  try{
-    const contato = await postContact(name, phone, avatar_url)
-    res.json(contato)
-  }catch(error){
-    console.log('error', error)
+  const { name, phone, avatar_url } = req.body;
+  try {
+    const contato = await postContact(name, phone, avatar_url);
+    res.json(contato);
+  } catch (error) {
+    console.log("error", error);
   }
 }
 
 async function apiMensagem(req, res) {
   const data = req.body;
 
-  const contact = data.contacts[0];  // Dados do contato
-  const message = data.messages[0];  // Dados da mensagem
-  try{
-      console.log('phone', phone
-      
-        //pesquisar se tem contato salvo
+  const contact = data.contacts[0]; // Dados do contato
+  const message = data.messages[0]; // Dados da mensagem
+  try {
+    console.log(
+      "phone",
+      phone
 
-        //achar conversa
+      //pesquisar se tem contato salvo
 
-        //enviar mensagem na conversa
+      //achar conversa
 
+      //enviar mensagem na conversa
 
-        //criar contato
-        //criar conversa
-        //add msg conversa
-      )
+      //criar contato
+      //criar conversa
+      //add msg conversa
+    );
 
-  res.json()
-  }catch(error){
-
-  }
+    res.json();
+  } catch (error) {}
 }
 
 async function getInboxs(params) {
-  try{
-    console.log('vai upar Inbox')
-    res.json(inbox)
-  }catch(error){
-    console.log('error', error)
-
+  try {
+    console.log("vai upar Inbox");
+    res.json(inbox);
+  } catch (error) {
+    console.log("error", error);
   }
 }
 
 async function postMessage(req, res) {
-  const {message_type,status,content,conversation_id} = req.body
+  const { message_type, status, content, conversation_id } = req.body;
   const newMsg = {
     content: content,
     conversation_id: conversation_id,
     message_type: message_type,
-    status: status
+    status: status,
+  };
+  console.log(newMsg);
+  try {
+    const message = await sendMessage(newMsg);
+    res.json(message);
+  } catch (error) {
+    console.log("error", error);
   }
-  console.log(newMsg)
-    try{
-      const message = await sendMessage(newMsg)
-      res.json(message)
-    }catch(error){
-      console.log('error', error)
-
-    }
 }
 
 module.exports = {
@@ -143,5 +147,5 @@ module.exports = {
   postContacts,
   getInboxs,
   postMessage,
-  apiMensagem
+  apiMensagem,
 };
