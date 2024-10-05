@@ -50,6 +50,8 @@ async function editContato(nome, phone, adminPhone) {
       }
     );
 
+    console.log("atualizado:", updated);
+
     if (updated) {
       // Para obter o contato atualizado, você pode usar o mesmo número de telefone
       const updatedContato = await Contato.findOne({
