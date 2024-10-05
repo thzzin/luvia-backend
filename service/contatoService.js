@@ -38,20 +38,26 @@ async function delContatos(id, phoneadmin) {
   }
 }
 
-async function editContato(id, nome, phone, adminPhone) {
+async function editContato(nome, phone, adminPhone) {
   try {
     const [updated] = await Contato.update(
       { name: nome, phone_number: phone },
       {
         where: {
-          id: id, // Identifica o contato pelo ID
-          phoneadmin: adminPhone, // Verifica o adminPhone
+          phone_number: phone, // Identifica o contato pelo número de telefone
+          phoneadmin: adminPhone, // Verifica o telefone do admin
         },
       }
     );
 
     if (updated) {
-      const updatedContato = await Contato.findByPk(id);
+      // Para obter o contato atualizado, você pode usar o mesmo número de telefone
+      const updatedContato = await Contato.findOne({
+        where: {
+          phone_number: phone,
+          phoneadmin: adminPhone, // Certifique-se de buscar pelo telefone do admin também
+        },
+      });
       return updatedContato; // Retorna o contato atualizado
     } else {
       console.log(

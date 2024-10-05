@@ -31,11 +31,12 @@ async function delContatcs(req, res) {
 }
 
 async function editContatos(req, res) {
-  const { name, phone, email, id } = req.body;
+  const { name, phone } = req.body;
   const adminPhone = req.user.phone;
 
   try {
-    const editedcontato = await editContato();
+    const editedcontato = await editContato(name, phone, adminPhone);
+    res.json(editedcontato);
   } catch (error) {
     console.log("erro ao editar", error);
   }
