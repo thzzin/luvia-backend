@@ -116,8 +116,6 @@ async function receivedMessage(incomingData) {
       idConversa: idConversation.toString(),
     });
 
-    console.log("message", message);
-
     return message;
   } catch (error) {
     console.error("Erro ao processar as mensagens:", error);

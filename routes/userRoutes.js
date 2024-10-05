@@ -5,6 +5,7 @@ const messageController = require("../controller/admin/messageController");
 const { receivedMessage } = require("../controller/admin/messageController");
 const router = express.Router();
 const adminController = require("../controller/admin/adminController");
+const contactController = require("../controller/admin/contactController");
 const tagsController = require("../controller/admin/tagsController");
 const checkToken = require("../middlewares/checkToken");
 
@@ -26,7 +27,12 @@ router.get("/", userController.getUsers);
 
 router.get("/info", checkToken, profileController.getProfile);
 
+//-------------contatos-------------------
 router.get("/contato", checkToken, adminController.getContats);
+router.post("/contato", checkToken, contactController.addContatos);
+router.delete("/contato", checkToken, contactController.delContatcs);
+//-------------contatos--------------------
+
 router.get("/conversation", checkToken, adminController.getConversations);
 router.get("/conversa/:id", checkToken, adminController.getConversa);
 //---------------etiqueta-------------------

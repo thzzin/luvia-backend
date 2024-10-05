@@ -8,7 +8,6 @@ const {
 
 async function getEtiqueta(req, res) {
   const adminId = req.user.id;
-  console.log("adminid que vai passar", adminId);
   try {
     const etiquetas = await getEtiquetasByAdminId(adminId);
     res.json(etiquetas);
