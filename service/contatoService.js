@@ -38,14 +38,14 @@ async function delContatos(id, phoneadmin) {
   }
 }
 
-async function editContato(nome, phone, adminPhone) {
+async function editContato(nome, newPhone, oldPhone, adminPhone) {
   try {
     const [updated] = await Contato.update(
-      { name: nome, phone_number: phone },
+      { name: nome, phone_number: newPhone },
       {
         where: {
-          phone_number: phone, // Identifica o contato pelo número de telefone
-          phoneadmin: adminPhone, // Verifica o telefone do admin
+          phone_number: oldPhone, // Usa o telefone antigo para encontrar o registro
+          phoneadmin: adminPhone,
         },
       }
     );
@@ -53,14 +53,13 @@ async function editContato(nome, phone, adminPhone) {
     console.log("atualizado:", updated);
 
     if (updated) {
-      // Para obter o contato atualizado, você pode usar o mesmo número de telefone
       const updatedContato = await Contato.findOne({
         where: {
-          phone_number: phone,
-          phoneadmin: adminPhone, // Certifique-se de buscar pelo telefone do admin também
+          phone_number: newPhone, // Pode buscar pelo novo número
+          phoneadmin: adminPhone,
         },
       });
-      return updatedContato; // Retorna o contato atualizado
+      return updatedContato;
     } else {
       console.log(
         "Nenhum contato encontrado para atualizar com os dados fornecidos."
@@ -69,7 +68,7 @@ async function editContato(nome, phone, adminPhone) {
     }
   } catch (error) {
     console.error("Erro ao editar contato:", error);
-    throw error; // Lança o erro para ser tratado na camada superior
+    throw error;
   }
 }
 

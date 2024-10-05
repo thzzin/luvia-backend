@@ -31,14 +31,15 @@ async function delContatcs(req, res) {
 }
 
 async function editContatos(req, res) {
-  const { name, phone } = req.body;
+  const { oldPhone, nome, phone } = req.body; // Recebe o número antigo
   const adminPhone = req.user.phone;
 
   try {
-    const editedcontato = await editContato(name, phone, adminPhone);
+    const editedcontato = await editContato(nome, phone, oldPhone, adminPhone);
     res.json(editedcontato);
   } catch (error) {
     console.log("erro ao editar", error);
+    res.status(500).json({ error: "Erro ao editar contato" });
   }
 }
 
