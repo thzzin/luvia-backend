@@ -22,7 +22,7 @@ async function delContatos(id, phoneadmin) {
 
     const deleteContato = await Contato.destroy({
       where: {
-        id: id,
+        phone_number: id,
         phoneadmin: phoneadmin, // Adiciona a condição para o phoneadmin
       },
     });
