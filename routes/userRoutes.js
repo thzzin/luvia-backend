@@ -31,6 +31,8 @@ router.get("/info", checkToken, profileController.getProfile);
 router.get("/contato", checkToken, adminController.getContats);
 router.post("/contato", checkToken, contactController.addContatos);
 router.delete("/contato", checkToken, contactController.delContatcs);
+router.put("/contato", checkToken, contactController.editContato);
+
 //-------------contatos--------------------
 
 router.get("/conversation", checkToken, adminController.getConversations);

@@ -1,9 +1,13 @@
-const { addContato, delContatos } = require("../../service/contatoService");
+const {
+  addContato,
+  delContatos,
+  editContato,
+} = require("../../service/contatoService");
 
 async function addContatos(req, res) {
   const { nome, phone } = req.body;
   const adminPhone = req.user.phone;
-  console.log("recebido:", nome, phone);
+  //console.log("recebido:", nome, phone);
   try {
     const contato = await addContato(nome, phone, adminPhone);
     res.json(contato);
@@ -16,7 +20,7 @@ async function addContatos(req, res) {
 async function delContatcs(req, res) {
   const { id } = req.body;
   const adminPhone = req.user.phone;
-  console.log("recebido:", id, adminPhone);
+  //console.log("recebido:", id, adminPhone);
 
   try {
     const delcontato = await delContatos(id, adminPhone);
@@ -26,7 +30,19 @@ async function delContatcs(req, res) {
   }
 }
 
+async function editContatos(req, res) {
+  const { name, phone, email, id } = req.body;
+  const adminPhone = req.user.phone;
+
+  try {
+    const editedcontato = await editContato();
+  } catch (error) {
+    console.log("erro ao editar", error);
+  }
+}
+
 module.exports = {
   addContatos,
   delContatcs,
+  editContatos,
 };
