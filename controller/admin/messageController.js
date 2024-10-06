@@ -152,7 +152,7 @@ async function BotPostMedia(req, res) {
 
   // O arquivo está disponível em req.file
   const filePath = req.file.path; // O caminho do arquivo salvo
-
+  const fileType = req.file.mimetype.split("/")[0]; // Pega o tipo (audio, image, video, etc.)
   try {
     const msg = await botMedia(
       adminId,
@@ -160,7 +160,8 @@ async function BotPostMedia(req, res) {
       phonecontact,
       conversation_id, // ou idConversa, se preferir
       filePath, // Passando o caminho do arquivo
-      contactId
+      contactId,
+      fileType
     );
     res.json({ msg });
   } catch (error) {

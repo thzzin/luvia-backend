@@ -394,7 +394,8 @@ async function botMedia(
   phonecontact,
   idConversa,
   filePath,
-  contactId
+  contactId,
+  fileType
 ) {
   console.log("Entrou na função botMedia com os parâmetros:", {
     adminId,
@@ -408,56 +409,59 @@ async function botMedia(
   try {
     const admin = await Admin.findByPk(adminId);
     if (!admin) {
-      console.error(`Administrador não encontrado para o adminId: ${adminId}`);
       throw new Error("Administrador não encontrado.");
     }
 
     const { idNumero, acessToken } = admin;
 
-    // Verifica se o token de acesso está presente
     if (!acessToken) {
-      console.error("Token de acesso não encontrado.");
       throw new Error("Token de acesso não encontrado.");
     }
 
-    // Verifica se o arquivo existe
     if (!fs.existsSync(filePath)) {
-      console.error(`Arquivo não encontrado no caminho: ${filePath}`);
       throw new Error("Arquivo não encontrado: " + filePath);
     }
 
     // Fazendo o upload do arquivo
     const urlUpload = `https://graph.facebook.com/v21.0/${idNumero}/media`;
+    const fileStream = fs.createReadStream(filePath);
 
-    // Obter informações do arquivo
-    const fileStats = fs.statSync(filePath);
-    const fileName = filePath.split("/").pop();
-    const fileType = getFileType(fileName); // Certifique-se de que essa função está definida
+    const form = new FormData();
+    form.append("file", fileStream, { filename: path.basename(filePath) });
+    form.append("messaging_product", "whatsapp");
 
-    // Fazer o upload do arquivo
-    const uploadResponse = await axios.post(urlUpload, null, {
-      params: {
-        file_name: fileName,
-        file_length: fileStats.size,
-        file_type: fileType,
-      },
+    const uploadResponse = await axios.post(urlUpload, form, {
       headers: {
+        ...form.getHeaders(),
         Authorization: `Bearer ${acessToken}`,
       },
     });
 
     const mediaId = uploadResponse.data.id;
+    if (!mediaId) {
+      throw new Error("Media ID não foi retornado no upload.");
+    }
 
     // Enviando a mensagem com o ID do arquivo
     const messageData = {
       messaging_product: "whatsapp",
       recipient_type: "individual",
       to: phonecontact,
-      type: "image",
-      image: {
+      type: fileType, // utiliza o tipo de arquivo
+      [fileType]: {
         id: mediaId,
       },
     };
+
+    await axios.post(
+      `https://graph.facebook.com/v21.0/${idNumero}/messages`,
+      messageData,
+      {
+        headers: {
+          Authorization: `Bearer ${acessToken}`,
+        },
+      }
+    );
 
     // Registrando a mensagem no banco de dados
     const conversId = await findOrCreateConversation(
@@ -465,12 +469,43 @@ async function botMedia(
       adminId,
       conversationId
     );
+    const conversationIdValue = conversId.id || conversId[0]?.id;
+
+    let urlFile;
+
+    const uploadUrlMap = {
+      audio: "http://getluvia.com.br:3003/audio/upload-from-whatsapp",
+      document: "http://getluvia.com.br:3003/document/upload-from-whatsapp",
+      image: "http://getluvia.com.br:3003/image/upload-from-whatsapp",
+      video: "http://getluvia.com.br:3003/video/upload-from-whatsapp",
+    };
+
+    try {
+      const uploadUrl = uploadUrlMap[fileType] || uploadUrlMap.document; // default para documento
+      const response = await axios.post(
+        uploadUrl,
+        {
+          idFile: mediaId,
+          bearerToken: acessToken,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            api_access_token: `${acessToken}`,
+          },
+        }
+      );
+      urlFile = response.data.imageUrl; // ou response.data.url dependendo da API
+    } catch (error) {
+      console.error(`Erro ao fazer upload do ${fileType}:`, error);
+    }
 
     const message = await Message.create({
-      conversation_id: conversId.toString(),
+      conversation_id: conversationIdValue.toString(),
       contato_id: phonecontact.toString(),
-      content: fileName,
-      message_type: "image",
+      content: urlFile,
+      message_type: "sent",
+      type: fileType,
       admin_id: adminId.toString(),
       phonecontact: phonecontact.toString(),
       idConversa: idConversa.toString(),
@@ -479,7 +514,7 @@ async function botMedia(
     return message;
   } catch (error) {
     console.error("Erro ao enviar a mídia:", error.message);
-    throw error; // Re-throw the error if you want to handle it further up
+    throw error;
   }
 }
 async function convertToMp3(inputPath, outputPath) {
