@@ -438,6 +438,7 @@ async function botMedia(
         file_name: fileName,
         file_length: fileStats.size,
         file_type: fileType,
+        messaging_product: "whatsapp",
       },
       headers: {
         Authorization: `Bearer ${acessToken}`,
@@ -445,6 +446,28 @@ async function botMedia(
     });
 
     const mediaId = uploadResponse.data.id;
+
+    let urlimg;
+
+    try {
+      const url = "http://getluvia.com.br:3003/image/upload-from-whatsapp";
+      const response = await axios.post(
+        url,
+        {
+          idImage: mediaId, // Aqui você adiciona o idmessage
+          bearerToken: bearerToken, // E o bearerToken
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            api_access_token: `${bearerToken}`,
+          },
+        }
+      );
+      urlimg = response.data.imageUrl;
+    } catch (error) {
+      console.log("Erro ao fazer upload do áudio:", error);
+    }
 
     // Enviando a mensagem com o ID do arquivo
     const messageData = {
@@ -467,7 +490,7 @@ async function botMedia(
     const message = await Message.create({
       conversation_id: conversId.toString(),
       contato_id: phonecontact.toString(),
-      content: fileName,
+      content: urlimg,
       message_type: "image",
       admin_id: adminId.toString(),
       phonecontact: phonecontact.toString(),
