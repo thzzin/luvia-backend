@@ -287,9 +287,10 @@ async function postImg(messageData) {
       );
       urlimg = response.data.imageUrl;
     } catch (error) {}
+    const conversationIdValue = (conversId.id || conversId[0]?.id).toString(); // Ajustado para garantir que você pega o ID corretamente
 
     const message = await Message.create({
-      conversation_id: conversId.toString(),
+      conversation_id: conversationIdValue,
       contato_id: phoneNumberUser.toString(),
       content: urlimg,
       type: "image",
