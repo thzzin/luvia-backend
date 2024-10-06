@@ -381,9 +381,96 @@ async function postAudios(messageData) {
   }
 }
 
-async function postDoc(req, res) {
+async function botDoc(
+  adminId,
+  conversationId,
+  phonecontact,
+  idConversa,
+  filePath,
+  contactId
+) {
   try {
-  } catch (error) {}
+    const admin = await Admin.findByPk(adminId);
+    if (!admin) {
+      throw new Error("Administrador não encontrado.");
+    }
+
+    const { idNumero, acessToken } = admin;
+
+    // Verifica se o token de acesso está presente
+    if (!acessToken) {
+      throw new Error("Token de acesso não encontrado.");
+    }
+
+    // Verifica se o arquivo existe
+    if (!fs.existsSync(filePath)) {
+      throw new Error("Arquivo não encontrado: " + filePath);
+    }
+
+    // Fazendo o upload do arquivo
+    const urlUpload = `https://graph.facebook.com/v21.0/${idNumero}/media`;
+
+    const fileStream = fs.createReadStream(filePath);
+    const form = new FormData();
+    form.append("file", fileStream);
+    form.append("messaging_product", "whatsapp");
+
+    const uploadResponse = await axios.post(urlUpload, form, {
+      headers: {
+        ...form.getHeaders(),
+        Authorization: `Bearer ${acessToken}`,
+      },
+    });
+
+    const mediaId = uploadResponse.data.id;
+    if (!mediaId) {
+      throw new Error("Media ID não foi retornado no upload.");
+    }
+
+    // Enviando a mensagem com o ID do arquivo
+    const messageData = {
+      messaging_product: "whatsapp",
+      recipient_type: "individual",
+      to: phonecontact,
+      type: "document",
+      document: {
+        id: mediaId,
+      },
+    };
+
+    await axios.post(
+      `https://graph.facebook.com/v21.0/${idNumero}/messages`,
+      messageData,
+      {
+        headers: {
+          Authorization: `Bearer ${acessToken}`,
+        },
+      }
+    );
+
+    // Registrando a mensagem no banco de dados
+    const conversId = await findOrCreateConversation(
+      contactId,
+      adminId,
+      conversationId
+    );
+    const conversationIdValue = (conversId.id || conversId[0]?.id).toString(); // Ajustado para garantir que você pega o ID corretamente
+
+    const message = await Message.create({
+      conversation_id: conversationIdValue,
+      contato_id: phonecontact.toString(),
+      content: `Documento enviado com ID: ${mediaId}`, // Pode ser ajustado conforme necessário
+      message_type: "document",
+      admin_id: adminId.toString(),
+      phonecontact: phonecontact.toString(),
+      idConversa: idConversa.toString(),
+    });
+
+    return message;
+  } catch (error) {
+    console.error("Erro ao enviar o documento:", error.message);
+    throw error; // Re-throw the error if you want to handle it further up
+  }
 }
 
 async function botMedia(
@@ -650,7 +737,7 @@ module.exports = {
   msgClient,
   postImg,
   postAudios,
-  postDoc,
+  botDoc,
   botMedia,
   botAudio,
 };

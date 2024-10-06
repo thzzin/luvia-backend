@@ -53,6 +53,13 @@ router.post(
   messageController.BotPostMedia
 );
 
+router.post(
+  "/postdoc",
+  checkToken,
+  upload.single("file"),
+  messageController.PostDoc
+);
+
 router.post("/numero", checkToken, adminController.savePhone);
 router.post("/tokens", checkToken, adminController.saveTokens);
 

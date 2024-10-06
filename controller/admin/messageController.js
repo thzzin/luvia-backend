@@ -8,6 +8,7 @@ const {
   postAudios,
   botMedia,
   botAudio,
+  botDoc,
 } = require("../../service/messageService");
 const multer = require("multer");
 
@@ -121,14 +122,26 @@ async function PostAudio(req, res) {
 }
 
 async function PostDoc(req, res) {
-  const incomingData = req.body;
+  const { conversation_id, phonecontact, contactId } = req.body;
+  const adminId = req.user.id;
+  const conversationId = conversation_id;
+
+  // O arquivo está disponível em req.file
+  const filePath = req.file.path; // O caminho do arquivo salvo
 
   try {
-    const msgDoc = await postDoc(incomingData);
-    res.json(msgDoc);
+    const msg = await botDoc(
+      adminId,
+      conversationId,
+      phonecontact,
+      conversation_id, // ou idConversa, se preferir
+      filePath, // Passando o caminho do arquivo
+      contactId
+    );
+    res.json({ msg });
   } catch (error) {
-    console.log("erro ao pegar msg robo", error);
-    res.status(500).send("Server error");
+    console.log("Erro ao processar a mensagem:", error);
+    res.status(500).json({ error: "Erro ao processar a mensagem" });
   }
 }
 
