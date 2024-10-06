@@ -473,28 +473,13 @@ async function botMedia(
 
     let urlFile;
 
-    const uploadUrlMap = {
-      audio: "http://getluvia.com.br:3003/audio/upload-from-whatsapp",
-      document: "http://getluvia.com.br:3003/document/upload-from-whatsapp",
-      image: "http://getluvia.com.br:3003/image/upload-from-whatsapp",
-      video: "http://getluvia.com.br:3003/video/upload-from-whatsapp",
-    };
-
     try {
-      const uploadUrl = uploadUrlMap[fileType] || uploadUrlMap.document; // default para documento
-      const response = await axios.post(
-        uploadUrl,
-        {
-          idFile: mediaId,
-          bearerToken: acessToken,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            api_access_token: `${acessToken}`,
-          },
-        }
-      );
+      const uploadUrl =
+        "http://getluvia.com.br:3003/image/upload-from-whatsapp"; // default para documento
+      const response = await axios.post(uploadUrl, {
+        idFile: mediaId,
+        bearerToken: acessToken,
+      });
       urlFile = response.data.imageUrl; // ou response.data.url dependendo da API
     } catch (error) {
       console.error(`Erro ao fazer upload do ${fileType}:`, error);
