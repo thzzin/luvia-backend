@@ -252,7 +252,7 @@ async function postImg(messageData) {
     const idConversation = messageData?.messages?.[0]?.id; // id da conversa
     const name = messageData?.contacts?.[0]?.profile?.name; // Verifica se profile e name existem
     const idImage = messageData?.messages?.[0]?.image?.id; // ID da imagem
-
+    const phoneNumber = messages[0]?.from;
     const admin = await Admin.findOne({ where: { phone: phoneNumberAdmin } });
 
     if (!admin) {
@@ -291,7 +291,7 @@ async function postImg(messageData) {
 
     const message = await Message.create({
       conversation_id: conversationIdValue,
-      contato_id: phoneNumberUser.toString(),
+      contato_id: phoneNumber.toString(),
       content: urlimg,
       type: "image",
       message_type: messageType,
