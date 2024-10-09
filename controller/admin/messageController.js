@@ -152,7 +152,7 @@ async function BotPostMedia(req, res) {
 
   // O arquivo está disponível em req.file
   const filePath = req.file.path; // O caminho do arquivo salvo
-  const fileType = req.file.mimetype.split("/")[0]; // Pega o tipo (audio, image, video, etc.)
+  const fileType = req.file.mimetype; // Pega o tipo MIME completo
 
   try {
     // Mapeando o tipo de arquivo para os tipos aceitos pela função botMedia
