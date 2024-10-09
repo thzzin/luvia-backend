@@ -153,7 +153,11 @@ async function BotPostMedia(req, res) {
   // O arquivo está disponível em req.file
   const filePath = req.file.path; // O caminho do arquivo salvo
   const fileType = req.file.mimetype.split("/")[0]; // Pega o tipo (audio, image, video, etc.)
+
   try {
+    // Mapeando o tipo de arquivo para os tipos aceitos pela função botMedia
+    const mappedFileType = mapFileType(fileType);
+
     const msg = await botMedia(
       adminId,
       conversationId,
@@ -161,13 +165,24 @@ async function BotPostMedia(req, res) {
       conversation_id, // ou idConversa, se preferir
       filePath, // Passando o caminho do arquivo
       contactId,
-      fileType
+      mappedFileType // Passando o tipo mapeado
     );
+
     res.json({ msg });
   } catch (error) {
     console.log("Erro ao processar a mensagem:", error);
     res.status(500).json({ error: "Erro ao processar a mensagem" });
   }
+}
+
+// Função para mapear o tipo de arquivo
+function mapFileType(mimeType) {
+  if (mimeType.startsWith("image/")) return "image";
+  if (mimeType.startsWith("audio/")) return "audio";
+  if (mimeType.startsWith("video/")) return "video";
+  if (mimeType === "application/pdf" || mimeType.startsWith("application/vnd"))
+    return "document";
+  throw new Error(`Tipo de arquivo não suportado: ${mimeType}`);
 }
 
 async function BotPostAudio(req, res) {
