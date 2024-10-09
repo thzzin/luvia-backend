@@ -475,7 +475,7 @@ async function botMedia(
 
     try {
       const uploadUrl =
-        "http://getluvia.com.br:3003/image/upload-from-whatsapp"; // default para documento
+        "http://getluvia.com.br:3003/images/upload-from-whatsapp"; // default para documento
       const response = await axios.post(uploadUrl, {
         idFile: mediaId,
         bearerToken: acessToken,
