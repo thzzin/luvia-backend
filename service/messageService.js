@@ -388,6 +388,97 @@ async function postDoc(req, res) {
   } catch (error) {}
 }
 
+const fs = require("fs");
+const path = require("path");
+const axios = require("axios");
+const FormData = require("form-data");
+
+const mediaTypes = {
+  audio: {
+    types: {
+      AAC: { extension: ".aac", mime: "audio/aac", maxSize: 16 * 1024 * 1024 },
+      AMR: { extension: ".amr", mime: "audio/amr", maxSize: 16 * 1024 * 1024 },
+      MP3: { extension: ".mp3", mime: "audio/mpeg", maxSize: 16 * 1024 * 1024 },
+      MP4: { extension: ".m4a", mime: "audio/mp4", maxSize: 16 * 1024 * 1024 },
+      OGG: { extension: ".ogg", mime: "audio/ogg", maxSize: 16 * 1024 * 1024 },
+    },
+  },
+  document: {
+    types: {
+      Text: {
+        extension: ".txt",
+        mime: "text/plain",
+        maxSize: 100 * 1024 * 1024,
+      },
+      ExcelX: {
+        extension: ".xlsx",
+        mime: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        maxSize: 100 * 1024 * 1024,
+      },
+      Excel: {
+        extension: ".xls",
+        mime: "application/vnd.ms-excel",
+        maxSize: 100 * 1024 * 1024,
+      },
+      WordX: {
+        extension: ".docx",
+        mime: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        maxSize: 100 * 1024 * 1024,
+      },
+      Word: {
+        extension: ".doc",
+        mime: "application/msword",
+        maxSize: 100 * 1024 * 1024,
+      },
+      PPTX: {
+        extension: ".pptx",
+        mime: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+        maxSize: 100 * 1024 * 1024,
+      },
+      PPT: {
+        extension: ".ppt",
+        mime: "application/vnd.ms-powerpoint",
+        maxSize: 100 * 1024 * 1024,
+      },
+      PDF: {
+        extension: ".pdf",
+        mime: "application/pdf",
+        maxSize: 100 * 1024 * 1024,
+      },
+    },
+  },
+  image: {
+    types: {
+      JPEG: {
+        extension: ".jpeg",
+        mime: "image/jpeg",
+        maxSize: 5 * 1024 * 1024,
+      },
+      PNG: { extension: ".png", mime: "image/png", maxSize: 5 * 1024 * 1024 },
+      WebPAnimated: {
+        extension: ".webp",
+        mime: "image/webp",
+        maxSize: 500 * 1024,
+      }, // Animated sticker
+      WebPStatic: {
+        extension: ".webp",
+        mime: "image/webp",
+        maxSize: 100 * 1024,
+      }, // Static sticker
+    },
+  },
+  video: {
+    types: {
+      MP4: { extension: ".mp4", mime: "video/mp4", maxSize: 16 * 1024 * 1024 },
+      ThreeGP: {
+        extension: ".3gp",
+        mime: "video/3gp",
+        maxSize: 16 * 1024 * 1024,
+      },
+    },
+  },
+};
+
 async function botMedia(
   adminId,
   conversationId,
@@ -407,19 +498,23 @@ async function botMedia(
   });
 
   try {
+    // Validando tipo de mídia
+    const validTypeInfo = validateFileType(fileType, filePath);
+
     const admin = await Admin.findByPk(adminId);
-    if (!admin) {
-      throw new Error("Administrador não encontrado.");
-    }
+    if (!admin) throw new Error("Administrador não encontrado.");
 
     const { idNumero, acessToken } = admin;
 
-    if (!acessToken) {
-      throw new Error("Token de acesso não encontrado.");
-    }
-
-    if (!fs.existsSync(filePath)) {
+    if (!acessToken) throw new Error("Token de acesso não encontrado.");
+    if (!fs.existsSync(filePath))
       throw new Error("Arquivo não encontrado: " + filePath);
+    if (fs.statSync(filePath).size > validTypeInfo.maxSize) {
+      throw new Error(
+        `Arquivo excede o tamanho máximo permitido de ${
+          validTypeInfo.maxSize / (1024 * 1024)
+        } MB.`
+      );
     }
 
     // Fazendo o upload do arquivo
@@ -428,6 +523,7 @@ async function botMedia(
 
     const form = new FormData();
     form.append("file", fileStream, { filename: path.basename(filePath) });
+    form.append("type", validTypeInfo.mime);
     form.append("messaging_product", "whatsapp");
 
     const uploadResponse = await axios.post(urlUpload, form, {
@@ -438,9 +534,7 @@ async function botMedia(
     });
 
     const mediaId = uploadResponse.data.id;
-    if (!mediaId) {
-      throw new Error("Media ID não foi retornado no upload.");
-    }
+    if (!mediaId) throw new Error("Media ID não foi retornado no upload.");
 
     // Enviando a mensagem com o ID do arquivo
     const messageData = {
@@ -448,18 +542,14 @@ async function botMedia(
       recipient_type: "individual",
       to: phonecontact,
       type: fileType,
-      [fileType]: {
-        id: mediaId,
-      },
+      [fileType]: { id: mediaId },
     };
 
     await axios.post(
       `https://graph.facebook.com/v21.0/${idNumero}/messages`,
       messageData,
       {
-        headers: {
-          Authorization: `Bearer ${acessToken}`,
-        },
+        headers: { Authorization: `Bearer ${acessToken}` },
       }
     );
 
@@ -471,14 +561,13 @@ async function botMedia(
     );
     const conversationIdValue = conversId.id || conversId[0]?.id;
 
-    // Adiciona lógica para obter o URL da imagem, caso necessário
     let urlImage;
     try {
       const url = "http://getluvia.com.br:3003/images/upload-from-whatsapp"; // Ajuste a URL conforme necessário
       const response = await axios.post(
         url,
         {
-          idImage: mediaId, // Adicione o ID da mídia
+          idImage: mediaId,
           bearerToken: acessToken,
         },
         {
@@ -488,7 +577,7 @@ async function botMedia(
           },
         }
       );
-      urlImage = response.data.imageUrl; // Aqui você obtém o URL da imagem
+      urlImage = response.data.imageUrl; // Obtendo o URL da imagem
     } catch (error) {
       console.log("Erro ao fazer upload da imagem:", error.message);
     }
@@ -496,7 +585,7 @@ async function botMedia(
     const message = await Message.create({
       conversation_id: conversationIdValue.toString(),
       contato_id: phonecontact.toString(),
-      content: urlImage, // Use o URL da imagem
+      content: urlImage || "", // Use o URL da imagem, se disponível
       message_type: "sent",
       type: fileType,
       admin_id: adminId.toString(),
@@ -509,6 +598,27 @@ async function botMedia(
     console.error("Erro ao enviar a mídia:", error.message);
     throw error;
   }
+}
+
+// Função para validar o tipo de arquivo
+function validateFileType(fileType, filePath) {
+  const typeInfo = mediaTypes[fileType];
+  if (!typeInfo) {
+    throw new Error(`Tipo de arquivo inválido: ${fileType}`);
+  }
+
+  const fileExtension = path.extname(filePath).toLowerCase();
+  const validType = Object.values(typeInfo.types).find(
+    (type) => type.extension === fileExtension
+  );
+
+  if (!validType) {
+    throw new Error(
+      `Extensão do arquivo inválida para o tipo ${fileType}: ${fileExtension}`
+    );
+  }
+
+  return validType;
 }
 
 async function convertToMp3(inputPath, outputPath) {
