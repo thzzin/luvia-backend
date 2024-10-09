@@ -447,7 +447,7 @@ async function botMedia(
       messaging_product: "whatsapp",
       recipient_type: "individual",
       to: phonecontact,
-      type: fileType, // utiliza o tipo de arquivo
+      type: fileType,
       [fileType]: {
         id: mediaId,
       },
@@ -471,24 +471,32 @@ async function botMedia(
     );
     const conversationIdValue = conversId.id || conversId[0]?.id;
 
-    let urlFile;
-
+    // Adiciona lógica para obter o URL da imagem, caso necessário
+    let urlImage;
     try {
-      const uploadUrl =
-        "http://getluvia.com.br:3003/images/upload-from-whatsapp"; // default para documento
-      const response = await axios.post(uploadUrl, {
-        idFile: mediaId,
-        bearerToken: acessToken,
-      });
-      urlFile = response.data.imageUrl; // ou response.data.url dependendo da API
+      const url = "http://getluvia.com.br:3003/images/upload-from-whatsapp"; // Ajuste a URL conforme necessário
+      const response = await axios.post(
+        url,
+        {
+          idImage: mediaId, // Adicione o ID da mídia
+          bearerToken: acessToken,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            api_access_token: `${acessToken}`,
+          },
+        }
+      );
+      urlImage = response.data.imageUrl; // Aqui você obtém o URL da imagem
     } catch (error) {
-      console.error(`Erro ao fazer upload do ${fileType}:`, error);
+      console.log("Erro ao fazer upload da imagem:", error.message);
     }
 
     const message = await Message.create({
       conversation_id: conversationIdValue.toString(),
       contato_id: phonecontact.toString(),
-      content: urlFile,
+      content: urlImage, // Use o URL da imagem
       message_type: "sent",
       type: fileType,
       admin_id: adminId.toString(),
@@ -502,6 +510,7 @@ async function botMedia(
     throw error;
   }
 }
+
 async function convertToMp3(inputPath, outputPath) {
   return new Promise((resolve, reject) => {
     ffmpeg(inputPath)
@@ -611,7 +620,7 @@ async function botAudio(
       );
       urlAudio = response.data.imageUrl;
     } catch (error) {
-      console.log("Erro ao fazer upload do áudio:", error);
+      console.log("Erro ao fazer upload do áudio:", error.data);
     }
 
     const conversationIdValue = conversId.id || conversId[0].id;
