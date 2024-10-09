@@ -176,12 +176,14 @@ async function BotPostMedia(req, res) {
 }
 
 // Função para mapear o tipo de arquivo
+// Função para mapear o tipo de arquivo
 function mapFileType(mimeType) {
   if (mimeType.startsWith("image/")) return "image";
   if (mimeType.startsWith("audio/")) return "audio";
   if (mimeType.startsWith("video/")) return "video";
   if (mimeType === "application/pdf" || mimeType.startsWith("application/vnd"))
     return "document";
+  if (mimeType === "text/plain") return "document"; // Adicionando suporte para arquivos de texto
   throw new Error(`Tipo de arquivo não suportado: ${mimeType}`);
 }
 
