@@ -6,7 +6,7 @@ const Contato = require("../models/Contato");
 const Etiquetas = require("../models/Etiquetas");
 const NodeCache = require("node-cache");
 const cache = new NodeCache({ stdTTL: 60, checkperiod: 120 }); // TTL de 60 segundos
-require("./models/relations"); // Ajuste o caminho conforme necessário
+require("../models/relations"); // Ajuste o caminho conforme necessário
 
 async function getEtiquetas(adminId) {
   const admin = await Admin.findByPk(adminId);
