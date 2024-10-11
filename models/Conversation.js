@@ -11,16 +11,18 @@ const Conversa = sequelize.define(
       primaryKey: true,
     },
     contato_id: {
-      type: DataTypes.STRING, // Deve ser o mesmo tipo que o 'id' do Contato
+      type: DataTypes.UUID, // Corrigir para UUID em vez de VARCHAR
       allowNull: false,
       references: {
-        model: Contato,
-        key: "id",
+        model: Contato, // Referencia a tabela 'contatos'
+        key: "id", // O campo 'id' da tabela 'contatos'
       },
+      onDelete: "CASCADE", // Opcional, dependendo do comportamento desejado
+      onUpdate: "CASCADE",
     },
     created_at: {
       type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
+      allowNull: true,
     },
     phoneadmin: {
       type: DataTypes.STRING,
@@ -34,14 +36,21 @@ const Conversa = sequelize.define(
       type: DataTypes.ARRAY(DataTypes.INTEGER),
       allowNull: true,
     },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
   },
   {
     tableName: "conversas",
     timestamps: true,
   }
 );
-
-Contato.hasMany(Conversa, { foreignKey: "contato_id" });
-Conversa.belongsTo(Contato, { foreignKey: "contato_id" });
 
 module.exports = Conversa;
