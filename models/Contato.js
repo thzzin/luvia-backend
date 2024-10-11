@@ -7,6 +7,11 @@ const Admin = require("./Admin");
 const Contato = sequelize.define(
   "Contato",
   {
+    id: {
+      type: DataTypes.STRING,
+      primaryKey: true,
+      allowNull: false,
+    },
     phone_number: {
       type: DataTypes.STRING, // Mantenha como STRING se você precisar armazenar números com prefixos
       primaryKey: true, // Define phone_number como chave primária
