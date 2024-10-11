@@ -58,29 +58,33 @@ async function FindConversation(contactId) {
 }
 
 async function PostMsg(req, res) {
-  // quando o bot manda mensagem
+  // Quando o bot manda mensagem
   console.log("caiu coisa nova");
   const incomingData = req.body; // Assume que o body contém um objeto com 'statuses'
-  console.log("incomingData", JSON.stringify(incomingData, null, 2)); // Para uma visualização mais legível
-
-  // Acessando os dados relevantes
-  if (incomingData.object && Array.isArray(incomingData.entry)) {
-    incomingData.entry.forEach((entry) => {
-      const entryId = entry.id;
-      const changes = entry.changes;
-
-      console.log(`Entry ID: ${entryId}`);
-      changes.forEach((change) => {
-        console.log("Change:", JSON.stringify(change, null, 2)); // Loga cada mudança
-      });
-    });
-  } // Verifique se 'statuses' está presente e é um array
-  const messages = incomingData.statuses || []; // Se 'statuses' não existir, inicializa como array vazio
+  console.log("incomingData", incomingData);
 
   try {
-    // Enviar os dados necessários para a função receivedMessage
+    // Verifica se a estrutura está "suja" e limpa os dados
+    let cleanedData;
 
-    const msgResult = await receivedMessage(incomingData);
+    if (
+      incomingData.object === "whatsapp_business_account" &&
+      incomingData.entry
+    ) {
+      const entry = incomingData.entry[0];
+      if (entry.changes && entry.changes.length) {
+        cleanedData = entry.changes[0].value;
+      } else {
+        throw new Error(
+          "Estrutura de dados inválida: 'changes' não encontrado"
+        );
+      }
+    } else {
+      cleanedData = incomingData; // Assumir que já está limpo
+    }
+
+    // Enviar os dados necessários para a função receivedMessage
+    const msgResult = await receivedMessage(cleanedData);
 
     res
       .status(200)
