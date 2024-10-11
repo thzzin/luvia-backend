@@ -65,6 +65,7 @@ router.post("/tokens", checkToken, adminController.saveTokens);
 
 //---------------api-------------------
 router.post("/receivedmsg", messageController.PostMsg);
+router.get("/receivedmsg", messageController.VaiCorinthians);
 router.post("/botmsg", messageController.PostBotMsg);
 router.post("/postimg", messageController.PostBotImg);
 router.post("/postaudio", messageController.PostAudio);

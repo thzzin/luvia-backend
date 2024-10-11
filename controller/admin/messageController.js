@@ -14,6 +14,12 @@ const multer = require("multer");
 
 const upload = multer({ dest: "uploads/" }); // Ajuste o destino conforme necessário
 const ffmpeg = require("fluent-ffmpeg");
+const { response } = require("express");
+
+async function VaiCorinthians() {
+  const res = "vai corinthians";
+  response.json(res);
+}
 
 async function FindContact(phoneNumber) {
   try {
@@ -235,4 +241,5 @@ module.exports = {
   PostDoc,
   BotPostMedia,
   BotPostAudio,
+  VaiCorinthians,
 };
