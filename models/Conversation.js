@@ -1,6 +1,5 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
-const Contato = require("./Contato"); // Certifique-se de que Contato está sendo importado corretamente
 
 const Conversa = sequelize.define(
   "Conversa",
@@ -14,7 +13,7 @@ const Conversa = sequelize.define(
       type: DataTypes.UUID, // UUID para se alinhar com o tipo em Contato
       allowNull: false,
       references: {
-        model: Contato, // Referência correta ao modelo Contato
+        model: "contatos", // Deve corresponder ao nome da tabela do modelo Contato
         key: "id",
       },
       onDelete: "CASCADE",
@@ -52,8 +51,5 @@ const Conversa = sequelize.define(
     timestamps: true,
   }
 );
-
-// Relacionamento Conversa -> Contato
-Conversa.belongsTo(Contato, { foreignKey: "contato_id", as: "contato" });
 
 module.exports = Conversa;

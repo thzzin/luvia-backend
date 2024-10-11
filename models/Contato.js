@@ -1,13 +1,12 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
-const Conversa = require("./Conversation"); // Certifique-se de que este caminho está correto
 
 const Contato = sequelize.define(
   "Contato",
   {
     id: {
       type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4, // Gera um UUID automaticamente
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
       allowNull: false,
     },
@@ -43,8 +42,5 @@ const Contato = sequelize.define(
     timestamps: true,
   }
 );
-
-// Relacionamento Contato -> Conversa (Um Contato tem muitas Conversas)
-Contato.hasMany(Conversa, { foreignKey: "contato_id", as: "conversas" });
 
 module.exports = Contato;

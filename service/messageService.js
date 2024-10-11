@@ -163,7 +163,7 @@ async function findConversationByContactId(contactId) {
       include: [
         {
           model: Contato,
-          as: "contato", // Certifique-se de usar o alias definido na associação
+          as: "contato", // Alias correto, deve ser o mesmo que o utilizado na associação
         },
       ],
     });
