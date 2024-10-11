@@ -59,8 +59,9 @@ async function FindConversation(contactId) {
 
 async function PostMsg(req, res) {
   // quando o bot manda mensagem
+  console.log("caiu coisa nova");
   const incomingData = req.body; // Assume que o body contém um objeto com 'statuses'
-
+  console.log("incomingData", incomingData);
   // Verifique se 'statuses' está presente e é um array
   const messages = incomingData.statuses || []; // Se 'statuses' não existir, inicializa como array vazio
 
