@@ -61,8 +61,20 @@ async function PostMsg(req, res) {
   // quando o bot manda mensagem
   console.log("caiu coisa nova");
   const incomingData = req.body; // Assume que o body contém um objeto com 'statuses'
-  console.log("incomingData", incomingData);
-  // Verifique se 'statuses' está presente e é um array
+  console.log("incomingData", JSON.stringify(incomingData, null, 2)); // Para uma visualização mais legível
+
+  // Acessando os dados relevantes
+  if (incomingData.object && Array.isArray(incomingData.entry)) {
+    incomingData.entry.forEach((entry) => {
+      const entryId = entry.id;
+      const changes = entry.changes;
+
+      console.log(`Entry ID: ${entryId}`);
+      changes.forEach((change) => {
+        console.log("Change:", JSON.stringify(change, null, 2)); // Loga cada mudança
+      });
+    });
+  } // Verifique se 'statuses' está presente e é um array
   const messages = incomingData.statuses || []; // Se 'statuses' não existir, inicializa como array vazio
 
   try {
