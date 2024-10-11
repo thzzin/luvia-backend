@@ -13,23 +13,28 @@ const ffmpeg = require("fluent-ffmpeg");
 async function findOrCreateContact(phoneNumber, name, adminId) {
   try {
     const phoneAsString = phoneNumber.toString();
-    const phoneAdmin = adminId.toString();
+    const phoneAdmin = adminId.toString(); // Assegurando que é uma string
 
     let contact = await Contato.findOne({
-      where: { phone_number: phoneAsString, admin_id: phoneAdmin },
+      where: {
+        phone_number: phoneAsString,
+        phoneadmin: phoneAdmin, // Usando phoneAdmin como string
+      },
     });
+
     if (!contact) {
+      // Se não encontrar, cria um novo contato
       contact = await Contato.create({
         phone_number: phoneAsString,
-        name,
-        email: null,
-        phoneadmin: phoneAdmin,
+        name: name,
+        phoneadmin: phoneAdmin, // Também aqui, garantindo que é uma string
       });
     }
-    return contact.phone_number; // Retorna o phone_number
+
+    return contact.id; // Retorne o ID do contato encontrado ou criado
   } catch (error) {
     console.error("Erro ao buscar ou criar contato:", error);
-    throw error;
+    throw error; // Lança o erro para o chamador lidar
   }
 }
 
