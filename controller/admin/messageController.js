@@ -16,7 +16,7 @@ const upload = multer({ dest: "uploads/" }); // Ajuste o destino conforme necess
 const ffmpeg = require("fluent-ffmpeg");
 const { response } = require("express");
 
-async function VaiCorinthians() {
+async function VaiCorinthians(req, res) {
   // WhatsApp envia o hub.challenge no parâmetro
   const mode = req.query["hub.mode"];
   const token = req.query["hub.verify_token"];
