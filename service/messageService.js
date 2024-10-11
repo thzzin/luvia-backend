@@ -158,6 +158,7 @@ async function findContactByPhoneNumber(phoneNumber) {
 // Função para buscar uma conversa por ID de contato
 async function findConversationByContactId(contactId) {
   try {
+    console.log("recebeu".contactId);
     const conversation = await Conversa.findOne({
       where: { contato_id: contactId },
       include: [
