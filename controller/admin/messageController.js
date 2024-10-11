@@ -17,8 +17,24 @@ const ffmpeg = require("fluent-ffmpeg");
 const { response } = require("express");
 
 async function VaiCorinthians() {
-  const res = "700511043";
-  response.json(res);
+  // WhatsApp envia o hub.challenge no parâmetro
+  const mode = req.query["hub.mode"];
+  const token = req.query["hub.verify_token"];
+  const challenge = req.query["hub.challenge"];
+
+  // Seu token de verificação (configure isso no seu painel do WhatsApp)
+  const verifyToken =
+    "EAAMaEvMlYFYBOzM0Ga4ef907rL4NXA6IwM8z5uc7ZAs3lJZBfd2wrxk9j3F5ldTE7duE7eZCpRCyGiFWYTPsqz9W7az2gAyujlhyKrMd5ocyWAxWm6sIZAlv26YWHSmlbycmbZAg86tYvDjkZAPIUdteBBWhHmzL6jyeQCKhddcw9xJIqgp0SlmxnYwESponYZCy0nxKuPlCnczOKZAwPTBquV3hYE0ZD";
+
+  // Verifica se o token e o modo estão corretos
+  if (mode && token === verifyToken) {
+    console.log("Webhook verificado com sucesso!");
+    // Retorna o desafio como esperado pela API do WhatsApp
+    res.status(200).send(challenge);
+  } else {
+    // Caso contrário, retorna erro 403 (não autorizado)
+    res.status(403).send("Falha na verificação do webhook.");
+  }
 }
 
 async function FindContact(phoneNumber) {
