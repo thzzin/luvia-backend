@@ -17,7 +17,7 @@ const ffmpeg = require("fluent-ffmpeg");
 const { response } = require("express");
 
 async function VaiCorinthians() {
-  const res = "vai corinthians";
+  const res = "700511043";
   response.json(res);
 }
 
