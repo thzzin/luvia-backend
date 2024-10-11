@@ -1,5 +1,5 @@
 const Contato = require("./Contato");
-const Conversa = require("./Conversa");
+const Conversa = require("./Conversation");
 const Message = require("./Message");
 
 // Relacionamento Contato -> Conversa (Um Contato tem muitas Conversas)
