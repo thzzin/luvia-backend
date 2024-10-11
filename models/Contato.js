@@ -6,15 +6,15 @@ const Contato = sequelize.define(
   "Contato",
   {
     id: {
-      type: DataTypes.STRING, // ou DataTypes.INTEGER se preferir
-      autoIncrement: true,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4, // Gera um UUID automaticamente
       primaryKey: true,
       allowNull: false,
     },
     phone_number: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true, // Opcional, se você quiser garantir que os números de telefone sejam únicos
+      unique: true,
     },
     email: {
       type: DataTypes.STRING,
