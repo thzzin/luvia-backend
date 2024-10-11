@@ -160,7 +160,15 @@ async function getConversation(adminPhone) {
 async function getConversaFull(id) {
   try {
     // 1. Buscar a conversa pelo ID
-    const conversa = await Conversa.findOne({ where: { id } });
+    const conversa = await Conversa.findOne({
+      where: { id },
+      include: [
+        {
+          model: Contato,
+          as: "contato", // Usar o alias definido nas associações
+        },
+      ],
+    });
 
     // 2. Verificar se a conversa existe
     if (!conversa) {
@@ -173,12 +181,7 @@ async function getConversaFull(id) {
       order: [["createdAt", "ASC"]], // Ordena as mensagens por data
     });
 
-    // 4. Buscar o contato associado à conversa
-    const contato = await Contato.findOne({
-      where: { phone_number: conversa.contato_id },
-    });
-
-    // 5. Retornar os detalhes da conversa, incluindo todas as mensagens
+    // 4. Retornar os detalhes da conversa, incluindo todas as mensagens e o contato
     return {
       id: conversa.id,
       contato_id: conversa.contato_id,
@@ -189,9 +192,9 @@ async function getConversaFull(id) {
         createdAt: msg.createdAt,
         type: msg.type,
       })), // Array de mensagens
-      contatoName: contato ? contato.name : "null", // Nome do contato
-      contatoPhone: contato ? contato.phone_number : "null", // Número do contato
-      contatoThumbnail: contato ? contato.thumbnail : null, // Thumbnail do contato
+      contatoName: conversa.contato ? conversa.contato.name : null, // Nome do contato
+      contatoPhone: conversa.contato ? conversa.contato.phone_number : null, // Número do contato
+      contatoThumbnail: conversa.contato ? conversa.contato.thumbnail : null, // Thumbnail do contato
     };
   } catch (error) {
     console.error("Erro ao resgatar conversa:", error.message);
