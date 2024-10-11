@@ -61,7 +61,9 @@ async function PostMsg(req, res) {
   // Quando o bot manda mensagem
   console.log("caiu coisa nova");
   const incomingData = req.body; // Assume que o body contém um objeto com 'statuses'
-  console.log("incomingData", incomingData);
+
+  // Log detalhado do corpo da requisição
+  console.log("incomingData:", JSON.stringify(incomingData, null, 2)); // Formato JSON legível
 
   try {
     // Verifica se a estrutura está "suja" e limpa os dados
@@ -71,8 +73,16 @@ async function PostMsg(req, res) {
       incomingData.object === "whatsapp_business_account" &&
       incomingData.entry
     ) {
+      console.log("Estrutura de dados correta: whatsapp_business_account");
+
       const entry = incomingData.entry[0];
+      console.log("Entry:", JSON.stringify(entry, null, 2)); // Log da entrada
+
       if (entry.changes && entry.changes.length) {
+        console.log(
+          "Mudanças encontradas:",
+          JSON.stringify(entry.changes, null, 2)
+        ); // Log das mudanças
         cleanedData = entry.changes[0].value;
       } else {
         throw new Error(
@@ -80,11 +90,20 @@ async function PostMsg(req, res) {
         );
       }
     } else {
+      console.log(
+        "Estrutura de dados não é whatsapp_business_account, assumindo que já está limpa"
+      );
       cleanedData = incomingData; // Assumir que já está limpo
     }
 
+    // Log dos dados limpos que serão enviados para a função receivedMessage
+    console.log("cleanedData:", JSON.stringify(cleanedData, null, 2));
+
     // Enviar os dados necessários para a função receivedMessage
     const msgResult = await receivedMessage(cleanedData);
+
+    // Log do resultado da mensagem
+    console.log("Resultado da mensagem processada:", msgResult);
 
     res
       .status(200)
