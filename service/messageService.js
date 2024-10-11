@@ -100,7 +100,19 @@ async function receivedMessage(incomingData) {
     const adminId = incomingData.metadata.display_phone_number; // Acesse diretamente a propriedade
     const idConversation = incomingData.messages[0].id;
     // Processa as funções findOrCreateContact e findOrCreateConversation
+    console.log(
+      "vai achar o contato ou criar passando",
+      phoneNumber,
+      name,
+      adminId
+    );
     const contactId = await findOrCreateContact(phoneNumber, name, adminId);
+    console.log(
+      "vai criar ou achar a conversa passando",
+      contactId,
+      adminId,
+      idConversation
+    );
     const conversation = await findOrCreateConversation(
       contactId,
       adminId,
