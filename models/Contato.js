@@ -1,21 +1,19 @@
-// models/Contato.js
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
-const Conversa = require("./Conversation");
 const Admin = require("./Admin");
 
 const Contato = sequelize.define(
   "Contato",
   {
     id: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING, // ou DataTypes.INTEGER se preferir
       primaryKey: true,
       allowNull: false,
     },
     phone_number: {
-      type: DataTypes.STRING, // Mantenha como STRING se você precisar armazenar números com prefixos
-      primaryKey: true, // Define phone_number como chave primária
+      type: DataTypes.STRING,
       allowNull: false,
+      unique: true, // Opcional, se você quiser garantir que os números de telefone sejam únicos
     },
     email: {
       type: DataTypes.STRING,
@@ -32,10 +30,10 @@ const Contato = sequelize.define(
     createdAt: {
       type: DataTypes.DATE,
       allowNull: true,
-      defaultValue: DataTypes.NOW, // Adiciona valor padrão de data/hora atual
+      defaultValue: DataTypes.NOW,
     },
     phoneadmin: {
-      type: DataTypes.STRING, // Mantenha como STRING se você precisar armazenar números com prefixos
+      type: DataTypes.STRING,
       allowNull: true,
     },
   },
@@ -45,7 +43,7 @@ const Contato = sequelize.define(
   }
 );
 
-// Definindo o relacionamento Contato -> Conversas (Um para muitos)
+// Definindo o relacionamento Contato -> Admin (Um para muitos)
 Admin.hasMany(Contato, { foreignKey: "admin_id" });
 Contato.belongsTo(Admin, { foreignKey: "admin_id" });
 

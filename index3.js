@@ -41,7 +41,7 @@ async function checkDatabaseConnection() {
 async function syncDatabase() {
   try {
     // Sincroniza todos os modelos que ainda não foram criados no banco de dados
-    await sequelize.sync({ alter: true, force: false }); // force: false não apaga dados existentes
+    await sequelize.sync({ alter: true, force: true }); // force: false não apaga dados existentes
     console.log("Tabelas sincronizadas com sucesso!");
   } catch (error) {
     console.error("Erro ao sincronizar o banco de dados:", error);
