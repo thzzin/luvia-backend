@@ -160,6 +160,12 @@ async function findConversationByContactId(contactId) {
   try {
     const conversation = await Conversa.findOne({
       where: { contato_id: contactId },
+      include: [
+        {
+          model: Contato,
+          as: "contato", // Certifique-se de usar o alias definido na associação
+        },
+      ],
     });
     return conversation;
   } catch (error) {

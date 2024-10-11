@@ -45,7 +45,6 @@ const Contato = sequelize.define(
 );
 
 // Definindo o relacionamento Contato -> Admin (Um para muitos)
-Admin.hasMany(Contato, { foreignKey: "admin_id" });
-Contato.belongsTo(Admin, { foreignKey: "admin_id" });
+Contato.hasMany(Conversa, { foreignKey: "contato_id", as: "conversas" });
 
 module.exports = Contato;

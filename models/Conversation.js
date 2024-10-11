@@ -53,4 +53,6 @@ const Conversa = sequelize.define(
   }
 );
 
+Conversa.belongsTo(Contato, { foreignKey: "contato_id", as: "contato" });
+
 module.exports = Conversa;
