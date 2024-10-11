@@ -58,32 +58,33 @@ async function FindConversation(contactId) {
 }
 
 async function PostMsg(req, res) {
-  // Quando o bot manda mensagem
   console.log("caiu coisa nova");
-  const incomingData = req.body; // Assume que o body contém um objeto com 'statuses'
+  const incomingData = req.body;
 
-  // Log detalhado do corpo da requisição
-  console.log("incomingData:", JSON.stringify(incomingData, null, 2)); // Formato JSON legível
+  // Log do corpo da requisição (opcional)
+  console.log("incomingData:", JSON.stringify(incomingData, null, 2));
 
   try {
-    // Verifica se a estrutura está "suja" e limpa os dados
     let cleanedData;
 
     if (
       incomingData.object === "whatsapp_business_account" &&
       incomingData.entry
     ) {
-      console.log("Estrutura de dados correta: whatsapp_business_account");
-
       const entry = incomingData.entry[0];
-      console.log("Entry:", JSON.stringify(entry, null, 2)); // Log da entrada
 
+      // Verifica se as mudanças contêm mensagens
       if (entry.changes && entry.changes.length) {
-        console.log(
-          "Mudanças encontradas:",
-          JSON.stringify(entry.changes, null, 2)
-        ); // Log das mudanças
-        cleanedData = entry.changes[0].value;
+        for (const change of entry.changes) {
+          if (change.field === "messages") {
+            cleanedData = change.value; // Apenas dados de mensagens
+            console.log(
+              "Dados de mensagens encontrados:",
+              JSON.stringify(cleanedData, null, 2)
+            );
+            break; // Para evitar continuar se já encontramos mensagens
+          }
+        }
       } else {
         throw new Error(
           "Estrutura de dados inválida: 'changes' não encontrado"
@@ -91,19 +92,23 @@ async function PostMsg(req, res) {
       }
     } else {
       console.log(
-        "Estrutura de dados não é whatsapp_business_account, assumindo que já está limpa"
+        "Estrutura de dados não é whatsapp_business_account, ignorando."
       );
-      cleanedData = incomingData; // Assumir que já está limpo
+      return res.status(400).send("Estrutura de dados inválida.");
     }
 
-    // Log dos dados limpos que serão enviados para a função receivedMessage
-    console.log("cleanedData:", JSON.stringify(cleanedData, null, 2));
+    // Verifica se cleanedData foi populado
+    if (
+      !cleanedData ||
+      !cleanedData.messages ||
+      cleanedData.messages.length === 0
+    ) {
+      console.log("Nenhuma mensagem válida encontrada, ignorando.");
+      return res.status(200).send("Nenhuma mensagem para processar.");
+    }
 
     // Enviar os dados necessários para a função receivedMessage
     const msgResult = await receivedMessage(cleanedData);
-
-    // Log do resultado da mensagem
-    console.log("Resultado da mensagem processada:", msgResult);
 
     res
       .status(200)
