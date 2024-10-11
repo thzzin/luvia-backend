@@ -87,12 +87,14 @@ async function getConversation(adminPhone) {
   // Verificar se os dados estão no cache
   const cachedData = cache.get(cacheKey);
   if (cachedData) {
+    console.log("Retornando dados do cache:", cachedData);
     return cachedData; // Retornar dados do cache se disponíveis
   }
 
   try {
     // 1. Buscar o Admin pelo número de telefone
     const admin = await Admin.findOne({ where: { phone: adminPhone } });
+    console.log("Admin encontrado:", admin);
 
     // 2. Verificar se o Admin existe
     if (!admin) {
@@ -105,9 +107,11 @@ async function getConversation(adminPhone) {
       include: [
         {
           model: Conversa,
+          as: "conversas", // Use o alias definido nas associações
           include: [
             {
               model: Message,
+              as: "messages", // Use o alias definido nas associações
               order: [["createdAt", "DESC"]],
               limit: 1, // Pegar apenas a última mensagem
             },
@@ -116,10 +120,12 @@ async function getConversation(adminPhone) {
       ],
     });
 
+    console.log("Contatos encontrados:", contatos);
+
     // 4. Extrair as conversas e suas últimas mensagens
     const conversasComDetalhes = contatos.map((contato) => {
-      const conversa = contato.Conversas[0]; // Pegar a primeira conversa (última mensagem)
-      const lastMessage = conversa.Messages[0]; // A última mensagem da conversa
+      const conversa = contato.conversas[0]; // Pegar a primeira conversa (última mensagem)
+      const lastMessage = conversa.messages[0]; // A última mensagem da conversa
 
       return {
         id: conversa.id,
@@ -136,6 +142,8 @@ async function getConversation(adminPhone) {
         contatoThumbnail: contato.thumbnail,
       };
     });
+
+    console.log("Conversas com detalhes:", conversasComDetalhes);
 
     // 5. Armazenar os dados no cache
     cache.set(cacheKey, conversasComDetalhes);
