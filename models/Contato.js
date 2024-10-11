@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
 const Admin = require("./Admin");
-const Conversa = require("./Conversation");
+const Conversa = require("../models/Conversation");
 
 const Contato = sequelize.define(
   "Contato",
@@ -45,7 +45,7 @@ const Contato = sequelize.define(
   }
 );
 
-// Definindo o relacionamento Contato -> Admin (Um para muitos)
+// Definindo o relacionamento Contato -> Conversa (Um para muitos)
 Contato.hasMany(Conversa, { foreignKey: "contato_id", as: "conversas" });
 
 module.exports = Contato;

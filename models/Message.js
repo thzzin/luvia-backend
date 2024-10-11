@@ -58,6 +58,7 @@ const Message = sequelize.define(
   }
 );
 
+// Relacionamento Message -> Conversa (Um para muitos)
 Conversa.hasMany(Message, { foreignKey: "conversation_id" });
 Message.belongsTo(Conversa, { foreignKey: "conversation_id" });
 
