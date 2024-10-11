@@ -7,6 +7,7 @@ const Contato = sequelize.define(
   {
     id: {
       type: DataTypes.STRING, // ou DataTypes.INTEGER se preferir
+      autoIncrement: true,
       primaryKey: true,
       allowNull: false,
     },
