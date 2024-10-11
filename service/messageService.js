@@ -16,7 +16,7 @@ async function findOrCreateContact(phoneNumber, name, adminId) {
     const phoneAdmin = adminId.toString();
 
     let contact = await Contato.findOne({
-      where: { phone_number: phoneAsString },
+      where: { phone_number: phoneAsString, admin_id: phoneAdmin },
     });
     if (!contact) {
       contact = await Contato.create({
