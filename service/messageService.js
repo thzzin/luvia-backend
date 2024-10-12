@@ -13,28 +13,38 @@ const ffmpeg = require("fluent-ffmpeg");
 async function findOrCreateContact(phoneNumber, name, adminId) {
   try {
     const phoneAsString = phoneNumber.toString();
-    const phoneAdmin = adminId.toString(); // Assegurando que é uma string
+    const phoneAdmin = adminId.toString();
 
     let contact = await Contato.findOne({
       where: {
         phone_number: phoneAsString,
-        phoneadmin: phoneAdmin, // Usando phoneAdmin como string
+        phoneadmin: phoneAdmin,
       },
     });
 
     if (!contact) {
-      // Se não encontrar, cria um novo contato
       contact = await Contato.create({
         phone_number: phoneAsString,
         name: name,
-        phoneadmin: phoneAdmin, // Também aqui, garantindo que é uma string
+        phoneadmin: phoneAdmin,
       });
     }
 
-    return contact.id; // Retorne o ID do contato encontrado ou criado
+    return contact.id;
   } catch (error) {
+    if (error.name === "SequelizeUniqueConstraintError") {
+      // Tratar a violação de unicidade, buscando o contato existente
+      const existingContact = await Contato.findOne({
+        where: {
+          phone_number: phoneNumber.toString(),
+          phoneadmin: adminId.toString(),
+        },
+      });
+      return existingContact.id; // Retorna o ID do contato existente
+    }
+
     console.error("Erro ao buscar ou criar contato:", error);
-    throw error; // Lança o erro para o chamador lidar
+    throw error; // Relança outros erros
   }
 }
 
