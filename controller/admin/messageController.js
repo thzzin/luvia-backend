@@ -122,13 +122,16 @@ async function PostMsg(req, res) {
           break;
         case "audio":
           console.log("Caiu no case 'audio'");
-          // Verificar se os dados do áudio estão completos
-          if (message.audio && message.audio.id) {
-            console.log("Dados do áudio:", message.audio);
-            await postAudios(message.audio); // Passa o áudio
-          } else {
-            console.error("Erro: Nenhuma mensagem encontrada.");
-          }
+          // Limpeza dos dados do áudio
+          const audioData = {
+            id: message.audio.id,
+            mime_type: message.audio.mime_type,
+            sha256: message.audio.sha256,
+            voice: message.audio.voice,
+          };
+
+          console.log("Dados do áudio limpos:", audioData);
+          await postAudios(audioData); // Passa o áudio limpo
           break;
         default:
           console.log(`Tipo de mensagem desconhecido: ${message.type}`);
