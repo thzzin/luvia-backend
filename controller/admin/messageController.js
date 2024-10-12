@@ -62,7 +62,7 @@ async function PostMsg(req, res) {
 
   try {
     let cleanedData;
-
+    console.log(incomingData);
     if (
       incomingData.object === "whatsapp_business_account" &&
       incomingData.entry
