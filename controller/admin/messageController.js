@@ -62,7 +62,7 @@ async function PostMsg(req, res) {
 
   try {
     let cleanedData;
-    console.log(incomingData);
+
     if (
       incomingData.object === "whatsapp_business_account" &&
       incomingData.entry
@@ -99,8 +99,12 @@ async function PostMsg(req, res) {
       return res.status(200).send("Nenhuma mensagem para processar.");
     }
 
+    // Log dos dados recebidos
+    console.log("cleanedData", cleanedData);
+
     // Processar cada mensagem
     for (const message of cleanedData.messages) {
+      // Verifica o tipo da mensagem e chama a função correspondente
       switch (message.type) {
         case "text":
           await receivedMessage(message);
