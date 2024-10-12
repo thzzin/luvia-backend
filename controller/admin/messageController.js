@@ -60,8 +60,6 @@ async function FindConversation(contactId) {
 async function PostMsg(req, res) {
   const incomingData = req.body;
 
-  // Log do corpo da requisição (opcional)
-
   try {
     let cleanedData;
 
@@ -71,13 +69,11 @@ async function PostMsg(req, res) {
     ) {
       const entry = incomingData.entry[0];
 
-      // Verifica se as mudanças contêm mensagens
       if (entry.changes && entry.changes.length) {
         for (const change of entry.changes) {
           if (change.field === "messages") {
-            cleanedData = change.value; // Apenas dados de mensagens
-
-            break; // Para evitar continuar se já encontramos mensagens
+            cleanedData = change.value;
+            break;
           }
         }
       } else {
@@ -92,7 +88,6 @@ async function PostMsg(req, res) {
       return res.status(400).send("Estrutura de dados inválida.");
     }
 
-    // Verifica se cleanedData foi populado
     if (
       !cleanedData ||
       !cleanedData.messages ||
@@ -102,7 +97,6 @@ async function PostMsg(req, res) {
       return res.status(200).send("Nenhuma mensagem para processar.");
     }
 
-    // Enviar os dados necessários para a função receivedMessage
     let tipo;
     cleanedData.messages.forEach((message) => {
       console.log(`Tipo de mensagem: ${message.type}`);
@@ -112,40 +106,40 @@ async function PostMsg(req, res) {
       } else if (message.type === "image") {
         console.log(`Imagem recebida: ID ${message.image.id}`);
       }
-      // Outros tipos de mensagem podem ser tratados aqui (e.g., audio, video, etc.)
     });
-    console.log("tipo:", tipo);
+
     let msgResult;
     switch (tipo) {
       case "audio":
+        if (
+          !cleanedData.messages[0].audio ||
+          !cleanedData.messages[0].audio.id
+        ) {
+          throw new Error("Áudio inválido: id não encontrado.");
+        }
         msgResult = await postAudios(cleanedData);
-        res
+        return res
           .status(200)
-          .json({ message: "audio processadas com sucesso!", msgResult });
-        break;
+          .json({ message: "Áudio processado com sucesso!", msgResult });
+
       case "text":
         msgResult = await receivedMessage(cleanedData);
-        res
+        return res
           .status(200)
           .json({ message: "Mensagens processadas com sucesso!", msgResult });
-        break;
+
       case "image":
         msgResult = await postImg(cleanedData);
-        res
+        return res
           .status(200)
-          .json({ message: "image processadas com sucesso!", msgResult });
-        break;
+          .json({ message: "Imagem processada com sucesso!", msgResult });
 
       default:
-        console.log(`Tipo de mensagem ${messageType} não suportado.`);
-        break;
+        console.log(`Tipo de mensagem ${tipo} não suportado.`);
+        return res
+          .status(400)
+          .json({ message: `Tipo de mensagem ${tipo} não suportado.` });
     }
-    console.log("cleaandata", cleanedData);
-    //const msgResult = await receivedMessage(cleanedData);
-
-    res
-      .status(200)
-      .json({ message: "Mensagens processadas com sucesso!", msgResult });
   } catch (err) {
     console.error("Erro ao processar as mensagens:", err);
     res.status(500).send("Erro no servidor");
