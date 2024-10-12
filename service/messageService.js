@@ -15,20 +15,23 @@ async function findOrCreateContact(phoneNumber, name, adminId) {
     const phoneAsString = phoneNumber.toString();
     const phoneAdmin = adminId.toString(); // Assegurando que é uma string
 
-    let contact = await Contato.findOne({
+    // Usar findOrCreate para evitar o erro de chave única
+    const [contact, created] = await Contato.findOrCreate({
       where: {
         phone_number: phoneAsString,
-        phoneadmin: phoneAdmin, // Usando phoneAdmin como string
+      },
+      defaults: {
+        name: name,
+        phoneadmin: phoneAdmin,
       },
     });
 
-    if (!contact) {
-      // Se não encontrar, cria um novo contato
-      contact = await Contato.create({
-        phone_number: phoneAsString,
-        name: name,
-        phoneadmin: phoneAdmin, // Também aqui, garantindo que é uma string
-      });
+    // contact será o contato encontrado ou criado
+    // created será true se o contato foi criado, false se encontrado
+    if (created) {
+      console.log(`Novo contato criado: ${contact.id}`);
+    } else {
+      console.log(`Contato já existente: ${contact.id}`);
     }
 
     return contact.id; // Retorne o ID do contato encontrado ou criado
