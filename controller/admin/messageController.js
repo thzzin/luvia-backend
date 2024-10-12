@@ -58,11 +58,9 @@ async function FindConversation(contactId) {
 }
 
 async function PostMsg(req, res) {
-  console.log("caiu coisa nova");
   const incomingData = req.body;
 
   // Log do corpo da requisição (opcional)
-  console.log("incomingData:", JSON.stringify(incomingData, null, 2));
 
   try {
     let cleanedData;
@@ -78,10 +76,7 @@ async function PostMsg(req, res) {
         for (const change of entry.changes) {
           if (change.field === "messages") {
             cleanedData = change.value; // Apenas dados de mensagens
-            console.log(
-              "Dados de mensagens encontrados:",
-              JSON.stringify(cleanedData, null, 2)
-            );
+
             break; // Para evitar continuar se já encontramos mensagens
           }
         }
