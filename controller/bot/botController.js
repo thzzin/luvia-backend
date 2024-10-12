@@ -1,5 +1,6 @@
 const fs = require("fs");
 const Fuse = require("fuse.js");
+const path = require("path");
 
 // Função para carregar o arquivo JSON
 function loadProductData() {
