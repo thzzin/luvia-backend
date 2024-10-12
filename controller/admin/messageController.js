@@ -60,8 +60,6 @@ async function FindConversation(contactId) {
 async function PostMsg(req, res) {
   const incomingData = req.body;
 
-  // Log do corpo da requisição (opcional)
-
   try {
     let cleanedData;
 
@@ -76,7 +74,6 @@ async function PostMsg(req, res) {
         for (const change of entry.changes) {
           if (change.field === "messages") {
             cleanedData = change.value; // Apenas dados de mensagens
-
             break; // Para evitar continuar se já encontramos mensagens
           }
         }
@@ -102,13 +99,27 @@ async function PostMsg(req, res) {
       return res.status(200).send("Nenhuma mensagem para processar.");
     }
 
-    // Enviar os dados necessários para a função receivedMessage
-    console.log("cleaandata", cleanedData);
-    const msgResult = await receivedMessage(cleanedData);
+    // Processar cada mensagem
+    for (const message of cleanedData.messages) {
+      switch (message.type) {
+        case "text":
+          await receivedMessage(message);
+          break;
+        case "image":
+          await postImg(message);
+          break;
+        case "document":
+          await postImg(message);
+          break;
+        case "audio":
+          await postAudios(message);
+          break;
+        default:
+          console.log(`Tipo de mensagem desconhecido: ${message.type}`);
+      }
+    }
 
-    res
-      .status(200)
-      .json({ message: "Mensagens processadas com sucesso!", msgResult });
+    res.status(200).json({ message: "Mensagens processadas com sucesso!" });
   } catch (err) {
     console.error("Erro ao processar as mensagens:", err);
     res.status(500).send("Erro no servidor");
