@@ -115,8 +115,25 @@ async function PostMsg(req, res) {
       // Outros tipos de mensagem podem ser tratados aqui (e.g., audio, video, etc.)
     });
     console.log("tipo:", tipo);
+    let msgResult;
+    switch (tipo) {
+      case "audio":
+        msgResult = await postAudios(cleanedData);
+        res
+          .status(200)
+          .json({ message: "Mensagens processadas com sucesso!", msgResult });
+        break;
+      case "text":
+        msgResult = await receivedMessage(cleanedData);
+        res
+          .status(200)
+          .json({ message: "Mensagens processadas com sucesso!", msgResult });
+        break;
+      case "image":
+        msgResult = await postImg(cleanedData);
+    }
     console.log("cleaandata", cleanedData);
-    const msgResult = await receivedMessage(cleanedData);
+    //const msgResult = await receivedMessage(cleanedData);
 
     res
       .status(200)
