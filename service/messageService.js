@@ -106,10 +106,7 @@ async function receivedMessage(incomingData) {
     const idConversation = incomingData.messages[0].id;
     console.log("adminId", adminId);
     console.log("content", content);
-    if (adminId === "6283163270069") {
-      const bot = await handleMessage(content);
-      console.log(bot);
-    }
+
     // Processa as funções findOrCreateContact e findOrCreateConversation
     console.log(
       "vai achar o contato ou criar passando",
@@ -143,6 +140,22 @@ async function receivedMessage(incomingData) {
       admin_id: adminId.toString(),
       idConversa: idConversation.toString(),
     });
+
+    if (adminId === "6283163270069") {
+      const bot = await handleMessage(content);
+      const idConversa = idConversation.toString();
+      const phonecontact = phoneNumber.toString();
+      console.log(bot);
+      msgClient(
+        adminId,
+        conversationId,
+        phonecontact,
+        idConversa,
+        content,
+        contactId
+      );
+      return message;
+    }
 
     console.log("message", message);
 
