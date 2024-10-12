@@ -246,8 +246,15 @@ async function msgClient(
   contactId
 ) {
   try {
-    const admin = await Admin.findByPk(adminId);
+    let admin = await Admin.findByPk(adminId);
 
+    // Se não encontrar pelo ID, tenta encontrar pelo telefone
+    if (!admin) {
+      console.log(
+        "Administrador não encontrado pelo ID. Tentando buscar pelo telefone..."
+      );
+      admin = await Admin.findOne({ where: { phone: adminId } }); // Aqui, adminId é o telefone
+    }
     if (!admin) {
       throw new Error("Administrador não encontrado.");
     }
