@@ -382,6 +382,7 @@ async function postAudios(messageData) {
         bearerToken: bearerToken, // E o bearerToken
       });
       urlimg = response.data.imageUrl;
+      console.log("response.data", response.data);
     } catch (error) {
       console.log("Erro ao fazer upload do áudio:", error);
     }
