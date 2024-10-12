@@ -301,7 +301,7 @@ async function postImg(messageData) {
     let urlimg;
 
     try {
-      const url = "http://getluvia.com.br:3003/images/upload-from-whatsapp";
+      const url = "https://getluvia.com.br:3003/images/upload-from-whatsapp";
       const response = await axios.post(
         url,
         {
@@ -376,20 +376,11 @@ async function postAudios(messageData) {
     let urlimg;
 
     try {
-      const url = "http://getluvia.com.br:3003/audio/upload-from-whatsapp";
-      const response = await axios.post(
-        url,
-        {
-          idAudio: idAudio, // Aqui você adiciona o idmessage
-          bearerToken: bearerToken, // E o bearerToken
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            api_access_token: `${bearerToken}`,
-          },
-        }
-      );
+      const url = "https://getluvia.com.br:3003/audio/upload-from-whatsapp";
+      const response = await axios.post(url, {
+        idAudio: idAudio, // Aqui você adiciona o idmessage
+        bearerToken: bearerToken, // E o bearerToken
+      });
       urlimg = response.data.imageUrl;
     } catch (error) {
       console.log("Erro ao fazer upload do áudio:", error);
@@ -587,7 +578,7 @@ async function botMedia(
 
     let urlImage;
     try {
-      const url = "http://getluvia.com.br:3003/images/upload-from-whatsapp"; // Ajuste a URL conforme necessário
+      const url = "https://getluvia.com.br:3003/images/upload-from-whatsapp"; // Ajuste a URL conforme necessário
       const response = await axios.post(
         url,
         {
@@ -738,7 +729,7 @@ async function botAudio(
     let urlAudio;
 
     try {
-      const url = "http://getluvia.com.br:3003/audio/upload-from-whatsapp";
+      const url = "https://getluvia.com.br:3003/audio/upload-from-whatsapp";
       const response = await axios.post(
         url,
         {
