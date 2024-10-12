@@ -60,7 +60,7 @@ async function FindConversation(contactId) {
 async function PostMsg(req, res) {
   const incomingData = req.body;
 
-  console.log("Recebendo dados:", incomingData);
+  // Log do corpo da requisição (opcional)
 
   try {
     let cleanedData;
@@ -71,14 +71,13 @@ async function PostMsg(req, res) {
     ) {
       const entry = incomingData.entry[0];
 
-      console.log("Entrada encontrada:", entry);
-
+      // Verifica se as mudanças contêm mensagens
       if (entry.changes && entry.changes.length) {
         for (const change of entry.changes) {
           if (change.field === "messages") {
-            cleanedData = change.value;
-            console.log("Mudança detectada:", change);
-            break;
+            cleanedData = change.value; // Apenas dados de mensagens
+
+            break; // Para evitar continuar se já encontramos mensagens
           }
         }
       } else {
@@ -93,6 +92,7 @@ async function PostMsg(req, res) {
       return res.status(400).send("Estrutura de dados inválida.");
     }
 
+    // Verifica se cleanedData foi populado
     if (
       !cleanedData ||
       !cleanedData.messages ||
@@ -102,46 +102,13 @@ async function PostMsg(req, res) {
       return res.status(200).send("Nenhuma mensagem para processar.");
     }
 
-    console.log("Dados limpos:", cleanedData);
+    // Enviar os dados necessários para a função receivedMessage
+    console.log("cleaandata", cleanedData);
+    const msgResult = await receivedMessage(cleanedData);
 
-    for (const message of cleanedData.messages) {
-      console.log("Processando mensagem:", message);
-
-      switch (message.type) {
-        case "text":
-          console.log("Caiu no case 'text'");
-          await receivedMessage(cleanedData);
-          break;
-        case "image":
-          console.log("Caiu no case 'image'");
-          await postImg(message.image);
-          break;
-        case "document":
-          console.log("Caiu no case 'document'");
-          await postImg(message.document);
-          break;
-        case "audio":
-          console.log("Caiu no case 'audio'");
-          if (message.audio && message.audio.id) {
-            const audioData = {
-              id: message.audio.id,
-              mime_type: message.audio.mime_type,
-              sha256: message.audio.sha256,
-              voice: message.audio.voice,
-            };
-
-            console.log("Dados do áudio limpos:", audioData);
-            await postAudios(audioData); // Passa o áudio limpo
-          } else {
-            console.error("Erro: Dados de áudio incompletos.");
-          }
-          break;
-        default:
-          console.log(`Tipo de mensagem desconhecido: ${message.type}`);
-      }
-    }
-
-    res.status(200).json({ message: "Mensagens processadas com sucesso!" });
+    res
+      .status(200)
+      .json({ message: "Mensagens processadas com sucesso!", msgResult });
   } catch (err) {
     console.error("Erro ao processar as mensagens:", err);
     res.status(500).send("Erro no servidor");
