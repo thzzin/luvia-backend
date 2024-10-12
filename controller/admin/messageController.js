@@ -59,6 +59,7 @@ async function FindConversation(contactId) {
 
 async function PostMsg(req, res) {
   const incomingData = req.body;
+  console.log("Recebendo dados:", JSON.stringify(incomingData, null, 2)); // Log dos dados recebidos
 
   try {
     let cleanedData;
@@ -68,13 +69,16 @@ async function PostMsg(req, res) {
       incomingData.entry
     ) {
       const entry = incomingData.entry[0];
+      console.log("Entrada encontrada:", entry); // Log da entrada
 
       // Verifica se as mudanças contêm mensagens
       if (entry.changes && entry.changes.length) {
         for (const change of entry.changes) {
+          console.log("Mudança detectada:", change); // Log das mudanças
           if (change.field === "messages") {
             cleanedData = change.value; // Apenas dados de mensagens
-            break; // Para evitar continuar se já encontramos mensagens
+            console.log("Dados limpos:", cleanedData); // Log dos dados limpos
+            break;
           }
         }
       } else {
@@ -104,35 +108,27 @@ async function PostMsg(req, res) {
 
     // Processar cada mensagem
     for (const message of cleanedData.messages) {
-      // Verifica o tipo da mensagem e chama a função correspondente
+      console.log("Processando mensagem:", message); // Log da mensagem atual
       switch (message.type) {
         case "text":
-          if (message.text && message.text.body) {
-            await receivedMessage(message.text.body); // Acessa o texto
-          } else {
-            console.error("Texto não encontrado na mensagem:", message);
-          }
+          console.log("Caiu no case 'text'");
+          await receivedMessage(message.text.body); // Passa o texto
+          console.log("Mensagem de texto processada:", message.text.body); // Log do texto processado
           break;
         case "image":
-          if (message.image) {
-            await postImg(message.image); // Acessa a imagem
-          } else {
-            console.error("Imagem não encontrada na mensagem:", message);
-          }
+          console.log("Caiu no case 'image'");
+          await postImg(message.image); // Passa a imagem
+          console.log("Imagem processada:", message.image); // Log da imagem processada
           break;
         case "document":
-          if (message.document) {
-            await postImg(message.document); // Acessa o documento
-          } else {
-            console.error("Documento não encontrado na mensagem:", message);
-          }
+          console.log("Caiu no case 'document'");
+          await postDoc(message.document); // Passa o documento
+          console.log("Documento processado:", message.document); // Log do documento processado
           break;
         case "audio":
-          if (message.audio) {
-            await postAudios(message.audio); // Acessa o áudio
-          } else {
-            console.error("Áudio não encontrado na mensagem:", message);
-          }
+          console.log("Caiu no case 'audio'");
+          await postAudios(message.audio); // Passa o áudio
+          console.log("Áudio processado:", message.audio); // Log do áudio processado
           break;
         default:
           console.log(`Tipo de mensagem desconhecido: ${message.type}`);
