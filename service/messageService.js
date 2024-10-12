@@ -151,7 +151,7 @@ async function receivedMessage(incomingData) {
         conversationId,
         phonecontact,
         idConversa,
-        content,
+        bot,
         contactId
       );
       return message;
