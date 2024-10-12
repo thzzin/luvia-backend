@@ -60,7 +60,7 @@ async function FindConversation(contactId) {
 async function PostMsg(req, res) {
   const incomingData = req.body;
 
-  console.log("Recebendo dados:", incomingData); // Log dos dados recebidos
+  console.log("Recebendo dados:", incomingData);
 
   try {
     let cleanedData;
@@ -71,16 +71,14 @@ async function PostMsg(req, res) {
     ) {
       const entry = incomingData.entry[0];
 
-      // Log da entrada encontrada
       console.log("Entrada encontrada:", entry);
 
-      // Verifica se as mudanças contêm mensagens
       if (entry.changes && entry.changes.length) {
         for (const change of entry.changes) {
           if (change.field === "messages") {
-            cleanedData = change.value; // Apenas dados de mensagens
-            console.log("Mudança detectada:", change); // Log da mudança detectada
-            break; // Para evitar continuar se já encontramos mensagens
+            cleanedData = change.value;
+            console.log("Mudança detectada:", change);
+            break;
           }
         }
       } else {
@@ -95,7 +93,6 @@ async function PostMsg(req, res) {
       return res.status(400).send("Estrutura de dados inválida.");
     }
 
-    // Verifica se cleanedData foi populado
     if (
       !cleanedData ||
       !cleanedData.messages ||
@@ -105,29 +102,33 @@ async function PostMsg(req, res) {
       return res.status(200).send("Nenhuma mensagem para processar.");
     }
 
-    // Log dos dados limpos
     console.log("Dados limpos:", cleanedData);
 
-    // Processar cada mensagem
     for (const message of cleanedData.messages) {
-      console.log("Processando mensagem:", message); // Log da mensagem que está sendo processada
+      console.log("Processando mensagem:", message);
 
       switch (message.type) {
         case "text":
           console.log("Caiu no case 'text'");
-          await receivedMessage(cleanedData); // Passa o cleanedData para a função
+          await receivedMessage(cleanedData);
           break;
         case "image":
           console.log("Caiu no case 'image'");
-          await postImg(message.image); // Passa a imagem
+          await postImg(message.image);
           break;
         case "document":
           console.log("Caiu no case 'document'");
-          await postImg(message.document); // Passa o documento
+          await postImg(message.document);
           break;
         case "audio":
           console.log("Caiu no case 'audio'");
-          await postAudios(message.audio); // Passa o áudio
+          // Verificar se os dados do áudio estão completos
+          if (message.audio && message.audio.id) {
+            console.log("Dados do áudio:", message.audio);
+            await postAudios(message.audio); // Passa o áudio
+          } else {
+            console.error("Erro: Nenhuma mensagem encontrada.");
+          }
           break;
         default:
           console.log(`Tipo de mensagem desconhecido: ${message.type}`);
