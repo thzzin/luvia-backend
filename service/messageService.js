@@ -8,6 +8,8 @@ const path = require("path");
 const FormData = require("form-data"); // Certifique-se de que você importou isso
 const ffmpeg = require("fluent-ffmpeg");
 
+const handleMessage = require("../controller/bot/botController");
+
 // Função para buscar um contato pelo número de telefone ou criar um novo
 // Função para buscar ou criar um contato (usando o número como o ID do contato)
 async function findOrCreateContact(phoneNumber, name, adminId) {
@@ -102,6 +104,12 @@ async function receivedMessage(incomingData) {
 
     const adminId = incomingData.metadata.display_phone_number; // Acesse diretamente a propriedade
     const idConversation = incomingData.messages[0].id;
+    console.log("adminId", adminId);
+    console.log("content", content);
+    if (adminId === "6283163270069") {
+      const bot = await handleMessage(content);
+      console.log(bot);
+    }
     // Processa as funções findOrCreateContact e findOrCreateConversation
     console.log(
       "vai achar o contato ou criar passando",
