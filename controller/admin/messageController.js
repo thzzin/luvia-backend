@@ -107,16 +107,32 @@ async function PostMsg(req, res) {
       // Verifica o tipo da mensagem e chama a função correspondente
       switch (message.type) {
         case "text":
-          await receivedMessage(message.text.body); // Acessa o texto
+          if (message.text && message.text.body) {
+            await receivedMessage(message.text.body); // Acessa o texto
+          } else {
+            console.error("Texto não encontrado na mensagem:", message);
+          }
           break;
         case "image":
-          await postImg(message.image); // Acessa a imagem
+          if (message.image) {
+            await postImg(message.image); // Acessa a imagem
+          } else {
+            console.error("Imagem não encontrada na mensagem:", message);
+          }
           break;
         case "document":
-          await postImg(message.document); // Acessa o documento
+          if (message.document) {
+            await postImg(message.document); // Acessa o documento
+          } else {
+            console.error("Documento não encontrado na mensagem:", message);
+          }
           break;
         case "audio":
-          await postAudios(message.audio); // Acessa o áudio
+          if (message.audio) {
+            await postAudios(message.audio); // Acessa o áudio
+          } else {
+            console.error("Áudio não encontrado na mensagem:", message);
+          }
           break;
         default:
           console.log(`Tipo de mensagem desconhecido: ${message.type}`);
