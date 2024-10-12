@@ -3,7 +3,10 @@ const Fuse = require("fuse.js");
 
 // Função para carregar o arquivo JSON
 function loadProductData() {
-  const data = fs.readFileSync("./produtos.json", "utf8");
+  // Obtém o caminho absoluto para o arquivo produtos.json
+  const filePath = path.join(__dirname, "produtos.json");
+
+  const data = fs.readFileSync(filePath, "utf8");
   const parsedData = JSON.parse(data);
 
   // Verifica se o JSON foi carregado corretamente
