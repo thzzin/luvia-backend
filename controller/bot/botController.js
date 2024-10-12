@@ -89,5 +89,7 @@ function handleMessage(message) {
 }
 
 // Exemplo de uso
-const exampleMessage = "tem o redmi 8 a";
-console.log(handleMessage(exampleMessage));
+//const exampleMessage = "tem o redmi 8 a";
+//console.log(handleMessage(exampleMessage));
+
+module.exports = { handleMessage };
