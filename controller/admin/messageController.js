@@ -60,22 +60,24 @@ async function FindConversation(contactId) {
 async function PostMsg(req, res) {
   const incomingData = req.body;
 
+  // Log do corpo da requisição (opcional)
+
   try {
     let cleanedData;
 
-    // Verificar se é uma conta do WhatsApp Business e contém dados válidos
     if (
       incomingData.object === "whatsapp_business_account" &&
       incomingData.entry
     ) {
       const entry = incomingData.entry[0];
 
-      // Verificar se as mudanças contêm mensagens
+      // Verifica se as mudanças contêm mensagens
       if (entry.changes && entry.changes.length) {
         for (const change of entry.changes) {
           if (change.field === "messages") {
             cleanedData = change.value; // Apenas dados de mensagens
-            break;
+
+            break; // Para evitar continuar se já encontramos mensagens
           }
         }
       } else {
@@ -90,7 +92,7 @@ async function PostMsg(req, res) {
       return res.status(400).send("Estrutura de dados inválida.");
     }
 
-    // Verificar se cleanedData foi populado corretamente
+    // Verifica se cleanedData foi populado
     if (
       !cleanedData ||
       !cleanedData.messages ||
@@ -100,39 +102,22 @@ async function PostMsg(req, res) {
       return res.status(200).send("Nenhuma mensagem para processar.");
     }
 
-    // Processar as mensagens com base no tipo (texto, áudio, imagem)
-    for (const message of cleanedData.messages) {
-      const messageType = message.type;
-
-      switch (messageType) {
-        case "audio":
-          if (message.audio) {
-            // Enviar áudio para a função postAudio
-            await postAudios(message.audio, message.from);
-          }
-          break;
-
-        case "image":
-          if (message.image) {
-            // Enviar imagem para a função postImage
-            await postImg(message.image, message.from);
-          }
-          break;
-
-        case "text":
-          if (message.text && message.text.body) {
-            // Processar mensagem de texto
-            await receivedMessage(message.text.body, message.from);
-          }
-          break;
-
-        default:
-          console.log(`Tipo de mensagem ${messageType} não suportado.`);
-          break;
+    // Enviar os dados necessários para a função receivedMessage
+    cleanedData.messages.forEach((message) => {
+      console.log(`Tipo de mensagem: ${message.type}`);
+      if (message.type === "text") {
+        console.log(`Conteúdo do texto: ${message.text.body}`);
+      } else if (message.type === "image") {
+        console.log(`Imagem recebida: ID ${message.image.id}`);
       }
-    }
+      // Outros tipos de mensagem podem ser tratados aqui (e.g., audio, video, etc.)
+    });
+    console.log("cleaandata", cleanedData);
+    const msgResult = await receivedMessage(cleanedData);
 
-    res.status(200).json({ message: "Mensagens processadas com sucesso!" });
+    res
+      .status(200)
+      .json({ message: "Mensagens processadas com sucesso!", msgResult });
   } catch (err) {
     console.error("Erro ao processar as mensagens:", err);
     res.status(500).send("Erro no servidor");
