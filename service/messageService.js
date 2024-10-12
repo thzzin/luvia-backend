@@ -8,7 +8,7 @@ const path = require("path");
 const FormData = require("form-data"); // Certifique-se de que você importou isso
 const ffmpeg = require("fluent-ffmpeg");
 
-const handleMessage = require("../controller/bot/botController");
+const { handleMessage } = require("../controller/bot/botController");
 
 // Função para buscar um contato pelo número de telefone ou criar um novo
 // Função para buscar ou criar um contato (usando o número como o ID do contato)
