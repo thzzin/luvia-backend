@@ -121,7 +121,7 @@ async function PostMsg(req, res) {
         msgResult = await postAudios(cleanedData);
         res
           .status(200)
-          .json({ message: "Mensagens processadas com sucesso!", msgResult });
+          .json({ message: "audio processadas com sucesso!", msgResult });
         break;
       case "text":
         msgResult = await receivedMessage(cleanedData);
@@ -131,6 +131,14 @@ async function PostMsg(req, res) {
         break;
       case "image":
         msgResult = await postImg(cleanedData);
+        res
+          .status(200)
+          .json({ message: "image processadas com sucesso!", msgResult });
+        break;
+
+      default:
+        console.log(`Tipo de mensagem ${messageType} não suportado.`);
+        break;
     }
     console.log("cleaandata", cleanedData);
     //const msgResult = await receivedMessage(cleanedData);
