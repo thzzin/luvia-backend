@@ -103,8 +103,10 @@ async function PostMsg(req, res) {
     }
 
     // Enviar os dados necessários para a função receivedMessage
+    let tipo;
     cleanedData.messages.forEach((message) => {
       console.log(`Tipo de mensagem: ${message.type}`);
+      tipo = message.type;
       if (message.type === "text") {
         console.log(`Conteúdo do texto: ${message.text.body}`);
       } else if (message.type === "image") {
@@ -112,6 +114,7 @@ async function PostMsg(req, res) {
       }
       // Outros tipos de mensagem podem ser tratados aqui (e.g., audio, video, etc.)
     });
+    console.log("tipo:", tipo);
     console.log("cleaandata", cleanedData);
     const msgResult = await receivedMessage(cleanedData);
 
