@@ -103,6 +103,7 @@ async function PostMsg(req, res) {
     }
 
     // Enviar os dados necessários para a função receivedMessage
+    console.log("cleaandata", cleanedData);
     const msgResult = await receivedMessage(cleanedData);
 
     res
