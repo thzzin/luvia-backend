@@ -63,18 +63,19 @@ async function PostMsg(req, res) {
   try {
     let cleanedData;
 
+    // Verificar se é uma conta do WhatsApp Business e contém dados válidos
     if (
       incomingData.object === "whatsapp_business_account" &&
       incomingData.entry
     ) {
       const entry = incomingData.entry[0];
 
-      // Verifica se as mudanças contêm mensagens
+      // Verificar se as mudanças contêm mensagens
       if (entry.changes && entry.changes.length) {
         for (const change of entry.changes) {
           if (change.field === "messages") {
             cleanedData = change.value; // Apenas dados de mensagens
-            break; // Para evitar continuar se já encontramos mensagens
+            break;
           }
         }
       } else {
@@ -89,7 +90,7 @@ async function PostMsg(req, res) {
       return res.status(400).send("Estrutura de dados inválida.");
     }
 
-    // Verifica se cleanedData foi populado
+    // Verificar se cleanedData foi populado corretamente
     if (
       !cleanedData ||
       !cleanedData.messages ||
@@ -99,28 +100,28 @@ async function PostMsg(req, res) {
       return res.status(200).send("Nenhuma mensagem para processar.");
     }
 
-    // Iterar sobre as mensagens e processar com base no tipo
+    // Processar as mensagens com base no tipo (texto, áudio, imagem)
     for (const message of cleanedData.messages) {
       const messageType = message.type;
 
       switch (messageType) {
         case "audio":
-          // Envia a mensagem de áudio para a função postAudio
           if (message.audio) {
+            // Enviar áudio para a função postAudio
             await postAudios(message.audio, message.from);
           }
           break;
 
         case "image":
-          // Envia a imagem para a função postImage
           if (message.image) {
+            // Enviar imagem para a função postImage
             await postImg(message.image, message.from);
           }
           break;
 
         case "text":
-          // Envia a mensagem de texto para a função receivedMessage
-          if (message.text) {
+          if (message.text && message.text.body) {
+            // Processar mensagem de texto
             await receivedMessage(message.text.body, message.from);
           }
           break;
