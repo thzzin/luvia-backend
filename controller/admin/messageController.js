@@ -107,16 +107,16 @@ async function PostMsg(req, res) {
       // Verifica o tipo da mensagem e chama a função correspondente
       switch (message.type) {
         case "text":
-          await receivedMessage(message);
+          await receivedMessage(message.text.body); // Acessa o texto
           break;
         case "image":
-          await postImg(message);
+          await postImg(message.image); // Acessa a imagem
           break;
         case "document":
-          await postImg(message);
+          await postImg(message.document); // Acessa o documento
           break;
         case "audio":
-          await postAudios(message);
+          await postAudios(message.audio); // Acessa o áudio
           break;
         default:
           console.log(`Tipo de mensagem desconhecido: ${message.type}`);
