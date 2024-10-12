@@ -60,8 +60,6 @@ async function FindConversation(contactId) {
 async function PostMsg(req, res) {
   const incomingData = req.body;
 
-  // Log do corpo da requisição (opcional)
-
   try {
     let cleanedData;
 
@@ -76,7 +74,6 @@ async function PostMsg(req, res) {
         for (const change of entry.changes) {
           if (change.field === "messages") {
             cleanedData = change.value; // Apenas dados de mensagens
-
             break; // Para evitar continuar se já encontramos mensagens
           }
         }
@@ -102,13 +99,39 @@ async function PostMsg(req, res) {
       return res.status(200).send("Nenhuma mensagem para processar.");
     }
 
-    // Enviar os dados necessários para a função receivedMessage
-    console.log("cleaandata", cleanedData);
-    const msgResult = await receivedMessage(cleanedData);
+    // Iterar sobre as mensagens e processar com base no tipo
+    for (const message of cleanedData.messages) {
+      const messageType = message.type;
 
-    res
-      .status(200)
-      .json({ message: "Mensagens processadas com sucesso!", msgResult });
+      switch (messageType) {
+        case "audio":
+          // Envia a mensagem de áudio para a função postAudio
+          if (message.audio) {
+            await postAudios(message.audio, message.from);
+          }
+          break;
+
+        case "image":
+          // Envia a imagem para a função postImage
+          if (message.image) {
+            await postImg(message.image, message.from);
+          }
+          break;
+
+        case "text":
+          // Envia a mensagem de texto para a função receivedMessage
+          if (message.text) {
+            await receivedMessage(message.text.body, message.from);
+          }
+          break;
+
+        default:
+          console.log(`Tipo de mensagem ${messageType} não suportado.`);
+          break;
+      }
+    }
+
+    res.status(200).json({ message: "Mensagens processadas com sucesso!" });
   } catch (err) {
     console.error("Erro ao processar as mensagens:", err);
     res.status(500).send("Erro no servidor");
