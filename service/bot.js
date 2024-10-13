@@ -69,6 +69,8 @@ async function handleMessage(userMessage) {
   try {
     const threadId = await createThread();
     await addMessage(threadId, userMessage);
+    console.log("Assistant ID:", ASSISTANT_ID);
+
     const runId = await runAssistant(threadId);
 
     while (true) {
