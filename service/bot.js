@@ -68,6 +68,28 @@ async function checkingStatus(threadId, runId) {
 
 // Função que controla a lógica de mensagem
 async function handleMessage(userMessage) {
+  const keywords = [
+    "tela",
+    "celular",
+    "modelo",
+    "smartphone",
+    "display",
+    "preço",
+    "marca",
+    "comprar",
+    "substituir",
+    "reparo",
+  ];
+
+  const containsKeywords = keywords.some((keyword) =>
+    userMessage.toLowerCase().includes(keyword)
+  );
+
+  if (!containsKeywords) {
+    console.log("Mensagem irrelevante, não processando.");
+    return "Por favor, faça uma pergunta sobre tela, celular ou modelo.";
+  }
+
   try {
     const threadId = await createThread();
     await addMessage(threadId, userMessage);
