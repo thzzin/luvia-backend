@@ -6,6 +6,7 @@ const { OPENAI_API_KEY, ASSISTANT_ID } = process.env;
 const openai = new OpenAI({
   apiKey: OPENAI_API_KEY,
 });
+
 async function createThread() {
   console.log("Creating a new thread...");
   const thread = await openai.beta.threads.create();
@@ -25,7 +26,7 @@ async function addMessage(threadId, message) {
 async function runAssistant(threadId) {
   console.log("Running assistant for thread: " + threadId);
   const response = await openai.beta.threads.runs.create(threadId, {
-    assistant_id: ASSISTANT_ID,
+    assistant_id: ASSISTANT_ID, // Certifique-se de que ASSISTANT_ID está definido
   });
   return response.id;
 }
@@ -37,21 +38,16 @@ function getAssistantResponse(messagesList) {
   );
 
   if (assistantMessages.length > 0) {
-    const content = assistantMessages[0].content; // Pegando a primeira mensagem do assistente
+    const content = assistantMessages[0].content;
 
-    // Extraindo o texto da mensagem
     const contentText = content
-      .map((item) => {
-        if (item.type === "text") {
-          return item.text.value; // Acessa o texto diretamente
-        }
-        return "Unsupported type"; // Para tipos não suportados
-      })
-      .join(""); // Combina o texto se houver mais de um
+      .filter((item) => item.type === "text") // Filtra apenas tipos de texto
+      .map((item) => item.text.value)
+      .join("");
 
-    return contentText; // Retorna o texto combinado
+    return contentText;
   } else {
-    return "No response from assistant."; // Mensagem padrão se não houver resposta
+    return "No response from assistant.";
   }
 }
 
@@ -62,29 +58,34 @@ async function checkingStatus(threadId, runId) {
 
   if (status === "completed") {
     const messagesList = await openai.beta.threads.messages.list(threadId);
-    // Chama a função para obter a resposta do assistente
     return getAssistantResponse(messagesList.body.data);
   } else {
-    throw new Error("Assistant is still processing..."); // Lança erro se não estiver completo
+    throw new Error("Assistant is still processing...");
   }
 }
 
 // Função que controla a lógica de mensagem
 async function handleMessage(userMessage) {
-  const threadId = await createThread();
-  await addMessage(threadId, userMessage);
-  const runId = await runAssistant(threadId);
+  try {
+    const threadId = await createThread();
+    await addMessage(threadId, userMessage);
+    const runId = await runAssistant(threadId);
 
-  // Verifica o status até que o run seja completado
-  while (true) {
-    const runObject = await openai.beta.threads.runs.retrieve(threadId, runId);
-    if (runObject.status === "completed") {
-      const response = await checkingStatus(threadId, runId);
-      return response; // Retorna a resposta do assistente
+    while (true) {
+      const runObject = await openai.beta.threads.runs.retrieve(
+        threadId,
+        runId
+      );
+      if (runObject.status === "completed") {
+        const response = await checkingStatus(threadId, runId);
+        return response;
+      }
+
+      await new Promise((resolve) => setTimeout(resolve, 5000));
     }
-
-    // Espera 5 segundos antes de checar novamentee
-    await new Promise((resolve) => setTimeout(resolve, 5000));
+  } catch (error) {
+    console.error("Error processing messages:", error);
+    throw error; // Lança o erro para que possa ser tratado em outro lugar
   }
 }
 
