@@ -1,7 +1,9 @@
 require("dotenv").config();
 
 const OpenAI = require("openai");
-const { OPENAI_API_KEY, ASSISTANT_ID } = process.env;
+const { OPENAI_API_KEY, ID_ASSISTENT } = process.env;
+console.log("OpenAI API Key:", OPENAI_API_KEY);
+console.log("ID_ASSISTENT:", ID_ASSISTENT);
 
 const openai = new OpenAI({
   apiKey: OPENAI_API_KEY,
@@ -26,7 +28,7 @@ async function addMessage(threadId, message) {
 async function runAssistant(threadId) {
   console.log("Running assistant for thread: " + threadId);
   const response = await openai.beta.threads.runs.create(threadId, {
-    assistant_id: ASSISTANT_ID, // Certifique-se de que ASSISTANT_ID está definido
+    assistant_id: ID_ASSISTENT, // Certifique-se de que ASSISTANT_ID está definido
   });
   return response.id;
 }
@@ -69,7 +71,7 @@ async function handleMessage(userMessage) {
   try {
     const threadId = await createThread();
     await addMessage(threadId, userMessage);
-    console.log("Assistant ID:", ASSISTANT_ID);
+    console.log("Assistant ID:", ID_ASSISTENT);
 
     const runId = await runAssistant(threadId);
 
