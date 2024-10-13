@@ -67,15 +67,17 @@ async function handleMessage(userMessage) {
   await addMessage(threadId, userMessage);
   const runId = await runAssistant(threadId);
 
-  // Verifica o status a cada 5 segundos
-  const interval = setInterval(async () => {
+  // Verifica o status até que o run seja completado
+  while (true) {
     const runObject = await openai.beta.threads.runs.retrieve(threadId, runId);
     if (runObject.status === "completed") {
-      clearInterval(interval);
       const response = await checkingStatus(threadId, runId);
       return response; // Retorna a resposta do assistente
     }
-  }, 5000);
+
+    // Espera 5 segundos antes de checar novamente
+    await new Promise((resolve) => setTimeout(resolve, 5000));
+  }
 }
 
 module.exports = {
