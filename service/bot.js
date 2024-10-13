@@ -47,7 +47,10 @@ function getAssistantResponse(messagesList) {
       .map((item) => item.text.value)
       .join("");
 
-    return contentText;
+    // Remove a parte
+    const cleanedText = contentText.replace(/【\d+:\d+†source】/g, "").trim();
+
+    return cleanedText || "No response from assistant.";
   } else {
     return "No response from assistant.";
   }
@@ -87,7 +90,7 @@ async function handleMessage(userMessage) {
 
   if (!containsKeywords) {
     console.log("Mensagem irrelevante, não processando.");
-    return "Por favor, faça uma pergunta sobre tela, celular ou modelo.";
+    return;
   }
 
   try {
