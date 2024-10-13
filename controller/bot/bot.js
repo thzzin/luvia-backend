@@ -78,4 +78,6 @@ async function handleMessage(userMessage) {
   }, 5000);
 }
 
-modules.exports = { handleMessage };
+module.exports = {
+  handleMessage,
+};
