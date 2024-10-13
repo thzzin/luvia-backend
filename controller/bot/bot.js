@@ -75,7 +75,7 @@ async function handleMessage(userMessage) {
       return response; // Retorna a resposta do assistente
     }
 
-    // Espera 5 segundos antes de checar novamente
+    // Espera 5 segundos antes de checar novamentee
     await new Promise((resolve) => setTimeout(resolve, 5000));
   }
 }
