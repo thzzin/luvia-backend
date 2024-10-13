@@ -4,25 +4,21 @@ const path = require("path");
 
 // Função para carregar o arquivo JSON
 function loadProductData() {
-  // Obtém o caminho absoluto para o arquivo produtos.json
   const filePath = path.join(__dirname, "produtos.json");
-
   const data = fs.readFileSync(filePath, "utf8");
   const parsedData = JSON.parse(data);
 
-  // Verifica se o JSON foi carregado corretamente
   console.log("Produtos carregados:", parsedData.G_RELATORIO.length);
-
   return parsedData.G_RELATORIO;
 }
 
 // Função para inicializar o Fuse.js com as opções desejadas
 function initializeFuse(products) {
   const options = {
-    keys: ["Descrição"], // Propriedade do objeto onde realizar a busca
-    threshold: 0.5, // Define quão precisa a correspondência deve ser (0 = precisa, 1 = imprecisa)
-    distance: 100, // Define quão longe os termos podem estar uns dos outros para serem considerados uma correspondência
-    includeScore: true, // Inclui o score para depuração
+    keys: ["Descrição"],
+    threshold: 0.3, // Flexibilidade na correspondência
+    distance: 50,
+    includeScore: true,
   };
 
   return new Fuse(products, options);
@@ -31,65 +27,116 @@ function initializeFuse(products) {
 // Função para normalizar strings
 function normalizeString(str) {
   return str
-    .toLowerCase() // Converte para minúsculas
-    .replace(/\s+/g, " ") // Remove espaços extras
-    .replace(/[^\w\s]/gi, "") // Remove caracteres especiais
-    .trim(); // Remove espaços no início e no fim
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .replace(/[^\w\s]/gi, "")
+    .trim();
 }
 
 // Função para buscar o produto pelo nome
 function findProduct(productName) {
   const products = loadProductData();
   const fuse = initializeFuse(products);
-
-  // Normaliza o nome do produto
   const normalizedProductName = normalizeString(productName);
-  console.log("Buscando por:", normalizedProductName); // Debugging
 
-  // Imprimindo todas as descrições para depuração
-  console.log(
-    "Descrições de produtos:",
-    products.map((product) => product["Descrição"])
-  );
-
-  // Procurando correspondência mais próxima
+  // Procurando todas as correspondências
   const result = fuse.search(normalizedProductName);
-  console.log("Resultados da busca:", result); // Debugging
 
-  // Se encontrarmos uma correspondência satisfatória
-  if (result.length > 0) {
-    const bestMatch = result[0].item; // Pega o primeiro resultado
-    return `O preço do ${bestMatch["Descrição"]} é R$${bestMatch["Preço Venda"]}.`;
-  } else {
-    return "Desculpe, não encontramos o produto que você mencionou.";
+  // Filtrar resultados para garantir que apenas produtos que contêm "A1" sejam retornados
+  const matches = result
+    .filter(({ item }) => item.Descrição.includes("A1")) // Ajuste aqui
+    .map(({ item }) => item);
+
+  if (matches.length > 0) {
+    const response = matches
+      .map((match) => `${match.Descrição} - R$ ${match["Preço Venda"]}`)
+      .join("\n");
+
+    return response;
   }
+
+  return "Produto não encontrado.";
 }
 
 // Função para lidar com mensagens recebidas
 function handleMessage(message) {
-  // Normaliza a mensagem
   const normalizedMessage = message.toLowerCase().trim();
+  console.log("Mensagem recebida:", message);
 
-  // Verifica se a mensagem está perguntando sobre o preço
-  if (
-    normalizedMessage.includes("preço") ||
-    normalizedMessage.includes("tem")
-  ) {
-    // Remover partes da mensagem que não fazem parte do nome do produto
-    const possibleProductName = normalizedMessage
-      .replace(/preço|tem|quanto|queria saber|opa/g, "") // Remove palavras comuns
-      .trim();
+  const ignoreKeywords = [
+    "tela",
+    "display",
+    "visor",
+    "monitor",
+    "pantalla",
+    "parte",
+    "peca",
+    "componente",
+    "acessório",
+    "parte externa",
+    "frente",
+    "tras",
+    "capa",
+    "case",
+    "acessórios",
+  ];
 
-    // Busca o produto no JSON
-    const response = findProduct(possibleProductName);
-    return response;
-  } else {
-    return "Não entendi a pergunta. Você está procurando por um produto?";
+  const ignoreRegex = new RegExp(ignoreKeywords.join("|"), "g");
+  let possibleProductName = normalizedMessage.replace(ignoreRegex, "").trim();
+
+  // Adiciona uma lógica para considerar apenas a parte do nome do modelo
+  const productNameParts = possibleProductName.split(" ");
+  const refinedProductName =
+    productNameParts.length > 0
+      ? productNameParts[productNameParts.length - 1]
+      : possibleProductName;
+
+  const keywords = [
+    "preço",
+    "tem",
+    "quanto",
+    "queria saber",
+    "posso saber",
+    "pode me dizer",
+    "tô procurando",
+    "tô buscando",
+    "me mostra",
+    "qual é",
+    "você tem",
+    "gostaria de saber",
+    "por favor",
+    "tá tendo",
+    "fala pra mim",
+    "pode informar",
+    "me diga",
+    "tem algum",
+    "como está",
+    "quero saber",
+    "tem disponível",
+    "me ajuda",
+    "sabe me dizer",
+    "poderia informar",
+    "quero perguntar",
+    "me fala sobre",
+    "quais são",
+    "tem na loja",
+    "você conhece",
+    "o que você tem sobre",
+  ];
+
+  const keywordRegex = new RegExp(keywords.join("|"), "g");
+  possibleProductName = refinedProductName.replace(keywordRegex, "").trim();
+
+  if (possibleProductName.length === 0) {
+    return "Desculpe, não consegui identificar o produto. Poderia reformular a pergunta?";
   }
+
+  const response = findProduct(possibleProductName);
+  return response;
 }
 
 // Exemplo de uso
-//const exampleMessage = "tem o redmi 8 a";
-//console.log(handleMessage(exampleMessage));
+const exampleMessage = "tem a tela do A1?";
+console.log(handleMessage(exampleMessage));
 
 module.exports = { handleMessage };
