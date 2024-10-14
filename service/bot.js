@@ -82,6 +82,8 @@ async function handleMessage(userMessage) {
     "comprar",
     "substituir",
     "reparo",
+    "tem",
+    "do",
   ];
 
   const containsKeywords = keywords.some((keyword) =>
