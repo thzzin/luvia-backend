@@ -1,7 +1,8 @@
 const fs = require("fs");
 
 // Carregar o JSON de produtos
-const produtos = JSON.parse(fs.readFileSync("produtos.json", "utf8"));
+const produtosPath = path.join(__dirname, "produtos.json");
+const produtos = JSON.parse(fs.readFileSync(produtosPath, "utf8"));
 
 // Função para buscar o modelo e retornar as telas disponíveis (como Promise)
 function buscarTelasPorModelo(mensagem) {
