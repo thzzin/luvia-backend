@@ -1,1968 +1,6761 @@
-[
-  {
-    "modelos": [
-      "ZD553KL",
-      "ZB553KL"
-    ],
-    "marcatela": "original",
-    "aro": "com",
-    "valor": 110
-  },
-  {
-    "modelos": [
-      "ZD553KL",
-      "ZB553KL",
-      "Poco M5",
-      "Poco M4",
-      "RM 11 Prime",
-      "RM 10 5g"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 85
-  },
-  {
-    "modelos": [
-      "ZC600KL",
-      "ZC6002KL",
-      "Note 11 4g",
-      "11s",
-      "Note 12s",
-      "M4 Pro",
-      "Org"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 155
-  },
-  {
-    "modelos": [
-      "ZB570KL",
-      "ZB570TL"
-    ],
-    "marcatela": "original",
-    "aro": "com",
-    "valor": 155
-  },
-  {
-    "modelos": [
-      "ZB570KL",
-      "ZB570TL",
-      "INFINIX HOT 12 PLAY",
-      "HOT 12"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 90
-  },
-  {
-    "modelos": [
-      "TABLET T290",
-      "T295",
-      "MI 10 LITE",
-      "10X 5G"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 135
-  },
-  {
-    "modelos": [
-      "Redmi A1",
-      "A1+",
-      "Poco C50 C",
-      "REDMI 8A"
-    ],
-    "marcatela": "wk",
-    "aro": "com",
-    "valor": 105
-  },
-  {
-    "modelos": [
-      "Redmi A1",
-      "A1 plus",
-      "RM A2",
-      "A2 Plus Poco C50",
-      "REDMI 10",
-      "10 Prime",
-      "PRIME PLUS",
-      "H502",
-      "H520",
-      "H522",
-      "NOTE 5",
-      "NOTE 5 PRO",
-      "NOTE 10 5G",
-      "M3 PRO",
-      "MOTO G32",
-      "G62",
-      "G73",
-      "MOTO  G04",
-      "G24",
-      "G04s",
-      "LG G4",
-      "H810",
-      "H811",
-      "H815",
-      "H818",
-      "POCO X3",
-      "POCO X3 PRO",
-      "A14 5G",
-      "M14 5G"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 70
-  },
-  {
-    "modelos": [
-      "Redmi A1",
-      "A1 Plus",
-      "A2",
-      "A2 Plus",
-      "Poco C50",
-      "Redmi 10c",
-      "Rm 10 Pro",
-      "Rm 10 Power",
-      "Poco C40",
-      "POCO M3",
-      "REDMI 9T",
-      "NOTE 9S",
-      "NOTE 9 PRO",
-      "MOTO G22",
-      "E32",
-      "E22S",
-      "A11",
-      "M11"
-    ],
-    "marcatela": "wk",
-    "aro": "sem",
-    "valor": 85
-  },
-  {
-    "modelos": [
-      "Redmi A1",
-      "A1 Plus",
-      "A2",
-      "A2 +",
-      "Poco C50",
-      "Redmi 9A",
-      "9C",
-      "9i",
-      "10A",
-      "Poco c3",
-      "c31",
-      "Redmi 10c",
-      "RM 10 Pro",
-      "10 Power",
-      "Poco C40",
-      "A03",
-      "A02s",
-      "A03s",
-      "A02",
-      "A12",
-      "A32 5G"
-    ],
-    "marcatela": "wefix",
-    "aro": "sem",
-    "valor": 105
-  },
-  {
-    "modelos": [
-      "Redmi 9A",
-      "9C",
-      "9i",
-      "10A",
-      "Poco c3 Poco c31",
-      "Redmi 10C",
-      "RM 10 Pro",
-      "RM 10 Power",
-      "Poco C40",
-      "REDMI 8",
-      "REDMI 8A",
-      "POCO M3",
-      "REDMI 9T",
-      "MOTO E30",
-      "E40",
-      "MOTO E22",
-      "E22i",
-      "MOTO  G13",
-      "G23*",
-      "E7",
-      "E7 POWER",
-      "E7 PLUS",
-      "G9 PLAY",
-      "A21S",
-      "A12S"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 55
-  },
-  {
-    "modelos": [
-      "Redmi 9A",
-      "9C",
-      "9i",
-      "10A",
-      "Poco C3",
-      "C31",
-      "MOTO G10",
-      "G20",
-      "G30",
-      "A03",
-      "A02S",
-      "A03S",
-      "A02",
-      "A12",
-      "A32 5G",
-      "M02"
-    ],
-    "marcatela": "wk",
-    "aro": "sem",
-    "valor": 80
-  },
-  {
-    "modelos": [
-      "Redmi 9A",
-      "9C",
-      "9i",
-      "10A",
-      "Poco C3",
-      "C31",
-      "MOTO G22",
-      "E32",
-      "E22S",
-      "MOTO G10",
-      "G20",
-      "G30",
-      "J7 Prime",
-      "J7 Prime 2 -PRETO-",
-      "E7",
-      "E7 POWER",
-      "E7 PLUS",
-      "G9 PLAY",
-      "A11",
-      "M11",
-      "G6 PLAY",
-      "E5"
-    ],
-    "marcatela": "master",
-    "aro": "sem",
-    "valor": 60
-  },
-  {
-    "modelos": [
-      "Redmi 13C",
-      "POCO M6",
-      "Redmi 12C",
-      "Poco C55",
-      "NOTE 7",
-      "NOTE 7 Pro"
-    ],
-    "marcatela": "wefix",
-    "aro": "sem",
-    "valor": 115
-  },
-  {
-    "modelos": [
-      "Redmi 13C",
-      "POCO M6",
-      "REDMI 9",
-      "9 PRIME"
-    ],
-    "marcatela": "wk",
-    "aro": "sem",
-    "valor": 88
-  },
-  {
-    "modelos": [
-      "Redmi 13C",
-      "POCO M6",
-      "REALME C3",
-      "6i",
-      "5i",
-      "A11X",
-      "A11",
-      "M11",
-      "f",
-      "A04s",
-      "A13 5G"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 58
-  },
-  {
-    "modelos": [
-      "Redmi 12C",
-      "Poco C55"
-    ],
-    "marcatela": "wefix",
-    "aro": "com",
-    "valor": 155
-  },
-  {
-    "modelos": [
-      "Redmi 12C",
-      "Poco C55"
-    ],
-    "marcatela": "wk",
-    "aro": "sem",
-    "valor": 82
-  },
-  {
-    "modelos": [
-      "Redmi 12C",
-      "Poco C55",
-      "NOTE 6",
-      "NOTE 6 PRO",
-      "LG VOLT",
-      "H422",
-      "H420",
-      "K42",
-      "K52",
-      "K62",
-      "K62 PLUS"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 65
-  },
-  {
-    "modelos": [
-      "Redmi 12C",
-      "Poco C55",
-      "REDMI 13C",
-      "Note 10 4g",
-      "Note 10s",
-      "Poco M5s",
-      "K12",
-      "K12 PLUS",
-      "K40",
-      "K12 Max",
-      "K12 Prime",
-      "K50"
-    ],
-    "marcatela": "wk",
-    "aro": "com",
-    "valor": 115
-  },
-  {
-    "modelos": [
-      "Redmi 12",
-      "Poco M6 Pro 5G"
-    ],
-    "marcatela": "wefix",
-    "aro": "sem",
-    "valor": 150
-  },
-  {
-    "modelos": [
-      "Redmi 12",
-      "Poco M6 Pro 5G",
-      "REALME C21Y",
-      "C25Y",
-      "REALME C11",
-      "C20",
-      "C21",
-      "Note 11 5G",
-      "11s 5G",
-      "11T 5G",
-      "Poco M4 Pro 5G",
-      "MOTO G51",
-      "G60",
-      "G60s",
-      "MOTO  G14",
-      "G54",
-      "G64",
-      "K11",
-      "K11 PLUS",
-      "F",
-      "LG LEON",
-      "H326",
-      "H342"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 75
-  },
-  {
-    "modelos": [
-      "Redmi 12",
-      "POCO M6 PRO 5G"
-    ],
-    "marcatela": "wk",
-    "aro": "sem",
-    "valor": 115
-  },
-  {
-    "modelos": [
-      "Redmi 10 5G",
-      "Redmi 11 Prime",
-      "Poco M5",
-      "M4",
-      "RM 11 Prime",
-      "RM 10 5g",
-      "Note 10 5g",
-      "Poco M3 PRO",
-      "f",
-      "A14 5G",
-      "M14 5G"
-    ],
-    "marcatela": "wk",
-    "aro": "com",
-    "valor": 125
-  },
-  {
-    "modelos": [
-      "REDMI 9A",
-      "9C",
-      "9i",
-      "REDMI 10C",
-      "Poco M3",
-      "Redmi 9T",
-      "NOTE 7",
-      "MOTO G10",
-      "G20",
-      "G30",
-      "K22 E K22 PLUS",
-      "G9 PLAY",
-      "E7 PLUS"
-    ],
-    "marcatela": "wk",
-    "aro": "com",
-    "valor": 110
-  },
-  {
-    "modelos": [
-      "REDMI 9A",
-      "9C",
-      "9i",
-      "MOTO G10",
-      "G20",
-      "G30",
-      "G9 PLAY",
-      "E7 PLUS"
-    ],
-    "marcatela": "master",
-    "aro": "com",
-    "valor": 65
-  },
-  {
-    "modelos": [
-      "REDMI 9A",
-      "9C",
-      "9i",
-      "MOTO E30",
-      "E40",
-      "G9 PLAY",
-      "E7 PLUS"
-    ],
-    "marcatela": "original",
-    "aro": "com",
-    "valor": 60
-  },
-  {
-    "modelos": [
-      "REDMI 9A",
-      "9C",
-      "9i"
-    ],
-    "marcatela": "vivid",
-    "aro": "sem",
-    "valor": 100
-  },
-  {
-    "modelos": [
-      "REDMI 9A",
-      "9C",
-      "9i"
-    ],
-    "marcatela": "nacional",
-    "aro": "com",
-    "valor": 140
-  },
-  {
-    "modelos": [
-      "REDMI 9",
-      "REDMI 9 PRIME",
-      "NOTE 9S",
-      "NOTE 9 PRO",
-      "MOTO G10",
-      "G30",
-      "MOTO E30",
-      "E40",
-      "MOTO E22",
-      "E22i",
-      "E6i",
-      "E6s",
-      "A13",
-      "M13",
-      "M23 5G"
-    ],
-    "marcatela": "wefix",
-    "aro": "sem",
-    "valor": 110
-  },
-  {
-    "modelos": [
-      "REDMI 9",
-      "REDMI 9 PRIME"
-    ],
-    "marcatela": "master",
-    "aro": "sem",
-    "valor": 58
-  },
-  {
-    "modelos": [
-      "REDMI 9",
-      "REDMI 9 PRIME",
-      "A03",
-      "A02s",
-      "A03s",
-      "G6 PLAY",
-      "E5"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 53
-  },
-  {
-    "modelos": [
-      "REDMI 9",
-      "9 PRIME",
-      "MOTO  G13",
-      "G23"
-    ],
-    "marcatela": "wk",
-    "aro": "com",
-    "valor": 120
-  },
-  {
-    "modelos": [
-      "REDMI 9",
-      "9 PRIME",
-      "K22 E K22 PLUS",
-      "K12",
-      "K12 PLUS",
-      "K40"
-    ],
-    "marcatela": "original",
-    "aro": "com",
-    "valor": 75
-  },
-  {
-    "modelos": [
-      "REDMI 9",
-      "9 PRIME"
-    ],
-    "marcatela": "nacional",
-    "aro": "com",
-    "valor": 175
-  },
-  {
-    "modelos": [
-      "REDMI 8",
-      "REDMI 8A",
-      "NOTE 7"
-    ],
-    "marcatela": "original",
-    "aro": "com",
-    "valor": 70
-  },
-  {
-    "modelos": [
-      "REDMI 7A"
-    ],
-    "marcatela": "nacional",
-    "aro": "com",
-    "valor": 110
-  },
-  {
-    "modelos": [
-      "REDMI 6",
-      "6A",
-      "NOTE 9S",
-      "NOTE 9 PRO",
-      "K22 E K22 PLUS",
-      "K12",
-      "K12 PLUS",
-      "K40"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 60
-  },
-  {
-    "modelos": [
-      "REDMI 10C",
-      "POCO M3",
-      "REDMI 9T",
-      "MOTO  G13",
-      "G23",
-      "M23",
-      "M33"
-    ],
-    "marcatela": "original",
-    "aro": "com",
-    "valor": 80
-  },
-  {
-    "modelos": [
-      "REDMI 10",
-      "10 PRIME"
-    ],
-    "marcatela": "wk",
-    "aro": "sem",
-    "valor": 90
-  },
-  {
-    "modelos": [
-      "REDMI 10",
-      "NOTE 9S",
-      "NOTE 9 PRO",
-      "K12 Max",
-      "K12 Prime",
-      "K50",
-      "A14 5G",
-      "M14 5G"
-    ],
-    "marcatela": "original",
-    "aro": "com",
-    "valor": 85
-  },
-  {
-    "modelos": [
-      "REDMI 10",
-      "Poco M4 Pro 4G  Borda Fina",
-      "MOTO  G14"
-    ],
-    "marcatela": "wk",
-    "aro": "com",
-    "valor": 140
-  },
-  {
-    "modelos": [
-      "REDMI 10 5G",
-      "REDMI 11 Prime"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 100
-  },
-  {
-    "modelos": [
-      "REALME C30",
-      "C33",
-      "REALME C25",
-      "POCO X3 GT",
-      "NOTE 10 PRO 5G"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 80
-  },
-  {
-    "modelos": [
-      "REALME C2",
-      "C11",
-      "C12",
-      "C15",
-      "J7 PRIME",
-      "J7 PRIME 2",
-      "G8 PLAY",
-      "ONE MACRO",
-      "REDMI 5A",
-      "REDMI GO"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 50
-  },
-  {
-    "modelos": [
-      "REALME C17"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 95
-  },
-  {
-    "modelos": [
-      "REALME 9i",
-      "REALME 8i",
-      "INFINIX Note 8i",
-      "SPART 7 PRO",
-      "A50",
-      "A50S",
-      "A30  ORIGINAL"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 120
-  },
-  {
-    "modelos": [
-      "REALME 6",
-      "6i",
-      "7"
-    ],
-    "marcatela": "master",
-    "aro": "sem",
-    "valor": 85
-  },
-  {
-    "modelos": [
-      "POCO X3 GT",
-      "Note 10 Pro 5G",
-      "M30",
-      "M30s",
-      "M31",
-      "M21s"
-    ],
-    "marcatela": "wefix",
-    "aro": "sem",
-    "valor": 165
-  },
-  {
-    "modelos": [
-      "POCO M3",
-      "REDMI 9T",
-      "G8 PLAY",
-      "ONE MACRO"
-    ],
-    "marcatela": "wefix",
-    "aro": "sem",
-    "valor": 99
-  },
-  {
-    "modelos": [
-      "POCO M3",
-      "REDMI 9T"
-    ],
-    "marcatela": "nacional",
-    "aro": "com",
-    "valor": 150
-  },
-  {
-    "modelos": [
-      "POCO F3",
-      "F4",
-      "F3 PRO",
-      "Mi 11i",
-      "Mi 11X",
-      "MI 9T",
-      "MI 9T PRO  ORIGINAL"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 210
-  },
-  {
-    "modelos": [
-      "POCO F3",
-      "F4",
-      "F3 PRO",
-      "Mi 11i",
-      "Mi 11X",
-      "Note 10 Pro",
-      "10 Pro Max",
-      "Note 11 Pro 4g",
-      "5g",
-      "MOTO G52",
-      "G72",
-      "G82",
-      "EDGE 30"
-    ],
-    "marcatela": "incell",
-    "aro": "sem",
-    "valor": 75
-  },
-  {
-    "modelos": [
-      "Note 13 Pro 5G",
-      "X6 5G",
-      "MI 11T",
-      "MI PRO"
-    ],
-    "marcatela": "incell",
-    "aro": "sem",
-    "valor": 120
-  },
-  {
-    "modelos": [
-      "Note 13 5G",
-      "Poco F5"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 200
-  },
-  {
-    "modelos": [
-      "Note 13 5G",
-      "Nt 13 Pro 5g",
-      "Poco F5"
-    ],
-    "marcatela": "wefix",
-    "aro": "sem",
-    "valor": 310
-  },
-  {
-    "modelos": [
-      "Note 13 5G",
-      "Note 13 Pro 5G",
-      "X6 5G"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 350
-  },
-  {
-    "modelos": [
-      "Note 12 Pro 5g",
-      "X5 Pro"
-    ],
-    "marcatela": "wk",
-    "aro": "com",
-    "valor": 175
-  },
-  {
-    "modelos": [
-      "Note 12 Pro 5G",
-      "X5 Pro B",
-      "fina"
-    ],
-    "marcatela": "wk",
-    "aro": "com",
-    "valor": 370
-  },
-  {
-    "modelos": [
-      "Note 12 Pro 5G",
-      "X5 PRO",
-      "NOTE 12 4G",
-      "POCO X5"
-    ],
-    "marcatela": "wefix",
-    "aro": "com",
-    "valor": 395
-  },
-  {
-    "modelos": [
-      "Note 12 Pro 5G",
-      "X5 Pro",
-      "Nt 12 Pro Plus"
-    ],
-    "marcatela": "wk",
-    "aro": "sem",
-    "valor": 330
-  },
-  {
-    "modelos": [
-      "Note 12 Pro",
-      "X5 Pro"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 185
-  },
-  {
-    "modelos": [
-      "Note 12 5G",
-      "Poco X5"
-    ],
-    "marcatela": "wk",
-    "aro": "com",
-    "valor": 155
-  },
-  {
-    "modelos": [
-      "Note 12 4G",
-      "Poco X5",
-      "NOTE 9S",
-      "NOTE 9 PRO",
-      "M23",
-      "M33",
-      "G8 PLAY",
-      "ONE MACRO -"
-    ],
-    "marcatela": "wk",
-    "aro": "com",
-    "valor": 130
-  },
-  {
-    "modelos": [
-      "Note 12 4",
-      "5G",
-      "Poco X5 Orig"
-    ],
-    "marcatela": "wk",
-    "aro": "sem",
-    "valor": 320
-  },
-  {
-    "modelos": [
-      "Note 12",
-      "Poco X5",
-      "Orig"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 220
-  },
-  {
-    "modelos": [
-      "Note 12",
-      "Poco X5",
-      "Note 11 4G",
-      "11s",
-      "Note 12s",
-      "M4 Pro"
-    ],
-    "marcatela": "incell",
-    "aro": "sem",
-    "valor": 70
-  },
-  {
-    "modelos": [
-      "Note 12  Poco X5",
-      "Orig"
-    ],
-    "marcatela": "original",
-    "aro": "com",
-    "valor": 225
-  },
-  {
-    "modelos": [
-      "Note 11 Pro 5G",
-      "Poco X4 Pro 5G B",
-      "Fina"
-    ],
-    "marcatela": "wk",
-    "aro": "com",
-    "valor": 147
-  },
-  {
-    "modelos": [
-      "Note 11 Pro",
-      "Poco X4 Pro"
-    ],
-    "marcatela": "wk",
-    "aro": "com",
-    "valor": 145
-  },
-  {
-    "modelos": [
-      "Note 11 4g",
-      "M4 Pro 4g"
-    ],
-    "marcatela": "incell",
-    "aro": "com",
-    "valor": 80
-  },
-  {
-    "modelos": [
-      "Note 11 4g ORIG"
-    ],
-    "marcatela": "vivid",
-    "aro": "com",
-    "valor": 220
-  },
-  {
-    "modelos": [
-      "Note 11 4G",
-      "Poco M4 Pro   B",
-      "Fina",
-      "POCO X3",
-      "POCO X3 PRO"
-    ],
-    "marcatela": "wk",
-    "aro": "com",
-    "valor": 150
-  },
-  {
-    "modelos": [
-      "Note 11 4G",
-      "M4 Pro  Orig"
-    ],
-    "marcatela": "original",
-    "aro": "com",
-    "valor": 180
-  },
-  {
-    "modelos": [
-      "Note 10 Pro",
-      "10 Pro Max",
-      "NOTE 11 Pro 4G",
-      "5G"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 199
-  },
-  {
-    "modelos": [
-      "Note 10 PRO 4G"
-    ],
-    "marcatela": "original",
-    "aro": "com",
-    "valor": 199
-  },
-  {
-    "modelos": [
-      "Note 10 4g",
-      "Note 10s",
-      "Poco M5s   B",
-      "Fina"
-    ],
-    "marcatela": "wk",
-    "aro": "com",
-    "valor": 210
-  },
-  {
-    "modelos": [
-      "Note 10 4g",
-      "Note 10s",
-      "Poco M5s"
-    ],
-    "marcatela": "original",
-    "aro": "com",
-    "valor": 160
-  },
-  {
-    "modelos": [
-      "Note 10 4G",
-      "Note 10s Orig",
-      "MOTO G31",
-      "G41",
-      "G71 ORIG"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 150
-  },
-  {
-    "modelos": [
-      "NOTE 9S",
-      "NOTE 9 PRO",
-      "K42",
-      "K52",
-      "K62",
-      "K62 PLUS"
-    ],
-    "marcatela": "wk",
-    "aro": "sem",
-    "valor": 89
-  },
-  {
-    "modelos": [
-      "NOTE 7",
-      "NOTE 7 PRO",
-      "J4 PLUS",
-      "J6 PLUS",
-      "J4 CORE",
-      "G8 PLAY",
-      "ONE MACRO",
-      "A10",
-      "M10",
-      "A02",
-      "A12",
-      "A32 5G",
-      "M02"
-    ],
-    "marcatela": "master",
-    "aro": "sem",
-    "valor": 55
-  },
-  {
-    "modelos": [
-      "NOTE 7",
-      "NOTE 7 PRO"
-    ],
-    "marcatela": "nacional",
-    "aro": "sem",
-    "valor": 115
-  },
-  {
-    "modelos": [
-      "NOTE 7",
-      "NOTE 7 PRO"
-    ],
-    "marcatela": "original",
-    "aro": "com",
-    "valor": 220
-  },
-  {
-    "modelos": [
-      "NOTE 10 4G",
-      "NOTE 10S"
-    ],
-    "marcatela": "incell",
-    "aro": "sem",
-    "valor": 62
-  },
-  {
-    "modelos": [
-      "NOTE 10 4G",
-      "NOTE 10S"
-    ],
-    "marcatela": "incell",
-    "aro": "com",
-    "valor": 70
-  },
-  {
-    "modelos": [
-      "MOTO G52",
-      "G82"
-    ],
-    "marcatela": "original",
-    "aro": "com",
-    "valor": 215
-  },
-  {
-    "modelos": [
-      "MOTO G52",
-      "G72",
-      "G82",
-      "EDGE 30 Orig"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 175
-  },
-  {
-    "modelos": [
-      "MOTO G52",
-      "EDGE 30"
-    ],
-    "marcatela": "wefix",
-    "aro": "sem",
-    "valor": 325
-  },
-  {
-    "modelos": [
-      "MOTO G51",
-      "G60",
-      "G60s",
-      "-"
-    ],
-    "marcatela": "nacional",
-    "aro": "sem",
-    "valor": 180
-  },
-  {
-    "modelos": [
-      "MOTO G51",
-      "G60",
-      "G60s",
-      "MOTO  G14",
-      "G54"
-    ],
-    "marcatela": "wefix",
-    "aro": "sem",
-    "valor": 155
-  },
-  {
-    "modelos": [
-      "MOTO G51",
-      "G60",
-      "G60s"
-    ],
-    "marcatela": "wk",
-    "aro": "sem",
-    "valor": 100
-  },
-  {
-    "modelos": [
-      "MOTO G31",
-      "G41",
-      "G71"
-    ],
-    "marcatela": "incell",
-    "aro": "sem",
-    "valor": 65
-  },
-  {
-    "modelos": [
-      "MOTO G22",
-      "E32",
-      "E22s"
-    ],
-    "marcatela": "wefix",
-    "aro": "sem",
-    "valor": 130
-  },
-  {
-    "modelos": [
-      "MOTO G13",
-      "G23"
-    ],
-    "marcatela": "wk",
-    "aro": "sem",
-    "valor": 99
-  },
-  {
-    "modelos": [
-      "MOTO G10",
-      "G30"
-    ],
-    "marcatela": "original",
-    "aro": "com",
-    "valor": 65
-  },
-  {
-    "modelos": [
-      "MOTO G10",
-      "G30",
-      "A10",
-      "M10"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 48
-  },
-  {
-    "modelos": [
-      "MOTO G10"
-    ],
-    "marcatela": "nacional",
-    "aro": "com",
-    "valor": 145
-  },
-  {
-    "modelos": [
-      "MOTO  G14",
-      "G54"
-    ],
-    "marcatela": "wk",
-    "aro": "sem",
-    "valor": 105
-  },
-  {
-    "modelos": [
-      "MOTO  G13",
-      "G23",
-      "A21s",
-      "A12s"
-    ],
-    "marcatela": "wefix",
-    "aro": "sem",
-    "valor": 125
-  },
-  {
-    "modelos": [
-      "MI 9T",
-      "MI 9T PRO"
-    ],
-    "marcatela": "incell",
-    "aro": "sem",
-    "valor": 110
-  },
-  {
-    "modelos": [
-      "MI 10T",
-      "MI 10T PRO",
-      "K30S"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 115
-  },
-  {
-    "modelos": [
-      "M31",
-      "M21s"
-    ],
-    "marcatela": "wefix",
-    "aro": "com",
-    "valor": 195
-  },
-  {
-    "modelos": [
-      "M30",
-      "M30s",
-      "M31",
-      "M21s",
-      "LG  Q7",
-      "Q7 PLUS"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 130
-  },
-  {
-    "modelos": [
-      "M30",
-      "M30S",
-      "M31",
-      "M21"
-    ],
-    "marcatela": "original",
-    "aro": "com",
-    "valor": 145
-  },
-  {
-    "modelos": [
-      "M30",
-      "M30S",
-      "M31",
-      "M21"
-    ],
-    "marcatela": "incell",
-    "aro": "com",
-    "valor": 75
-  },
-  {
-    "modelos": [
-      "M30",
-      "M30S",
-      "M31",
-      "M21S",
-      "f"
-    ],
-    "marcatela": "incell",
-    "aro": "sem",
-    "valor": 60
-  },
-  {
-    "modelos": [
-      "M30",
-      "M30S"
-    ],
-    "marcatela": "wefix",
-    "aro": "com",
-    "valor": 180
-  },
-  {
-    "modelos": [
-      "M30",
-      "M30S"
-    ],
-    "marcatela": "vivid",
-    "aro": "com",
-    "valor": 190
-  },
-  {
-    "modelos": [
-      "M23",
-      "M33"
-    ],
-    "marcatela": "wefix",
-    "aro": "com",
-    "valor": 160
-  },
-  {
-    "modelos": [
-      "LG G4 STYLLUS",
-      "H540",
-      "H630"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 180
-  },
-  {
-    "modelos": [
-      "K42",
-      "K52",
-      "K62",
-      "K62 PLUS",
-      "A11",
-      "M11",
-      "f",
-      "A14 5G",
-      "M14 5G"
-    ],
-    "marcatela": "wefix",
-    "aro": "sem",
-    "valor": 120
-  },
-  {
-    "modelos": [
-      "K22 E K22 PLUS"
-    ],
-    "marcatela": "wefix",
-    "aro": "sem",
-    "valor": 100
-  },
-  {
-    "modelos": [
-      "K12 MAX",
-      "K12 PRIME",
-      "K50"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 62
-  },
-  {
-    "modelos": [
-      "J8    ORIGINAL"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 160
-  },
-  {
-    "modelos": [
-      "J4 PLUS",
-      "J6 PLUS",
-      "J4 CORE",
-      "G9 PLAY",
-      "E7 PLUS"
-    ],
-    "marcatela": "wk",
-    "aro": "sem",
-    "valor": 78
-  },
-  {
-    "modelos": [
-      "J4 PLUS",
-      "J6 PLUS",
-      "J4 CORE"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 49
-  },
-  {
-    "modelos": [
-      "J4 PLUS J6 PLUS J4 CORE",
-      "E7",
-      "E7 POWER"
-    ],
-    "marcatela": "wefix",
-    "aro": "sem",
-    "valor": 85
-  },
-  {
-    "modelos": [
-      "Iphone 12",
-      "Iphone 12 Pro C",
-      "i"
-    ],
-    "marcatela": "wk",
-    "aro": "sem",
-    "valor": 190
-  },
-  {
-    "modelos": [
-      "Iphone 12",
-      "Iphone 12 Pro"
-    ],
-    "marcatela": "wk",
-    "aro": "sem",
-    "valor": 195
-  },
-  {
-    "modelos": [
-      "Iphone 12",
-      "Iphone 12 Pro  C",
-      "i"
-    ],
-    "marcatela": "wk",
-    "aro": "sem",
-    "valor": 360
-  },
-  {
-    "modelos": [
-      "Iphone 12",
-      "Iphone 12 Pro"
-    ],
-    "marcatela": "wk",
-    "aro": "sem",
-    "valor": 315
-  },
-  {
-    "modelos": [
-      "Iphone 12",
-      "12 Pro -  C",
-      "i"
-    ],
-    "marcatela": "wefix",
-    "aro": "sem",
-    "valor": 235
-  },
-  {
-    "modelos": [
-      "Iphone 12",
-      "12 Pro   C",
-      "i"
-    ],
-    "marcatela": "vivid",
-    "aro": "sem",
-    "valor": 310
-  },
-  {
-    "modelos": [
-      "Iphone 12",
-      "12 Pro"
-    ],
-    "marcatela": "vivid",
-    "aro": "sem",
-    "valor": 250
-  },
-  {
-    "modelos": [
-      "IPHONE 12",
-      "12 PRO"
-    ],
-    "marcatela": "wefix",
-    "aro": "sem",
-    "valor": 350
-  },
-  {
-    "modelos": [
-      "IPHONE 12",
-      "IPHONE 12 PRO"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 375
-  },
-  {
-    "modelos": [
-      "IPHONE 11",
-      "S",
-      "C",
-      "i"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 315
-  },
-  {
-    "modelos": [
-      "IPHONE    8G",
-      "SE",
-      "INFINIX NOTE 11S",
-      "NOTE 11 PRO"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 125
-  },
-  {
-    "modelos": [
-      "INFINIX Note 11",
-      "Note 12",
-      "12 Pro"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 110
-  },
-  {
-    "modelos": [
-      "G9 PLAY",
-      "E7 PLUS"
-    ],
-    "marcatela": "wefix",
-    "aro": "com",
-    "valor": 110
-  },
-  {
-    "modelos": [
-      "G9 PLAY",
-      "E7 PLUS",
-      "A10",
-      "M10"
-    ],
-    "marcatela": "wefix",
-    "aro": "sem",
-    "valor": 95
-  },
-  {
-    "modelos": [
-      "G8 PLAY",
-      "ONE MACRO"
-    ],
-    "marcatela": "master",
-    "aro": "com",
-    "valor": 85
-  },
-  {
-    "modelos": [
-      "G8 PLAY",
-      "ONE MACRO"
-    ],
-    "marcatela": "master",
-    "aro": "com",
-    "valor": 80
-  },
-  {
-    "modelos": [
-      "G8 PLAY",
-      "ONE MACRO"
-    ],
-    "marcatela": "original",
-    "aro": "com",
-    "valor": 165
-  },
-  {
-    "modelos": [
-      "E7",
-      "E7 POWER"
-    ],
-    "marcatela": "nacional",
-    "aro": "sem",
-    "valor": 120
-  },
-  {
-    "modelos": [
-      "A52",
-      "A52S ORIGINAL"
-    ],
-    "marcatela": "original",
-    "aro": "com",
-    "valor": 189
-  },
-  {
-    "modelos": [
-      "A52",
-      "A52S ORIGINAL"
-    ],
-    "marcatela": "wefix",
-    "aro": "com",
-    "valor": 245
-  },
-  {
-    "modelos": [
-      "A52",
-      "A52S ORIGINAL  B",
-      "fina"
-    ],
-    "marcatela": "wefix",
-    "aro": "com",
-    "valor": 345
-  },
-  {
-    "modelos": [
-      "A52",
-      "A52S  B",
-      "fina"
-    ],
-    "marcatela": "wk",
-    "aro": "com",
-    "valor": 270
-  },
-  {
-    "modelos": [
-      "A52",
-      "A52S"
-    ],
-    "marcatela": "incell",
-    "aro": "com",
-    "valor": 99
-  },
-  {
-    "modelos": [
-      "A52",
-      "A52S ORIGINAL"
-    ],
-    "marcatela": "vivid",
-    "aro": "com",
-    "valor": 450
-  },
-  {
-    "modelos": [
-      "A52",
-      "A52S ORIGINAL"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 140
-  },
-  {
-    "modelos": [
-      "A52",
-      "A52S    B",
-      "Fina"
-    ],
-    "marcatela": "vivid",
-    "aro": "com",
-    "valor": 195
-  },
-  {
-    "modelos": [
-      "A50",
-      "A50s",
-      "A30 ORIG"
-    ],
-    "marcatela": "wefix",
-    "aro": "com",
-    "valor": 175
-  },
-  {
-    "modelos": [
-      "A50",
-      "A50s",
-      "A30 ORIG"
-    ],
-    "marcatela": "wk",
-    "aro": "com",
-    "valor": 165
-  },
-  {
-    "modelos": [
-      "A50",
-      "A50s",
-      "A30 ORIG"
-    ],
-    "marcatela": "vivid",
-    "aro": "com",
-    "valor": 165
-  },
-  {
-    "modelos": [
-      "A50",
-      "A50s",
-      "A30"
-    ],
-    "marcatela": "incell",
-    "aro": "com",
-    "valor": 68
-  },
-  {
-    "modelos": [
-      "A50",
-      "A50S",
-      "A30 ORIGINAL"
-    ],
-    "marcatela": "original",
-    "aro": "com",
-    "valor": 130
-  },
-  {
-    "modelos": [
-      "A30",
-      "A50"
-    ],
-    "marcatela": "incell",
-    "aro": "com",
-    "valor": 130
-  },
-  {
-    "modelos": [
-      "A23",
-      "M23"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 68
-  },
-  {
-    "modelos": [
-      "A23",
-      "M33",
-      "M23"
-    ],
-    "marcatela": "original",
-    "aro": "com",
-    "valor": 77
-  },
-  {
-    "modelos": [
-      "A23",
-      "M23",
-      "M33"
-    ],
-    "marcatela": "wk",
-    "aro": "sem",
-    "valor": 104
-  },
-  {
-    "modelos": [
-      "A13",
-      "M13",
-      "M23 5G",
-      "F13"
-    ],
-    "marcatela": "wk",
-    "aro": "sem",
-    "valor": 87
-  },
-  {
-    "modelos": [
-      "A13",
-      "M13",
-      "M23 5G",
-      "F13",
-      "G7",
-      "G7 PLUS"
-    ],
-    "marcatela": "master",
-    "aro": "sem",
-    "valor": 70
-  },
-  {
-    "modelos": [
-      "A13",
-      "M13",
-      "M23 5G"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 56
-  },
-  {
-    "modelos": [
-      "A10",
-      "M10"
-    ],
-    "marcatela": "wk",
-    "aro": "sem",
-    "valor": 75
-  },
-  {
-    "modelos": [
-      "A10",
-      "M10"
-    ],
-    "marcatela": "wk",
-    "aro": "com",
-    "valor": 99
-  },
-  {
-    "modelos": [
-      "A03",
-      "A02S",
-      "A03S"
-    ],
-    "marcatela": "master",
-    "aro": "sem",
-    "valor": 57
-  },
-  {
-    "modelos": [
-      "A03",
-      "A02S",
-      "A03S"
-    ],
-    "marcatela": "nacional",
-    "aro": "sem",
-    "valor": 110
-  },
-  {
-    "modelos": [
-      "A03",
-      "A02S",
-      "A03S"
-    ],
-    "marcatela": "vivid",
-    "aro": "sem",
-    "valor": 110
-  },
-  {
-    "modelos": [
-      "A02",
-      "A12",
-      "A32 5G",
-      "M02 -"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 52
-  },
-  {
-    "modelos": [
-      "9A",
-      "9C",
-      "9i",
-      "10A",
-      "Poco C3",
-      "Poco 31"
-    ],
-    "marcatela": "wefix",
-    "aro": "sem",
-    "valor": 97
-  },
-  {
-    "modelos": [
-      "POCO X3",
-      "POCO X3 PRO"
-    ],
-    "marcatela": "original",
-    "aro": "com",
-    "valor": 95
-  },
-  {
-    "modelos": [
-      "POCO X3",
-      "POCO X3 PRO"
-    ],
-    "marcatela": "wk",
-    "aro": "sem",
-    "valor": 110
-  },
-  {
-    "modelos": [
-      "J7",
-      "J700"
-    ],
-    "marcatela": "incell",
-    "aro": "sem",
-    "valor": 90
-  },
-  {
-    "modelos": [
-      "J7"
-    ],
-    "marcatela": "incell",
-    "aro": "sem",
-    "valor": 55
-  },
-  {
-    "modelos": [],
-    "marcatela": "incell",
-    "aro": "sem",
-    "valor": 100
-  },
-  {
-    "modelos": [
-      "G6 PLAY",
-      "E5"
-    ],
-    "marcatela": "wefix",
-    "aro": "sem",
-    "valor": 80
-  },
-  {
-    "modelos": [
-      "EDGE 20",
-      "EDGE 20 Pro Original"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 245
-  },
-  {
-    "modelos": [
-      "EDGE 20 LITE",
-      "EDGE 20 FUSION"
-    ],
-    "marcatela": "original",
-    "aro": "sem",
-    "valor": 255
-  },
-  {
-    "modelos": [
-      "A14 5G",
-      "M14 5G"
-    ],
-    "marcatela": "wk",
-    "aro": "sem",
-    "valor": 95
-  },
-  {
-    "modelos": [
-      "f",
-      "A04s",
-      "A13 5G"
-    ],
-    "marcatela": "original",
-    "aro": "com",
-    "valor": 62
-  }
-]
+{
+    "NOKIA 5": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 115.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "NOKIA G21": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 90.00"
+        }
+    ],
+    "NOKIA C01 PLUS": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "NOKIA C2": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 100.00"
+        }
+    ],
+    "NOKIA C10": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "NOKIA 2": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 115.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "A03 CORE COM ARO Maxter pro": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "MOTO G22 COM ARO Maxter Pro": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "A12 COM ARO Maxter Pro": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "IPHONE 5G": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 40.00"
+        }
+    ],
+    "IPHONE 5S": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "IPHONE 5C": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 50.00"
+        }
+    ],
+    "IPHONE 6G PRETO": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 49.00"
+        }
+    ],
+    "IPHONE 6G BRANCO": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 49.00"
+        }
+    ],
+    "IPHONE 6S BRANCO": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 50.00"
+        }
+    ],
+    "IPHONE 6S PRETO": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 50.00"
+        }
+    ],
+    "IPHONE 6S PLUS": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 58.00"
+        }
+    ],
+    "IPHONE 6G PLUS": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 57.00"
+        }
+    ],
+    "IPHONE 7G PLUS": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 57.00"
+        }
+    ],
+    "IPHONE 7G PLUS Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 115.00"
+        }
+    ],
+    "F": [
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 120.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 125.00"
+        },
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 90.00"
+        },
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 90.00"
+        },
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 495.00"
+        },
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 100.00"
+        },
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 285.00"
+        },
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 195.00"
+        }
+    ],
+    "IPHONE 8G PLUS": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 58.00"
+        }
+    ],
+    "IPHONE 8G": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 52.00"
+        }
+    ],
+    "IPHONE 7G Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 99.00"
+        }
+    ],
+    "IPHONE 7G": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "IPHONE X OLED Macaquinho VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 230.00"
+        }
+    ],
+    "IPHONE XS Macaquinho Vivid": [
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 140.00"
+        }
+    ],
+    "IPHONE 11": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 315.00"
+        }
+    ],
+    "ZB570KL": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 90.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 155.00"
+        }
+    ],
+    "ZC551KL": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "ZE552KL": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "ZD551KL SELFIE": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "ZB501KL": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "ZB551KL GO LIVE": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 115.00"
+        }
+    ],
+    "ZD552KL SELFIE PRO": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 100.00"
+        }
+    ],
+    "ZB634KL MAX SHOT MASTER": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 95.00"
+        }
+    ],
+    "ZD553KL": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "A7 2016 A710 OLED ORIGINAL": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "A7 2017 A720 OLED ORIGINAL": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "A72 ORIG": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 315.00"
+        }
+    ],
+    "A6 PLUS": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 175.00"
+        },
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 100.00"
+        }
+    ],
+    "A7 2018 A750 ORIGINAL OLED": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 170.00"
+        }
+    ],
+    "A5  A500  ORIGINAL": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 145.00"
+        }
+    ],
+    "A5 2017 A520 ORIGINAL OLED": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "A52": [
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 195.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 345.00"
+        },
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 450.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 188.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 140.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 245.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 270.00"
+        },
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 99.00"
+        }
+    ],
+    "ZB601KL 2 LAZER": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 95.00"
+        }
+    ],
+    "ZC600KL": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 155.00"
+        }
+    ],
+    "A8 2018 OLED ORIGINAL": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 210.00"
+        }
+    ],
+    "A10": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 99.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 95.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 48.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "A20 ORIGINAL OLED SEM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 125.00"
+        }
+    ],
+    "M20": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "M30": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 145.00"
+        },
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 80.00"
+        },
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 190.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 145.00"
+        },
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 60.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 180.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 165.00"
+        }
+    ],
+    "IPHONE 14 PRO MAX S": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 855.00"
+        }
+    ],
+    "IPHONE 15 PRO MAX S": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 945.00"
+        }
+    ],
+    "IPHONE 15 S": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 570.00"
+        }
+    ],
+    "SAMSUNG S4 9500 9505 SAMSUNG": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 40.00"
+        }
+    ],
+    "J120 INCELL J1 2016": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "J2 PRO  J250 OLED ORIGINAL": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 135.00"
+        }
+    ],
+    "J2 CORE": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 50.00"
+        }
+    ],
+    "J3 J320 ORIGINAL OLED": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 135.00"
+        }
+    ],
+    "J5 J500 OLED ORIGINAL": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "J4 J400 ORIGINAL Oled": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "J510  J5 METAL OLED ORIGINAL": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 125.00"
+        }
+    ],
+    "J5 PRO ORIGINAL OLED": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "J5 Prime PRETO MASTER": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "J5 Prime BRANCO MASTER": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "J7 PRIME branco": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 50.00"
+        }
+    ],
+    "J7 Prime BRANCO MASTER": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "J7 PRIME 2 MASTER MARRON": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "J7 Prime": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "J7 J700 OLED ORIGINAL": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "J4 PLUS": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 78.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 49.00"
+        },
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "J7 METAL J710 OLED ORIGINAL": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "J7 PRO OLED ORIGINAL": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "J8  J800": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 160.00"
+        }
+    ],
+    "E4 PLUS": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "MOTO E4": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 50.00"
+        }
+    ],
+    "MOTO C": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 45.00"
+        }
+    ],
+    "MOTO Z2 PLAY Oled ORIGINAL": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 125.00"
+        }
+    ],
+    "MOTO      G5": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "MOTO G5G PLUS": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "MOTO G5s": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "MOTO G5S PLUS": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 57.00"
+        }
+    ],
+    "G5 PLUS": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "MOTO G7": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 130.00"
+        }
+    ],
+    "K10 2017 COM ARO M250DS": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 69.00"
+        }
+    ],
+    "MOTO ONE": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 58.00"
+        }
+    ],
+    "LG K4 2017": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "K8 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "K11 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "K11 PLUS COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 67.00"
+        }
+    ],
+    "K12": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 75.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 60.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 115.00"
+        }
+    ],
+    "LG VOLT": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "LG G4 STYLLUS": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 180.00"
+        }
+    ],
+    "LG G4": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "LG G2 LITE": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 100.00"
+        }
+    ],
+    "LG  Q7": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 130.00"
+        }
+    ],
+    "PRIME PLUS": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "K11": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "K10 POWER COM ARO  M320": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 82.00"
+        }
+    ],
+    "K220      COM ARO    X POWER": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "K8 2017    X 240": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "K9 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "A20S SEM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 45.00"
+        }
+    ],
+    "K10 TV ORIGINAL COM ARO  K430": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "K10 PRO COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "G 5G": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 90.00"
+        }
+    ],
+    "J6 INCELL PREMIUN": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "IPHONE 15 PRO S": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 850.00"
+        }
+    ],
+    "REDMI A3 MASTER": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "G1 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 40.00"
+        }
+    ],
+    "E5 PLUS": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "G7": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "G7 PLAY MASTER": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "E6 PLUS": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "G6 PLAY": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 58.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "G6": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "G6 PLUS": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "MOTO ONE COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "MOTO G3": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 50.00"
+        }
+    ],
+    "G4 PLAY COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "MI A2 LITE": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "MOTO E2": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 40.00"
+        }
+    ],
+    "NOTE 5": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "MOTO X4": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "MI A1": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "Redmi A1": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 105.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 115.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "NOTE 6": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "MI 8 LITE": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 58.00"
+        }
+    ],
+    "NOTE 7": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 220.00"
+        },
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 115.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 115.00"
+        }
+    ],
+    "MOTO Z PLAY OLED ORIGINAL": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "REDMI 5": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 115.00"
+        }
+    ],
+    "A5 2016 A510 ORIGINAL": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 160.00"
+        }
+    ],
+    "A73 OLED COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 175.00"
+        }
+    ],
+    "G7 POWER": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 58.00"
+        }
+    ],
+    "REDMI S2": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "MOTO E1": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 40.00"
+        }
+    ],
+    "A50": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 120.00"
+        },
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 165.00"
+        },
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 68.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 130.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 175.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 180.00"
+        }
+    ],
+    "REDMI 5 PLUS": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 90.00"
+        }
+    ],
+    "REDMI 6": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "MOTO Z3 PLAY OLED ORIGINAL": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 170.00"
+        }
+    ],
+    "REDMI 8": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 58.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "POCO F1": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "REDMI 7": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "MI A2": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 58.00"
+        }
+    ],
+    "G14 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "E5 E500 INCELL": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 50.00"
+        }
+    ],
+    "LG K200     X STYLE": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "A20 INCELL COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 99.00"
+        }
+    ],
+    "MOTO Z": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 100.00"
+        }
+    ],
+    "REDMI 5A": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 50.00"
+        }
+    ],
+    "J6": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 185.00"
+        }
+    ],
+    "MOTO G2 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 45.00"
+        }
+    ],
+    "MOTO ONE VISION": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 190.00"
+        }
+    ],
+    "MI 8 ORIGINAL OLED": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 150.00"
+        }
+    ],
+    "G8 PLAY": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 50.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 99.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        },
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        },
+        {
+            "marca": "Master",
+            "aro": "Com Aro",
+            "valor": "R$ 80.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 130.00"
+        },
+        {
+            "marca": "Master",
+            "aro": "Com Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "NOTE 4X": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 50.00"
+        }
+    ],
+    "A30S ORIGINAL OLED SEM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "K12 MAX": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "A10s": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 48.00"
+        }
+    ],
+    "NOTE 8": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "REDMI 7A": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "MOTOROLA X2 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "G4 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 50.00"
+        }
+    ],
+    "A73 OLED B": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 255.00"
+        }
+    ],
+    "MOTO C PLUS": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 40.00"
+        }
+    ],
+    "J7  J700": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "J7 J700": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 135.00"
+        }
+    ],
+    "A50 A50S A30  INCELL SEM ARO": [
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "J5 PRO INCELL": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "J7 PRO INCELL": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "J2 J200 INCELL": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 50.00"
+        }
+    ],
+    "A70 ORIGINAL OLED SEM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 135.00"
+        }
+    ],
+    "MI A3 ORIGINAL OLED COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 210.00"
+        }
+    ],
+    "J5 METAL J510 INCELL": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "E6 PLAY": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 52.00"
+        }
+    ],
+    "MI 9 SE OLED": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 250.00"
+        }
+    ],
+    "TOUCH IPAD 9": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "NOTE 8 PRO": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 57.00"
+        }
+    ],
+    "TOUCH IPAD 10": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 90.00"
+        }
+    ],
+    "A30s INCEEL SEM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 105.00"
+        }
+    ],
+    "MOTO G8 PLUS": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 45.00"
+        }
+    ],
+    "LG G4 BEAT H736": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "MOTO G8 POWER": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "MI 9 SE": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "J710 J7 METAL INCELL": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "K40S SEM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "NOTE 5A": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 50.00"
+        }
+    ],
+    "J8 INCELL PREMIUN": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 95.00"
+        }
+    ],
+    "MI 9 LITE INCELL": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 95.00"
+        }
+    ],
+    "A01": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 49.00"
+        }
+    ],
+    "LG K5 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 50.00"
+        }
+    ],
+    "REDMI 9": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        },
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 75.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "E6i": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "MOTO ONE ZOOM ORIGINAL OLED": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 140.00"
+        }
+    ],
+    "MOTO ONE HYPER MASTER": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "A11": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 58.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 120.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 85.00"
+        },
+        {
+            "marca": "Master",
+            "aro": "Com Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "K50S SEM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "X FORCE": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 95.00"
+        }
+    ],
+    "MOTO ONE FUSION": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "K8 PLUS SEM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "J3  J320  INCELL": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "J5 J500 INCELL": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "A8 PLUS   Original OLED": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 170.00"
+        }
+    ],
+    "MOTO G8 POWER LITE": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 47.00"
+        }
+    ],
+    "A01 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 100.00"
+        }
+    ],
+    "A31 Orig": [
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 185.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 185.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 175.00"
+        }
+    ],
+    "A21S": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "A30S INCEEL COM ARO VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 100.00"
+        }
+    ],
+    "M14 5G COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 140.00"
+        }
+    ],
+    "A20 INCELL COM ARO": [
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "NOTE 9S": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 130.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 89.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 85.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "A01 VERSO ZZ": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "MI PLAY": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "A5 2016 A510 INCELL": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 50.00"
+        }
+    ],
+    "A21 SEM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "K51S SEM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "NOTE 9 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "NOTE 9": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 57.00"
+        }
+    ],
+    "A20 ORIGINAL COM ARO VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 185.00"
+        }
+    ],
+    "IPHONE 7G VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "IPHONE 6G PLUS VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "IPHONE 6S PLUS VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 82.00"
+        }
+    ],
+    "A20S COM ARO NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 135.00"
+        }
+    ],
+    "G7 PLAY COM ARO MASTER": [
+        {
+            "marca": "Master",
+            "aro": "Com Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "K61": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 74.00"
+        }
+    ],
+    "A70 INCELL COM ARO": [
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "NOTE 13 4G OLED": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 255.00"
+        }
+    ],
+    "MOTO Z2 PLAY INCELL": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "MOTO Z PLAY INCELL": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 100.00"
+        }
+    ],
+    "A01 CORE SEM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 49.00"
+        }
+    ],
+    "A10s WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "A01 Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 90.00"
+        }
+    ],
+    "A10S COM ARO MASTER": [
+        {
+            "marca": "Master",
+            "aro": "Com Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "G9 PLAY": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 65.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 95.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        },
+        {
+            "marca": "Master",
+            "aro": "Com Aro",
+            "valor": "R$ 65.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 78.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "IPHONE 7G PLUS VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "IPHONE 8G PLUS Macaquinho VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 145.00"
+        }
+    ],
+    "K41S SEM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "NOKIA 3": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "A30": [
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 130.00"
+        }
+    ],
+    "G9 PLUS": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "MI 9 ORIGINAL OLED": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 145.00"
+        }
+    ],
+    "E7 PLUS": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        },
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "K42": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 89.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "A70 COM ARO ORIGINAL VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 450.00"
+        }
+    ],
+    "K41S COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "K51 SEM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 115.00"
+        }
+    ],
+    "E5 PLAY": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "A71 INCELL COM ARO": [
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "A51 INCELL S": [
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 115.00"
+        }
+    ],
+    "IPHONE X NN": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 90.00"
+        }
+    ],
+    "Redmi 9A": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 105.00"
+        },
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "IPHONE XS Oled Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 210.00"
+        }
+    ],
+    "IPHONE XR JK": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "IPHONE 11 PRO VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 245.00"
+        }
+    ],
+    "A31 INCELL COM ARO": [
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "MOTO ONE FUSION PLUS": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "A51 INCELL COM ARO": [
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "A02 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "K22 E K22 PLUS": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "A12 COM ARO VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 125.00"
+        }
+    ],
+    "POCO X3 GT": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 80.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 165.00"
+        }
+    ],
+    "MI 9T": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 210.00"
+        },
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 100.00"
+        }
+    ],
+    "E7": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        },
+        {
+            "marca": "Nacional",
+            "aro": "Sem Aro",
+            "valor": "R$ 120.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        },
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "A21S COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "A20S COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "NOTE 8T": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "K42 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "A02": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 105.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 52.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "MI 10 LITE": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 135.00"
+        }
+    ],
+    "K22 E K22 PLUS COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "A21 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 145.00"
+        }
+    ],
+    "A10 COM ARO MASTER": [
+        {
+            "marca": "Master",
+            "aro": "Com Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "G7 POWER COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 73.00"
+        }
+    ],
+    "ZA550KL ORIGINAL COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 125.00"
+        }
+    ],
+    "ZB555KL COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 90.00"
+        }
+    ],
+    "A30S ORIGINAL OLED COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 145.00"
+        }
+    ],
+    "Iphone 11 Pro Max Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 230.00"
+        }
+    ],
+    "J2 PRO J250 INCELL": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "IPHONE XS MAX MACAQ": [
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 210.00"
+        }
+    ],
+    "A55 OLED COM ARO B": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 345.00"
+        }
+    ],
+    "NOTE 8 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 125.00"
+        }
+    ],
+    "MOTO E20": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 57.00"
+        }
+    ],
+    "MOTO G10": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 48.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 80.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 65.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        },
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        },
+        {
+            "marca": "Master",
+            "aro": "Com Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "MOTO G100": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 130.00"
+        }
+    ],
+    "A32 4G Orig": [
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 225.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 210.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 190.00"
+        }
+    ],
+    "MOTO G9": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "G9 POWER MASTER": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "MOTO G 5G": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "MOTO   G20": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "MOTO G10 PLAY": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "MOTO G PLAY": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 50.00"
+        }
+    ],
+    "MI 10T": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 115.00"
+        }
+    ],
+    "ZE553KL ORIGINAL COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 210.00"
+        }
+    ],
+    "ZC554KL ORIGINAL COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 130.00"
+        }
+    ],
+    "A02s COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "A05s COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 95.00"
+        }
+    ],
+    "POCO X3": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 70.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 100.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 150.00"
+        }
+    ],
+    "IPHONE 6S VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 72.00"
+        }
+    ],
+    "A51 ORIGINAL OLED COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 145.00"
+        }
+    ],
+    "A03": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        },
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        },
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 105.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 53.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 79.00"
+        }
+    ],
+    "ZC553KL ZF3 COM ARO MAX 5": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "A32 5G COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "A22 5G SEM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "MOTO     ONE VISION COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 175.00"
+        }
+    ],
+    "K12 Max": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 85.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 115.00"
+        }
+    ],
+    "E6i COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "K8 PLUS COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "MI A2 COM ARO Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 130.00"
+        }
+    ],
+    "REDMI 8A COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 105.00"
+        }
+    ],
+    "MOTO ONE FUSION COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "IPHONE XS MAX Oled Macaquinho Vivid": [
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 380.00"
+        }
+    ],
+    "A02S COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "Note 10 4G": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 150.00"
+        }
+    ],
+    "IPHONE 11 JK": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "IPHONE 6G VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "A54 ORIGINAL OLED COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 199.00"
+        }
+    ],
+    "POCO M3": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 80.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "IPHONE XS OLED": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 125.00"
+        }
+    ],
+    "Note 10 4g": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 165.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 210.00"
+        }
+    ],
+    "A7 2018 A750 NACIONAL COM ARO": [
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 240.00"
+        }
+    ],
+    "A02 COM ARO VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 135.00"
+        }
+    ],
+    "IPHONE 11 PRO Oled Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 255.00"
+        }
+    ],
+    "IPHONE 8G VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "A21S COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 100.00"
+        }
+    ],
+    "MOTO G30": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "Iphone 11 Pro Max Oled macaquinhoVivid": [
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 295.00"
+        }
+    ],
+    "NOTE 7 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "IPHONE 12": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 375.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 350.00"
+        }
+    ],
+    "MOTO E30": [
+        {
+            "marca": "Master",
+            "aro": "Com Aro",
+            "valor": "R$ 70.00"
+        },
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 58.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "MI 9 LITE OLED ORIGINAL": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 155.00"
+        }
+    ],
+    "MOTO G51": [
+        {
+            "marca": "Nacional",
+            "aro": "Sem Aro",
+            "valor": "R$ 180.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 155.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 100.00"
+        }
+    ],
+    "MOTO G50 5G": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "POCO F3": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 210.00"
+        }
+    ],
+    "MI 8 LITE COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 90.00"
+        }
+    ],
+    "E6 PLAY COM ARO NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 130.00"
+        }
+    ],
+    "A30 ORIGINAL SEM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 210.00"
+        }
+    ],
+    "M51 ORIGINAL OLED COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 220.00"
+        }
+    ],
+    "M20  COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "A30 ORIGINAL COM ARO NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 245.00"
+        }
+    ],
+    "Note 11 5G": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "IPHONE 7G PLUS GOLD EDITION GE809": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 150.00"
+        }
+    ],
+    "IPHONE 7G GOLD EDITION GE808": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 125.00"
+        }
+    ],
+    "IPHONE    8G": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 125.00"
+        }
+    ],
+    "IPHONE  8G PLUS GOLD EDITIONGE811": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 150.00"
+        }
+    ],
+    "IPHONE X OLED GOLD EDITION GE829": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 350.00"
+        }
+    ],
+    "IPHONE XR GOLD EDITION GE814": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 280.00"
+        }
+    ],
+    "IPHONE XS OLED GOLD EDITION": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 315.00"
+        }
+    ],
+    "A51 TELA GRANDE GOLD EDITION": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 395.00"
+        }
+    ],
+    "E7 POWER COM ARO GOLD EDITION": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 170.00"
+        }
+    ],
+    "MOTO G8 PLUS COM ARO NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 165.00"
+        }
+    ],
+    "A11 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "M22 COM ARO NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 390.00"
+        }
+    ],
+    "A03 CORE SEM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "M12": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "POCO C3": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "A10S COM ARO Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 125.00"
+        }
+    ],
+    "A03 CORE COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "A13 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "J5 PRIME Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 90.00"
+        }
+    ],
+    "MOTO G31": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 160.00"
+        },
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "ZE620KL COM ARO Asus Zenfone 5": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 225.00"
+        }
+    ],
+    "M32 ORIGINAL Oled COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 195.00"
+        }
+    ],
+    "M52 COM ARO NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 495.00"
+        }
+    ],
+    "MOTO G22": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        },
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "MOTO G51 COM ARO NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 185.00"
+        }
+    ],
+    "A10 COM ARO NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "E6 PLUS COM ARO Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "A03s COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 100.00"
+        }
+    ],
+    "J2 J200 1 LINHA": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "MOTO G8 POWER COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "REDMI 9A": [
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 140.00"
+        },
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 100.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 65.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        },
+        {
+            "marca": "Master",
+            "aro": "Com Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "MOTO G8 POWER LITE Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 105.00"
+        }
+    ],
+    "A23 4G": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 104.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 68.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 77.00"
+        }
+    ],
+    "A20 ORIGINAL OLED COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 140.00"
+        }
+    ],
+    "E7 POWER COM ARO  NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 140.00"
+        }
+    ],
+    "A03 CORE COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "G7 PLAY": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "MOTO G30 COM ARO NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 150.00"
+        }
+    ],
+    "A30S INCEEL COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "J4   J400 INCELL PREMIUM": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 100.00"
+        }
+    ],
+    "Iphone 12": [
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 310.00"
+        },
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 250.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 235.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 315.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 195.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 190.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 360.00"
+        }
+    ],
+    "M62 OLED COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 325.00"
+        }
+    ],
+    "A13": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 55.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        },
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 87.00"
+        }
+    ],
+    "E7 POWER COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 62.00"
+        }
+    ],
+    "A10S SEM ARO NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 95.00"
+        }
+    ],
+    "A03 CORE SEM ARO Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "A20 ORIGINAL COM ARO NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 230.00"
+        }
+    ],
+    "A23 4G ou 5G C": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 135.00"
+        }
+    ],
+    "E7 POWER COM ARO  VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "NOTE 11 4G ORIGINAL NACIONAL COM ARO": [
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 495.00"
+        }
+    ],
+    "A80 ORIGINAL OLED SEM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 310.00"
+        }
+    ],
+    "REALME C2": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 50.00"
+        }
+    ],
+    "A01 CORE COM ARO VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "A31 ORIGINAL OLED COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 155.00"
+        }
+    ],
+    "Redmi 10C": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "M12 WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 89.00"
+        }
+    ],
+    "A30S Orig": [
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 185.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 180.00"
+        }
+    ],
+    "A71 OLED S": [
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 240.00"
+        }
+    ],
+    "G4 PLAY COM ARO NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "NOTE 8 COM ARO NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 210.00"
+        }
+    ],
+    "A03S COM ARO ORIGINAL VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 130.00"
+        }
+    ],
+    "A31 INCELL COM ARO VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 160.00"
+        }
+    ],
+    "A20S COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 105.00"
+        }
+    ],
+    "M12 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "A33 OLED COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 215.00"
+        }
+    ],
+    "K40S COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "REALME C11": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "Note 11 4g": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 155.00"
+        },
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 90.00"
+        }
+    ],
+    "A12 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 57.00"
+        }
+    ],
+    "A32 4G INCELL COM ARO": [
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "A03 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "A53 COM ARO ORIGINAL NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 595.00"
+        }
+    ],
+    "A02 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 58.00"
+        }
+    ],
+    "ZB634KL MAX SHOT COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "E6S COM ARO NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 145.00"
+        }
+    ],
+    "M22 ORIGINAL Oled COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 190.00"
+        }
+    ],
+    "M32 ORIGINAL COM ARO OLED VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 210.00"
+        }
+    ],
+    "MI A3 ORIGINAL OLED SEM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 175.00"
+        }
+    ],
+    "REDMI A3 COM ARO WEFIX": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 175.00"
+        }
+    ],
+    "MI 9 ORIGINAL COM ARO NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 340.00"
+        }
+    ],
+    "A03 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "J5 J500 INCELL PREMIUN": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 90.00"
+        }
+    ],
+    "A01 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 62.00"
+        }
+    ],
+    "E6 PLUS NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Sem Aro",
+            "valor": "R$ 100.00"
+        }
+    ],
+    "Note 11 4G": [
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 70.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 190.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 130.00"
+        }
+    ],
+    "E6 PLUS COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 68.00"
+        }
+    ],
+    "MOTO G10 COM ARO NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 145.00"
+        }
+    ],
+    "A72 INCELL COM ARO": [
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 100.00"
+        }
+    ],
+    "A01 CORE COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "A03S COM ARO ORIGINAL": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "A51 ORIG": [
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 185.00"
+        }
+    ],
+    "MOTO G8 PLUS COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "M51 ORIGINAL COM ARO VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 390.00"
+        }
+    ],
+    "MOTO G52": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 325.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 185.00"
+        },
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 215.00"
+        }
+    ],
+    "K71 SEM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 165.00"
+        }
+    ],
+    "J7": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 90.00"
+        }
+    ],
+    "A01 CORE SEM ARO VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 95.00"
+        }
+    ],
+    "MOTO ONE FUSION NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Sem Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "Iphone 12 Pro Max OLED WEFIX": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 525.00"
+        }
+    ],
+    "E7 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 62.00"
+        }
+    ],
+    "A12 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 100.00"
+        }
+    ],
+    "NOTE 8 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "A02 COM ARO Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "A22 5G COM ARO VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 165.00"
+        }
+    ],
+    "NOTE 10 4G": [
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 62.00"
+        },
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "K50S COM ARO NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 190.00"
+        }
+    ],
+    "A21S SEM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "M53 ORIGINAL OLED COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 395.00"
+        }
+    ],
+    "MOTO G8 PLUS NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Sem Aro",
+            "valor": "R$ 115.00"
+        }
+    ],
+    "MOTO  G20 Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "REDMI 7A COM ARO NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "REDMI 10": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 70.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 90.00"
+        }
+    ],
+    "A20S SEM ARO NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "MOTO G52 OLED COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 300.00"
+        }
+    ],
+    "NOTE 8 PRO COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 95.00"
+        }
+    ],
+    "NOTE 8 WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "J710  J7 METAL INCELL PREMIUM": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 100.00"
+        }
+    ],
+    "IPHONE 11 PRO VIVID S": [
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 240.00"
+        }
+    ],
+    "Note 11 5G COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 97.00"
+        }
+    ],
+    "NOTE 9 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "Note 11 4g ORIG": [
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 220.00"
+        }
+    ],
+    "A10e": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 67.00"
+        }
+    ],
+    "K51S COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 73.00"
+        }
+    ],
+    "J8 INCELL": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "J5 PRIME PRETO": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 40.00"
+        }
+    ],
+    "IPHONE X INCELL": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 115.00"
+        }
+    ],
+    "IPHONE X OLED VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 125.00"
+        }
+    ],
+    "NOTE 9 WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "K41S COM ARO NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 140.00"
+        }
+    ],
+    "K10 POWER SEM ARO  M320": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 78.00"
+        }
+    ],
+    "ZB634KL MAX SHOT": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "J5 PRIME BRANCO": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 45.00"
+        }
+    ],
+    "A71 INCELL SEM ARO": [
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "IPHONE XR": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "K50S COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "MI A3 INCELL S": [
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 68.00"
+        }
+    ],
+    "J6 INCELL": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 54.00"
+        }
+    ],
+    "A71  ORIGINAL OLED SEM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 125.00"
+        }
+    ],
+    "A13 COM ARO WEFIX": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 145.00"
+        }
+    ],
+    "MOTO G8": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "E6S COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "A32 4G ORIGINAL Oled COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 170.00"
+        }
+    ],
+    "MOTO G8 POWER LITE COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 58.00"
+        }
+    ],
+    "A71  ORIGINAL OLED COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 150.00"
+        }
+    ],
+    "A70 ORIGINAL OLED COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 145.00"
+        }
+    ],
+    "MOTO  G20 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "MOTO G22 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "M12 COM ARO Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "MOTO G50 4G": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "K40 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 95.00"
+        }
+    ],
+    "MOTO E20 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 67.00"
+        }
+    ],
+    "MOTO G22 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "MOTO G32 NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Sem Aro",
+            "valor": "R$ 140.00"
+        }
+    ],
+    "IPHONE XS": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "NOKIA C30": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "A22 4G INCELL COM ARO": [
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "MOTO G30 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "A9 2018 A920 OLED ORIGINAL": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 180.00"
+        }
+    ],
+    "A04e": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "E6i COM ARO NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Com Aro",
+            "valor": "R$ 145.00"
+        }
+    ],
+    "MOTO G8 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "K52 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "REALME C3": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 58.00"
+        }
+    ],
+    "M62 INCELL COM ARO": [
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 100.00"
+        }
+    ],
+    "NOTE 10 5G": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "A52 INCELL COM ARO": [
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 145.00"
+        }
+    ],
+    "G6 PLAY COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "MOTO  G60 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 125.00"
+        }
+    ],
+    "ZB631KL": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "A22 4G ORIGINAL OLED COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 155.00"
+        }
+    ],
+    "M22 INCELL SEM ARO": [
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 125.00"
+        }
+    ],
+    "A22 4G INCELL SEM ARO": [
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "12 PRO MAX S": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 345.00"
+        }
+    ],
+    "J7 PRIME": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 50.00"
+        }
+    ],
+    "Redmi 12C COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "S20 FE Original Oled COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 195.00"
+        }
+    ],
+    "A14 5G": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 85.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 90.00"
+        }
+    ],
+    "MOTO G32": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "A72 Origina Oled Tela Grande C": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 270.00"
+        }
+    ],
+    "Note 12 4G": [
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 75.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 210.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 130.00"
+        }
+    ],
+    "MOTO G42 ORIGINAL OLED": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 150.00"
+        }
+    ],
+    "IPHONE XS MAX VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 130.00"
+        }
+    ],
+    "IPHONE 11 PRO OLED": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 215.00"
+        }
+    ],
+    "IPHONE X VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 130.00"
+        }
+    ],
+    "12 Pro Max OLED S": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 515.00"
+        }
+    ],
+    "G9 POWER COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "A04e COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "MI 8 LITE WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "NOTE 9 COM ARO VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "ZB631KL NACIONAL": [
+        {
+            "marca": "Nacional",
+            "aro": "Sem Aro",
+            "valor": "R$ 155.00"
+        }
+    ],
+    "IPHONE 7G PLUS Macaquinho VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 145.00"
+        }
+    ],
+    "A53 ORIGINAL OLED COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 185.00"
+        }
+    ],
+    "MOTO G31 ORIGINAL OLED COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 170.00"
+        }
+    ],
+    "REALME C21Y": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "REALME C17": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 95.00"
+        }
+    ],
+    "REALME C25": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "INFINIX HOT 11S": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "INFINIX HOT 11 2022": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "IPHONE 13 PRO MAX S": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 825.00"
+        }
+    ],
+    "IPHONE 7G Macaquinho VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 115.00"
+        }
+    ],
+    "IPHONE 8G Macaquinho VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 115.00"
+        }
+    ],
+    "Note 12 4G Poco X5": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 95.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 225.00"
+        }
+    ],
+    "NOTE 8 COM ARO vivid": [
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 140.00"
+        }
+    ],
+    "IPHONE XR VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "MOTO G62": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "A53 INCELL COM ARO": [
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 95.00"
+        }
+    ],
+    "IPHONE 11 Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 160.00"
+        }
+    ],
+    "IPHONE 11 PRO Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 185.00"
+        }
+    ],
+    "Iphone 12 Mini Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 315.00"
+        }
+    ],
+    "IPHONE 8G PLUS Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 140.00"
+        }
+    ],
+    "IPHONE X Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 150.00"
+        }
+    ],
+    "IPHONE X OLED Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 210.00"
+        }
+    ],
+    "IPHONE XR Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 155.00"
+        }
+    ],
+    "IPHONE XS Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 150.00"
+        }
+    ],
+    "IPHONE XS MAX Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 180.00"
+        }
+    ],
+    "A30s Orig": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 185.00"
+        }
+    ],
+    "A51 Orig": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 210.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 180.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 175.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 199.00"
+        }
+    ],
+    "Redmi 12C": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 115.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 155.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 115.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 82.00"
+        }
+    ],
+    "MOTO E32 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "A10s COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 100.00"
+        }
+    ],
+    "A13 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "M23": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 125.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 160.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "A22 5G COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 125.00"
+        }
+    ],
+    "M20 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "E7 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 105.00"
+        }
+    ],
+    "MOTO E20 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 105.00"
+        }
+    ],
+    "E7 POWER COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "MOTO  G13": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 120.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 125.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 80.00"
+        },
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "K41S COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 115.00"
+        }
+    ],
+    "K40S COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 125.00"
+        }
+    ],
+    "MI 8 LITE COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 130.00"
+        }
+    ],
+    "Poco M3": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "NOTE 8 PRO COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 130.00"
+        }
+    ],
+    "REDMI 10C COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "A10S SEM ARO Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 90.00"
+        }
+    ],
+    "A21s": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 125.00"
+        }
+    ],
+    "A20S SEM ARO Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 104.00"
+        }
+    ],
+    "M31": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 195.00"
+        }
+    ],
+    "MOTO G32 Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 145.00"
+        }
+    ],
+    "NOTE 8 Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "NOTE 9 Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "Redmi 10c": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 105.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "A22 5G COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "INFINIX NOTE 11S": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 125.00"
+        }
+    ],
+    "INFINIX HOT 10S": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "REALME C55": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "REALME C30": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "REALME 6": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "REALME C30S": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 100.00"
+        }
+    ],
+    "REALME 8i": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "REALME 9i": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "REALME C35": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "MOTO  G60 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "A11 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 105.00"
+        }
+    ],
+    "MOTO G8 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 115.00"
+        }
+    ],
+    "MOTO G8 POWER LITE C": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "K22 E K22 PLUS COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "Note 11 Pro": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 145.00"
+        }
+    ],
+    "IPHONE 11 Sem C": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 165.00"
+        }
+    ],
+    "IPHONE 11 PRO Sem C": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 195.00"
+        }
+    ],
+    "IPHONE 13 WEFIX": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 365.00"
+        }
+    ],
+    "MOTO E13": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 58.00"
+        }
+    ],
+    "MOTO E22": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "K41S SEM ARO Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 99.00"
+        }
+    ],
+    "IPHONE XS MAX Oled Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 300.00"
+        }
+    ],
+    "NOTE 8 PRO COM ARO  Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 195.00"
+        }
+    ],
+    "A20 ORIGINAL COM ARO Oled Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 165.00"
+        }
+    ],
+    "A70 Com Aro ORIG": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 315.00"
+        }
+    ],
+    "A71  ORIGINAL OLED COM ARO Borda Fina WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 285.00"
+        }
+    ],
+    "Redmi 10 5G": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 125.00"
+        }
+    ],
+    "S20 FE Orig Borda Fina Oled C": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 260.00"
+        }
+    ],
+    "A20 ORIGINAL COM ARO Oled WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 160.00"
+        }
+    ],
+    "NOTE 11 4G OLED C": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 245.00"
+        }
+    ],
+    "A30 ORIG": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 185.00"
+        }
+    ],
+    "REDMI 10 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "K61 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "IPHONE 8G WEFIX": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "A22 4G ORIG": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 185.00"
+        }
+    ],
+    "MOTO E20 Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "E6 PLUS Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 90.00"
+        }
+    ],
+    "K22 E K22 PLUS Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 100.00"
+        }
+    ],
+    "M20 Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "MI 8 LITE Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 135.00"
+        }
+    ],
+    "MOTO ONE wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 130.00"
+        }
+    ],
+    "A14 4G COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 125.00"
+        }
+    ],
+    "A53 ORIG": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 295.00"
+        }
+    ],
+    "A54 ORIGINAL Oled COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 285.00"
+        }
+    ],
+    "MOTO E32 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 105.00"
+        }
+    ],
+    "E6i COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "E6 PLUS COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "E6S COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 105.00"
+        }
+    ],
+    "MOTO G31 ORIG": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 215.00"
+        }
+    ],
+    "K61 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 115.00"
+        }
+    ],
+    "NOTE 7 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "REDMI 10 5G": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 100.00"
+        }
+    ],
+    "A20S COM ARO Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 135.00"
+        }
+    ],
+    "J4 PLUS J6 PLUS J4 CORE WEFIX": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "A70 INCELL COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 130.00"
+        }
+    ],
+    "MOTO G53": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "MI 11T": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "Mi 12 LITE": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 165.00"
+        }
+    ],
+    "Note 10 Pro": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 199.00"
+        }
+    ],
+    "MI 10 T": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "IPHONE 11 Pro Max S": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 199.00"
+        }
+    ],
+    "Iphone 11 Pro Max Oled Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 330.00"
+        }
+    ],
+    "Iphone 12 Mini S": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 385.00"
+        }
+    ],
+    "Note 12 Pro 5G": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 395.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 370.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 330.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 185.00"
+        }
+    ],
+    "IPHONE 11 S": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "A01 CORE COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 95.00"
+        }
+    ],
+    "MOTO E22 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "IPHONE X Oled WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 185.00"
+        }
+    ],
+    "IPHONE XS OLED WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 190.00"
+        }
+    ],
+    "IPHONE XS MAX OLED WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 255.00"
+        }
+    ],
+    "M12 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 100.00"
+        }
+    ],
+    "IPHONE XR WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "IPHONE XS VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Sem Aro",
+            "valor": "R$ 125.00"
+        }
+    ],
+    "IPHONE 11 WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "TABLET T290": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 135.00"
+        }
+    ],
+    "A14 4G": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 52.00"
+        }
+    ],
+    "Iphone 11 Pro Max Oled S": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 340.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 310.00"
+        }
+    ],
+    "M32 ORIGINAL Oled COM ARO Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 200.00"
+        }
+    ],
+    "9A": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 97.00"
+        }
+    ],
+    "IPHONE 11 PRO OLED WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 230.00"
+        }
+    ],
+    "Iphone 11 Pro Max Oled WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 275.00"
+        }
+    ],
+    "M62 COM ARO OLED Borda Fina WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 425.00"
+        }
+    ],
+    "Note 10 5g": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 125.00"
+        }
+    ],
+    "NOTE 12 4G C": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 290.00"
+        }
+    ],
+    "NOTE 12 5G COM ARO OLED Borda Fina WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 325.00"
+        }
+    ],
+    "INFINIX HOT 11 PLAY": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "MOTO G60s COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 90.00"
+        }
+    ],
+    "MOTO E13 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "A22 4G OLED C": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 185.00"
+        }
+    ],
+    "12 PRO MAX Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 299.00"
+        }
+    ],
+    "M12  Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "M51 ORIGINAL Oled COM ARO Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 385.00"
+        }
+    ],
+    "Iphone 12 Pro Max OLED WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 465.00"
+        }
+    ],
+    "MOTO E22 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 69.00"
+        }
+    ],
+    "MOTO   G200": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "A33": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "MOTO G32 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 95.00"
+        }
+    ],
+    "MOTO G42 ORIGINAL OLED COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 165.00"
+        }
+    ],
+    "Poco M4 Pro 4G C": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 140.00"
+        }
+    ],
+    "MI A1 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 95.00"
+        }
+    ],
+    "G71 ORIGINAL OLED COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 215.00"
+        }
+    ],
+    "G7 PLAY COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 115.00"
+        }
+    ],
+    "K61 WEFIX": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 125.00"
+        }
+    ],
+    "A14 4G COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 95.00"
+        }
+    ],
+    "E6 PLAY COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "A20 INCELL SEM ARO": [
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 50.00"
+        }
+    ],
+    "IPHONE 11 PRO OLED S": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 265.00"
+        }
+    ],
+    "MOTO G60s COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 150.00"
+        }
+    ],
+    "A52 OLED Borda fina COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 260.00"
+        }
+    ],
+    "A10 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "A10S COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "NOTE 9 5G": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "A10 COM ARO VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "A13 COM ARO VIVID": [
+        {
+            "marca": "Vivid",
+            "aro": "Com Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "M32 ORIGINAL Oled COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 165.00"
+        }
+    ],
+    "INFINIX HOT 9 PLAY": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 95.00"
+        }
+    ],
+    "Note 10 PRO 4G ORIGINAL COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 199.00"
+        }
+    ],
+    "IPHONE XS MAX WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 130.00"
+        }
+    ],
+    "A72  Oled C": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 160.00"
+        }
+    ],
+    "Iphone 12 Pro Max S": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 255.00"
+        }
+    ],
+    "MOTO  G14": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 140.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 105.00"
+        }
+    ],
+    "A10S MASTER": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "NOTE 12 4G": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 395.00"
+        }
+    ],
+    "Redmi 12  C": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 130.00"
+        }
+    ],
+    "MOTO G5G": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "MOTO ONE FUSION PLUS COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 90.00"
+        }
+    ],
+    "IPHONE X  WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "IPHONE XS WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "Note 12 4": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 320.00"
+        }
+    ],
+    "NOTE 8 MASTER": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "MOTO G73 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 175.00"
+        }
+    ],
+    "Note 12 Pro 5g": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 175.00"
+        }
+    ],
+    "M13 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 115.00"
+        }
+    ],
+    "MOTO G53 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "Moto G42 Oled B": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 220.00"
+        }
+    ],
+    "REDMI 10 C": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 140.00"
+        }
+    ],
+    "MI A3 INCELL COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 140.00"
+        }
+    ],
+    "Poco M5": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 125.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "REDMI 13C COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 115.00"
+        }
+    ],
+    "Note 11 Pro 5G": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 150.00"
+        }
+    ],
+    "NOTE 11s 4G OLED C": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 250.00"
+        }
+    ],
+    "Iphone 11 Pro Max WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 150.00"
+        }
+    ],
+    "A51 INCELL C": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 130.00"
+        }
+    ],
+    "Iphone 11 Pro Max Sem C": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 150.00"
+        }
+    ],
+    "INFINIX Note 11": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "INFINIX HOT 12 PLAY": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 90.00"
+        }
+    ],
+    "INFINIX HOT 10 PRO": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 140.00"
+        }
+    ],
+    "INFINIX Note 8i": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "INFINIX SMART 6": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 90.00"
+        }
+    ],
+    "INFINIX SPARKGO": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 90.00"
+        }
+    ],
+    "G9 PLUS COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 100.00"
+        }
+    ],
+    "IPHONE 7G WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 90.00"
+        }
+    ],
+    "IPHONE 7G PLUS WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "IPHONE 8G WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 95.00"
+        }
+    ],
+    "IPHONE 8G PLUS WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 115.00"
+        }
+    ],
+    "Note 12 5G": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 155.00"
+        }
+    ],
+    "Redmi 12 4G": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 150.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 100.00"
+        }
+    ],
+    "Redmi 13C 4G": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 88.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 115.00"
+        }
+    ],
+    "MOTO G41 OLED COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 210.00"
+        }
+    ],
+    "NOTE 11s 4G Original OLED COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 180.00"
+        }
+    ],
+    "MOTO G52 OLED COM ARO WEFIX": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 299.00"
+        }
+    ],
+    "IPHONE 14 S": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 450.00"
+        },
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 215.00"
+        }
+    ],
+    "MOTO G53 WEFIX": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 135.00"
+        }
+    ],
+    "ZB634KL MAX SHOT COM ARO WEFIX": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 170.00"
+        }
+    ],
+    "A72 INCELL C": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 170.00"
+        }
+    ],
+    "MOTO G62 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 140.00"
+        }
+    ],
+    "M52 OLED B": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 440.00"
+        }
+    ],
+    "M53 OLED B": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 385.00"
+        }
+    ],
+    "MI 11 LITE 5G OLED": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 280.00"
+        }
+    ],
+    "A90 ORIGINAL OLED SEM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 325.00"
+        }
+    ],
+    "MOTO  G04": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "MOTO   G200 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 190.00"
+        }
+    ],
+    "MOTO G73 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 100.00"
+        }
+    ],
+    "EDGE 20 LITE": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 255.00"
+        }
+    ],
+    "EDGE 20": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 245.00"
+        }
+    ],
+    "A24 ORIGINAL OLED COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 170.00"
+        }
+    ],
+    "MOTO G42 INCELL": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "A33 ORIGINAL OLED COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 195.00"
+        }
+    ],
+    "MOTO G42 INCELL COM ARO": [
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "MI 8 LITE MASTER": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 65.00"
+        }
+    ],
+    "MOTO G22 COM ARO MASTER": [
+        {
+            "marca": "Master",
+            "aro": "Com Aro",
+            "valor": "R$ 78.00"
+        }
+    ],
+    "A03 CORE MASTER": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "NOTE 13 4G INCELL": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "NOTE 13 5G INCELL": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "NOTE 13 4G OLED COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 275.00"
+        }
+    ],
+    "Note 13 Pro 5G": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 350.00"
+        },
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "Note 13 Pro 4G OLED": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 435.00"
+        }
+    ],
+    "MOTO G24 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "MOTO  G04 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 88.00"
+        }
+    ],
+    "MOTO G34": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "NOTE 11s 4G INCELL COM ARO": [
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 95.00"
+        }
+    ],
+    "REDMI 10C COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "NOTE 12s LCD COM ARO WEFIX": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 155.00"
+        }
+    ],
+    "MOTO E13 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 105.00"
+        }
+    ],
+    "K40S SEM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 95.00"
+        }
+    ],
+    "K61 WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 105.00"
+        }
+    ],
+    "MOTO E13 WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 90.00"
+        }
+    ],
+    "MOTO G13": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 99.00"
+        }
+    ],
+    "MOTO  G14 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 140.00"
+        }
+    ],
+    "MOTO G54 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 130.00"
+        }
+    ],
+    "MOTO G24 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 125.00"
+        }
+    ],
+    "MOTO ONE WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "MOTO ONE FUSION PLUS C": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 130.00"
+        }
+    ],
+    "A01  WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "A03 CORE SEM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "A04s": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "A15 4G": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 145.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 195.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 180.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 90.00"
+        },
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 250.00"
+        }
+    ],
+    "A25 5G COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 145.00"
+        }
+    ],
+    "POCO F3 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 150.00"
+        }
+    ],
+    "NOTE 8 PRO WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 90.00"
+        }
+    ],
+    "MOTO G53 WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 90.00"
+        }
+    ],
+    "MOTO EDGE 30 NEO ORG OLED": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 380.00"
+        }
+    ],
+    "M12 COM ARO MASTER": [
+        {
+            "marca": "Master",
+            "aro": "Com Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "MOTO G8 POWER COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 160.00"
+        }
+    ],
+    "MOTO G04 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 160.00"
+        }
+    ],
+    "MOTO E13 MASTER": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "G6 PLUS COM ARO MASTER": [
+        {
+            "marca": "Master",
+            "aro": "Com Aro",
+            "valor": "R$ 80.00"
+        }
+    ],
+    "MOTO G8 POWER LITE MASTER": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "M12 MASTER": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "MOTO G34 COM ARO WK": [
+        {
+            "marca": "WK",
+            "aro": "Com Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "MOTO G34 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 85.00"
+        }
+    ],
+    "M54 INCELL COM ARO": [
+        {
+            "marca": "Incell",
+            "aro": "Com Aro",
+            "valor": "R$ 140.00"
+        }
+    ],
+    "MOTO E20 MASTER": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 60.00"
+        }
+    ],
+    "IPHONE 13 OLED S": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 465.00"
+        }
+    ],
+    "POCO X4 GT": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 125.00"
+        }
+    ],
+    "IPHONE 11 PRO WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 130.00"
+        }
+    ],
+    "IPHONE 13 PRO S": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 599.00"
+        }
+    ],
+    "IPHONE 13 PRO Oled S": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 850.00"
+        }
+    ],
+    "IPHONE 11 PRO S": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 165.00"
+        }
+    ],
+    "Note 13 5G": [
+        {
+            "marca": "Original",
+            "aro": "Sem Aro",
+            "valor": "R$ 200.00"
+        },
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 310.00"
+        }
+    ],
+    "A01 COM ARO Wefix": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 120.00"
+        }
+    ],
+    "A02s C": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 135.00"
+        }
+    ],
+    "A03 C": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 135.00"
+        }
+    ],
+    "REDMI A3  WEFIX": [
+        {
+            "marca": "Wefix",
+            "aro": "Sem Aro",
+            "valor": "R$ 140.00"
+        }
+    ],
+    "IPHONE 13 S": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 199.00"
+        }
+    ],
+    "MOTO G84 OLED COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 320.00"
+        }
+    ],
+    "A04e C": [
+        {
+            "marca": "Wefix",
+            "aro": "Com Aro",
+            "valor": "R$ 150.00"
+        }
+    ],
+    "M14 5G  WK": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 105.00"
+        }
+    ],
+    "MI 11 LITE incell": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "Note 13 Pro 4G INCELL": [
+        {
+            "marca": "Incell",
+            "aro": "Sem Aro",
+            "valor": "R$ 110.00"
+        }
+    ],
+    "MOTO G53 COM ARO": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 75.00"
+        }
+    ],
+    "MOTO ONE FUSION MASTER": [
+        {
+            "marca": "Master",
+            "aro": "Sem Aro",
+            "valor": "R$ 58.00"
+        }
+    ],
+    "A24 ORIGINAL OLED B": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 250.00"
+        }
+    ],
+    "A34 Orig": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 190.00"
+        }
+    ],
+    "A03 CORE COM ARO MASTER": [
+        {
+            "marca": "Master",
+            "aro": "Com Aro",
+            "valor": "R$ 70.00"
+        }
+    ],
+    "A20S SEM ARO MASTER": [
+        {
+            "marca": "Master",
+            "aro": "Com Aro",
+            "valor": "R$ 55.00"
+        }
+    ],
+    "IPHONE 14 PRO S": [
+        {
+            "marca": "WK",
+            "aro": "Sem Aro",
+            "valor": "R$ 750.00"
+        }
+    ],
+    "A10S COM ARO Maxter Pro": [
+        {
+            "marca": "Original",
+            "aro": "Com Aro",
+            "valor": "R$ 65.00"
+        }
+    ]
+}
