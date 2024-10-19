@@ -1,0 +1,1968 @@
+[
+  {
+    "modelos": [
+      "ZD553KL",
+      "ZB553KL"
+    ],
+    "marcatela": "original",
+    "aro": "com",
+    "valor": 110
+  },
+  {
+    "modelos": [
+      "ZD553KL",
+      "ZB553KL",
+      "Poco M5",
+      "Poco M4",
+      "RM 11 Prime",
+      "RM 10 5g"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 85
+  },
+  {
+    "modelos": [
+      "ZC600KL",
+      "ZC6002KL",
+      "Note 11 4g",
+      "11s",
+      "Note 12s",
+      "M4 Pro",
+      "Org"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 155
+  },
+  {
+    "modelos": [
+      "ZB570KL",
+      "ZB570TL"
+    ],
+    "marcatela": "original",
+    "aro": "com",
+    "valor": 155
+  },
+  {
+    "modelos": [
+      "ZB570KL",
+      "ZB570TL",
+      "INFINIX HOT 12 PLAY",
+      "HOT 12"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 90
+  },
+  {
+    "modelos": [
+      "TABLET T290",
+      "T295",
+      "MI 10 LITE",
+      "10X 5G"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 135
+  },
+  {
+    "modelos": [
+      "Redmi A1",
+      "A1+",
+      "Poco C50 C",
+      "REDMI 8A"
+    ],
+    "marcatela": "wk",
+    "aro": "com",
+    "valor": 105
+  },
+  {
+    "modelos": [
+      "Redmi A1",
+      "A1 plus",
+      "RM A2",
+      "A2 Plus Poco C50",
+      "REDMI 10",
+      "10 Prime",
+      "PRIME PLUS",
+      "H502",
+      "H520",
+      "H522",
+      "NOTE 5",
+      "NOTE 5 PRO",
+      "NOTE 10 5G",
+      "M3 PRO",
+      "MOTO G32",
+      "G62",
+      "G73",
+      "MOTO  G04",
+      "G24",
+      "G04s",
+      "LG G4",
+      "H810",
+      "H811",
+      "H815",
+      "H818",
+      "POCO X3",
+      "POCO X3 PRO",
+      "A14 5G",
+      "M14 5G"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 70
+  },
+  {
+    "modelos": [
+      "Redmi A1",
+      "A1 Plus",
+      "A2",
+      "A2 Plus",
+      "Poco C50",
+      "Redmi 10c",
+      "Rm 10 Pro",
+      "Rm 10 Power",
+      "Poco C40",
+      "POCO M3",
+      "REDMI 9T",
+      "NOTE 9S",
+      "NOTE 9 PRO",
+      "MOTO G22",
+      "E32",
+      "E22S",
+      "A11",
+      "M11"
+    ],
+    "marcatela": "wk",
+    "aro": "sem",
+    "valor": 85
+  },
+  {
+    "modelos": [
+      "Redmi A1",
+      "A1 Plus",
+      "A2",
+      "A2 +",
+      "Poco C50",
+      "Redmi 9A",
+      "9C",
+      "9i",
+      "10A",
+      "Poco c3",
+      "c31",
+      "Redmi 10c",
+      "RM 10 Pro",
+      "10 Power",
+      "Poco C40",
+      "A03",
+      "A02s",
+      "A03s",
+      "A02",
+      "A12",
+      "A32 5G"
+    ],
+    "marcatela": "wefix",
+    "aro": "sem",
+    "valor": 105
+  },
+  {
+    "modelos": [
+      "Redmi 9A",
+      "9C",
+      "9i",
+      "10A",
+      "Poco c3 Poco c31",
+      "Redmi 10C",
+      "RM 10 Pro",
+      "RM 10 Power",
+      "Poco C40",
+      "REDMI 8",
+      "REDMI 8A",
+      "POCO M3",
+      "REDMI 9T",
+      "MOTO E30",
+      "E40",
+      "MOTO E22",
+      "E22i",
+      "MOTO  G13",
+      "G23*",
+      "E7",
+      "E7 POWER",
+      "E7 PLUS",
+      "G9 PLAY",
+      "A21S",
+      "A12S"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 55
+  },
+  {
+    "modelos": [
+      "Redmi 9A",
+      "9C",
+      "9i",
+      "10A",
+      "Poco C3",
+      "C31",
+      "MOTO G10",
+      "G20",
+      "G30",
+      "A03",
+      "A02S",
+      "A03S",
+      "A02",
+      "A12",
+      "A32 5G",
+      "M02"
+    ],
+    "marcatela": "wk",
+    "aro": "sem",
+    "valor": 80
+  },
+  {
+    "modelos": [
+      "Redmi 9A",
+      "9C",
+      "9i",
+      "10A",
+      "Poco C3",
+      "C31",
+      "MOTO G22",
+      "E32",
+      "E22S",
+      "MOTO G10",
+      "G20",
+      "G30",
+      "J7 Prime",
+      "J7 Prime 2 -PRETO-",
+      "E7",
+      "E7 POWER",
+      "E7 PLUS",
+      "G9 PLAY",
+      "A11",
+      "M11",
+      "G6 PLAY",
+      "E5"
+    ],
+    "marcatela": "master",
+    "aro": "sem",
+    "valor": 60
+  },
+  {
+    "modelos": [
+      "Redmi 13C",
+      "POCO M6",
+      "Redmi 12C",
+      "Poco C55",
+      "NOTE 7",
+      "NOTE 7 Pro"
+    ],
+    "marcatela": "wefix",
+    "aro": "sem",
+    "valor": 115
+  },
+  {
+    "modelos": [
+      "Redmi 13C",
+      "POCO M6",
+      "REDMI 9",
+      "9 PRIME"
+    ],
+    "marcatela": "wk",
+    "aro": "sem",
+    "valor": 88
+  },
+  {
+    "modelos": [
+      "Redmi 13C",
+      "POCO M6",
+      "REALME C3",
+      "6i",
+      "5i",
+      "A11X",
+      "A11",
+      "M11",
+      "f",
+      "A04s",
+      "A13 5G"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 58
+  },
+  {
+    "modelos": [
+      "Redmi 12C",
+      "Poco C55"
+    ],
+    "marcatela": "wefix",
+    "aro": "com",
+    "valor": 155
+  },
+  {
+    "modelos": [
+      "Redmi 12C",
+      "Poco C55"
+    ],
+    "marcatela": "wk",
+    "aro": "sem",
+    "valor": 82
+  },
+  {
+    "modelos": [
+      "Redmi 12C",
+      "Poco C55",
+      "NOTE 6",
+      "NOTE 6 PRO",
+      "LG VOLT",
+      "H422",
+      "H420",
+      "K42",
+      "K52",
+      "K62",
+      "K62 PLUS"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 65
+  },
+  {
+    "modelos": [
+      "Redmi 12C",
+      "Poco C55",
+      "REDMI 13C",
+      "Note 10 4g",
+      "Note 10s",
+      "Poco M5s",
+      "K12",
+      "K12 PLUS",
+      "K40",
+      "K12 Max",
+      "K12 Prime",
+      "K50"
+    ],
+    "marcatela": "wk",
+    "aro": "com",
+    "valor": 115
+  },
+  {
+    "modelos": [
+      "Redmi 12",
+      "Poco M6 Pro 5G"
+    ],
+    "marcatela": "wefix",
+    "aro": "sem",
+    "valor": 150
+  },
+  {
+    "modelos": [
+      "Redmi 12",
+      "Poco M6 Pro 5G",
+      "REALME C21Y",
+      "C25Y",
+      "REALME C11",
+      "C20",
+      "C21",
+      "Note 11 5G",
+      "11s 5G",
+      "11T 5G",
+      "Poco M4 Pro 5G",
+      "MOTO G51",
+      "G60",
+      "G60s",
+      "MOTO  G14",
+      "G54",
+      "G64",
+      "K11",
+      "K11 PLUS",
+      "F",
+      "LG LEON",
+      "H326",
+      "H342"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 75
+  },
+  {
+    "modelos": [
+      "Redmi 12",
+      "POCO M6 PRO 5G"
+    ],
+    "marcatela": "wk",
+    "aro": "sem",
+    "valor": 115
+  },
+  {
+    "modelos": [
+      "Redmi 10 5G",
+      "Redmi 11 Prime",
+      "Poco M5",
+      "M4",
+      "RM 11 Prime",
+      "RM 10 5g",
+      "Note 10 5g",
+      "Poco M3 PRO",
+      "f",
+      "A14 5G",
+      "M14 5G"
+    ],
+    "marcatela": "wk",
+    "aro": "com",
+    "valor": 125
+  },
+  {
+    "modelos": [
+      "REDMI 9A",
+      "9C",
+      "9i",
+      "REDMI 10C",
+      "Poco M3",
+      "Redmi 9T",
+      "NOTE 7",
+      "MOTO G10",
+      "G20",
+      "G30",
+      "K22 E K22 PLUS",
+      "G9 PLAY",
+      "E7 PLUS"
+    ],
+    "marcatela": "wk",
+    "aro": "com",
+    "valor": 110
+  },
+  {
+    "modelos": [
+      "REDMI 9A",
+      "9C",
+      "9i",
+      "MOTO G10",
+      "G20",
+      "G30",
+      "G9 PLAY",
+      "E7 PLUS"
+    ],
+    "marcatela": "master",
+    "aro": "com",
+    "valor": 65
+  },
+  {
+    "modelos": [
+      "REDMI 9A",
+      "9C",
+      "9i",
+      "MOTO E30",
+      "E40",
+      "G9 PLAY",
+      "E7 PLUS"
+    ],
+    "marcatela": "original",
+    "aro": "com",
+    "valor": 60
+  },
+  {
+    "modelos": [
+      "REDMI 9A",
+      "9C",
+      "9i"
+    ],
+    "marcatela": "vivid",
+    "aro": "sem",
+    "valor": 100
+  },
+  {
+    "modelos": [
+      "REDMI 9A",
+      "9C",
+      "9i"
+    ],
+    "marcatela": "nacional",
+    "aro": "com",
+    "valor": 140
+  },
+  {
+    "modelos": [
+      "REDMI 9",
+      "REDMI 9 PRIME",
+      "NOTE 9S",
+      "NOTE 9 PRO",
+      "MOTO G10",
+      "G30",
+      "MOTO E30",
+      "E40",
+      "MOTO E22",
+      "E22i",
+      "E6i",
+      "E6s",
+      "A13",
+      "M13",
+      "M23 5G"
+    ],
+    "marcatela": "wefix",
+    "aro": "sem",
+    "valor": 110
+  },
+  {
+    "modelos": [
+      "REDMI 9",
+      "REDMI 9 PRIME"
+    ],
+    "marcatela": "master",
+    "aro": "sem",
+    "valor": 58
+  },
+  {
+    "modelos": [
+      "REDMI 9",
+      "REDMI 9 PRIME",
+      "A03",
+      "A02s",
+      "A03s",
+      "G6 PLAY",
+      "E5"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 53
+  },
+  {
+    "modelos": [
+      "REDMI 9",
+      "9 PRIME",
+      "MOTO  G13",
+      "G23"
+    ],
+    "marcatela": "wk",
+    "aro": "com",
+    "valor": 120
+  },
+  {
+    "modelos": [
+      "REDMI 9",
+      "9 PRIME",
+      "K22 E K22 PLUS",
+      "K12",
+      "K12 PLUS",
+      "K40"
+    ],
+    "marcatela": "original",
+    "aro": "com",
+    "valor": 75
+  },
+  {
+    "modelos": [
+      "REDMI 9",
+      "9 PRIME"
+    ],
+    "marcatela": "nacional",
+    "aro": "com",
+    "valor": 175
+  },
+  {
+    "modelos": [
+      "REDMI 8",
+      "REDMI 8A",
+      "NOTE 7"
+    ],
+    "marcatela": "original",
+    "aro": "com",
+    "valor": 70
+  },
+  {
+    "modelos": [
+      "REDMI 7A"
+    ],
+    "marcatela": "nacional",
+    "aro": "com",
+    "valor": 110
+  },
+  {
+    "modelos": [
+      "REDMI 6",
+      "6A",
+      "NOTE 9S",
+      "NOTE 9 PRO",
+      "K22 E K22 PLUS",
+      "K12",
+      "K12 PLUS",
+      "K40"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 60
+  },
+  {
+    "modelos": [
+      "REDMI 10C",
+      "POCO M3",
+      "REDMI 9T",
+      "MOTO  G13",
+      "G23",
+      "M23",
+      "M33"
+    ],
+    "marcatela": "original",
+    "aro": "com",
+    "valor": 80
+  },
+  {
+    "modelos": [
+      "REDMI 10",
+      "10 PRIME"
+    ],
+    "marcatela": "wk",
+    "aro": "sem",
+    "valor": 90
+  },
+  {
+    "modelos": [
+      "REDMI 10",
+      "NOTE 9S",
+      "NOTE 9 PRO",
+      "K12 Max",
+      "K12 Prime",
+      "K50",
+      "A14 5G",
+      "M14 5G"
+    ],
+    "marcatela": "original",
+    "aro": "com",
+    "valor": 85
+  },
+  {
+    "modelos": [
+      "REDMI 10",
+      "Poco M4 Pro 4G  Borda Fina",
+      "MOTO  G14"
+    ],
+    "marcatela": "wk",
+    "aro": "com",
+    "valor": 140
+  },
+  {
+    "modelos": [
+      "REDMI 10 5G",
+      "REDMI 11 Prime"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 100
+  },
+  {
+    "modelos": [
+      "REALME C30",
+      "C33",
+      "REALME C25",
+      "POCO X3 GT",
+      "NOTE 10 PRO 5G"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 80
+  },
+  {
+    "modelos": [
+      "REALME C2",
+      "C11",
+      "C12",
+      "C15",
+      "J7 PRIME",
+      "J7 PRIME 2",
+      "G8 PLAY",
+      "ONE MACRO",
+      "REDMI 5A",
+      "REDMI GO"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 50
+  },
+  {
+    "modelos": [
+      "REALME C17"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 95
+  },
+  {
+    "modelos": [
+      "REALME 9i",
+      "REALME 8i",
+      "INFINIX Note 8i",
+      "SPART 7 PRO",
+      "A50",
+      "A50S",
+      "A30  ORIGINAL"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 120
+  },
+  {
+    "modelos": [
+      "REALME 6",
+      "6i",
+      "7"
+    ],
+    "marcatela": "master",
+    "aro": "sem",
+    "valor": 85
+  },
+  {
+    "modelos": [
+      "POCO X3 GT",
+      "Note 10 Pro 5G",
+      "M30",
+      "M30s",
+      "M31",
+      "M21s"
+    ],
+    "marcatela": "wefix",
+    "aro": "sem",
+    "valor": 165
+  },
+  {
+    "modelos": [
+      "POCO M3",
+      "REDMI 9T",
+      "G8 PLAY",
+      "ONE MACRO"
+    ],
+    "marcatela": "wefix",
+    "aro": "sem",
+    "valor": 99
+  },
+  {
+    "modelos": [
+      "POCO M3",
+      "REDMI 9T"
+    ],
+    "marcatela": "nacional",
+    "aro": "com",
+    "valor": 150
+  },
+  {
+    "modelos": [
+      "POCO F3",
+      "F4",
+      "F3 PRO",
+      "Mi 11i",
+      "Mi 11X",
+      "MI 9T",
+      "MI 9T PRO  ORIGINAL"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 210
+  },
+  {
+    "modelos": [
+      "POCO F3",
+      "F4",
+      "F3 PRO",
+      "Mi 11i",
+      "Mi 11X",
+      "Note 10 Pro",
+      "10 Pro Max",
+      "Note 11 Pro 4g",
+      "5g",
+      "MOTO G52",
+      "G72",
+      "G82",
+      "EDGE 30"
+    ],
+    "marcatela": "incell",
+    "aro": "sem",
+    "valor": 75
+  },
+  {
+    "modelos": [
+      "Note 13 Pro 5G",
+      "X6 5G",
+      "MI 11T",
+      "MI PRO"
+    ],
+    "marcatela": "incell",
+    "aro": "sem",
+    "valor": 120
+  },
+  {
+    "modelos": [
+      "Note 13 5G",
+      "Poco F5"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 200
+  },
+  {
+    "modelos": [
+      "Note 13 5G",
+      "Nt 13 Pro 5g",
+      "Poco F5"
+    ],
+    "marcatela": "wefix",
+    "aro": "sem",
+    "valor": 310
+  },
+  {
+    "modelos": [
+      "Note 13 5G",
+      "Note 13 Pro 5G",
+      "X6 5G"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 350
+  },
+  {
+    "modelos": [
+      "Note 12 Pro 5g",
+      "X5 Pro"
+    ],
+    "marcatela": "wk",
+    "aro": "com",
+    "valor": 175
+  },
+  {
+    "modelos": [
+      "Note 12 Pro 5G",
+      "X5 Pro B",
+      "fina"
+    ],
+    "marcatela": "wk",
+    "aro": "com",
+    "valor": 370
+  },
+  {
+    "modelos": [
+      "Note 12 Pro 5G",
+      "X5 PRO",
+      "NOTE 12 4G",
+      "POCO X5"
+    ],
+    "marcatela": "wefix",
+    "aro": "com",
+    "valor": 395
+  },
+  {
+    "modelos": [
+      "Note 12 Pro 5G",
+      "X5 Pro",
+      "Nt 12 Pro Plus"
+    ],
+    "marcatela": "wk",
+    "aro": "sem",
+    "valor": 330
+  },
+  {
+    "modelos": [
+      "Note 12 Pro",
+      "X5 Pro"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 185
+  },
+  {
+    "modelos": [
+      "Note 12 5G",
+      "Poco X5"
+    ],
+    "marcatela": "wk",
+    "aro": "com",
+    "valor": 155
+  },
+  {
+    "modelos": [
+      "Note 12 4G",
+      "Poco X5",
+      "NOTE 9S",
+      "NOTE 9 PRO",
+      "M23",
+      "M33",
+      "G8 PLAY",
+      "ONE MACRO -"
+    ],
+    "marcatela": "wk",
+    "aro": "com",
+    "valor": 130
+  },
+  {
+    "modelos": [
+      "Note 12 4",
+      "5G",
+      "Poco X5 Orig"
+    ],
+    "marcatela": "wk",
+    "aro": "sem",
+    "valor": 320
+  },
+  {
+    "modelos": [
+      "Note 12",
+      "Poco X5",
+      "Orig"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 220
+  },
+  {
+    "modelos": [
+      "Note 12",
+      "Poco X5",
+      "Note 11 4G",
+      "11s",
+      "Note 12s",
+      "M4 Pro"
+    ],
+    "marcatela": "incell",
+    "aro": "sem",
+    "valor": 70
+  },
+  {
+    "modelos": [
+      "Note 12  Poco X5",
+      "Orig"
+    ],
+    "marcatela": "original",
+    "aro": "com",
+    "valor": 225
+  },
+  {
+    "modelos": [
+      "Note 11 Pro 5G",
+      "Poco X4 Pro 5G B",
+      "Fina"
+    ],
+    "marcatela": "wk",
+    "aro": "com",
+    "valor": 147
+  },
+  {
+    "modelos": [
+      "Note 11 Pro",
+      "Poco X4 Pro"
+    ],
+    "marcatela": "wk",
+    "aro": "com",
+    "valor": 145
+  },
+  {
+    "modelos": [
+      "Note 11 4g",
+      "M4 Pro 4g"
+    ],
+    "marcatela": "incell",
+    "aro": "com",
+    "valor": 80
+  },
+  {
+    "modelos": [
+      "Note 11 4g ORIG"
+    ],
+    "marcatela": "vivid",
+    "aro": "com",
+    "valor": 220
+  },
+  {
+    "modelos": [
+      "Note 11 4G",
+      "Poco M4 Pro   B",
+      "Fina",
+      "POCO X3",
+      "POCO X3 PRO"
+    ],
+    "marcatela": "wk",
+    "aro": "com",
+    "valor": 150
+  },
+  {
+    "modelos": [
+      "Note 11 4G",
+      "M4 Pro  Orig"
+    ],
+    "marcatela": "original",
+    "aro": "com",
+    "valor": 180
+  },
+  {
+    "modelos": [
+      "Note 10 Pro",
+      "10 Pro Max",
+      "NOTE 11 Pro 4G",
+      "5G"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 199
+  },
+  {
+    "modelos": [
+      "Note 10 PRO 4G"
+    ],
+    "marcatela": "original",
+    "aro": "com",
+    "valor": 199
+  },
+  {
+    "modelos": [
+      "Note 10 4g",
+      "Note 10s",
+      "Poco M5s   B",
+      "Fina"
+    ],
+    "marcatela": "wk",
+    "aro": "com",
+    "valor": 210
+  },
+  {
+    "modelos": [
+      "Note 10 4g",
+      "Note 10s",
+      "Poco M5s"
+    ],
+    "marcatela": "original",
+    "aro": "com",
+    "valor": 160
+  },
+  {
+    "modelos": [
+      "Note 10 4G",
+      "Note 10s Orig",
+      "MOTO G31",
+      "G41",
+      "G71 ORIG"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 150
+  },
+  {
+    "modelos": [
+      "NOTE 9S",
+      "NOTE 9 PRO",
+      "K42",
+      "K52",
+      "K62",
+      "K62 PLUS"
+    ],
+    "marcatela": "wk",
+    "aro": "sem",
+    "valor": 89
+  },
+  {
+    "modelos": [
+      "NOTE 7",
+      "NOTE 7 PRO",
+      "J4 PLUS",
+      "J6 PLUS",
+      "J4 CORE",
+      "G8 PLAY",
+      "ONE MACRO",
+      "A10",
+      "M10",
+      "A02",
+      "A12",
+      "A32 5G",
+      "M02"
+    ],
+    "marcatela": "master",
+    "aro": "sem",
+    "valor": 55
+  },
+  {
+    "modelos": [
+      "NOTE 7",
+      "NOTE 7 PRO"
+    ],
+    "marcatela": "nacional",
+    "aro": "sem",
+    "valor": 115
+  },
+  {
+    "modelos": [
+      "NOTE 7",
+      "NOTE 7 PRO"
+    ],
+    "marcatela": "original",
+    "aro": "com",
+    "valor": 220
+  },
+  {
+    "modelos": [
+      "NOTE 10 4G",
+      "NOTE 10S"
+    ],
+    "marcatela": "incell",
+    "aro": "sem",
+    "valor": 62
+  },
+  {
+    "modelos": [
+      "NOTE 10 4G",
+      "NOTE 10S"
+    ],
+    "marcatela": "incell",
+    "aro": "com",
+    "valor": 70
+  },
+  {
+    "modelos": [
+      "MOTO G52",
+      "G82"
+    ],
+    "marcatela": "original",
+    "aro": "com",
+    "valor": 215
+  },
+  {
+    "modelos": [
+      "MOTO G52",
+      "G72",
+      "G82",
+      "EDGE 30 Orig"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 175
+  },
+  {
+    "modelos": [
+      "MOTO G52",
+      "EDGE 30"
+    ],
+    "marcatela": "wefix",
+    "aro": "sem",
+    "valor": 325
+  },
+  {
+    "modelos": [
+      "MOTO G51",
+      "G60",
+      "G60s",
+      "-"
+    ],
+    "marcatela": "nacional",
+    "aro": "sem",
+    "valor": 180
+  },
+  {
+    "modelos": [
+      "MOTO G51",
+      "G60",
+      "G60s",
+      "MOTO  G14",
+      "G54"
+    ],
+    "marcatela": "wefix",
+    "aro": "sem",
+    "valor": 155
+  },
+  {
+    "modelos": [
+      "MOTO G51",
+      "G60",
+      "G60s"
+    ],
+    "marcatela": "wk",
+    "aro": "sem",
+    "valor": 100
+  },
+  {
+    "modelos": [
+      "MOTO G31",
+      "G41",
+      "G71"
+    ],
+    "marcatela": "incell",
+    "aro": "sem",
+    "valor": 65
+  },
+  {
+    "modelos": [
+      "MOTO G22",
+      "E32",
+      "E22s"
+    ],
+    "marcatela": "wefix",
+    "aro": "sem",
+    "valor": 130
+  },
+  {
+    "modelos": [
+      "MOTO G13",
+      "G23"
+    ],
+    "marcatela": "wk",
+    "aro": "sem",
+    "valor": 99
+  },
+  {
+    "modelos": [
+      "MOTO G10",
+      "G30"
+    ],
+    "marcatela": "original",
+    "aro": "com",
+    "valor": 65
+  },
+  {
+    "modelos": [
+      "MOTO G10",
+      "G30",
+      "A10",
+      "M10"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 48
+  },
+  {
+    "modelos": [
+      "MOTO G10"
+    ],
+    "marcatela": "nacional",
+    "aro": "com",
+    "valor": 145
+  },
+  {
+    "modelos": [
+      "MOTO  G14",
+      "G54"
+    ],
+    "marcatela": "wk",
+    "aro": "sem",
+    "valor": 105
+  },
+  {
+    "modelos": [
+      "MOTO  G13",
+      "G23",
+      "A21s",
+      "A12s"
+    ],
+    "marcatela": "wefix",
+    "aro": "sem",
+    "valor": 125
+  },
+  {
+    "modelos": [
+      "MI 9T",
+      "MI 9T PRO"
+    ],
+    "marcatela": "incell",
+    "aro": "sem",
+    "valor": 110
+  },
+  {
+    "modelos": [
+      "MI 10T",
+      "MI 10T PRO",
+      "K30S"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 115
+  },
+  {
+    "modelos": [
+      "M31",
+      "M21s"
+    ],
+    "marcatela": "wefix",
+    "aro": "com",
+    "valor": 195
+  },
+  {
+    "modelos": [
+      "M30",
+      "M30s",
+      "M31",
+      "M21s",
+      "LG  Q7",
+      "Q7 PLUS"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 130
+  },
+  {
+    "modelos": [
+      "M30",
+      "M30S",
+      "M31",
+      "M21"
+    ],
+    "marcatela": "original",
+    "aro": "com",
+    "valor": 145
+  },
+  {
+    "modelos": [
+      "M30",
+      "M30S",
+      "M31",
+      "M21"
+    ],
+    "marcatela": "incell",
+    "aro": "com",
+    "valor": 75
+  },
+  {
+    "modelos": [
+      "M30",
+      "M30S",
+      "M31",
+      "M21S",
+      "f"
+    ],
+    "marcatela": "incell",
+    "aro": "sem",
+    "valor": 60
+  },
+  {
+    "modelos": [
+      "M30",
+      "M30S"
+    ],
+    "marcatela": "wefix",
+    "aro": "com",
+    "valor": 180
+  },
+  {
+    "modelos": [
+      "M30",
+      "M30S"
+    ],
+    "marcatela": "vivid",
+    "aro": "com",
+    "valor": 190
+  },
+  {
+    "modelos": [
+      "M23",
+      "M33"
+    ],
+    "marcatela": "wefix",
+    "aro": "com",
+    "valor": 160
+  },
+  {
+    "modelos": [
+      "LG G4 STYLLUS",
+      "H540",
+      "H630"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 180
+  },
+  {
+    "modelos": [
+      "K42",
+      "K52",
+      "K62",
+      "K62 PLUS",
+      "A11",
+      "M11",
+      "f",
+      "A14 5G",
+      "M14 5G"
+    ],
+    "marcatela": "wefix",
+    "aro": "sem",
+    "valor": 120
+  },
+  {
+    "modelos": [
+      "K22 E K22 PLUS"
+    ],
+    "marcatela": "wefix",
+    "aro": "sem",
+    "valor": 100
+  },
+  {
+    "modelos": [
+      "K12 MAX",
+      "K12 PRIME",
+      "K50"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 62
+  },
+  {
+    "modelos": [
+      "J8    ORIGINAL"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 160
+  },
+  {
+    "modelos": [
+      "J4 PLUS",
+      "J6 PLUS",
+      "J4 CORE",
+      "G9 PLAY",
+      "E7 PLUS"
+    ],
+    "marcatela": "wk",
+    "aro": "sem",
+    "valor": 78
+  },
+  {
+    "modelos": [
+      "J4 PLUS",
+      "J6 PLUS",
+      "J4 CORE"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 49
+  },
+  {
+    "modelos": [
+      "J4 PLUS J6 PLUS J4 CORE",
+      "E7",
+      "E7 POWER"
+    ],
+    "marcatela": "wefix",
+    "aro": "sem",
+    "valor": 85
+  },
+  {
+    "modelos": [
+      "Iphone 12",
+      "Iphone 12 Pro C",
+      "i"
+    ],
+    "marcatela": "wk",
+    "aro": "sem",
+    "valor": 190
+  },
+  {
+    "modelos": [
+      "Iphone 12",
+      "Iphone 12 Pro"
+    ],
+    "marcatela": "wk",
+    "aro": "sem",
+    "valor": 195
+  },
+  {
+    "modelos": [
+      "Iphone 12",
+      "Iphone 12 Pro  C",
+      "i"
+    ],
+    "marcatela": "wk",
+    "aro": "sem",
+    "valor": 360
+  },
+  {
+    "modelos": [
+      "Iphone 12",
+      "Iphone 12 Pro"
+    ],
+    "marcatela": "wk",
+    "aro": "sem",
+    "valor": 315
+  },
+  {
+    "modelos": [
+      "Iphone 12",
+      "12 Pro -  C",
+      "i"
+    ],
+    "marcatela": "wefix",
+    "aro": "sem",
+    "valor": 235
+  },
+  {
+    "modelos": [
+      "Iphone 12",
+      "12 Pro   C",
+      "i"
+    ],
+    "marcatela": "vivid",
+    "aro": "sem",
+    "valor": 310
+  },
+  {
+    "modelos": [
+      "Iphone 12",
+      "12 Pro"
+    ],
+    "marcatela": "vivid",
+    "aro": "sem",
+    "valor": 250
+  },
+  {
+    "modelos": [
+      "IPHONE 12",
+      "12 PRO"
+    ],
+    "marcatela": "wefix",
+    "aro": "sem",
+    "valor": 350
+  },
+  {
+    "modelos": [
+      "IPHONE 12",
+      "IPHONE 12 PRO"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 375
+  },
+  {
+    "modelos": [
+      "IPHONE 11",
+      "S",
+      "C",
+      "i"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 315
+  },
+  {
+    "modelos": [
+      "IPHONE    8G",
+      "SE",
+      "INFINIX NOTE 11S",
+      "NOTE 11 PRO"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 125
+  },
+  {
+    "modelos": [
+      "INFINIX Note 11",
+      "Note 12",
+      "12 Pro"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 110
+  },
+  {
+    "modelos": [
+      "G9 PLAY",
+      "E7 PLUS"
+    ],
+    "marcatela": "wefix",
+    "aro": "com",
+    "valor": 110
+  },
+  {
+    "modelos": [
+      "G9 PLAY",
+      "E7 PLUS",
+      "A10",
+      "M10"
+    ],
+    "marcatela": "wefix",
+    "aro": "sem",
+    "valor": 95
+  },
+  {
+    "modelos": [
+      "G8 PLAY",
+      "ONE MACRO"
+    ],
+    "marcatela": "master",
+    "aro": "com",
+    "valor": 85
+  },
+  {
+    "modelos": [
+      "G8 PLAY",
+      "ONE MACRO"
+    ],
+    "marcatela": "master",
+    "aro": "com",
+    "valor": 80
+  },
+  {
+    "modelos": [
+      "G8 PLAY",
+      "ONE MACRO"
+    ],
+    "marcatela": "original",
+    "aro": "com",
+    "valor": 165
+  },
+  {
+    "modelos": [
+      "E7",
+      "E7 POWER"
+    ],
+    "marcatela": "nacional",
+    "aro": "sem",
+    "valor": 120
+  },
+  {
+    "modelos": [
+      "A52",
+      "A52S ORIGINAL"
+    ],
+    "marcatela": "original",
+    "aro": "com",
+    "valor": 189
+  },
+  {
+    "modelos": [
+      "A52",
+      "A52S ORIGINAL"
+    ],
+    "marcatela": "wefix",
+    "aro": "com",
+    "valor": 245
+  },
+  {
+    "modelos": [
+      "A52",
+      "A52S ORIGINAL  B",
+      "fina"
+    ],
+    "marcatela": "wefix",
+    "aro": "com",
+    "valor": 345
+  },
+  {
+    "modelos": [
+      "A52",
+      "A52S  B",
+      "fina"
+    ],
+    "marcatela": "wk",
+    "aro": "com",
+    "valor": 270
+  },
+  {
+    "modelos": [
+      "A52",
+      "A52S"
+    ],
+    "marcatela": "incell",
+    "aro": "com",
+    "valor": 99
+  },
+  {
+    "modelos": [
+      "A52",
+      "A52S ORIGINAL"
+    ],
+    "marcatela": "vivid",
+    "aro": "com",
+    "valor": 450
+  },
+  {
+    "modelos": [
+      "A52",
+      "A52S ORIGINAL"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 140
+  },
+  {
+    "modelos": [
+      "A52",
+      "A52S    B",
+      "Fina"
+    ],
+    "marcatela": "vivid",
+    "aro": "com",
+    "valor": 195
+  },
+  {
+    "modelos": [
+      "A50",
+      "A50s",
+      "A30 ORIG"
+    ],
+    "marcatela": "wefix",
+    "aro": "com",
+    "valor": 175
+  },
+  {
+    "modelos": [
+      "A50",
+      "A50s",
+      "A30 ORIG"
+    ],
+    "marcatela": "wk",
+    "aro": "com",
+    "valor": 165
+  },
+  {
+    "modelos": [
+      "A50",
+      "A50s",
+      "A30 ORIG"
+    ],
+    "marcatela": "vivid",
+    "aro": "com",
+    "valor": 165
+  },
+  {
+    "modelos": [
+      "A50",
+      "A50s",
+      "A30"
+    ],
+    "marcatela": "incell",
+    "aro": "com",
+    "valor": 68
+  },
+  {
+    "modelos": [
+      "A50",
+      "A50S",
+      "A30 ORIGINAL"
+    ],
+    "marcatela": "original",
+    "aro": "com",
+    "valor": 130
+  },
+  {
+    "modelos": [
+      "A30",
+      "A50"
+    ],
+    "marcatela": "incell",
+    "aro": "com",
+    "valor": 130
+  },
+  {
+    "modelos": [
+      "A23",
+      "M23"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 68
+  },
+  {
+    "modelos": [
+      "A23",
+      "M33",
+      "M23"
+    ],
+    "marcatela": "original",
+    "aro": "com",
+    "valor": 77
+  },
+  {
+    "modelos": [
+      "A23",
+      "M23",
+      "M33"
+    ],
+    "marcatela": "wk",
+    "aro": "sem",
+    "valor": 104
+  },
+  {
+    "modelos": [
+      "A13",
+      "M13",
+      "M23 5G",
+      "F13"
+    ],
+    "marcatela": "wk",
+    "aro": "sem",
+    "valor": 87
+  },
+  {
+    "modelos": [
+      "A13",
+      "M13",
+      "M23 5G",
+      "F13",
+      "G7",
+      "G7 PLUS"
+    ],
+    "marcatela": "master",
+    "aro": "sem",
+    "valor": 70
+  },
+  {
+    "modelos": [
+      "A13",
+      "M13",
+      "M23 5G"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 56
+  },
+  {
+    "modelos": [
+      "A10",
+      "M10"
+    ],
+    "marcatela": "wk",
+    "aro": "sem",
+    "valor": 75
+  },
+  {
+    "modelos": [
+      "A10",
+      "M10"
+    ],
+    "marcatela": "wk",
+    "aro": "com",
+    "valor": 99
+  },
+  {
+    "modelos": [
+      "A03",
+      "A02S",
+      "A03S"
+    ],
+    "marcatela": "master",
+    "aro": "sem",
+    "valor": 57
+  },
+  {
+    "modelos": [
+      "A03",
+      "A02S",
+      "A03S"
+    ],
+    "marcatela": "nacional",
+    "aro": "sem",
+    "valor": 110
+  },
+  {
+    "modelos": [
+      "A03",
+      "A02S",
+      "A03S"
+    ],
+    "marcatela": "vivid",
+    "aro": "sem",
+    "valor": 110
+  },
+  {
+    "modelos": [
+      "A02",
+      "A12",
+      "A32 5G",
+      "M02 -"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 52
+  },
+  {
+    "modelos": [
+      "9A",
+      "9C",
+      "9i",
+      "10A",
+      "Poco C3",
+      "Poco 31"
+    ],
+    "marcatela": "wefix",
+    "aro": "sem",
+    "valor": 97
+  },
+  {
+    "modelos": [
+      "POCO X3",
+      "POCO X3 PRO"
+    ],
+    "marcatela": "original",
+    "aro": "com",
+    "valor": 95
+  },
+  {
+    "modelos": [
+      "POCO X3",
+      "POCO X3 PRO"
+    ],
+    "marcatela": "wk",
+    "aro": "sem",
+    "valor": 110
+  },
+  {
+    "modelos": [
+      "J7",
+      "J700"
+    ],
+    "marcatela": "incell",
+    "aro": "sem",
+    "valor": 90
+  },
+  {
+    "modelos": [
+      "J7"
+    ],
+    "marcatela": "incell",
+    "aro": "sem",
+    "valor": 55
+  },
+  {
+    "modelos": [],
+    "marcatela": "incell",
+    "aro": "sem",
+    "valor": 100
+  },
+  {
+    "modelos": [
+      "G6 PLAY",
+      "E5"
+    ],
+    "marcatela": "wefix",
+    "aro": "sem",
+    "valor": 80
+  },
+  {
+    "modelos": [
+      "EDGE 20",
+      "EDGE 20 Pro Original"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 245
+  },
+  {
+    "modelos": [
+      "EDGE 20 LITE",
+      "EDGE 20 FUSION"
+    ],
+    "marcatela": "original",
+    "aro": "sem",
+    "valor": 255
+  },
+  {
+    "modelos": [
+      "A14 5G",
+      "M14 5G"
+    ],
+    "marcatela": "wk",
+    "aro": "sem",
+    "valor": 95
+  },
+  {
+    "modelos": [
+      "f",
+      "A04s",
+      "A13 5G"
+    ],
+    "marcatela": "original",
+    "aro": "com",
+    "valor": 62
+  }
+]
