@@ -1,7 +1,11 @@
 require("dotenv").config();
 const { buscarTelasPorModelo } = require("./botsemgpt");
 
+const fs = require("fs");
+const path = require("path");
+
 const OpenAI = require("openai");
+const { error } = require("console");
 const { OPENAI_API_KEY, ID_ASSISTENT } = process.env;
 console.log("OpenAI API Key:", OPENAI_API_KEY);
 console.log("ID_ASSISTENT:", ID_ASSISTENT);
@@ -70,8 +74,47 @@ async function checkingStatus(threadId, runId) {
   }
 }
 
+function carregarHistorico() {
+  const caminhoArquivo = path.join(__dirname, "historico.json");
+
+  try {
+    // Ler o arquivo JSON e parsear
+    const dados = fs.readFileSync(caminhoArquivo, "utf-8");
+    return JSON.parse(dados);
+  } catch (error) {
+    // Retorna array vazio se o arquivo não existe ou há erro
+    return [];
+  }
+}
+
+// Função para salvar o histórico no arquivo JSON
+function salvarHistorico(historico) {
+  const caminhoArquivo = path.join(__dirname, "historico.json");
+  fs.writeFileSync(caminhoArquivo, JSON.stringify(historico, null, 2));
+}
+
+// Função para procurar uma pergunta no histórico
+function buscarNoHistorico(mensagem, historico) {
+  return historico.find(
+    (item) => item.pergunta.toLowerCase() === mensagem.toLowerCase()
+  );
+}
+
 // Função que controla a lógica de mensagem
 async function handleMessage(userMessage) {
+  let historico = carregarHistorico();
+
+  // Verificar se a mensagem já foi feita
+  const resultadoHistorico = buscarNoHistorico(userMessage, historico);
+
+  if (resultadoHistorico) {
+    // Se a pergunta já está no histórico, retornar a resposta salva
+    console.log(
+      "Resposta encontrada no histórico:",
+      resultadoHistorico.resposta
+    );
+    return resultadoHistorico.resposta;
+  }
   const keywords = [
     "tela",
     "celular",
@@ -97,10 +140,24 @@ async function handleMessage(userMessage) {
   }
 
   try {
+    // Buscar resposta do sistema local
     const semgpt = await buscarTelasPorModelo(userMessage);
+
+    // Adicionar a nova interação ao histórico
+    historico.push({
+      pergunta: userMessage,
+      resposta: semgpt,
+      timestamp: new Date().toISOString(),
+    });
+
+    // Salvar o histórico atualizado
+    salvarHistorico(historico);
+
     console.log(semgpt);
     return semgpt;
-  } catch {}
+  } catch {
+    console.log("erro", error);
+  }
 
   try {
     const threadId = await createThread();
