@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require("path");
 
 // Carregar o JSON de produtos
 const produtosPath = path.join(__dirname, "produtos.json");
