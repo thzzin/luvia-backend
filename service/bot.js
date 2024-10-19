@@ -1,4 +1,5 @@
 require("dotenv").config();
+const { buscarTelasPorModelo } = require("./botsemgpt");
 
 const OpenAI = require("openai");
 const { OPENAI_API_KEY, ID_ASSISTENT } = process.env;
@@ -94,6 +95,12 @@ async function handleMessage(userMessage) {
     console.log("Mensagem irrelevante, não processando.");
     return;
   }
+
+  try {
+    const semgpt = await buscarTelasPorModelo(userMessage);
+    console.log(semgpt);
+    return semgpt;
+  } catch {}
 
   try {
     const threadId = await createThread();
