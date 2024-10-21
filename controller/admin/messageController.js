@@ -130,7 +130,7 @@ async function PostMsg(req, res) {
 
       case "image":
         //const idmsg = message.image.id;
-        msgResult = await postImg(cleanedData.messages[0].image.id);
+        msgResult = await postImg(cleanedData);
         return res
           .status(200)
           .json({ message: "Imagem processada com sucesso!", msgResult });
