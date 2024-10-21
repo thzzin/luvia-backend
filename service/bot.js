@@ -139,7 +139,7 @@ async function handleMessage(userMessage) {
     return;
   }
 
-  try {
+  /*  try {
     // Buscar resposta do sistema local
     const semgpt = await buscarTelasPorModelo(userMessage);
 
@@ -157,7 +157,7 @@ async function handleMessage(userMessage) {
     return semgpt;
   } catch {
     console.log("erro", error);
-  }
+  } */
 
   try {
     const threadId = await createThread();
