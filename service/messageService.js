@@ -345,6 +345,7 @@ async function postImg(messageData) {
         }
       );
       urlimg = response.data.imageUrl;
+      console.log("url img", urlimg);
     } catch (error) {}
 
     const message = await Message.create({
@@ -357,6 +358,8 @@ async function postImg(messageData) {
       phonecontact: phoneNumberUser.toString(),
       idConversa: idConversation.toString(),
     });
+
+    console.log("message imagem:", message);
 
     return message;
   } catch (error) {
