@@ -312,7 +312,9 @@ async function postImg(messageData) {
     const name = messageData?.contacts?.[0]?.profile?.name; // Verifica se profile e name existem
     const idImage = messageData?.messages?.[0]?.image?.id; // ID da imagem
 
-    const admin = await Admin.findOne({ where: { phone: phoneNumberAdmin } });
+    const admin = await Admin.findOne({
+      where: { admin_id: phoneNumberAdmin },
+    });
 
     if (!admin) {
       throw new Error("Admin não encontrado com este número de telefone.");
@@ -347,6 +349,8 @@ async function postImg(messageData) {
       urlimg = response.data.imageUrl;
       console.log("url img", urlimg);
     } catch (error) {}
+
+    console.log("");
 
     const message = await Message.create({
       conversation_id: conversId.toString(),
