@@ -348,7 +348,9 @@ async function postImg(messageData) {
       );
       urlimg = response.data.imageUrl;
       console.log("url img", urlimg);
-    } catch (error) {}
+    } catch (error) {
+      console.log("nao achou saporra", error);
+    }
 
     console.log("");
 
