@@ -311,9 +311,9 @@ async function postImg(messageData) {
     const idConversation = messageData?.messages?.[0]?.id; // id da conversa
     const name = messageData?.contacts?.[0]?.profile?.name; // Verifica se profile e name existem
     const idImage = messageData?.messages?.[0]?.image?.id; // ID da imagem
-
+    console.log("phoneNumberAdmin", phoneNumberAdmin);
     const admin = await Admin.findOne({
-      where: { admin_id: phoneNumberAdmin },
+      where: { idNumero: phoneNumberAdmin },
     });
 
     if (!admin) {
