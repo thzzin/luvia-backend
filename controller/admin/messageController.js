@@ -129,7 +129,8 @@ async function PostMsg(req, res) {
           .json({ message: "Mensagens processadas com sucesso!", msgResult });
 
       case "image":
-        msgResult = await postImg(cleanedData);
+        const idmsg = message.image.id;
+        msgResult = await postImg(idmsg);
         return res
           .status(200)
           .json({ message: "Imagem processada com sucesso!", msgResult });
