@@ -115,29 +115,29 @@ async function handleMessage(userMessage) {
     );
     return resultadoHistorico.resposta;
   }
-  const keywords = [
-    "tela",
-    "celular",
-    "modelo",
-    "smartphone",
-    "display",
-    "preço",
-    "marca",
-    "comprar",
-    "substituir",
-    "reparo",
-    "tem",
-    "do",
-  ];
+  // const keywords = [
+  //   "tela",
+  //   "celular",
+  //   "modelo",
+  //   "smartphone",
+  //   "display",
+  //   "preço",
+  //   "marca",
+  //   "comprar",
+  //   "substituir",
+  //   "reparo",
+  //   "tem",
+  //   "do",
+  // ];
 
-  const containsKeywords = keywords.some((keyword) =>
-    userMessage.toLowerCase().includes(keyword)
-  );
+  // const containsKeywords = keywords.some((keyword) =>
+  //   userMessage.toLowerCase().includes(keyword)
+  // );
 
-  if (!containsKeywords) {
-    console.log("Mensagem irrelevante, não processando.");
-    return;
-  }
+  // if (!containsKeywords) {
+  //   console.log("Mensagem irrelevante, não processando.");
+  //   return;
+  // }
 
   /*  try {
     // Buscar resposta do sistema local
