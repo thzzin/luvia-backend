@@ -313,7 +313,7 @@ async function postImg(messageData) {
     const idImage = messageData?.messages?.[0]?.image?.id; // ID da imagem
     console.log("phoneNumberAdmin", phoneNumberAdmin);
     const admin = await Admin.findOne({
-      where: { idNumero: phoneNumberAdmin },
+      where: { phone: phoneNumberAdmin },
     });
 
     if (!admin) {
