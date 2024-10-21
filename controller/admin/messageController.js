@@ -123,7 +123,7 @@ async function PostMsg(req, res) {
           .json({ message: "Áudio processado com sucesso!", msgResult });
 
       case "text":
-        msgResult = await receivedMessage(cleanedData);
+        msgResult = await receivedMessage(cleanedData.messages[0].image.id);
         return res
           .status(200)
           .json({ message: "Mensagens processadas com sucesso!", msgResult });
