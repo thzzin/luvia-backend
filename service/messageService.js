@@ -141,7 +141,7 @@ async function receivedMessage(incomingData) {
       idConversa: idConversation.toString(),
     });
 
-    if (adminId === "6283163270069") {
+    if (adminId === "6283163270069" && phonecontact !== "5513991250485") {
       const bot = await handleMessage(content);
       const idConversa = idConversation.toString();
       const phonecontact = phoneNumber.toString();
