@@ -147,7 +147,6 @@ async function receivedMessage(incomingData) {
       const idConversa = idConversation.toString();
       const phonecontact = phoneNumber.toString();
       console.log(bot);
-
       msgClient(
         adminId,
         conversationId,
