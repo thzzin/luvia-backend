@@ -124,7 +124,23 @@ const vendedores = {
 };
 
 // Função para enviar o contato via API do WhatsApp
-async function enviarContato(vendedorData, phoneNumber) {
+async function enviarContato(vendedorData, phoneNumber, adminId) {
+  let admin = await Admin.findByPk(adminId);
+
+  // Se não encontrar pelo ID, tenta encontrar pelo telefone
+  if (!admin) {
+    console.log(
+      "Administrador não encontrado pelo ID. Tentando buscar pelo telefone..."
+    );
+    admin = await Admin.findOne({ where: { phone: adminId } }); // Aqui, adminId é o telefone
+  }
+  if (!admin) {
+    throw new Error("Administrador não encontrado.");
+  }
+  const phoneadmin = admin.phone;
+  const idNumero = admin.idNumero;
+  const acessToken = admin.acessToken;
+
   const data = {
     messaging_product: "whatsapp",
     to: phoneNumber,
@@ -145,11 +161,11 @@ async function enviarContato(vendedorData, phoneNumber) {
 
   try {
     const response = await axios.post(
-      `https://graph.facebook.com/v13.0/<WHATSAPP_BUSINESS_PHONE_NUMBER_ID>/messages`,
+      `https://graph.facebook.com/v13.0/${idNumero}/messages`,
       data,
       {
         headers: {
-          Authorization: `Bearer <ACCESS_TOKEN>`,
+          Authorization: `Bearer ${acessToken}`,
           "Content-Type": "application/json",
         },
       }
@@ -229,7 +245,7 @@ async function receivedMessage(incomingData) {
 
       // Se um vendedor foi mencionado, envia o contato
       if (vendedorEncontrado) {
-        await enviarContato(vendedorEncontrado, phonecontact);
+        await enviarContato(vendedorEncontrado, phonecontact, adminId);
       }
 
       // Continuar com o envio da mensagem original
