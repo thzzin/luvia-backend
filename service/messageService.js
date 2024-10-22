@@ -163,6 +163,11 @@ async function enviarContato(vendedorData, phoneNumber) {
   }
 }
 
+async function enviarMensagemAoUsuario(phoneNumber, message) {
+  // Implementação do envio de mensagem ao usuário
+  console.log(`Enviando mensagem para ${phoneNumber}: ${message}`);
+}
+
 async function receivedMessage(incomingData) {
   try {
     const phoneNumber = incomingData.contacts[0].wa_id;
@@ -219,6 +224,22 @@ async function receivedMessage(incomingData) {
       // Verificar se a resposta do bot contém o nome de algum vendedor
       const botLowerCase = bot.toLowerCase();
       let vendedorEncontrado = null;
+
+      if (botLowerCase.includes("comprar") || botLowerCase.includes("pedido")) {
+        // Perguntar qual vendedor ele deseja
+        const mensagemVendedores =
+          "Para qual vendedor você gostaria de ser transferido? Temos:\n" +
+          Object.values(vendedores)
+            .map((v) => v.formatted_name)
+            .join(", ");
+
+        // Aqui você deve enviar a mensagem de opções ao usuário
+        // Envie `mensagemVendedores` de volta ao usuário
+        await enviarMensagemAoUsuario(phoneNumber, mensagemVendedores); // Função hipotética para enviar mensagem ao usuário
+
+        // Agora, você deve aguardar a resposta do usuário para saber qual vendedor ele escolheu
+        return; // Saia da função para aguardar a próxima mensagem
+      }
 
       for (const vendedor in vendedores) {
         if (botLowerCase.includes(vendedor)) {
