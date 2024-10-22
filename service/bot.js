@@ -1,11 +1,9 @@
 require("dotenv").config();
-const { buscarTelasPorModelo } = require("./botsemgpt");
 
 const fs = require("fs");
 const path = require("path");
 
 const OpenAI = require("openai");
-const { error } = require("console");
 const { OPENAI_API_KEY, ID_ASSISTENT } = process.env;
 console.log("OpenAI API Key:", OPENAI_API_KEY);
 console.log("ID_ASSISTENT:", ID_ASSISTENT);
@@ -13,6 +11,31 @@ console.log("ID_ASSISTENT:", ID_ASSISTENT);
 const openai = new OpenAI({
   apiKey: OPENAI_API_KEY,
 });
+
+function salvarThreadId(threadId, cliente) {
+  let historicoThreads = carregarHistorico();
+
+  let threadExistente = historicoThreads.find(
+    (item) => item.cliente === cliente
+  );
+
+  if (threadExistente) {
+    threadExistente.threadId = threadId;
+  } else {
+    historicoThreads.push({ cliente: cliente, threadId: threadId });
+  }
+
+  salvarHistorico(historicoThreads);
+}
+
+function buscarThreadId(cliente) {
+  let historicoThreads = carregarHistorico();
+  let threadExistente = historicoThreads.find(
+    (item) => item.cliente === cliente
+  );
+
+  return threadExistente ? threadExistente.threadId : null;
+}
 
 async function createThread() {
   console.log("Creating a new thread...");
@@ -101,86 +124,40 @@ function buscarNoHistorico(mensagem, historico) {
 }
 
 // Função que controla a lógica de mensagem
-async function handleMessage(userMessage) {
+async function handleMessage(userMessage, cliente) {
   let historico = carregarHistorico();
 
-  // Verificar se a mensagem já foi feita
-  const resultadoHistorico = buscarNoHistorico(userMessage, historico);
+  // Verificar se o cliente já possui um threadId salvo
+  let threadId = buscarThreadId(cliente);
 
-  if (resultadoHistorico) {
-    // Se a pergunta já está no histórico, retornar a resposta salva
-    console.log(
-      "Resposta encontrada no histórico:",
-      resultadoHistorico.resposta
-    );
-    return resultadoHistorico.resposta;
+  if (!threadId) {
+    // Se não existe um threadId para o cliente, cria uma nova thread
+    threadId = await createThread();
+    salvarThreadId(threadId, cliente);
   }
-  // const keywords = [
-  //   "tela",
-  //   "celular",
-  //   "modelo",
-  //   "smartphone",
-  //   "display",
-  //   "preço",
-  //   "marca",
-  //   "comprar",
-  //   "substituir",
-  //   "reparo",
-  //   "tem",
-  //   "do",
-  // ];
 
-  // const containsKeywords = keywords.some((keyword) =>
-  //   userMessage.toLowerCase().includes(keyword)
-  // );
+  // Adiciona a mensagem na thread existente ou nova
+  await addMessage(threadId, userMessage);
+  console.log("Assistant ID:", ID_ASSISTENT);
 
-  // if (!containsKeywords) {
-  //   console.log("Mensagem irrelevante, não processando.");
-  //   return;
-  // }
+  const runId = await runAssistant(threadId);
 
-  /*  try {
-    // Buscar resposta do sistema local
-    const semgpt = await buscarTelasPorModelo(userMessage);
+  while (true) {
+    const runObject = await openai.beta.threads.runs.retrieve(threadId, runId);
+    if (runObject.status === "completed") {
+      const response = await checkingStatus(threadId, runId);
 
-    // Adicionar a nova interação ao histórico
-    historico.push({
-      pergunta: userMessage,
-      resposta: semgpt,
-      timestamp: new Date().toISOString(),
-    });
+      // Salvar no histórico a pergunta e resposta
+      historico.push({
+        pergunta: userMessage,
+        resposta: response,
+      });
+      salvarHistorico(historico);
 
-    // Salvar o histórico atualizado
-    salvarHistorico(historico);
-
-    console.log(semgpt);
-    return semgpt;
-  } catch {
-    console.log("erro", error);
-  } */
-
-  try {
-    const threadId = await createThread();
-    await addMessage(threadId, userMessage);
-    console.log("Assistant ID:", ID_ASSISTENT);
-
-    const runId = await runAssistant(threadId);
-
-    while (true) {
-      const runObject = await openai.beta.threads.runs.retrieve(
-        threadId,
-        runId
-      );
-      if (runObject.status === "completed") {
-        const response = await checkingStatus(threadId, runId);
-        return response;
-      }
-
-      await new Promise((resolve) => setTimeout(resolve, 5000));
+      return response;
     }
-  } catch (error) {
-    console.error("Error processing messages:", error);
-    throw error; // Lança o erro para que possa ser tratado em outro lugar
+
+    await new Promise((resolve) => setTimeout(resolve, 5000));
   }
 }
 
