@@ -96,6 +96,73 @@ async function saveMessage(
   }
 }
 
+const vendedores = {
+  dienifer: {
+    formatted_name: "Dienifer",
+    phone: "+553172026586",
+  },
+  angelo: {
+    formatted_name: "Angelo",
+    phone: "+553187622986",
+  },
+  eduardo: {
+    formatted_name: "Eduardo",
+    phone: "+553199917902",
+  },
+  fabricio: {
+    formatted_name: "Fabricio",
+    phone: "+553185525727",
+  },
+  taynara: {
+    formatted_name: "Taynara",
+    phone: "+553188535201",
+  },
+  titao: {
+    formatted_name: "Titao",
+    phone: "+553187155210",
+  },
+};
+
+// Função para enviar o contato via API do WhatsApp
+async function enviarContato(vendedorData, phoneNumber) {
+  const data = {
+    messaging_product: "whatsapp",
+    to: phoneNumber,
+    type: "contacts",
+    contacts: [
+      {
+        name: {
+          formatted_name: vendedorData.formatted_name,
+        },
+        phones: [
+          {
+            phone: vendedorData.phone,
+          },
+        ],
+      },
+    ],
+  };
+
+  try {
+    const response = await axios.post(
+      `https://graph.facebook.com/v13.0/<WHATSAPP_BUSINESS_PHONE_NUMBER_ID>/messages`,
+      data,
+      {
+        headers: {
+          Authorization: `Bearer <ACCESS_TOKEN>`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    console.log("Contato enviado com sucesso:", response.data);
+  } catch (error) {
+    console.error(
+      "Erro ao enviar o contato:",
+      error.response ? error.response.data : error.message
+    );
+  }
+}
+
 async function receivedMessage(incomingData) {
   try {
     const phoneNumber = incomingData.contacts[0].wa_id;
@@ -146,8 +213,26 @@ async function receivedMessage(incomingData) {
       const bot = await handleMessage(content);
       const idConversa = idConversation.toString();
       const phonecontact = phoneNumber.toString();
+
       console.log(bot);
 
+      // Verificar se a resposta do bot contém o nome de algum vendedor
+      const botLowerCase = bot.toLowerCase();
+      let vendedorEncontrado = null;
+
+      for (const vendedor in vendedores) {
+        if (botLowerCase.includes(vendedor)) {
+          vendedorEncontrado = vendedores[vendedor];
+          break; // Enviar o contato do primeiro vendedor encontrado
+        }
+      }
+
+      // Se um vendedor foi mencionado, envia o contato
+      if (vendedorEncontrado) {
+        await enviarContato(vendedorEncontrado, phonecontact);
+      }
+
+      // Continuar com o envio da mensagem original
       msgClient(
         adminId,
         conversationId,
