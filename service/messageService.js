@@ -249,7 +249,17 @@ async function receivedMessage(incomingData) {
 
       // Se um vendedor foi mencionado, envia o contato
       if (vendedorEncontrado) {
-        await enviarContato(vendedorEncontrado, phonecontact, adminId);
+        //await enviarContato(vendedorEncontrado, phonecontact, adminId);
+        const num = `${vendedorEncontrado.phone} - ${vendedorEncontrado.formatted_name}`;
+        await msgClient(
+          adminId,
+          conversationId,
+          phonecontact,
+          idConversa,
+          num,
+          contactId
+        );
+        return message;
       }
 
       // Continuar com o envio da mensagem original
@@ -391,7 +401,7 @@ async function msgClient(
       },
     });
 
-    console.log("response:", response);
+    //console.log("response:", response);
 
     const message = await Message.create({
       conversation_id: conversationId,
