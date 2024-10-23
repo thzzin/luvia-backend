@@ -154,11 +154,46 @@ async function handleMessage(userMessage, cliente) {
       });
       salvarHistorico(historico);
 
+      const modelosEncontrados = extrairModelos(response);
+
+      // Verificar se há informações faltando no PDF
+      for (let modelo of modelosEncontrados) {
+        const linhasPdf = await buscarModeloNoPDF(
+          modelo,
+          "/mnt/data/telascelulares.pdf"
+        );
+        if (linhasPdf.length === 0) {
+          console.warn(
+            `Nenhuma linha encontrada no PDF para o modelo ${modelo}`
+          );
+        } else {
+          console.log(`Linhas encontradas para o modelo ${modelo}:`, linhasPdf);
+        }
+      }
+
       return response;
     }
 
     await new Promise((resolve) => setTimeout(resolve, 5000));
   }
+}
+
+function extrairModelos(response) {
+  const regexModelos = /modelo ([\w\d]+)/gi;
+  let modelos = [];
+  let match;
+  while ((match = regexModelos.exec(response)) !== null) {
+    modelos.push(match[1]);
+  }
+  return modelos;
+}
+
+// Função para buscar o modelo no PDF
+async function buscarModeloNoPDF(modelo, caminhoPdf) {
+  const textoPdf = await lerPdf(caminhoPdf);
+  const regexModelo = new RegExp(`\\b${modelo}\\b`, "gi");
+  let linhasEncontradas = textoPdf.match(regexModelo);
+  return linhasEncontradas || [];
 }
 
 module.exports = {
