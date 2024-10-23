@@ -183,10 +183,7 @@ async function handleMessage(userMessage, cliente) {
         console.log(`Modelo encontrado: ${modelo}`);
 
         // Buscar as linhas do PDF para o modelo
-        const linhasDoPDF = await buscarModeloNoPDF(
-          modelo,
-          "./telascelulares.pdf"
-        );
+        const linhasDoPDF = await buscarModeloNoPDF(modelo, pdfPath);
 
         if (linhasDoPDF.length > 0) {
           console.log(
