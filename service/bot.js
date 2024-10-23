@@ -174,7 +174,7 @@ async function handleMessage(userMessage, cliente) {
       });
       salvarHistorico(historico);
 
-      // Extrair o modelo da resposta (supondo que ele aparece após "para o modelo")
+      // Extrair o modelo da resposta
       const modeloRegex = /para o modelo\s+([A-Za-z0-9.]+)/;
       const modeloEncontrado = response.match(modeloRegex);
 
@@ -182,15 +182,36 @@ async function handleMessage(userMessage, cliente) {
         const modelo = modeloEncontrado[1];
         console.log(`Modelo encontrado: ${modelo}`);
 
-        // Verificar se o modelo está no PDF
-        const linhasDoPDF = await buscarModeloNoPDF(modelo, pdfPath);
+        // Buscar as linhas do PDF para o modelo
+        const linhasDoPDF = await buscarModeloNoPDF(
+          modelo,
+          "./telascelulares.pdf"
+        );
 
         if (linhasDoPDF.length > 0) {
-          console.log("Todas as linhas relevantes foram encontradas no PDF.");
-        } else {
           console.log(
-            "Alerta: Não foram encontradas todas as informações do modelo no PDF."
+            `Linhas encontradas para o modelo ${modelo}:`,
+            linhasDoPDF
           );
+
+          // Formatar as linhas encontradas no PDF
+          const modelosFormatados = linhasDoPDF
+            .map((linha) => {
+              // Remover informações irrelevantes, como prefixos desnecessários
+              return linha.replace("f.", "").trim();
+            })
+            .join("\n");
+
+          // Nova mensagem incluindo os modelos encontrados no PDF
+          const novaResposta = `
+            A tela disponível para o modelo ${modelo} na loja é a seguinte:\n${modelosFormatados}\n\n${response}
+          `;
+
+          // Retornar a nova resposta formatada
+          return novaResposta;
+        } else {
+          console.log("Nenhuma linha encontrada no PDF para o modelo.");
+          return response;
         }
       }
 
