@@ -129,10 +129,13 @@ async function buscarModeloNoPDF(modelo, caminhoPDF) {
   const dataBuffer = fs.readFileSync(caminhoPDF);
   const pdfData = await pdfParse(dataBuffer);
 
+  // Criar regex para buscar linhas que contêm o modelo exato
+  const regexModelo = new RegExp(`\\b${modelo}\\b`, "i"); // Busca exata ignorando maiúsculas/minúsculas
+
   // Buscar todas as linhas que contêm o modelo
   const linhasComModelo = pdfData.text
     .split("\n")
-    .filter((linha) => linha.includes(modelo));
+    .filter((linha) => regexModelo.test(linha));
 
   if (linhasComModelo.length > 0) {
     console.log(`Linhas encontradas para o modelo ${modelo}:`, linhasComModelo);
@@ -174,12 +177,13 @@ async function handleMessage(userMessage, cliente) {
       });
       salvarHistorico(historico);
 
-      // Extrair o modelo da resposta
-      const modeloRegex = /para o modelo\s+([A-Za-z0-9.]+)/;
+      // Extrair o modelo da resposta com base no formato "para o modelo...na loja é o seguinte"
+      const modeloRegex =
+        /para o modelo\s+([A-Za-z0-9.]+)\s+na loja é o seguinte/;
       const modeloEncontrado = response.match(modeloRegex);
 
       if (modeloEncontrado && modeloEncontrado[1]) {
-        const modelo = modeloEncontrado[1];
+        const modelo = modeloEncontrado[1].trim();
         console.log(`Modelo encontrado: ${modelo}`);
 
         // Buscar as linhas do PDF para o modelo
@@ -208,10 +212,30 @@ async function handleMessage(userMessage, cliente) {
             })
             .join("\n");
 
+          // Verificar se alguma linha do PDF não estava na resposta do ChatGPT
+          const linhasChatGPT = response
+            .split("\n")
+            .map((linha) => linha.trim());
+          const linhasFaltantes = modelosFormatados
+            .split("\n")
+            .filter((linha) => !linhasChatGPT.includes(linha));
+
           // Nova mensagem incluindo as descrições e preços encontrados no PDF
           const novaResposta = `
             A tela disponível para o modelo ${modelo} na loja é a seguinte:\n${modelosFormatados}\n\n${response}
           `;
+
+          if (linhasFaltantes.length > 0) {
+            console.log(
+              "Linhas faltantes encontradas no PDF:",
+              linhasFaltantes
+            );
+            // Adicionar mensagem adicional se houver linhas faltantes
+            const mensagemAdicional = `Além disso, as seguintes telas para o modelo ${modelo} foram encontradas no PDF mas não mencionadas na resposta original:\n${linhasFaltantes.join(
+              "\n"
+            )}`;
+            return `${novaResposta}\n\n${mensagemAdicional}`;
+          }
 
           // Retornar a nova resposta formatada
           return novaResposta;
@@ -227,7 +251,6 @@ async function handleMessage(userMessage, cliente) {
     await new Promise((resolve) => setTimeout(resolve, 5000));
   }
 }
-
 
 module.exports = {
   handleMessage,
