@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const fs = require("fs");
 const path = require("path");
+const pdfParse = require("pdf-parse");
 
 const OpenAI = require("openai");
 const { OPENAI_API_KEY, ID_ASSISTENT } = process.env;
@@ -123,6 +124,24 @@ function buscarNoHistorico(mensagem, historico) {
   );
 }
 
+async function buscarModeloNoPDF(modelo, caminhoPDF) {
+  const dataBuffer = fs.readFileSync(caminhoPDF);
+  const pdfData = await pdfParse(dataBuffer);
+
+  // Buscar todas as linhas que contêm o modelo
+  const linhasComModelo = pdfData.text
+    .split("\n")
+    .filter((linha) => linha.includes(modelo));
+
+  if (linhasComModelo.length > 0) {
+    console.log(`Linhas encontradas para o modelo ${modelo}:`, linhasComModelo);
+  } else {
+    console.log(`Nenhuma linha encontrada para o modelo ${modelo}.`);
+  }
+
+  return linhasComModelo;
+}
+
 // Função que controla a lógica de mensagem
 async function handleMessage(userMessage, cliente) {
   let historico = carregarHistorico();
@@ -154,20 +173,26 @@ async function handleMessage(userMessage, cliente) {
       });
       salvarHistorico(historico);
 
-      const modelosEncontrados = extrairModelos(response);
+      // Extrair o modelo da resposta (supondo que ele aparece após "para o modelo")
+      const modeloRegex = /para o modelo\s+([A-Za-z0-9.]+)/;
+      const modeloEncontrado = response.match(modeloRegex);
 
-      // Verificar se há informações faltando no PDF
-      for (let modelo of modelosEncontrados) {
-        const linhasPdf = await buscarModeloNoPDF(
+      if (modeloEncontrado && modeloEncontrado[1]) {
+        const modelo = modeloEncontrado[1];
+        console.log(`Modelo encontrado: ${modelo}`);
+
+        // Verificar se o modelo está no PDF
+        const linhasDoPDF = await buscarModeloNoPDF(
           modelo,
-          "/mnt/data/telascelulares.pdf"
+          "./telascelulares.pdf"
         );
-        if (linhasPdf.length === 0) {
-          console.warn(
-            `Nenhuma linha encontrada no PDF para o modelo ${modelo}`
-          );
+
+        if (linhasDoPDF.length > 0) {
+          console.log("Todas as linhas relevantes foram encontradas no PDF.");
         } else {
-          console.log(`Linhas encontradas para o modelo ${modelo}:`, linhasPdf);
+          console.log(
+            "Alerta: Não foram encontradas todas as informações do modelo no PDF."
+          );
         }
       }
 
@@ -176,24 +201,6 @@ async function handleMessage(userMessage, cliente) {
 
     await new Promise((resolve) => setTimeout(resolve, 5000));
   }
-}
-
-function extrairModelos(response) {
-  const regexModelos = /modelo ([\w\d]+)/gi;
-  let modelos = [];
-  let match;
-  while ((match = regexModelos.exec(response)) !== null) {
-    modelos.push(match[1]);
-  }
-  return modelos;
-}
-
-// Função para buscar o modelo no PDF
-async function buscarModeloNoPDF(modelo, caminhoPdf) {
-  const textoPdf = await lerPdf(caminhoPdf);
-  const regexModelo = new RegExp(`\\b${modelo}\\b`, "gi");
-  let linhasEncontradas = textoPdf.match(regexModelo);
-  return linhasEncontradas || [];
 }
 
 module.exports = {
