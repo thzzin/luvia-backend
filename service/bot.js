@@ -138,9 +138,14 @@ async function buscarModeloNoPDF(modelo, caminhoPDF) {
     .filter((linha) => regexModelo.test(linha));
 
   if (linhasComModelo.length > 0) {
-    console.log(`Linhas encontradas para o modelo ${modelo}:`, linhasComModelo);
+    console.log(
+      `🔍 Linhas encontradas no PDF para o modelo "${modelo}":`,
+      linhasComModelo
+    );
   } else {
-    console.log(`Nenhuma linha encontrada para o modelo ${modelo}.`);
+    console.log(
+      `⚠️ Nenhuma linha encontrada no PDF para o modelo "${modelo}".`
+    );
   }
 
   return linhasComModelo;
@@ -154,21 +159,31 @@ async function handleMessage(userMessage, cliente) {
   let threadId = buscarThreadId(cliente);
 
   if (!threadId) {
+    console.log("📝 Criando uma nova thread para o cliente...");
     // Se não existe um threadId para o cliente, cria uma nova thread
     threadId = await createThread();
     salvarThreadId(threadId, cliente);
+  } else {
+    console.log(`📂 Thread existente encontrada: ${threadId}`);
   }
 
   // Adiciona a mensagem na thread existente ou nova
   await addMessage(threadId, userMessage);
-  console.log("Assistant ID:", ID_ASSISTENT);
+  console.log(`💬 Mensagem adicionada à thread: ${threadId}`);
+
+  console.log("💡 Assistant ID:", ID_ASSISTENT);
 
   const runId = await runAssistant(threadId);
+  console.log(
+    `▶️ Rodando assistant para a thread: ${threadId}, com runId: ${runId}`
+  );
 
   while (true) {
     const runObject = await openai.beta.threads.runs.retrieve(threadId, runId);
     if (runObject.status === "completed") {
       const response = await checkingStatus(threadId, runId);
+
+      console.log("📥 Resposta recebida do Assistant: ", response);
 
       // Salvar no histórico a pergunta e resposta
       historico.push({
@@ -184,14 +199,14 @@ async function handleMessage(userMessage, cliente) {
 
       if (modeloEncontrado && modeloEncontrado[1]) {
         const modelo = modeloEncontrado[1].trim();
-        console.log(`Modelo encontrado: ${modelo}`);
+        console.log(`🔎 Modelo extraído da resposta: ${modelo}`);
 
         // Buscar as linhas do PDF para o modelo
         const linhasDoPDF = await buscarModeloNoPDF(modelo, pdfPath);
 
         if (linhasDoPDF.length > 0) {
           console.log(
-            `Linhas encontradas para o modelo ${modelo}:`,
+            `✅ Linhas correspondentes encontradas no PDF para o modelo "${modelo}":`,
             linhasDoPDF
           );
 
@@ -227,22 +242,22 @@ async function handleMessage(userMessage, cliente) {
 
           if (linhasFaltantes.length > 0) {
             console.log(
-              "Linhas faltantes encontradas no PDF:",
+              "⚠️ Linhas adicionais encontradas no PDF que não estavam na resposta original:",
               linhasFaltantes
             );
-            // Adicionar mensagem adicional se houver linhas faltantes
             const mensagemAdicional = `Além disso, as seguintes telas para o modelo ${modelo} foram encontradas no PDF mas não mencionadas na resposta original:\n${linhasFaltantes.join(
               "\n"
             )}`;
             return `${novaResposta}\n\n${mensagemAdicional}`;
           }
 
-          // Retornar a nova resposta formatada
           return novaResposta;
         } else {
-          console.log("Nenhuma linha encontrada no PDF para o modelo.");
+          console.log("⚠️ Nenhuma linha encontrada no PDF para o modelo.");
           return response;
         }
+      } else {
+        console.log("⚠️ Não foi possível extrair o modelo da resposta.");
       }
 
       return response;
