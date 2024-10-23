@@ -195,12 +195,12 @@ async function handleMessage(userMessage, cliente) {
       // Extrair o modelo da resposta com base no formato "para o modelo...na loja é o seguinte"
       // Regex mais flexível para capturar o modelo da resposta
       // Regex aprimorado para capturar apenas o modelo, ignorando 'na loja' ou qualquer outra palavra extra
-      const modeloRegex =
-        /modelo\s+([\w\s\d-.]+)(?=\s+na loja|\s+\(|\s+-|\s+R\$)/i;
+      // Regex aprimorado para capturar apenas o modelo, considerando variações como "(4G.5G)" ou "Poco"
+      const modeloRegex = /redmi\s*\d+[a-z]*\s*(?:\(\d+g\.\d+g\))?/i;
       const modeloEncontrado = response.match(modeloRegex);
 
-      if (modeloEncontrado && modeloEncontrado[1]) {
-        const modelo = modeloEncontrado[1].trim().toLowerCase(); // Convertendo o modelo para lowercase
+      if (modeloEncontrado && modeloEncontrado[0]) {
+        const modelo = modeloEncontrado[0].trim().toLowerCase(); // Convertendo o modelo para lowercase
         console.log(`🔎 Modelo extraído da resposta: ${modelo}`);
 
         // Transformar o modelo extraído e as linhas do PDF para lowercase para garantir a compatibilidade
