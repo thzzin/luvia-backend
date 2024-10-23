@@ -391,6 +391,8 @@ async function msgClient(
       },
     });
 
+    console.log("response:", response);
+
     const message = await Message.create({
       conversation_id: conversationId,
       contato_id: contactId,
