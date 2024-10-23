@@ -217,9 +217,11 @@ async function handleMessage(userMessage, cliente) {
           // Formatar as linhas encontradas no PDF
           const modelosFormatados = linhasDoPDF
             .map((linha) => {
-              const precoRegex = /(r\$[0-9,.]+)/;
+              // Supondo que o preço esteja no formato R$ ou outro padrão monetário
+              const precoRegex = /(R\$[0-9,.]+)/;
               const precoEncontrado = linha.match(precoRegex);
 
+              // Remover prefixos como "f." e manter descrição e preço
               const descricao = linha.replace("f.", "").trim();
               const preco = precoEncontrado
                 ? precoEncontrado[0]
@@ -229,18 +231,10 @@ async function handleMessage(userMessage, cliente) {
             })
             .join("\n");
 
-          // Verificar se alguma linha do PDF não estava na resposta do ChatGPT
-          const linhasChatGPT = response
-            .toLowerCase()
-            .split("\n")
-            .map((linha) => linha.trim());
-          const linhasFaltantes = modelosFormatados
-            .split("\n")
-            .filter((linha) => !linhasChatGPT.includes(linha));
-
+          // Nova mensagem incluindo as descrições e preços encontrados no PDF
           const novaResposta = `
-            A tela disponível para o modelo ${modelo} na loja é a seguinte:\n${modelosFormatados}\n\n${response}
-        `;
+A tela disponível para o modelo ${modelo} na loja é a seguinte:\n${modelosFormatados}\n\n${response}
+`;
 
           if (linhasFaltantes.length > 0) {
             console.log(
