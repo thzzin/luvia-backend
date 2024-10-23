@@ -3,6 +3,7 @@ require("dotenv").config();
 const fs = require("fs");
 const path = require("path");
 const pdfParse = require("pdf-parse");
+const pdfPath = path.join(__dirname, "telascelulares.pdf");
 
 const OpenAI = require("openai");
 const { OPENAI_API_KEY, ID_ASSISTENT } = process.env;
@@ -182,10 +183,7 @@ async function handleMessage(userMessage, cliente) {
         console.log(`Modelo encontrado: ${modelo}`);
 
         // Verificar se o modelo está no PDF
-        const linhasDoPDF = await buscarModeloNoPDF(
-          modelo,
-          "telascelulares.pdf"
-        );
+        const linhasDoPDF = await buscarModeloNoPDF(modelo, pdfPath);
 
         if (linhasDoPDF.length > 0) {
           console.log("Todas as linhas relevantes foram encontradas no PDF.");
