@@ -183,6 +183,43 @@ async function enviarContato(vendedorData, phoneNumber, adminId) {
   }
 }
 
+function verificarIntencaoDeCompra(texto) {
+  const palavrasChave = [
+    "pedido",
+    "fazer pedido",
+    "comprar",
+    "compra",
+    "encomendar",
+  ];
+  return palavrasChave.some((palavra) => texto.includes(palavra));
+}
+
+// Função para enviar a lista de vendedores para o cliente
+async function perguntarVendedor(
+  phoneNumber,
+  adminId,
+  conversationId,
+  idConversa
+) {
+  const mensagem =
+    "Com qual vendedor você gostaria de falar? Temos os seguintes vendedores disponíveis:\n" +
+    "1. Dienifer\n" +
+    "2. Angelo\n" +
+    "3. Eduardo\n" +
+    "4. Fabricio\n" +
+    "5. Taynara\n" +
+    "6. Titao";
+
+  await msgClient(
+    adminId,
+    conversationId,
+    phoneNumber,
+    idConversa,
+    mensagem,
+    null
+  );
+}
+
 async function receivedMessage(incomingData) {
   try {
     const phoneNumber = incomingData.contacts[0].wa_id;
@@ -238,6 +275,18 @@ async function receivedMessage(incomingData) {
 
       // Verificar se a resposta do bot contém o nome de algum vendedor
       const botLowerCase = bot.toLowerCase();
+      const intencaoDeCompra = verificarIntencaoDeCompra(botLowerCase);
+
+      if (intencaoDeCompra) {
+        // Pergunta ao cliente com qual vendedor ele quer falar
+        await perguntarVendedor(
+          phonecontact,
+          adminId,
+          conversationId,
+          idConversa
+        );
+        return message; // Finaliza a função após perguntar o vendedor
+      }
       let vendedorEncontrado = null;
 
       for (const vendedor in vendedores) {
