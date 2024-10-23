@@ -124,6 +124,7 @@ const vendedores = {
 };
 
 // Função para enviar o contato via API do WhatsApp
+// Função para enviar o contato via API do WhatsApp
 async function enviarContato(vendedorData, phoneNumber, adminId) {
   let admin = await Admin.findByPk(adminId);
 
@@ -141,6 +142,7 @@ async function enviarContato(vendedorData, phoneNumber, adminId) {
   const idNumero = admin.idNumero;
   const acessToken = admin.acessToken;
 
+  // Ajuste no campo 'name' para incluir first_name e last_name
   const data = {
     messaging_product: "whatsapp",
     to: phoneNumber,
@@ -149,6 +151,8 @@ async function enviarContato(vendedorData, phoneNumber, adminId) {
       {
         name: {
           formatted_name: vendedorData.formatted_name,
+          first_name: vendedorData.formatted_name.split(" ")[0], // Pega o primeiro nome
+          last_name: vendedorData.formatted_name.split(" ")[1] || "", // Pega o último nome (se houver)
         },
         phones: [
           {
