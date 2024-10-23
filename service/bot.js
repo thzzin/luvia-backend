@@ -184,7 +184,7 @@ async function handleMessage(userMessage, cliente) {
         // Verificar se o modelo está no PDF
         const linhasDoPDF = await buscarModeloNoPDF(
           modelo,
-          "./telascelulares.pdf"
+          "telascelulares.pdf"
         );
 
         if (linhasDoPDF.length > 0) {
