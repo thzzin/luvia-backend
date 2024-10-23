@@ -193,8 +193,8 @@ async function handleMessage(userMessage, cliente) {
       salvarHistorico(historico);
 
       // Extrair o modelo da resposta com base no formato "para o modelo...na loja é o seguinte"
-      const modeloRegex =
-        /para o modelo\s+([A-Za-z0-9.]+)\s+na loja é o seguinte/;
+      // Regex mais flexível para capturar o modelo da resposta
+      const modeloRegex = /modelo\s+([\w\s\d-.]+)/i;
       const modeloEncontrado = response.match(modeloRegex);
 
       if (modeloEncontrado && modeloEncontrado[1]) {
@@ -213,11 +213,9 @@ async function handleMessage(userMessage, cliente) {
           // Formatar as linhas encontradas no PDF
           const modelosFormatados = linhasDoPDF
             .map((linha) => {
-              // Supondo que o preço esteja no formato R$ ou outro padrão monetário
               const precoRegex = /(R\$[0-9,.]+)/;
               const precoEncontrado = linha.match(precoRegex);
 
-              // Remover prefixos como "f." e manter descrição e preço
               const descricao = linha.replace("f.", "").trim();
               const preco = precoEncontrado
                 ? precoEncontrado[0]
@@ -235,10 +233,9 @@ async function handleMessage(userMessage, cliente) {
             .split("\n")
             .filter((linha) => !linhasChatGPT.includes(linha));
 
-          // Nova mensagem incluindo as descrições e preços encontrados no PDF
           const novaResposta = `
             A tela disponível para o modelo ${modelo} na loja é a seguinte:\n${modelosFormatados}\n\n${response}
-          `;
+        `;
 
           if (linhasFaltantes.length > 0) {
             console.log(
@@ -258,8 +255,8 @@ async function handleMessage(userMessage, cliente) {
         }
       } else {
         console.log("⚠️ Não foi possível extrair o modelo da resposta.");
+        return response;
       }
-
       return response;
     }
 
