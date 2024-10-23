@@ -194,12 +194,21 @@ async function handleMessage(userMessage, cliente) {
           // Formatar as linhas encontradas no PDF
           const modelosFormatados = linhasDoPDF
             .map((linha) => {
-              // Remover informações irrelevantes, como prefixos desnecessários
-              return linha.replace("f.", "").trim();
+              // Supondo que o preço esteja no formato R$ ou outro padrão monetário
+              const precoRegex = /(R\$[0-9,.]+)/;
+              const precoEncontrado = linha.match(precoRegex);
+
+              // Remover prefixos como "f." e manter descrição e preço
+              const descricao = linha.replace("f.", "").trim();
+              const preco = precoEncontrado
+                ? precoEncontrado[0]
+                : "Preço não encontrado";
+
+              return `${descricao} - Preço: ${preco}`;
             })
             .join("\n");
 
-          // Nova mensagem incluindo os modelos encontrados no PDF
+          // Nova mensagem incluindo as descrições e preços encontrados no PDF
           const novaResposta = `
             A tela disponível para o modelo ${modelo} na loja é a seguinte:\n${modelosFormatados}\n\n${response}
           `;
@@ -218,6 +227,7 @@ async function handleMessage(userMessage, cliente) {
     await new Promise((resolve) => setTimeout(resolve, 5000));
   }
 }
+
 
 module.exports = {
   handleMessage,
