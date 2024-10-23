@@ -267,6 +267,8 @@ async function receivedMessage(incomingData) {
 
     const phonecontact = phoneNumber.toString();
     if (adminId === "6283163270069" && phonecontact !== "5513991250485") {
+      const idConversa = idConversation.toString();
+      const phonecontact = phoneNumber.toString();
       const botLowerCase = content.toLowerCase();
       const intencaoDeCompra = verificarIntencaoDeCompra(botLowerCase);
 
@@ -280,6 +282,7 @@ async function receivedMessage(incomingData) {
         );
         return message; // Finaliza a função após perguntar o vendedor
       }
+
       let vendedorEncontrado = null;
 
       for (const vendedor in vendedores) {
@@ -305,12 +308,8 @@ async function receivedMessage(incomingData) {
       }
 
       const bot = await handleMessage(content);
-      const idConversa = idConversation.toString();
-      const phonecontact = phoneNumber.toString();
 
       console.log(bot);
-
-      // Verificar se a resposta do bot contém o nome de algum vendedor
 
       // Continuar com o envio da mensagem original
       msgClient(
