@@ -194,15 +194,19 @@ async function handleMessage(userMessage, cliente) {
 
       // Extrair o modelo da resposta com base no formato "para o modelo...na loja é o seguinte"
       // Regex mais flexível para capturar o modelo da resposta
-      const modeloRegex = /modelo\s+([\w\s\d-.]+)/i;
+      // Regex aprimorado para capturar apenas o modelo, ignorando 'na loja' ou qualquer outra palavra extra
+      const modeloRegex =
+        /modelo\s+([\w\s\d-.]+)(?=\s+na loja|\s+\(|\s+-|\s+R\$)/i;
       const modeloEncontrado = response.match(modeloRegex);
 
       if (modeloEncontrado && modeloEncontrado[1]) {
-        const modelo = modeloEncontrado[1].trim();
+        const modelo = modeloEncontrado[1].trim().toLowerCase(); // Convertendo o modelo para lowercase
         console.log(`🔎 Modelo extraído da resposta: ${modelo}`);
 
-        // Buscar as linhas do PDF para o modelo
-        const linhasDoPDF = await buscarModeloNoPDF(modelo, pdfPath);
+        // Transformar o modelo extraído e as linhas do PDF para lowercase para garantir a compatibilidade
+        const linhasDoPDF = (await buscarModeloNoPDF(modelo, pdfPath)).map(
+          (linha) => linha.toLowerCase()
+        );
 
         if (linhasDoPDF.length > 0) {
           console.log(
@@ -213,7 +217,7 @@ async function handleMessage(userMessage, cliente) {
           // Formatar as linhas encontradas no PDF
           const modelosFormatados = linhasDoPDF
             .map((linha) => {
-              const precoRegex = /(R\$[0-9,.]+)/;
+              const precoRegex = /(r\$[0-9,.]+)/;
               const precoEncontrado = linha.match(precoRegex);
 
               const descricao = linha.replace("f.", "").trim();
@@ -227,6 +231,7 @@ async function handleMessage(userMessage, cliente) {
 
           // Verificar se alguma linha do PDF não estava na resposta do ChatGPT
           const linhasChatGPT = response
+            .toLowerCase()
             .split("\n")
             .map((linha) => linha.trim());
           const linhasFaltantes = modelosFormatados
@@ -257,6 +262,7 @@ async function handleMessage(userMessage, cliente) {
         console.log("⚠️ Não foi possível extrair o modelo da resposta.");
         return response;
       }
+
       return response;
     }
 
