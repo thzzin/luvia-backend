@@ -266,7 +266,7 @@ async function receivedMessage(incomingData) {
     });
 
     const phonecontact = phoneNumber.toString();
-    if (adminId === "6283163270069" && phonecontact !== "5513991250485") {
+    if (adminId === "6283163270069" /* && phonecontact !== "5513991250485" */) {
       const idConversa = idConversation.toString();
       const phonecontact = phoneNumber.toString();
       const botLowerCase = content.toLowerCase();
