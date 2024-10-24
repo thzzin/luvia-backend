@@ -3,7 +3,7 @@ require("dotenv").config();
 const fs = require("fs");
 const path = require("path");
 const pdfParse = require("pdf-parse");
-const pdfPath = path.join(__dirname, "telascelulares.pdf");
+const pdfPath = path.join(__dirname, "telasjson.json");
 
 const OpenAI = require("openai");
 const { OPENAI_API_KEY, ID_ASSISTENT } = process.env;
@@ -126,52 +126,30 @@ function buscarNoHistorico(mensagem, historico) {
 }
 
 // Função para buscar o modelo no PDF
-async function buscarModeloNoPDF(modelo, caminhoPDF) {
-  const dataBuffer = fs.readFileSync(caminhoPDF);
-  const pdfData = await pdfParse(dataBuffer);
-
-  // Criar regex para buscar linhas que contêm o modelo exato
-  const regexModelo = new RegExp(`\\b${modelo}\\b`, "i");
-  const linhasPDF = pdfData.text.split("\n");
+async function buscarModeloNoJSON(modelo, caminhoJSON) {
+  const data = fs.readFileSync(caminhoJSON);
+  const produtos = JSON.parse(data);
 
   const linhasComModelo = [];
-  for (let i = 0; i < linhasPDF.length; i++) {
-    const linha = linhasPDF[i];
+  const regexModelo = new RegExp(`\\b${modelo}\\b`, "i");
 
-    // Se a linha contém o modelo
-    if (regexModelo.test(linha)) {
-      let precoEncontrado = null;
-
-      // Regex para capturar o preço na mesma linha
-      const precoRegex = /(\d{1,3},\d{2})/;
-      let preco = linha.match(precoRegex);
-
-      // Se não encontrar o preço na mesma linha, buscar na próxima linha
-      if (!preco) {
-        if (i + 1 < linhasPDF.length) {
-          preco = linhasPDF[i + 1].match(precoRegex);
-        }
-      }
-
-      // Verificação final para garantir que o preço foi encontrado
-      precoEncontrado = preco ? `R$ ${preco[0]}` : "Preço não encontrado";
-
-      // Adicionar a descrição e o preço à lista de resultados
+  produtos.G_RELATORIO.forEach((produto) => {
+    if (regexModelo.test(produto.Descrição)) {
       linhasComModelo.push({
-        descricao: linha.trim(),
-        preco: precoEncontrado,
+        descricao: produto.Descrição,
+        preco: `R$ ${produto["Preço Venda"]}`,
       });
     }
-  }
+  });
 
   if (linhasComModelo.length > 0) {
     console.log(
-      `🔍 Linhas encontradas no PDF para o modelo "${modelo}":`,
+      `🔍 Linhas encontradas no JSON para o modelo "${modelo}":`,
       linhasComModelo
     );
   } else {
     console.log(
-      `⚠️ Nenhuma linha encontrada no PDF para o modelo "${modelo}".`
+      `⚠️ Nenhuma linha encontrada no JSON para o modelo "${modelo}".`
     );
   }
 
@@ -208,26 +186,27 @@ async function handleMessage(userMessage, cliente) {
       salvarHistorico(historico);
 
       // Usar Regex para extrair o modelo da resposta
-      const modeloRegex = /modelo\s([a-zA-Z0-9.\s]+)/i;
+      const modeloRegex =
+        /(?:modelo\s*|opções\s*de\s*telas\s*para\s*o\s*modelo\s*|tela\s*do\s*modelo\s*)?([a-zA-Z0-9\s]+)\s*(?:disponível\s*na\s*loja|opções disponíveis|na\s*loja)/i;
       const modeloEncontrado = response.match(modeloRegex);
 
       if (modeloEncontrado && modeloEncontrado[1]) {
         const modelo = modeloEncontrado[1].trim();
         console.log(`🔎 Modelo extraído da resposta: ${modelo}`);
 
-        const linhasDoPDF = await buscarModeloNoPDF(modelo, pdfPath);
+        const linhasDoJSON = await buscarModeloNoJSON(modelo, pdfPath); // Altere o caminho para o seu JSON
 
-        if (linhasDoPDF.length > 0) {
-          const modelosFormatados = linhasDoPDF
+        if (linhasDoJSON.length > 0) {
+          const modelosFormatados = linhasDoJSON
             .map((linha) => `${linha.descricao} - Preço: ${linha.preco}`)
             .join("\n");
 
           const novaResposta = `
             A tela disponível para o modelo ${modelo} na loja é a seguinte:\n${modelosFormatados}\n\n${response}
-          `;
+        `;
           return novaResposta;
         } else {
-          console.log("⚠️ Nenhuma linha encontrada no PDF para o modelo.");
+          console.log("⚠️ Nenhuma linha encontrada no JSON para o modelo.");
           return response;
         }
       } else {
