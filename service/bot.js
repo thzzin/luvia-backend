@@ -179,7 +179,7 @@ async function buscarModeloNoPDF(modelo, caminhoPDF) {
 }
 
 // Função que controla a lógica de mensagem
-async function handleMessage(userMessage, cliente, pdfPath) {
+async function handleMessage(userMessage, cliente) {
   let historico = carregarHistorico();
   let threadId = buscarThreadId(cliente);
 
