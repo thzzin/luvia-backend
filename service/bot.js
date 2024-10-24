@@ -217,16 +217,17 @@ async function handleMessage(userMessage, cliente) {
           // Formatar as linhas encontradas no PDF
           const modelosFormatados = linhasDoPDF
             .map((linha) => {
-              // Regex atualizado para capturar preços no formato 'R$ 130,00', 'R$130,00', etc.
-              const precoRegex = /r\$ ?\d{1,3}(?:\.\d{3})*(?:,\d{2})?/i;
+              // Unir os pedaços de texto que foram quebrados na extração do PDF
+              linha = linha.replace(/\s+/g, " ").trim(); // Unir pedaços de palavras que estavam quebrados
+
+              // Regex para encontrar o preço no formato correto
+              const precoRegex = /(\d{1,3}(?:\.\d{3})*(?:,\d{2}))/; // Ex: 115,00 ou 90,00
               const precoEncontrado = linha.match(precoRegex);
 
-              // Remover informações irrelevantes, como 'f.' do início da linha
-              const descricao = linha.replace("f.", "").trim();
-
-              // Verificar se o preço foi encontrado e formatar a saída
+              // Separar a descrição do preço
+              const descricao = linha.split(precoRegex)[0].trim(); // Pegue tudo antes do preço
               const preco = precoEncontrado
-                ? precoEncontrado[0]
+                ? `R$ ${precoEncontrado[0]}`
                 : "Preço não encontrado";
 
               return `${descricao} - Preço: ${preco}`;
