@@ -130,119 +130,71 @@ async function buscarModeloNoPDF(modelo, caminhoPDF) {
   const dataBuffer = fs.readFileSync(caminhoPDF);
   const pdfData = await pdfParse(dataBuffer);
 
-  // Criar regex para buscar linhas que contêm o modelo exato (ignora maiúsculas/minúsculas)
+  // Criar regex para buscar linhas que contêm o modelo exato
   const regexModelo = new RegExp(`\\b${modelo}\\b`, "i");
 
-  // Buscar todas as linhas que contêm o modelo no PDF
+  // Buscar todas as linhas que contêm o modelo
   const linhasComModelo = pdfData.text
     .split("\n")
     .filter((linha) => regexModelo.test(linha));
 
-  if (linhasComModelo.length > 0) {
-    console.log(
-      `🔍 Linhas encontradas no PDF para o modelo "${modelo}":`,
-      linhasComModelo
-    );
-  } else {
-    console.log(
-      `⚠️ Nenhuma linha encontrada no PDF para o modelo "${modelo}".`
-    );
-  }
-
   return linhasComModelo;
 }
 
-// Função que extrai o modelo da resposta do ChatGPT
-function extrairModeloDaResposta(response) {
-  const regexDisponivel = /modelo\s+([A-Za-z0-9\s\-+.]+)\s+na loja/i;
-  const regexDisponiveis = /modelo\s+([A-Za-z0-9\s\-+.]+)\s+disponíveis/i;
-
-  const matchDisponivel = response.match(regexDisponivel);
-  const matchDisponiveis = response.match(regexDisponiveis);
-
-  let modelo = null;
-
-  if (matchDisponivel) {
-    modelo = matchDisponivel[1].trim();
-  } else if (matchDisponiveis) {
-    modelo = matchDisponiveis[1].trim();
-  }
-
-  return modelo ? modelo.toLowerCase() : null;
-}
-
-// Função que controla a lógica de mensagem
 async function handleMessage(userMessage, cliente) {
   let historico = carregarHistorico();
 
   // Verificar se o cliente já possui um threadId salvo
   let threadId = buscarThreadId(cliente);
-
   if (!threadId) {
-    console.log("📝 Criando uma nova thread para o cliente...");
     threadId = await createThread();
     salvarThreadId(threadId, cliente);
-  } else {
-    console.log(`📂 Thread existente encontrada: ${threadId}`);
   }
-
   await addMessage(threadId, userMessage);
-  console.log(`💬 Mensagem adicionada à thread: ${threadId}`);
-  console.log("💡 Assistant ID:", ID_ASSISTENT);
-
   const runId = await runAssistant(threadId);
-  console.log(
-    `▶️ Rodando assistant para a thread: ${threadId}, com runId: ${runId}`
-  );
 
   while (true) {
     const runObject = await openai.beta.threads.runs.retrieve(threadId, runId);
     if (runObject.status === "completed") {
       const response = await checkingStatus(threadId, runId);
-      console.log("📥 Resposta recebida do Assistant: ", response);
-
       historico.push({ pergunta: userMessage, resposta: response });
       salvarHistorico(historico);
 
-      // Extrair o modelo da resposta com base nas variações de formato
-      const modelo = extrairModeloDaResposta(response);
+      // Extrair o modelo da resposta
+      let modeloRegex = /para o modelo\s+([A-Za-z0-9.\s]+)\s+na loja/i;
+      let match = response.match(modeloRegex);
 
-      if (modelo) {
+      if (!match) {
+        modeloRegex = /modelo\s+([A-Za-z0-9.\s]+)\s+disponíveis/i;
+        match = response.match(modeloRegex);
+      }
+
+      if (match) {
+        const modelo = match[1].trim().toLowerCase();
         console.log(`🔎 Modelo extraído da resposta: ${modelo}`);
 
-        // Buscar as linhas do PDF para o modelo
         const linhasDoPDF = (await buscarModeloNoPDF(modelo, pdfPath)).map(
           (linha) => linha.toLowerCase()
         );
 
         if (linhasDoPDF.length > 0) {
           console.log(
-            `✅ Linhas correspondentes encontradas no PDF para o modelo "${modelo}":`,
+            `✅ Linhas encontradas no PDF para o modelo "${modelo}":`,
             linhasDoPDF
           );
 
-          // Formatar as linhas encontradas no PDF
           const modelosFormatados = linhasDoPDF
             .map((linha) => {
-              linha = linha.replace(/\s+/g, " ").trim();
-
-              // Regex para capturar o preço numérico da coluna "Preço Venda"
-              const precoVendaRegex = /(\d{2,3}\.\d{2})/; // Ajuste para capturar valores numéricos no formato xx,xx ou xxx,xx
-              const precoEncontrado = linha.match(precoVendaRegex);
-
-              // Separar a descrição do preço
-              const descricao = precoEncontrado
-                ? linha.split(precoVendaRegex)[0].trim()
-                : linha;
+              const precoRegex = /\d{1,3}(?:,\d{2})/;
+              const precoEncontrado = linha.match(precoRegex);
+              const descricao = linha.split(precoRegex)[0].trim();
               const preco = precoEncontrado
                 ? `R$ ${precoEncontrado[0]}`
                 : "Preço não encontrado";
-
               return `${descricao} - Preço: ${preco}`;
             })
             .join("\n");
 
-          // Verificar se alguma linha do PDF não estava na resposta do ChatGPT
           const linhasChatGPT = response
             .toLowerCase()
             .split("\n")
@@ -251,9 +203,7 @@ async function handleMessage(userMessage, cliente) {
             .split("\n")
             .filter((linha) => !linhasChatGPT.includes(linha));
 
-          const novaResposta = `
-            A tela disponível para o modelo ${modelo} na loja é a seguinte:\n${modelosFormatados}\n\n${response}
-          `;
+          const novaResposta = `A tela disponível para o modelo ${modelo} na loja é a seguinte:\n${modelosFormatados}\n\n${response}`;
 
           if (linhasFaltantes.length > 0) {
             console.log(
