@@ -199,7 +199,14 @@ async function handleMessage(userMessage, cliente) {
 
         if (linhasDoJSON.length > 0) {
           const modelosFormatados = linhasDoJSON
-            .map((linha) => `${linha.descricao} - Preço: ${linha.preco}`)
+            .map((linha) => {
+              // Remove o prefixo 'f.' da descrição
+              const descricaoSemPrefixo = linha.descricao.replace(
+                /^f\.\s*/,
+                ""
+              );
+              return `${descricaoSemPrefixo} - Preço: ${linha.preco}`;
+            })
             .join("\n");
 
           const novaResposta = `
