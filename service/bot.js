@@ -125,14 +125,15 @@ function buscarNoHistorico(mensagem, historico) {
   );
 }
 
+// Função para buscar o modelo no PDF
 async function buscarModeloNoPDF(modelo, caminhoPDF) {
   const dataBuffer = fs.readFileSync(caminhoPDF);
   const pdfData = await pdfParse(dataBuffer);
 
-  // Criar regex para buscar linhas que contêm o modelo exato
-  const regexModelo = new RegExp(`\\b${modelo}\\b`, "i"); // Busca exata ignorando maiúsculas/minúsculas
+  // Criar regex para buscar linhas que contêm o modelo exato (ignora maiúsculas/minúsculas)
+  const regexModelo = new RegExp(`\\b${modelo}\\b`, "i");
 
-  // Buscar todas as linhas que contêm o modelo
+  // Buscar todas as linhas que contêm o modelo no PDF
   const linhasComModelo = pdfData.text
     .split("\n")
     .filter((linha) => regexModelo.test(linha));
@@ -193,17 +194,14 @@ async function handleMessage(userMessage, cliente) {
       salvarHistorico(historico);
 
       // Extrair o modelo da resposta com base no formato "para o modelo...na loja é o seguinte"
-      // Regex mais flexível para capturar o modelo da resposta
-      // Regex aprimorado para capturar apenas o modelo, ignorando 'na loja' ou qualquer outra palavra extra
-      // Regex aprimorado para capturar apenas o modelo, considerando variações como "(4G.5G)" ou "Poco"
       const modeloRegex = /redmi\s*\d+[a-z]*\s*(?:\(\d+g\.\d+g\))?/i;
       const modeloEncontrado = response.match(modeloRegex);
 
       if (modeloEncontrado && modeloEncontrado[0]) {
-        const modelo = modeloEncontrado[0].trim().toLowerCase(); // Convertendo o modelo para lowercase
+        const modelo = modeloEncontrado[0].trim().toLowerCase();
         console.log(`🔎 Modelo extraído da resposta: ${modelo}`);
 
-        // Transformar o modelo extraído e as linhas do PDF para lowercase para garantir a compatibilidade
+        // Buscar as linhas do PDF para o modelo
         const linhasDoPDF = (await buscarModeloNoPDF(modelo, pdfPath)).map(
           (linha) => linha.toLowerCase()
         );
@@ -217,15 +215,17 @@ async function handleMessage(userMessage, cliente) {
           // Formatar as linhas encontradas no PDF
           const modelosFormatados = linhasDoPDF
             .map((linha) => {
-              // Unir os pedaços de texto que foram quebrados na extração do PDF
-              linha = linha.replace(/\s+/g, " ").trim(); // Unir pedaços de palavras que estavam quebrados
+              // Unir pedaços de palavras que estavam quebrados
+              linha = linha.replace(/\s+/g, " ").trim();
 
-              // Regex para encontrar o preço no formato correto
-              const precoVendaRegex = /(\d{2,},\d{2})/; // Ex: 130,00 ou 75,00
+              // Regex para capturar o preço numérico da coluna "Preço Venda"
+              const precoVendaRegex = /(\d{2,},\d{2})/;
               const precoEncontrado = linha.match(precoVendaRegex);
 
               // Separar a descrição do preço
-              const descricao = linha.split(precoRegex)[0].trim(); // Pegue tudo antes do preço
+              const descricao = precoEncontrado
+                ? linha.split(precoVendaRegex)[0].trim() // Pega a parte antes do preço
+                : linha;
               const preco = precoEncontrado
                 ? `R$ ${precoEncontrado[0]}`
                 : "Preço não encontrado";
@@ -245,7 +245,7 @@ async function handleMessage(userMessage, cliente) {
 
           const novaResposta = `
             A tela disponível para o modelo ${modelo} na loja é a seguinte:\n${modelosFormatados}\n\n${response}
-        `;
+          `;
 
           if (linhasFaltantes.length > 0) {
             console.log(
