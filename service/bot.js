@@ -132,90 +132,99 @@ async function buscarModeloNoPDF(modelo, caminhoPDF) {
 
   // Criar regex para buscar linhas que contêm o modelo exato
   const regexModelo = new RegExp(`\\b${modelo}\\b`, "i");
+  const linhasPDF = pdfData.text.split("\n");
 
-  // Buscar todas as linhas que contêm o modelo
-  const linhasComModelo = pdfData.text
-    .split("\n")
-    .filter((linha) => regexModelo.test(linha));
+  const linhasComModelo = [];
+  for (let i = 0; i < linhasPDF.length; i++) {
+    const linha = linhasPDF[i];
+
+    // Se a linha contém o modelo
+    if (regexModelo.test(linha)) {
+      let precoEncontrado = null;
+
+      // Regex para capturar o preço na mesma linha
+      const precoRegex = /(\d{1,3},\d{2})/;
+      let preco = linha.match(precoRegex);
+
+      // Se não encontrar o preço na mesma linha, buscar na próxima linha
+      if (!preco) {
+        if (i + 1 < linhasPDF.length) {
+          preco = linhasPDF[i + 1].match(precoRegex);
+        }
+      }
+
+      // Verificação final para garantir que o preço foi encontrado
+      precoEncontrado = preco ? `R$ ${preco[0]}` : "Preço não encontrado";
+
+      // Adicionar a descrição e o preço à lista de resultados
+      linhasComModelo.push({
+        descricao: linha.trim(),
+        preco: precoEncontrado,
+      });
+    }
+  }
+
+  if (linhasComModelo.length > 0) {
+    console.log(
+      `🔍 Linhas encontradas no PDF para o modelo "${modelo}":`,
+      linhasComModelo
+    );
+  } else {
+    console.log(
+      `⚠️ Nenhuma linha encontrada no PDF para o modelo "${modelo}".`
+    );
+  }
 
   return linhasComModelo;
 }
 
-async function handleMessage(userMessage, cliente) {
+// Função que controla a lógica de mensagem
+async function handleMessage(userMessage, cliente, pdfPath) {
   let historico = carregarHistorico();
-
-  // Verificar se o cliente já possui um threadId salvo
   let threadId = buscarThreadId(cliente);
+
   if (!threadId) {
+    console.log("📝 Criando uma nova thread para o cliente...");
     threadId = await createThread();
     salvarThreadId(threadId, cliente);
+  } else {
+    console.log(`📂 Thread existente encontrada: ${threadId}`);
   }
+
   await addMessage(threadId, userMessage);
+  console.log(`💬 Mensagem adicionada à thread: ${threadId}`);
   const runId = await runAssistant(threadId);
+  console.log(
+    `▶️ Rodando assistant para a thread: ${threadId}, com runId: ${runId}`
+  );
 
   while (true) {
     const runObject = await openai.beta.threads.runs.retrieve(threadId, runId);
     if (runObject.status === "completed") {
       const response = await checkingStatus(threadId, runId);
+
+      console.log("📥 Resposta recebida do Assistant: ", response);
       historico.push({ pergunta: userMessage, resposta: response });
       salvarHistorico(historico);
 
-      // Extrair o modelo da resposta
-      let modeloRegex = /para o modelo\s+([A-Za-z0-9.\s]+)\s+na loja/i;
-      let match = response.match(modeloRegex);
+      // Usar Regex para extrair o modelo da resposta
+      const modeloRegex = /modelo\s([a-zA-Z0-9.\s]+)/i;
+      const modeloEncontrado = response.match(modeloRegex);
 
-      if (!match) {
-        modeloRegex = /modelo\s+([A-Za-z0-9.\s]+)\s+disponíveis/i;
-        match = response.match(modeloRegex);
-      }
-
-      if (match) {
-        const modelo = match[1].trim().toLowerCase();
+      if (modeloEncontrado && modeloEncontrado[1]) {
+        const modelo = modeloEncontrado[1].trim();
         console.log(`🔎 Modelo extraído da resposta: ${modelo}`);
 
-        const linhasDoPDF = (await buscarModeloNoPDF(modelo, pdfPath)).map(
-          (linha) => linha.toLowerCase()
-        );
+        const linhasDoPDF = await buscarModeloNoPDF(modelo, pdfPath);
 
         if (linhasDoPDF.length > 0) {
-          console.log(
-            `✅ Linhas encontradas no PDF para o modelo "${modelo}":`,
-            linhasDoPDF
-          );
-
           const modelosFormatados = linhasDoPDF
-            .map((linha) => {
-              const precoRegex = /\d{1,3}(?:,\d{2})/;
-              const precoEncontrado = linha.match(precoRegex);
-              const descricao = linha.split(precoRegex)[0].trim();
-              const preco = precoEncontrado
-                ? `R$ ${precoEncontrado[0]}`
-                : "Preço não encontrado";
-              return `${descricao} - Preço: ${preco}`;
-            })
+            .map((linha) => `${linha.descricao} - Preço: ${linha.preco}`)
             .join("\n");
 
-          const linhasChatGPT = response
-            .toLowerCase()
-            .split("\n")
-            .map((linha) => linha.trim());
-          const linhasFaltantes = modelosFormatados
-            .split("\n")
-            .filter((linha) => !linhasChatGPT.includes(linha));
-
-          const novaResposta = `A tela disponível para o modelo ${modelo} na loja é a seguinte:\n${modelosFormatados}\n\n${response}`;
-
-          if (linhasFaltantes.length > 0) {
-            console.log(
-              "⚠️ Linhas adicionais encontradas no PDF que não estavam na resposta original:",
-              linhasFaltantes
-            );
-            const mensagemAdicional = `Além disso, as seguintes telas para o modelo ${modelo} foram encontradas no PDF mas não mencionadas na resposta original:\n${linhasFaltantes.join(
-              "\n"
-            )}`;
-            return `${novaResposta}\n\n${mensagemAdicional}`;
-          }
-
+          const novaResposta = `
+            A tela disponível para o modelo ${modelo} na loja é a seguinte:\n${modelosFormatados}\n\n${response}
+          `;
           return novaResposta;
         } else {
           console.log("⚠️ Nenhuma linha encontrada no PDF para o modelo.");
