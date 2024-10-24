@@ -151,6 +151,8 @@ async function buscarModeloNoPDF(modelo, caminhoPDF) {
 
   return linhasComModelo;
 }
+
+// Função que extrai o modelo da resposta do ChatGPT
 function extrairModeloDaResposta(response) {
   const regexDisponivel = /modelo\s+([A-Za-z0-9\s\-+.]+)\s+na loja/i;
   const regexDisponiveis = /modelo\s+([A-Za-z0-9\s\-+.]+)\s+disponíveis/i;
@@ -225,7 +227,7 @@ async function handleMessage(userMessage, cliente) {
               linha = linha.replace(/\s+/g, " ").trim();
 
               // Regex para capturar o preço numérico da coluna "Preço Venda"
-              const precoVendaRegex = /(\d{2,},\d{2})/;
+              const precoVendaRegex = /(\d{2,3}\.\d{2})/; // Ajuste para capturar valores numéricos no formato xx,xx ou xxx,xx
               const precoEncontrado = linha.match(precoVendaRegex);
 
               // Separar a descrição do preço
