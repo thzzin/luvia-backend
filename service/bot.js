@@ -217,10 +217,14 @@ async function handleMessage(userMessage, cliente) {
           // Formatar as linhas encontradas no PDF
           const modelosFormatados = linhasDoPDF
             .map((linha) => {
-              const precoRegex = /(r\$[0-9,.]+)/;
+              // Regex atualizado para capturar preços no formato 'R$ 130,00', 'R$130,00', etc.
+              const precoRegex = /r\$ ?\d{1,3}(?:\.\d{3})*(?:,\d{2})?/i;
               const precoEncontrado = linha.match(precoRegex);
 
+              // Remover informações irrelevantes, como 'f.' do início da linha
               const descricao = linha.replace("f.", "").trim();
+
+              // Verificar se o preço foi encontrado e formatar a saída
               const preco = precoEncontrado
                 ? precoEncontrado[0]
                 : "Preço não encontrado";
