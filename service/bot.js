@@ -196,7 +196,6 @@ async function handleMessage(userMessage, cliente) {
       // Regex mais flexível para capturar o modelo da resposta
       // Regex aprimorado para capturar apenas o modelo, ignorando 'na loja' ou qualquer outra palavra extra
       // Regex aprimorado para capturar apenas o modelo, considerando variações como "(4G.5G)" ou "Poco"
-      // Regex aprimorado para capturar apenas o modelo, considerando variações como "(4G.5G)" ou "Poco"
       const modeloRegex = /redmi\s*\d+[a-z]*\s*(?:\(\d+g\.\d+g\))?/i;
       const modeloEncontrado = response.match(modeloRegex);
 
@@ -218,14 +217,17 @@ async function handleMessage(userMessage, cliente) {
           // Formatar as linhas encontradas no PDF
           const modelosFormatados = linhasDoPDF
             .map((linha) => {
-              // Supondo que o preço esteja no formato R$ ou outro padrão monetário
-              const precoRegex = /(R\$[0-9,.]+)/;
-              const precoEncontrado = linha.match(precoRegex);
+              // Unir os pedaços de texto que foram quebrados na extração do PDF
+              linha = linha.replace(/\s+/g, " ").trim(); // Unir pedaços de palavras que estavam quebrados
 
-              // Remover prefixos como "f." e manter descrição e preço
-              const descricao = linha.replace("f.", "").trim();
+              // Regex para encontrar o preço no formato correto
+              const precoVendaRegex = /(\d{2,},\d{2})/; // Ex: 130,00 ou 75,00
+              const precoEncontrado = linha.match(precoVendaRegex);
+
+              // Separar a descrição do preço
+              const descricao = linha.split(precoRegex)[0].trim(); // Pegue tudo antes do preço
               const preco = precoEncontrado
-                ? precoEncontrado[0]
+                ? `R$ ${precoEncontrado[0]}`
                 : "Preço não encontrado";
 
               return `${descricao} - Preço: ${preco}`;
