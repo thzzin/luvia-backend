@@ -187,7 +187,8 @@ async function handleMessage(userMessage, cliente) {
 
       // Usar Regex para extrair o modelo da resposta
       const modeloRegex =
-        /(?:modelo\s*|opções\s*de\s*telas\s*para\s*o\s*modelo\s*|tela\s*do\s*modelo\s*)?([a-zA-Z0-9\s]+)\s*(?:disponível\s*na\s*loja|opções disponíveis|na\s*loja)/i;
+        /para\s*o\s*modelo\s*([a-zA-Z0-9\s]+)\s*(?:disponíveis\s*na\s*loja|na\s*loja\s*é\s*a)/i;
+
       const modeloEncontrado = response.match(modeloRegex);
 
       if (modeloEncontrado && modeloEncontrado[1]) {
