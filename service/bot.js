@@ -151,6 +151,23 @@ async function buscarModeloNoPDF(modelo, caminhoPDF) {
 
   return linhasComModelo;
 }
+function extrairModeloDaResposta(response) {
+  const regexDisponivel = /modelo\s+([A-Za-z0-9\s\-+.]+)\s+na loja/i;
+  const regexDisponiveis = /modelo\s+([A-Za-z0-9\s\-+.]+)\s+disponíveis/i;
+
+  const matchDisponivel = response.match(regexDisponivel);
+  const matchDisponiveis = response.match(regexDisponiveis);
+
+  let modelo = null;
+
+  if (matchDisponivel) {
+    modelo = matchDisponivel[1].trim();
+  } else if (matchDisponiveis) {
+    modelo = matchDisponiveis[1].trim();
+  }
+
+  return modelo ? modelo.toLowerCase() : null;
+}
 
 // Função que controla a lógica de mensagem
 async function handleMessage(userMessage, cliente) {
@@ -161,17 +178,14 @@ async function handleMessage(userMessage, cliente) {
 
   if (!threadId) {
     console.log("📝 Criando uma nova thread para o cliente...");
-    // Se não existe um threadId para o cliente, cria uma nova thread
     threadId = await createThread();
     salvarThreadId(threadId, cliente);
   } else {
     console.log(`📂 Thread existente encontrada: ${threadId}`);
   }
 
-  // Adiciona a mensagem na thread existente ou nova
   await addMessage(threadId, userMessage);
   console.log(`💬 Mensagem adicionada à thread: ${threadId}`);
-
   console.log("💡 Assistant ID:", ID_ASSISTENT);
 
   const runId = await runAssistant(threadId);
@@ -183,22 +197,15 @@ async function handleMessage(userMessage, cliente) {
     const runObject = await openai.beta.threads.runs.retrieve(threadId, runId);
     if (runObject.status === "completed") {
       const response = await checkingStatus(threadId, runId);
-
       console.log("📥 Resposta recebida do Assistant: ", response);
 
-      // Salvar no histórico a pergunta e resposta
-      historico.push({
-        pergunta: userMessage,
-        resposta: response,
-      });
+      historico.push({ pergunta: userMessage, resposta: response });
       salvarHistorico(historico);
 
-      // Extrair o modelo da resposta com base no formato "para o modelo...na loja é o seguinte"
-      const modeloRegex = /redmi\s*\d+[a-z]*\s*(?:\(\d+g\.\d+g\))?/i;
-      const modeloEncontrado = response.match(modeloRegex);
+      // Extrair o modelo da resposta com base nas variações de formato
+      const modelo = extrairModeloDaResposta(response);
 
-      if (modeloEncontrado && modeloEncontrado[0]) {
-        const modelo = modeloEncontrado[0].trim().toLowerCase();
+      if (modelo) {
         console.log(`🔎 Modelo extraído da resposta: ${modelo}`);
 
         // Buscar as linhas do PDF para o modelo
@@ -215,7 +222,6 @@ async function handleMessage(userMessage, cliente) {
           // Formatar as linhas encontradas no PDF
           const modelosFormatados = linhasDoPDF
             .map((linha) => {
-              // Unir pedaços de palavras que estavam quebrados
               linha = linha.replace(/\s+/g, " ").trim();
 
               // Regex para capturar o preço numérico da coluna "Preço Venda"
@@ -224,7 +230,7 @@ async function handleMessage(userMessage, cliente) {
 
               // Separar a descrição do preço
               const descricao = precoEncontrado
-                ? linha.split(precoVendaRegex)[0].trim() // Pega a parte antes do preço
+                ? linha.split(precoVendaRegex)[0].trim()
                 : linha;
               const preco = precoEncontrado
                 ? `R$ ${precoEncontrado[0]}`
@@ -267,8 +273,6 @@ async function handleMessage(userMessage, cliente) {
         console.log("⚠️ Não foi possível extrair o modelo da resposta.");
         return response;
       }
-
-      return response;
     }
 
     await new Promise((resolve) => setTimeout(resolve, 5000));
