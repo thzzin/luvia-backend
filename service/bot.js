@@ -131,12 +131,15 @@ async function buscarModeloNoJSON(modelo, caminhoJSON) {
   const produtos = JSON.parse(data);
 
   const linhasComModelo = [];
-  const regexModelo = new RegExp(`\\b${modelo}(?!\\S)\\b`, "i"); // Adiciona uma verificação de "fim de palavra"
+  const regexModelo = new RegExp(`\\b${modelo}\\b`, "i"); // Garante que busca apenas o modelo exato
 
   produtos.G_RELATORIO.forEach((produto) => {
+    // Testa se o modelo exato aparece na descrição
     if (regexModelo.test(produto.Descrição)) {
+      // Removendo prefixo "f." da descrição, se existir
+      const descricaoFormatada = produto.Descrição.replace(/^f\.\s*/i, "");
       linhasComModelo.push({
-        descricao: produto.Descrição,
+        descricao: descricaoFormatada,
         preco: `R$ ${produto["Preço Venda"]}`,
       });
     }
